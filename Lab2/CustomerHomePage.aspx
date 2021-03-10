@@ -5,6 +5,15 @@
      <br />
      <asp:Label ID="lblUserLoggedIn" runat="server" Text=""></asp:Label>
             <br />
+            <br />
+            <asp:Label ID="Label1" runat="server" Text="Upload A File" Font-Bold="true"></asp:Label>
+            <br />
+            <asp:FileUpload ID="FileUpload1" runat="server" />
+            <br />
+            <asp:Button ID="Button1" runat="server" Text="Upload" />
+            <br />
+            <br />
+
             <fieldset>
                 <legend>Select the page You want to Visit </legend>
                  <asp:Table ID="Table1" runat="server">
