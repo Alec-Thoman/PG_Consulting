@@ -2459,12 +2459,14 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #64a19d;
-  border-color: #64a19d;
+    background-color: #095951;
+    border: none;
+    border-radius: 27px;
+    font-weight: bold;
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #548b87;
+  background-color: #08433D;
   border-color: #4f837f;
 }
 .btn-primary:focus, .btn-primary.focus {
@@ -4426,7 +4428,8 @@ input[type=button].btn-block {
 .card-body {
   flex: 1 1 auto;
   min-height: 1px;
-  padding: 1.25rem;
+  padding: 3.25rem 1.25rem 1.25rem 1.25rem;
+  background-color: #CA907E;
 }
 
 .card-title {
@@ -10257,8 +10260,9 @@ body {
 }
 
 .about-section {
-  padding-top: 10rem;
-  background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  /* background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%); */
 }
 .about-section p {
   margin-bottom: 5rem;
