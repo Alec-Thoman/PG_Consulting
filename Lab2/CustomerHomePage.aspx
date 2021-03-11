@@ -6,25 +6,22 @@
      <asp:Label ID="lblUserLoggedIn" runat="server" Text=""></asp:Label>
             <br />
             <br />
-            <asp:Label ID="Label1" runat="server" Text="Upload A File" Font-Bold="true"></asp:Label>
-            <br />
-            <asp:FileUpload ID="FileUpload1" runat="server" />
-            <br />
-            <asp:Button ID="Button1" runat="server" Text="Upload" />
-            <br />
-            <br />
 
             <fieldset>
-                <legend>Select the page You want to Visit </legend>
+                <legend>Select The Page You Want To Visit </legend>
                  <asp:Table ID="Table1" runat="server">
              <asp:TableRow>
                     <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
-                        <asp:Label ID="lblHeaderMessage" runat="server" Text="Choose What You want to view" Font-Bold="true" Font-Size="Larger"></asp:Label>
                         <br />
-             </asp:TableCell>
+                        <asp:Label ID="lblHeaderMessage" runat="server" Text="Choose What You Want To View" Font-Bold="true" Font-Size="Larger"></asp:Label>
+                        <br />
+                    </asp:TableCell>
              </asp:TableRow>
 
              <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Button ID="uploadFilePage" runat="server" Text="Upload A File" OnClick="uploadFilePage_Click"/>
+                    </asp:TableCell>
                     <asp:TableCell>
                         <asp:Button ID="btnInformation" runat="server" Text="View the Account Information"  Onclick="btnInformation_Click" CausesValidation="False"/>
                     </asp:TableCell>
@@ -54,7 +51,7 @@
                      <asp:TableCell>
                          <asp:TextBox ID="txtName" runat="server" Text=""></asp:TextBox>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" 
-                            ControlToValidate="txtName" Text="Field Can Not Be Blank" ForeColor="Red" EnableClientScript="false"></asp:RequiredFieldValidator>
+                            ControlToValidate="txtName" Text="Field Cannot Be Blank" ForeColor="Red" EnableClientScript="false"></asp:RequiredFieldValidator>
                     </asp:TableCell>
                 </asp:TableRow>
                      <asp:TableRow>
@@ -73,7 +70,7 @@
                     <asp:TableCell>
                         <asp:TextBox ID="txtDate" runat="server" Text=""></asp:TextBox>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" 
-                            ControlToValidate="txtDate" Text="Field Can Not Be Blank" ForeColor="Red" EnableClientScript="false"></asp:RequiredFieldValidator>
+                            ControlToValidate="txtDate" Text="Field Cannot Be Blank" ForeColor="Red" EnableClientScript="false"></asp:RequiredFieldValidator>
                     </asp:TableCell>
                 </asp:TableRow>
                       <asp:TableRow>
@@ -85,7 +82,7 @@
        
                       <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Button ID="btnClear" runat="server" Text="clear"  Onclick="btnClear_Click" CausesValidation="False"/>
+                        <asp:Button ID="btnClear" runat="server" Text="Clear"  Onclick="btnClear_Click" CausesValidation="False"/>
                     </asp:TableCell>
                 </asp:TableRow>
 

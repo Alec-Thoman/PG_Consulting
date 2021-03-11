@@ -78,6 +78,7 @@
     <Content Include="ServiceEvent.aspx" />
     <Content Include="Inventory.aspx" />
     <Content Include="Employee.aspx" />
+    <Content Include="FileUpload.aspx" />
     <Content Include="Workflow.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +161,13 @@
     </Compile>
     <Compile Include="Employee.aspx.designer.cs">
       <DependentUpon>Employee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FileUpload.aspx.cs">
+      <DependentUpon>FileUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileUpload.aspx.designer.cs">
+      <DependentUpon>FileUpload.aspx</DependentUpon>
     </Compile>
     <Compile Include="Workflow.aspx.cs">
       <DependentUpon>Workflow.aspx</DependentUpon>

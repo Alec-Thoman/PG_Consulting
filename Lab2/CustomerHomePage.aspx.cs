@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Configuration;
 using System.Drawing;
+using System.IO;
 
 namespace Lab2
 {
@@ -112,6 +113,11 @@ namespace Lab2
         {
             Session["Notification"] = txtName.Text + "request " + ServiceList.SelectedValue + " Event On " + txtDate.Text;
             Details.Text = "Request Successful, Notification sent!";
+        }
+
+        protected void uploadFilePage_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FileUpload.aspx");
         }
     }
 }
