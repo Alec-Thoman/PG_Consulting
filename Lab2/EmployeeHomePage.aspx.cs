@@ -44,6 +44,11 @@ namespace Lab2
 
         }
 
+        protected void btnInitialContact_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("InitialContactInfo.aspx")
+        }
+
         protected void newCustomer_Click(object sender, EventArgs e)
         {
             Response.Redirect("NewCustomer.aspx");

@@ -70,6 +70,7 @@
     <Content Include="CustomerHomePage.aspx" />
     <Content Include="CustomerSearch.aspx" />
     <Content Include="EmployeeLoginPage.aspx" />
+    <Content Include="InitialContactInfo.aspx" />
     <Content Include="StartPage.aspx" />
     <Content Include="Web.config" />
     <Content Include="CustomerLoginPage.aspx" />
@@ -103,6 +104,13 @@
     </Compile>
     <Compile Include="EmployeeLoginPage.aspx.designer.cs">
       <DependentUpon>EmployeeLoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InitialContactInfo.aspx.cs">
+      <DependentUpon>InitialContactInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InitialContactInfo.aspx.designer.cs">
+      <DependentUpon>InitialContactInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">

@@ -14,10 +14,18 @@
                         <br />
              </asp:TableCell>
              </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lblInitialContact" runat="server" Text=" View the Initial Contact Page:" ></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Button ID="BtnInitialContact" runat="server" Text="Add Initial Information" Onclick="btnInitialContact_Click"/>
+                    </asp:TableCell>
+                </asp:TableRow>
 
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label ID="lblServiceEvent" runat="server" Text=" View the ServiceEvent Page:" O></asp:Label>
+                        <asp:Label ID="lblServiceEvent" runat="server" Text=" View the ServiceEvent Page:" ></asp:Label>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Button ID="serviceEvent" runat="server" Text="Create And View the Service Event" Onclick="serviceEvent_Click"/>
