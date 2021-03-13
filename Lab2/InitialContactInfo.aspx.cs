@@ -37,6 +37,9 @@ namespace Lab2
             SqlDataReader queryResults = sqlCommand.ExecuteReader();
             queryResults.Close();
             sqlConnect.Close();
+            
+            Session["notes"] = HttpUtility.HtmlEncode(TextBox1.Text);
+            Response.Redirect("ServiceEvent.aspx");
         }
     }
 }
