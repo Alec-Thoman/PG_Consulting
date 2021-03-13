@@ -13,5 +13,10 @@ namespace Lab2
         {
 
         }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
