@@ -4,14 +4,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
     <br />
-    <asp:Label ID="Label1" runat="server" Text="Upload File Here" Font-Bold="true"></asp:Label>
+    <asp:Label ID="fileUploadLabel" runat="server" Text="Upload File Here" Font-Bold="true"></asp:Label>
     <br />
     <asp:FileUpload ID="FileUpload1" runat="server" />
     <br />
     <br />
     <asp:Button ID="fileUploadbtn" runat="server" Text="Upload File" OnClick="fileUploadbtn_Click" CausesValidation="false"/>
     <br />
-    <asp:Label ID="Label2" runat="server" Text="" Font-Bold="true"></asp:Label>
+    <asp:Label ID="fileStatus" runat="server" Text="" Font-Bold="true"></asp:Label>
     <br />
     <br />
     <asp:Button ID="HomePage" runat="server" Text="Return to Home Page" OnClick="HomePage_Click"/>

@@ -36,7 +36,7 @@
                 <asp:TextBox ID="txtCustomerName" runat="server" Text=""></asp:TextBox>
                 <asp:RequiredFieldValidator
                     ID="rfvFirstName" runat="server" ErrorMessage="RequiredFieldValidator"
-                    ControlToValidate="txtCustomer" ForeColor="Red" Display="Dynamic" EnableClientScript="false" Text="Field Required">
+                    ControlToValidate="txtCustomerName" ForeColor="Red" Display="Dynamic" EnableClientScript="false" Text="Field Required">
                 </asp:RequiredFieldValidator>
             </asp:TableCell>
 

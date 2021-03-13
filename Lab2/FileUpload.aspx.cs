@@ -55,12 +55,12 @@ namespace Lab2
             if (FileUpload1.HasFile)
             {
                 FileUpload1.SaveAs(newDirectory + "/" + FileUpload1.FileName);
-                Label2.Text = "Image/File Uploaded Successfully!";
+                fileStatus.Text = "Image/File Uploaded Successfully!";
 
             }
             else
             {
-                Label2.Text = "Select image/file first !!";
+                fileStatus.Text = "Select image/file first !!";
             }
         }
 
