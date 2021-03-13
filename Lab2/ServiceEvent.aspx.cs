@@ -51,7 +51,7 @@ namespace Lab2
                     queryResults.Close();
                     sqlConnect.Close();
                     requestDetail.Text = "Request successful!! You can check Event Detail from Workflow Page";
-                    updateGridView();
+                    //updateGridView(); //No longer Needed. Delete after completion
 
 
                 }
@@ -80,7 +80,7 @@ namespace Lab2
                     queryResults.Close();
                     sqlConnect.Close();
                     requestDetail.Text = "Request successful!! You can check Event Detail from Workflow Page";
-                    updateGridView();
+                    //updateGridView(); //No longer Needed. Delete after completion
                 }
             }
 
@@ -129,51 +129,51 @@ namespace Lab2
 
         }
 
-        protected void customerSelected(object sender, EventArgs e)
-        {
-            grdCustomer.DataSource = null;
-            grdCustomer.DataBind();
+        //protected void customerSelected(object sender, EventArgs e) //No longer Needed. Delete after completion
+        //{
+        //    grdCustomer.DataSource = null;
+        //    grdCustomer.DataBind();
 
-            int custID = int.Parse(ddlCustomerList1.SelectedValue);
+        //    int custID = int.Parse(ddlCustomerList1.SelectedValue);
 
-            String sqlQuery = "SELECT customer.CustomerName as Name, service.ServiceType,  employee.employeeName, ServiceTicket.TicketBeginDate as Date_Begin, ServiceTicket.TicketStatus, ServiceTicket.Address, " +
-                "Serviceticket.Deadline as Deadline_For_Service from serviceTicket inner join" +
-                " customer on customer.customerID = serviceTicket.customerID inner join employee on employee.employeeID = serviceTicket.employeeID inner join service on service.serviceid" +
-                " = serviceTicket.serviceid where customer.customerID = " + custID;
+        //    String sqlQuery = "SELECT customer.CustomerName as Name, service.ServiceType,  employee.employeeName, ServiceTicket.TicketBeginDate as Date_Begin, ServiceTicket.TicketStatus, ServiceTicket.Address, " +
+        //        "Serviceticket.Deadline as Deadline_For_Service from serviceTicket inner join" +
+        //        " customer on customer.customerID = serviceTicket.customerID inner join employee on employee.employeeID = serviceTicket.employeeID inner join service on service.serviceid" +
+        //        " = serviceTicket.serviceid where customer.customerID = " + custID;
 
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+        //    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
-            SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+        //    SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
-            DataTable workflowGridview = new DataTable();
+        //    DataTable workflowGridview = new DataTable();
 
-            sqlAdapter.Fill(workflowGridview);
+        //    sqlAdapter.Fill(workflowGridview);
 
-            grdCustomer.DataSource = workflowGridview;
-            grdCustomer.DataBind();
-        }
+        //    grdCustomer.DataSource = workflowGridview;
+        //    grdCustomer.DataBind();
+        //}
 
-        protected void updateGridView()
-        {
-            grdCustomer.DataSource = null;
-            grdCustomer.DataBind();
+        //protected void updateGridView() //No longer Needed. Delete after completion
+        //{
+        //    grdCustomer.DataSource = null;
+        //    grdCustomer.DataBind();
 
-            String sqlQuery = "SELECT customer.CustomerName as Name, service.ServiceType,  employee.employeeName, ServiceTicket.TicketBeginDate as Date_Begin, ServiceTicket.TicketStatus, ServiceTicket.Address, " +
-                "Serviceticket.Deadline as Deadline_For_Service from serviceTicket inner join" +
-                " customer on customer.customerID = serviceTicket.customerID inner join employee on employee.employeeID = serviceTicket.employeeID inner join service on service.serviceid" +
-                " = serviceTicket.serviceid";
+        //    String sqlQuery = "SELECT customer.CustomerName as Name, service.ServiceType,  employee.employeeName, ServiceTicket.TicketBeginDate as Date_Begin, ServiceTicket.TicketStatus, ServiceTicket.Address, " +
+        //        "Serviceticket.Deadline as Deadline_For_Service from serviceTicket inner join" +
+        //        " customer on customer.customerID = serviceTicket.customerID inner join employee on employee.employeeID = serviceTicket.employeeID inner join service on service.serviceid" +
+        //        " = serviceTicket.serviceid";
 
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+        //    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
-            SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+        //    SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
-            DataTable workflowGridview = new DataTable();
+        //    DataTable workflowGridview = new DataTable();
 
-            sqlAdapter.Fill(workflowGridview);
+        //    sqlAdapter.Fill(workflowGridview);
 
-            grdCustomer.DataSource = workflowGridview;
-            grdCustomer.DataBind();
-        }
+        //    grdCustomer.DataSource = workflowGridview;
+        //    grdCustomer.DataBind();
+        //}
 
         protected void ServiceList_SelectedIndexChanged(object sender, EventArgs e)
         {

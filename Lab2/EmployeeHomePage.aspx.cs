@@ -46,7 +46,7 @@ namespace Lab2
 
         protected void btnInitialContact_Click(object sender, EventArgs e)
         {
-            Response.Redirect("InitialContactInfo.aspx")
+            Response.Redirect("InitialContactInfo.aspx");
         }
 
         protected void newCustomer_Click(object sender, EventArgs e)
@@ -57,6 +57,10 @@ namespace Lab2
         protected void serviceEvent_Click(object sender, EventArgs e)
         {
             Response.Redirect("ServiceEvent.aspx");
+        }
+        protected void viewService_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ServiceView.aspx");
         }
 
         protected void workflow_Click(object sender, EventArgs e)
@@ -90,5 +94,6 @@ namespace Lab2
         {
             txtName.Text = "Jenny";
         }
+
     }
 }

@@ -25,10 +25,18 @@
 
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label ID="lblServiceEvent" runat="server" Text=" View the ServiceEvent Page:" ></asp:Label>
+                        <asp:Label ID="lblServiceEvent" runat="server" Text=" Add new Service:" ></asp:Label>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Button ID="serviceEvent" runat="server" Text="Create And View the Service Event" Onclick="serviceEvent_Click"/>
+                        <asp:Button ID="serviceEvent" runat="server" Text="Add Service" Onclick="serviceEvent_Click"/>
+                    </asp:TableCell>
+                </asp:TableRow>
+                     <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lblViewService" runat="server" Text=" View Services:" ></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Button ID="viewServiceBtn" runat="server" Text="View Service" Onclick="viewService_Click"/>
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
@@ -39,7 +47,7 @@
                         <asp:Button ID="workflow" runat="server" Text="Check Create and Update the workflow" Onclick="workflow_Click"/>
                     </asp:TableCell>
                 </asp:TableRow>
-                      <asp:TableRow>
+                <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblEmployee" runat="server" Text="View Employee Page: "></asp:Label>
                     </asp:TableCell>

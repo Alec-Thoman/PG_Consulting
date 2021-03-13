@@ -107,14 +107,14 @@
              </asp:TableRow>
             </asp:Table>
 
-             <fieldset>
+             <%--<fieldset> //No longer Needed. Delete after completion
                 <legend>Select Customer view the Event</legend> <asp:DropDownList ID="ddlCustomerList1" runat="server"
                     DataSourceID="dtasrcCustomerList" DataTextField="CustomerName" DataValueField="CustomerID" 
                     AutoPostBack="true" OnselectedIndexChanged="customerSelected"></asp:DropDownList>
                 <br />
                 <asp:GridView ID="grdCustomer" runat="server" AlternatingRowStyle-BackColor="#ccffff" EmptyDataText="No Record">
                 </asp:GridView>
-                </fieldset>
+                </fieldset>--%>
             <br />
             <asp:Button ID="Back" runat="server" Text="Back to Navigate Page" Onclick="Back_Click"/>
             <asp:Label ID="Label8" runat="server" Text="Created by jacob and Yuhui"></asp:Label>
