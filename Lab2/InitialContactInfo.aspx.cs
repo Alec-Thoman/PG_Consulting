@@ -26,7 +26,8 @@ namespace Lab2
             String email = HttpUtility.HtmlEncode(txtEmail.Text).ToString();
             String contactWay = HttpUtility.HtmlEncode(DropDownList1.Text).ToString();
             String hear = HttpUtility.HtmlEncode(txtHearAbout.Text).ToString();
-
+            
+            
             String sqlQuery = "Insert INTO Customer(CustomerName, PhoneNumber,EmailAddress," +
                 "CustomerAddress, contactWay, hearabout ) Values('" + customerName + "','" + phoneNumber + "','" + email + "','" + address + "','" + contactWay + "','" + hear + "')";
 
