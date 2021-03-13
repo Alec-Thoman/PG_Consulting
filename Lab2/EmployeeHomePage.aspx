@@ -41,10 +41,10 @@
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label ID="lblWorkflow" runat="server" Text="View the workflow Page: "></asp:Label>
+                        <asp:Label ID="lblWorkflow" runat="server" Text="View and Add Notes to Services: "></asp:Label>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Button ID="workflow" runat="server" Text="Check Create and Update the workflow" Onclick="workflow_Click"/>
+                        <asp:Button ID="workflow" runat="server" Text="GO" Onclick="workflow_Click"/>
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
