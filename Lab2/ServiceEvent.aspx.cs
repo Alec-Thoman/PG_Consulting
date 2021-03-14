@@ -49,6 +49,40 @@ namespace Lab2
                     sqlConnect.Open();
                     SqlDataReader queryResults = sqlCommand.ExecuteReader();
                     queryResults.Close();
+                    
+                     //Initial ticket history
+                    int ticketID = 0;
+                    String result = "";
+
+                    String sqlIDQuery = "Select MAX(ServiceticketID) from serviceTicket";
+                    SqlCommand sqlCommand1 = new SqlCommand();
+                    sqlCommand1.Connection = sqlConnect;
+                    sqlCommand1.CommandType = CommandType.Text;
+                    sqlCommand1.CommandText = sqlIDQuery;
+
+                    SqlDataReader queryIDResults = sqlCommand1.ExecuteReader();
+
+                    while(queryIDResults.Read())
+                    {
+                        result = queryIDResults[0].ToString();
+                    }
+                    queryIDResults.Close();
+                    
+                    ticketID = Int32.Parse(result);
+                    String noteTitle = "Initial Contract";
+                    String noteBody = Session["notes"].ToString();
+                    String changeDate = DateTime.Now.ToString("g");
+
+                    String sqlQuery1 = "Insert INTO tickethistory(NoteTitle, NoteBody, changeDate, employeeID, serviceTicketID ) Values('" + noteTitle + "','" + noteBody + "','" + changeDate + "','" + employeeID + "','" + ticketID + "')";
+
+                    SqlCommand sqlCommand2 = new SqlCommand();
+                    sqlCommand2.Connection = sqlConnect;
+                    sqlCommand2.CommandType = CommandType.Text;
+                    sqlCommand2.CommandText = sqlQuery1;
+                   
+
+                    SqlDataReader queryResults1 = sqlCommand2.ExecuteReader();
+                    queryResults1.Close();
                     sqlConnect.Close();
                     requestDetail.Text = "Request successful!! You can check Event Detail from Workflow Page";
                     //updateGridView(); //No longer Needed. Delete after completion
@@ -78,7 +112,42 @@ namespace Lab2
                     sqlConnect.Open();
                     SqlDataReader queryResults = sqlCommand.ExecuteReader();
                     queryResults.Close();
+                    
+                      //Initial ticket history
+                    int ticketID = 0;
+                    String result = "";
+
+                    String sqlIDQuery = "Select MAX(ServiceticketID) from serviceTicket";
+                    SqlCommand sqlCommand1 = new SqlCommand();
+                    sqlCommand1.Connection = sqlConnect;
+                    sqlCommand1.CommandType = CommandType.Text;
+                    sqlCommand1.CommandText = sqlIDQuery;
+
+                    SqlDataReader queryIDResults = sqlCommand1.ExecuteReader();
+
+                    while(queryIDResults.Read())
+                    {
+                        result = queryIDResults[0].ToString();
+                    }
+                    queryIDResults.Close();
+                    
+                    ticketID = Int32.Parse(result);
+                    String noteTitle = "Initial Contract";
+                    String noteBody = Session["notes"].ToString();
+                    String changeDate = DateTime.Now.ToString("g");
+
+                    String sqlQuery1 = "Insert INTO tickethistory(NoteTitle, NoteBody, changeDate, employeeID, serviceTicketID ) Values('" + noteTitle + "','" + noteBody + "','" + changeDate + "','" + employeeID + "','" + ticketID + "')";
+
+                    SqlCommand sqlCommand2 = new SqlCommand();
+                    sqlCommand2.Connection = sqlConnect;
+                    sqlCommand2.CommandType = CommandType.Text;
+                    sqlCommand2.CommandText = sqlQuery1;
+                   
+
+                    SqlDataReader queryResults1 = sqlCommand2.ExecuteReader();
+                    queryResults1.Close();
                     sqlConnect.Close();
+                    
                     requestDetail.Text = "Request successful!! You can check Event Detail from Workflow Page";
                     //updateGridView(); //No longer Needed. Delete after completion
                 }
