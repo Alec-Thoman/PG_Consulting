@@ -91,6 +91,10 @@ namespace Lab2
         {
             txtName.Text = "Jacob";
             txtDate.Text = "3/23/2021";
+            tbStorLoc.Text = "Back shed";
+            tbStorPur.Text = "Auction";
+            tbInitStorDate.Text = "05/3/2021";
+            tbAuctionDate.Text = "01/05/2022";
         }
 
         protected void btnClear_Click(object sender, EventArgs e)

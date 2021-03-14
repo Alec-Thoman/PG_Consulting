@@ -73,6 +73,38 @@
                             ControlToValidate="txtDate" Text="Field Cannot Be Blank" ForeColor="Red" EnableClientScript="false"></asp:RequiredFieldValidator>
                     </asp:TableCell>
                 </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lbStorLoc" runat="server" Text="Storage Location:"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                         <asp:TextBox ID="tbStorLoc" runat="server" Text=""></asp:TextBox> 
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lbStorPur" runat="server" Text="Storage Purpose:"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:TextBox ID="tbStorPur" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lbInitStorDate" runat="server" Text="Initial Storage Date:"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:TextBox ID="tbInitStorDate" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lbAuctionDate" runat="server" Text="Auction Date:"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:TextBox ID="tbAuctionDate" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
                       <asp:TableRow>
                     <asp:TableCell>
                         <asp:Button ID="btnpopulate" runat="server" Text="Populate"  Onclick="btnpopulate_Click" CausesValidation="False"/>
