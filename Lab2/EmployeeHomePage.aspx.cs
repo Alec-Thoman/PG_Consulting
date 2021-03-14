@@ -83,17 +83,5 @@ namespace Lab2
 
         }
 
-        protected void btnDetails_Click(object sender, EventArgs e)
-        {
-            Session["CustomerName"] = txtName.Text;
-            Response.Redirect("CustomerSearch.aspx");
-
-        }
-
-        protected void lbl_Click(object sender, EventArgs e)
-        {
-            txtName.Text = "Jenny";
-        }
-
     }
 }

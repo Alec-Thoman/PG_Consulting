@@ -66,7 +66,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CustomerHomePage.aspx" />
-    <Content Include="CustomerSearch.aspx" />
     <Content Include="EmployeeLoginPage.aspx" />
     <Content Include="InitialContactInfo.aspx" />
     <Content Include="StartPage.aspx" />
@@ -89,13 +88,6 @@
     </Compile>
     <Compile Include="CustomerHomePage.aspx.designer.cs">
       <DependentUpon>CustomerHomePage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerSearch.aspx.cs">
-      <DependentUpon>CustomerSearch.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CustomerSearch.aspx.designer.cs">
-      <DependentUpon>CustomerSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="EmployeeLoginPage.aspx.cs">
       <DependentUpon>EmployeeLoginPage.aspx</DependentUpon>
