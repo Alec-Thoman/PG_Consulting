@@ -46,5 +46,10 @@ namespace Lab2
             Session["notes"] = HttpUtility.HtmlEncode(TextBox1.Text);
             Response.Redirect("ServiceEvent.aspx");
         }
+
+        protected void Back_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("EmployeeHomePage.aspx");
+        }
     }
 }

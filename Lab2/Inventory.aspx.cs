@@ -26,7 +26,7 @@ namespace Lab2
 
             int custID = int.Parse(ddlCustomerList.SelectedValue);
 
-            String sqlQuery = "SELECT customer.CustomerName, inventoryitem.itemDescription as Item, inventoryitem.Weight, inventoryitem.SalesPRICE from InventoryService inner join InventoryItem on InventoryItem.itemid " +
+            String sqlQuery = "SELECT customer.CustomerName, inventoryitem.itemDescription as Item, inventoryitem.Weight, inventoryitem.SalesPRICE, inventoryitem.StorageLocation, inventoryitem.StoragePurpose, inventoryitem.InitialStorageDate, inventoryitem.AuctionDate from InventoryService inner join InventoryItem on InventoryItem.itemid " +
                 "= InventoryService.itemid inner join ServiceTicket on ServiceTicket.serviceticketid = inventoryservice.serviceticketid inner join customer on customer.customerid = serviceticket.customerid where " +
                 "customer.customerid =" + custID;
 
@@ -61,7 +61,7 @@ namespace Lab2
             grdInventory.DataBind();
 
 
-            String sqlQuery = "SELECT customer.CustomerName, inventoryitem.itemDescription as Item, inventoryitem.Weight, inventoryitem.SalesPRICE from InventoryService inner join InventoryItem on InventoryItem.itemid " +
+            String sqlQuery = "SELECT customer.CustomerName, inventoryitem.itemDescription as Item, inventoryitem.Weight, inventoryitem.SalesPRICE, inventoryitem.StorageLocation, inventoryitem.StoragePurpose, inventoryitem.InitialStorageDate, inventoryitem.AuctionDate from InventoryService inner join InventoryItem on InventoryItem.itemid " +
                 "= InventoryService.itemid inner join ServiceTicket on ServiceTicket.serviceticketid = inventoryservice.serviceticketid inner join customer on customer.customerid = serviceticket.customerid";
 
 

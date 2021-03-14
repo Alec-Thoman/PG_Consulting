@@ -157,6 +157,7 @@
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+                <asp:Button ID="Back" runat="server" Text="Back to Navigate Page" Onclick="Back_Click"/>
             </asp:TableCell>
         </asp:TableRow>
 
