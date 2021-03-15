@@ -17,6 +17,7 @@ namespace Lab2
         {
             if (Request.QueryString.Get("loggedout") == "true")
             {
+                
                 lblStatus.Text = "User has successfully log out";
                 lblStatus.Font.Bold = true;
                 lblStatus.ForeColor = Color.Green;
