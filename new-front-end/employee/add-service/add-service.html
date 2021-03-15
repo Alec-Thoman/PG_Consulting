@@ -36,35 +36,49 @@
     </nav>
     <section class="about-section pr-5 pl-5">
         <div class="row">
-            <h1>New Customer</h1>
+            <h1>Add a Service</h1>
         </div>
         <div class="row">
             <div class="col-12">
                 <form>
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Name</label>
-                        <input type="name" class="form-control" id="nameLabel" placeholder="First Last">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Address</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                            placeholder="555 Street City, State ZIP">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Email address</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                            placeholder="name@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Phone Number</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                            placeholder="555-555-5555">
-                    </div>
-                    <div class="form-group">
                         <label for="exampleFormControlSelect1">Requested Service</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Customer 1</option>
+                            <option>Customer 2</option>
+                            <option>Customer 3</option>
+                            <option>Customer 4</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Service Type</label>
                         <select class="form-control" id="exampleFormControlSelect1">
                             <option>Auction</option>
                             <option>Moving</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Employee</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Employee 1</option>
+                            <option>Employee 2</option>
+                            <option>Employee 3</option>
+                            <option>Employee 4</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Ticket Open Date</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="01/01/2021">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Deadline Date</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="01/01/2021">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Ticket Status</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Status 1</option>
+                            <option>Status 2</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -75,10 +89,10 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <a class="btn btn-primary" href="../employee-index.html">Back</a>
+                    <a class="btn btn-primary" href="../services/services.html">Back</a>
                 </div>
                 <div class="col-md-4 offset-md-4">
-                    <a class="btn btn-primary" href="">Submit</a>
+                    <a class="btn btn-primary" href="../services/services.html" type="submit">Submit</a>
                 </div>
             </div>
         </div>
