@@ -24,11 +24,23 @@
 #form_login {
   width: 100%;
   left      : 50%;
-  top       : 50%;
+  top       : 70%;
   position  : absolute;
   transform : translate(-50%, -50%);
 }
 
 .footer-link {
   color: #095951;
+}
+
+.main-logo{
+  width: 50%;
+  display: block;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-body{
+  padding-top: 25px;
 }
