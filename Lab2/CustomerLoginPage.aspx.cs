@@ -40,7 +40,7 @@ namespace Lab2
             SqlCommand userLogin = new SqlCommand();
             userLogin.Connection = sc;
             userLogin.CommandType = System.Data.CommandType.StoredProcedure;
-            userLogin.CommandText = "JeremyEzellLab3";
+            userLogin.CommandText = "Customer_SP";
             userLogin.Parameters.AddWithValue("@UserName", txtUserName.Text.ToString());
             userLogin.Parameters.AddWithValue("@PassWord", txtPassWord.Text.ToString());
 
