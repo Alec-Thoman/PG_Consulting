@@ -7,24 +7,13 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-Create PROCEDURE [dbo].[JeremyEzellLab3]
+Create PROCEDURE [dbo].[Employee_SP]
 	-- Parameters added here
 	@UserName as NVARCHAR(50),
 	@PassWord as NVARCHAR(50)
 AS
 BEGIN
 
-	Set NOCOUNT ON;
-
-	SELECT Username, Password
-	FROM CustomerUserInfo
-	WHERE Username = @UserName
-	AND Password = @PassWord;
-
-END
-
-
-BEGIN
 
 	Set NOCOUNT ON;
 

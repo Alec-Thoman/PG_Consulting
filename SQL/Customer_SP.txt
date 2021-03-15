@@ -1,0 +1,24 @@
+-- Alec, Yuhui, Jacob
+
+USE [AUTH]
+GO
+/****** Object:  StoredProcedure [dbo].[JeremyEzellLab3]    Script Date: 2/26/2021 7:36:05 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create PROCEDURE [dbo].[Customer_SP]
+	-- Parameters added here
+	@UserName as NVARCHAR(50),
+	@PassWord as NVARCHAR(50)
+AS
+BEGIN
+
+	Set NOCOUNT ON;
+
+	SELECT Username, Password
+	FROM CustomerUserInfo
+	WHERE Username = @UserName
+	AND Password = @PassWord;
+
+END
