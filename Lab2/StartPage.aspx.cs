@@ -16,7 +16,7 @@ namespace Lab2
 
         protected void EmployeeSignin_Click(object sender, EventArgs e)
         {
-            Response.Redirect("EmployeeLoginPage.aspx");
+            Response.Redirect("EmployeeLoginPageBStrap.aspx");
         }
 
         protected void CustomerSignin_Click(object sender, EventArgs e)

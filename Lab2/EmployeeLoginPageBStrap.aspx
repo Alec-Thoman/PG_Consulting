@@ -29,13 +29,13 @@
                                 <!--form-group-->
                                 <div class="form-group">
                                     <label>Your email</label>
-                                    <input id="txtEmail" name="" class="form-control" placeholder="Email" type="email">
+                                    <input id="txtEmail" name="" runat="server" class="form-control" placeholder="Email" type="email">
                                 </div>
                                 <!--form-group-->
                                 <div class="form-group">
                                     <a class="float-right" href="#">Forgot?</a>
                                     <label>Your password</label>
-                                    <input id="txtPassword" class="form-control" placeholder="******" type="password">
+                                    <input id="txtPassword" runat="server" class="form-control" placeholder="******" type="password">
                                 </div>
                                 <!--form-group-->
                                 <div class="form-group">

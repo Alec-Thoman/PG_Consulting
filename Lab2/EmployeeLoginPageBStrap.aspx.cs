@@ -14,9 +14,6 @@ namespace Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label logintester = new Label();
-            logintester.Text = "fuck";
-            this.Controls.Add(logintester);
             if (Request.QueryString.Get("loggedout") == "true")
             {
                 Label loginMessage = new Label();
@@ -40,23 +37,17 @@ namespace Lab2
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            Label logintest = new Label();
-            logintest.Text = "Button Works";
-            this.Controls.Add(logintest);
+            
             // Added functionality for Lab3 (Using the stored procedure)
             SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString.ToString());
 
             SqlCommand userLogin = new SqlCommand();
-            var email = Request["txtEmail"];
+           
             userLogin.Connection = sc;
             userLogin.CommandType = System.Data.CommandType.StoredProcedure;
             userLogin.CommandText = "JeremyEzellLab3";
-            userLogin.Parameters.AddWithValue("@UserName", Request["txtEmail"]);
-            userLogin.Parameters.AddWithValue("@PassWord", Request["txtPassword"]);
-
-            System.Diagnostics.Debug.WriteLine("test");
-            System.Diagnostics.Debug.WriteLine(Request["txtEmail"]);
-            System.Diagnostics.Debug.WriteLine(Request["txtPassword"]);
+            userLogin.Parameters.AddWithValue("@UserName", txtEmail.Value.ToString());
+            userLogin.Parameters.AddWithValue("@PassWord", txtPassword.Value.ToString());
 
             sc.Open(); 
             SqlDataReader loginResults = userLogin.ExecuteReader();
@@ -64,13 +55,8 @@ namespace Lab2
 
             if (loginResults.Read())
             {
-                Session["UserName"] = HttpUtility.HtmlEncode(Request["txtEmail"]);
-                //loginBtn.HRef = "EmployeeHomePage.aspx";
-                //Response.Redirect("EmployeeHomePage.aspx");
-                Label loginMessage = new Label();
-                loginMessage.Text = "shouldve logged in fuck";
-                this.Controls.Add(loginMessage);
-
+                Session["UserName"] = HttpUtility.HtmlEncode(txtEmail.Value);
+                Response.Redirect("EmployeeHomePage.aspx");
 
             }
             else
