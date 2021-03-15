@@ -11,7 +11,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Image ID="Image1" runat="server" ImageUrl="/image/1.jpg" Height="129px" Width="660px" />
+            <asp:Image ID="Image1" runat="server" ImageUrl="/image/1.jpg" Height="129px" Width="628px" />
             Welcome to the  Web Application!<asp:Label ID="state" runat="server" Text=""></asp:Label>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
