@@ -51,6 +51,7 @@
                                 <div class="form-group">
                                     <%--<a class="btn btn-primary js-scroll-trigger" href="employee-index.html">Login</a>--%>
                                     <asp:Button ID="loginButton" runat="server" Text="Login" class="btn btn-primary js-scroll-trigger" OnClick="btnLogin_Click"/>
+                                    <asp:Button ID="backtostartpage" runat="server" Text="Return to start page" class="btn btn-primary js-scroll-trigger" OnClick="backtostartpage_Click"/>
                                 </div>
                                 <!--form-group-->
                                 <label id="lblStatus"></label>

@@ -66,5 +66,10 @@ namespace Lab2
             }
             sc.Close();
         }
+
+        protected void backtostartpage_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("LandingPage.aspx");
+        }
     }
 }
