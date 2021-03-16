@@ -49,11 +49,12 @@ namespace Lab2
             string username = Session["UserName"].ToString();
             string newDirectory = "C:/Users/alect/Desktop/" + username; // change this to proper aws path when aws is setup
             //New Directory Name in string variable
-            CreateDirectoryIfNotExists(newDirectory);
+            //CreateDirectoryIfNotExists(newDirectory);
             //Calling the function to create new directory
 
             if (FileUpload1.HasFile)
             {
+                CreateDirectoryIfNotExists(newDirectory);
                 FileUpload1.SaveAs(newDirectory + "/" + FileUpload1.FileName);
                 fileStatus.Text = "Image/File Uploaded Successfully!";
 
@@ -72,7 +73,7 @@ namespace Lab2
         protected void logoutButton_Click(object sender, EventArgs e)
         {
             Session.Abandon();
-            Response.Redirect("CustomerLoginPage.aspx?loggedout=true");
+            Response.Redirect("CustomerLoginPageBStrap.aspx?loggedout=true");
         }
 
         private void sendEmail(string fromEmail, string toEmail)

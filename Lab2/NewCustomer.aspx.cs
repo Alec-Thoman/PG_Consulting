@@ -125,7 +125,7 @@ namespace Lab2
 
         protected void Back_Click(object sender, EventArgs e)
         {
-            Response.Redirect("CustomerLoginPage.aspx");
+            Response.Redirect("CustomerLoginPageBStrap.aspx");
         }
     }
 }
