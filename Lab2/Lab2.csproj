@@ -186,6 +186,8 @@
     <Content Include="Inventory.aspx" />
     <Content Include="Employee.aspx" />
     <Content Include="FileUpload.aspx" />
+    <Content Include="LandingPage.aspx" />
+    <Content Include="CustomerLoginPageBStrap.aspx" />
     <Content Include="Workflow.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -290,6 +292,20 @@
     <Compile Include="ServiceView.aspx.designer.cs">
       <DependentUpon>ServiceView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LandingPage.aspx.cs">
+      <DependentUpon>LandingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LandingPage.aspx.designer.cs">
+      <DependentUpon>LandingPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerLoginPageBStrap.aspx.cs">
+      <DependentUpon>CustomerLoginPageBStrap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerLoginPageBStrap.aspx.designer.cs">
+      <DependentUpon>CustomerLoginPageBStrap.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Workflow.aspx.cs">
       <DependentUpon>Workflow.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -321,6 +337,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="css\" />
     <Folder Include="image\" />
   </ItemGroup>
   <ItemGroup>

@@ -11,34 +11,43 @@ namespace Lab2
 {
 
 
-    public partial class EmployeeLoginPageBStrap
+    public partial class WebForm2
     {
 
         /// <summary>
-        /// txtEmail control.
+        /// form_login control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtEmail;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form_login;
 
         /// <summary>
-        /// txtPassword control.
+        /// employeeSignInButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtPassword;
+        protected global::System.Web.UI.WebControls.Button employeeSignInButton;
 
         /// <summary>
-        /// loginButton control.
+        /// customerSignInButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button loginButton;
+        protected global::System.Web.UI.WebControls.Button customerSignInButton;
+
+        /// <summary>
+        /// signupButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button signupButton;
     }
 }

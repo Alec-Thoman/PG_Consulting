@@ -28,7 +28,7 @@ namespace Lab2
             else
             {
                 Session["InvalidUse"] = "You must first login to acess the application page";
-                Response.Redirect("CustomerLoginPage.aspx");
+                Response.Redirect("CustomerLoginPageBStrap.aspx");
             }
         }
 
@@ -84,7 +84,7 @@ namespace Lab2
         {
             Session.Abandon();
 
-            Response.Redirect("CustomerLoginPage.aspx?loggedout=true");
+            Response.Redirect("CustomerLoginPageBStrap.aspx?loggedout=true");
         }
 
         protected void btnpopulate_Click(object sender, EventArgs e)

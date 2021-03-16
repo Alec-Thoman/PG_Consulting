@@ -23,7 +23,7 @@ namespace Lab2
             else
             {
                 Session["InvalidUse"] = "You must first login to acess the application page";
-                Response.Redirect("EmployeeLoginPage.aspx");
+                Response.Redirect("EmployeeLoginPageBStrap.aspx");
             }
 
             if (Session["Notification"] != null)
@@ -40,7 +40,7 @@ namespace Lab2
         {
             Session.Abandon();
 
-            Response.Redirect("EmployeeLoginPage.aspx?loggedout=true");
+            Response.Redirect("EmployeeLoginPageBStrap.aspx?loggedout=true");
 
         }
 
