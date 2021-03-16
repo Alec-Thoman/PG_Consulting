@@ -6,17 +6,16 @@
     <title>Green Valley Auction</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/custom-styles.css">
-    <script src="https://kit.fontawesome.com/80d9cd143b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/custom-styles.css">
 </head>
 
 <body id="page-top">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <div class="logo"><img src="../assets/img/Logos/GVALogo_reverse_allwhite_resized.png" alt="Green Valley Auctions Logo" width="200"height="100"></div>
+            <a class="navbar-brand js-scroll-trigger text-black" href="../employee-index.html">
+                <div class="logo"><img src="../../assets/img/Logos/GVALogo_Green_resized.png" alt="Green Valley Auctions Logo" width="200"height="100"></div>
             </a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
@@ -26,31 +25,76 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger"
-                            href="services/services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger"
-                            href="inventory/inventory.html">Inventory</a>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
+                            href="../services/services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black" href="#page-top">Inventory</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger"
-                            href="employee-table/employee-table.html">Employees</a>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
+                            href="../employee-table/employee-table.html">Employees</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- Masthead-->
-    <header class="masthead">
-        <div class="container d-flex h-100 align-items-center">
-            <div class="ml-5 text-left text-white">
-                <h1 class="text-white splash-title">Welcome!</h1>
-                <h2 class="text-white mt-2 mb-5">Here you can create a new Customer or add a new Customer Service</h2>
-                <a class="btn btn-primary" href="create-customer/create-customer.html">New
-                    Customer</a>
-                <a class="btn btn-primary" href="add-service/add-service.html">New Service</a>
+    <section class="about-section pr-5 pl-5">
+        <div class="row">
+            <div class="col-4">
+                <h1>Inventory</h1>
             </div>
         </div>
-    </header>
-    <!-- Footer -->
+        <div class=" row">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Item</th>
+                        <th scope="col">Weight</th>
+                        <th scope="col">Sales Price</th>
+                        <th scope="col">Storage Location</th>
+                        <th scope="col">Storage Purpose</th>
+                        <th scope="col">Initial Storage Date</th>
+                        <th scope="col">Auction Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Jenny</td>
+                        <td>Books</td>
+                        <td>10 lbs.</td>
+                        <td>$23</td>
+                        <td>Basement</td>
+                        <td>Auction</td>
+                        <td>01/01/2021</td>
+                        <td>04/01/2021</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jenny</td>
+                        <td>Books</td>
+                        <td>10 lbs.</td>
+                        <td>$23</td>
+                        <td>Basement</td>
+                        <td>Auction</td>
+                        <td>01/01/2021</td>
+                        <td>04/01/2021</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Jenny</td>
+                        <td>Books</td>
+                        <td>10 lbs.</td>
+                        <td>$23</td>
+                        <td>Basement</td>
+                        <td>Auction</td>
+                        <td>01/01/2021</td>
+                        <td>04/01/2021</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
     <footer class="bg-light text-left text-lg-start">
         <!-- Grid container -->
         <div class="container p-4">
@@ -116,7 +160,6 @@
         </div>
         <!-- Copyright -->
     </footer>
-    <!-- Footer -->
     <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
