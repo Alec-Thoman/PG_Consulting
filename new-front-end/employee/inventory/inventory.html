@@ -40,62 +40,624 @@
         </div>
     </nav>
     <section class="about-section pr-5 pl-5" style="padding-top: 150px;">
-        <div class=" row">
-            <div class="col-4">
-                <h1>Inventory</h1>
+        <div class="col-12">
+            <h1>Inventory</h1>
+            <div class="col-12">
+                <div class="input-group">
+                    <div class="form-outline">
+                        <input type="search" id="form1" class="form-control" />
+                        <label class="form-label" for="form1">Search</label>
+                    </div>
+                    <table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Date Picked-up</th>
+                                    <th>Time Picked-up</th>
+                                    <th>Customer Name</th>
+                                    <th>Location</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="date" name="date picked-up" placeholder="dd-mm-yyyy" value=""></td>
+                                    <td><input type="time" name="time picked-up" placeholder="_ _ : _ _ am/pm" /></td>
+                                    <td><input type="name" name="customer name" placeholder="Last, First" /></td>
+                                    <td>
+                                        <select>
+                                            <option value="storage-location">Gallery 3 Bays</option>
+                                            <option value="storage-location">Warehouse R1</option>
+                                            <option value="storage-location">Warehouse R2</option>
+                                            <option value="storage-location">Warehouse R3</option>
+                                            <option value="storage-location">Warehouse R4</option>
+                                            <option value="storage-location">Warehouse R5</option>
+                                            <option value="storage-location">Warehouse L1</option>
+                                            <option value="storage-location">Warehouse L2</option>
+                                            <option value="storage-location">Warehouse L3</option>
+                                            <option value="storage-location">Warehouse L4</option>
+                                            <option value="storage-location">Warehouse L5</option>
+                                            <option value="storage-location">Trailer 1, Nose</option>
+                                            <option value="storage-location">Trailer 1, Middle</option>
+                                            <option value="storage-location">Trailer 1, Doors</option>
+                                            <option value="storage-location">Trailer 2, Nose</option>
+                                            <option value="storage-location">Trailer 2, Middle</option>
+                                            <option value="storage-location">Trailer 2, Doors</option>
+                                            <option value="storage-location">Trailer 3, Nose</option>
+                                            <option value="storage-location">Trailer 3, Middle</option>
+                                            <option value="storage-location">Trailer 3, Doors</option>
+                                            <option value="storage-location">Trailer 4, Nose</option>
+                                            <option value="storage-location">Trailer 4, Middle</option>
+                                            <option value="storage-location">Trailer 4, Doors</option>
+                                            <option value="storage-location">Trailer 5, Nose</option>
+                                            <option value="storage-location">Trailer 5, Middle</option>
+                                            <option value="storage-location">Trailer 5, Doors</option>
+                                            <option value="storage-location">Trailer 6, Nose</option>
+                                            <option value="storage-location">Trailer 6, Middle</option>
+                                            <option value="storage-location">Trailer 6, Doors</option>
+                                            <option value="storage-location">Trailer 7, Nose</option>
+                                            <option value="storage-location">Trailer 7, Middle</option>
+                                            <option value="storage-location">Trailer 7, Doors</option>
+                                            <option value="storage-location">Trailer 8, Nose</option>
+                                            <option value="storage-location">Trailer 8, Middle</option>
+                                            <option value="storage-location">Trailer 8, Doors</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="date" name="date picked-up" placeholder="dd-mm-yyyy" value=""></td>
+                                    <td><input type="time" name="time picked-up" placeholder="_ _ : _ _ am/pm" /></td>
+                                    <td><input type="name" name="customer name" placeholder="Last, First" /></td>
+                                    <td>
+                                        <select>
+                                            <option value="storage-location">Gallery 3 Bays</option>
+                                            <option value="storage-location">Warehouse R1</option>
+                                            <option value="storage-location">Warehouse R2</option>
+                                            <option value="storage-location">Warehouse R3</option>
+                                            <option value="storage-location">Warehouse R4</option>
+                                            <option value="storage-location">Warehouse R5</option>
+                                            <option value="storage-location">Warehouse L1</option>
+                                            <option value="storage-location">Warehouse L2</option>
+                                            <option value="storage-location">Warehouse L3</option>
+                                            <option value="storage-location">Warehouse L4</option>
+                                            <option value="storage-location">Warehouse L5</option>
+                                            <option value="storage-location">Trailer 1, Nose</option>
+                                            <option value="storage-location">Trailer 1, Middle</option>
+                                            <option value="storage-location">Trailer 1, Doors</option>
+                                            <option value="storage-location">Trailer 2, Nose</option>
+                                            <option value="storage-location">Trailer 2, Middle</option>
+                                            <option value="storage-location">Trailer 2, Doors</option>
+                                            <option value="storage-location">Trailer 3, Nose</option>
+                                            <option value="storage-location">Trailer 3, Middle</option>
+                                            <option value="storage-location">Trailer 3, Doors</option>
+                                            <option value="storage-location">Trailer 4, Nose</option>
+                                            <option value="storage-location">Trailer 4, Middle</option>
+                                            <option value="storage-location">Trailer 4, Doors</option>
+                                            <option value="storage-location">Trailer 5, Nose</option>
+                                            <option value="storage-location">Trailer 5, Middle</option>
+                                            <option value="storage-location">Trailer 5, Doors</option>
+                                            <option value="storage-location">Trailer 6, Nose</option>
+                                            <option value="storage-location">Trailer 6, Middle</option>
+                                            <option value="storage-location">Trailer 6, Doors</option>
+                                            <option value="storage-location">Trailer 7, Nose</option>
+                                            <option value="storage-location">Trailer 7, Middle</option>
+                                            <option value="storage-location">Trailer 7, Doors</option>
+                                            <option value="storage-location">Trailer 8, Nose</option>
+                                            <option value="storage-location">Trailer 8, Middle</option>
+                                            <option value="storage-location">Trailer 8, Doors</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="date" name="date picked-up" placeholder="dd-mm-yyyy" value=""></td>
+                                    <td><input type="time" name="time picked-up" placeholder="_ _ : _ _ am/pm" /></td>
+                                    <td><input type="name" name="customer name" placeholder="Last, First" /></td>
+                                    <td> <select>
+                                            <option value="storage-location">Gallery 3 Bays</option>
+                                            <option value="storage-location">Warehouse R1</option>
+                                            <option value="storage-location">Warehouse R2</option>
+                                            <option value="storage-location">Warehouse R3</option>
+                                            <option value="storage-location">Warehouse R4</option>
+                                            <option value="storage-location">Warehouse R5</option>
+                                            <option value="storage-location">Warehouse L1</option>
+                                            <option value="storage-location">Warehouse L2</option>
+                                            <option value="storage-location">Warehouse L3</option>
+                                            <option value="storage-location">Warehouse L4</option>
+                                            <option value="storage-location">Warehouse L5</option>
+                                            <option value="storage-location">Trailer 1, Nose</option>
+                                            <option value="storage-location">Trailer 1, Middle</option>
+                                            <option value="storage-location">Trailer 1, Doors</option>
+                                            <option value="storage-location">Trailer 2, Nose</option>
+                                            <option value="storage-location">Trailer 2, Middle</option>
+                                            <option value="storage-location">Trailer 2, Doors</option>
+                                            <option value="storage-location">Trailer 3, Nose</option>
+                                            <option value="storage-location">Trailer 3, Middle</option>
+                                            <option value="storage-location">Trailer 3, Doors</option>
+                                            <option value="storage-location">Trailer 4, Nose</option>
+                                            <option value="storage-location">Trailer 4, Middle</option>
+                                            <option value="storage-location">Trailer 4, Doors</option>
+                                            <option value="storage-location">Trailer 5, Nose</option>
+                                            <option value="storage-location">Trailer 5, Middle</option>
+                                            <option value="storage-location">Trailer 5, Doors</option>
+                                            <option value="storage-location">Trailer 6, Nose</option>
+                                            <option value="storage-location">Trailer 6, Middle</option>
+                                            <option value="storage-location">Trailer 6, Doors</option>
+                                            <option value="storage-location">Trailer 7, Nose</option>
+                                            <option value="storage-location">Trailer 7, Middle</option>
+                                            <option value="storage-location">Trailer 7, Doors</option>
+                                            <option value="storage-location">Trailer 8, Nose</option>
+                                            <option value="storage-location">Trailer 8, Middle</option>
+                                            <option value="storage-location">Trailer 8, Doors</option>
+                                        </select> </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="date" name="date picked-up" placeholder="dd-mm-yyyy" value=""></td>
+                                    <td><input type="time" name="time picked-up" placeholder="_ _ : _ _ am/pm" /></td>
+                                    <td><input type="name" name="customer name" placeholder="Last, First" /></td>
+                                    <td> <select>
+                                            <option value="storage-location">Gallery 3 Bays</option>
+                                            <option value="storage-location">Warehouse R1</option>
+                                            <option value="storage-location">Warehouse R2</option>
+                                            <option value="storage-location">Warehouse R3</option>
+                                            <option value="storage-location">Warehouse R4</option>
+                                            <option value="storage-location">Warehouse R5</option>
+                                            <option value="storage-location">Warehouse L1</option>
+                                            <option value="storage-location">Warehouse L2</option>
+                                            <option value="storage-location">Warehouse L3</option>
+                                            <option value="storage-location">Warehouse L4</option>
+                                            <option value="storage-location">Warehouse L5</option>
+                                            <option value="storage-location">Trailer 1, Nose</option>
+                                            <option value="storage-location">Trailer 1, Middle</option>
+                                            <option value="storage-location">Trailer 1, Doors</option>
+                                            <option value="storage-location">Trailer 2, Nose</option>
+                                            <option value="storage-location">Trailer 2, Middle</option>
+                                            <option value="storage-location">Trailer 2, Doors</option>
+                                            <option value="storage-location">Trailer 3, Nose</option>
+                                            <option value="storage-location">Trailer 3, Middle</option>
+                                            <option value="storage-location">Trailer 3, Doors</option>
+                                            <option value="storage-location">Trailer 4, Nose</option>
+                                            <option value="storage-location">Trailer 4, Middle</option>
+                                            <option value="storage-location">Trailer 4, Doors</option>
+                                            <option value="storage-location">Trailer 5, Nose</option>
+                                            <option value="storage-location">Trailer 5, Middle</option>
+                                            <option value="storage-location">Trailer 5, Doors</option>
+                                            <option value="storage-location">Trailer 6, Nose</option>
+                                            <option value="storage-location">Trailer 6, Middle</option>
+                                            <option value="storage-location">Trailer 6, Doors</option>
+                                            <option value="storage-location">Trailer 7, Nose</option>
+                                            <option value="storage-location">Trailer 7, Middle</option>
+                                            <option value="storage-location">Trailer 7, Doors</option>
+                                            <option value="storage-location">Trailer 8, Nose</option>
+                                            <option value="storage-location">Trailer 8, Middle</option>
+                                            <option value="storage-location">Trailer 8, Doors</option>
+                                        </select> </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="date" name="date picked-up" placeholder="dd-mm-yyyy" value=""></td>
+                                    <td><input type="time" name="time picked-up" placeholder="_ _ : _ _ am/pm" /></td>
+                                    <td><input type="name" name="customer name" placeholder="Last, First" /></td>
+                                    <td> <select>
+                                            <option value="storage-location">Gallery 3 Bays</option>
+                                            <option value="storage-location">Warehouse R1</option>
+                                            <option value="storage-location">Warehouse R2</option>
+                                            <option value="storage-location">Warehouse R3</option>
+                                            <option value="storage-location">Warehouse R4</option>
+                                            <option value="storage-location">Warehouse R5</option>
+                                            <option value="storage-location">Warehouse L1</option>
+                                            <option value="storage-location">Warehouse L2</option>
+                                            <option value="storage-location">Warehouse L3</option>
+                                            <option value="storage-location">Warehouse L4</option>
+                                            <option value="storage-location">Warehouse L5</option>
+                                            <option value="storage-location">Trailer 1, Nose</option>
+                                            <option value="storage-location">Trailer 1, Middle</option>
+                                            <option value="storage-location">Trailer 1, Doors</option>
+                                            <option value="storage-location">Trailer 2, Nose</option>
+                                            <option value="storage-location">Trailer 2, Middle</option>
+                                            <option value="storage-location">Trailer 2, Doors</option>
+                                            <option value="storage-location">Trailer 3, Nose</option>
+                                            <option value="storage-location">Trailer 3, Middle</option>
+                                            <option value="storage-location">Trailer 3, Doors</option>
+                                            <option value="storage-location">Trailer 4, Nose</option>
+                                            <option value="storage-location">Trailer 4, Middle</option>
+                                            <option value="storage-location">Trailer 4, Doors</option>
+                                            <option value="storage-location">Trailer 5, Nose</option>
+                                            <option value="storage-location">Trailer 5, Middle</option>
+                                            <option value="storage-location">Trailer 5, Doors</option>
+                                            <option value="storage-location">Trailer 6, Nose</option>
+                                            <option value="storage-location">Trailer 6, Middle</option>
+                                            <option value="storage-location">Trailer 6, Doors</option>
+                                            <option value="storage-location">Trailer 7, Nose</option>
+                                            <option value="storage-location">Trailer 7, Middle</option>
+                                            <option value="storage-location">Trailer 7, Doors</option>
+                                            <option value="storage-location">Trailer 8, Nose</option>
+                                            <option value="storage-location">Trailer 8, Middle</option>
+                                            <option value="storage-location">Trailer 8, Doors</option>
+                                        </select> </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="date" name="date picked-up" placeholder="dd-mm-yyyy" value=""></td>
+                                    <td><input type="time" name="time picked-up" placeholder="_ _ : _ _ am/pm" /></td>
+                                    <td><input type="name" name="customer name" placeholder="Last, First" /></td>
+                                    <td> <select>
+                                            <option value="storage-location">Gallery 3 Bays</option>
+                                            <option value="storage-location">Warehouse R1</option>
+                                            <option value="storage-location">Warehouse R2</option>
+                                            <option value="storage-location">Warehouse R3</option>
+                                            <option value="storage-location">Warehouse R4</option>
+                                            <option value="storage-location">Warehouse R5</option>
+                                            <option value="storage-location">Warehouse L1</option>
+                                            <option value="storage-location">Warehouse L2</option>
+                                            <option value="storage-location">Warehouse L3</option>
+                                            <option value="storage-location">Warehouse L4</option>
+                                            <option value="storage-location">Warehouse L5</option>
+                                            <option value="storage-location">Trailer 1, Nose</option>
+                                            <option value="storage-location">Trailer 1, Middle</option>
+                                            <option value="storage-location">Trailer 1, Doors</option>
+                                            <option value="storage-location">Trailer 2, Nose</option>
+                                            <option value="storage-location">Trailer 2, Middle</option>
+                                            <option value="storage-location">Trailer 2, Doors</option>
+                                            <option value="storage-location">Trailer 3, Nose</option>
+                                            <option value="storage-location">Trailer 3, Middle</option>
+                                            <option value="storage-location">Trailer 3, Doors</option>
+                                            <option value="storage-location">Trailer 4, Nose</option>
+                                            <option value="storage-location">Trailer 4, Middle</option>
+                                            <option value="storage-location">Trailer 4, Doors</option>
+                                            <option value="storage-location">Trailer 5, Nose</option>
+                                            <option value="storage-location">Trailer 5, Middle</option>
+                                            <option value="storage-location">Trailer 5, Doors</option>
+                                            <option value="storage-location">Trailer 6, Nose</option>
+                                            <option value="storage-location">Trailer 6, Middle</option>
+                                            <option value="storage-location">Trailer 6, Doors</option>
+                                            <option value="storage-location">Trailer 7, Nose</option>
+                                            <option value="storage-location">Trailer 7, Middle</option>
+                                            <option value="storage-location">Trailer 7, Doors</option>
+                                            <option value="storage-location">Trailer 8, Nose</option>
+                                            <option value="storage-location">Trailer 8, Middle</option>
+                                            <option value="storage-location">Trailer 8, Doors</option>
+                                        </select> </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="date" name="date picked-up" placeholder="dd-mm-yyyy" value=""></td>
+                                    <td><input type="time" name="time picked-up" placeholder="_ _ : _ _ am/pm" /></td>
+                                    <td><input type="name" name="customer name" placeholder="Last, First" /></td>
+                                    <td> <select>
+                                            <option value="storage-location">Gallery 3 Bays</option>
+                                            <option value="storage-location">Warehouse R1</option>
+                                            <option value="storage-location">Warehouse R2</option>
+                                            <option value="storage-location">Warehouse R3</option>
+                                            <option value="storage-location">Warehouse R4</option>
+                                            <option value="storage-location">Warehouse R5</option>
+                                            <option value="storage-location">Warehouse L1</option>
+                                            <option value="storage-location">Warehouse L2</option>
+                                            <option value="storage-location">Warehouse L3</option>
+                                            <option value="storage-location">Warehouse L4</option>
+                                            <option value="storage-location">Warehouse L5</option>
+                                            <option value="storage-location">Trailer 1, Nose</option>
+                                            <option value="storage-location">Trailer 1, Middle</option>
+                                            <option value="storage-location">Trailer 1, Doors</option>
+                                            <option value="storage-location">Trailer 2, Nose</option>
+                                            <option value="storage-location">Trailer 2, Middle</option>
+                                            <option value="storage-location">Trailer 2, Doors</option>
+                                            <option value="storage-location">Trailer 3, Nose</option>
+                                            <option value="storage-location">Trailer 3, Middle</option>
+                                            <option value="storage-location">Trailer 3, Doors</option>
+                                            <option value="storage-location">Trailer 4, Nose</option>
+                                            <option value="storage-location">Trailer 4, Middle</option>
+                                            <option value="storage-location">Trailer 4, Doors</option>
+                                            <option value="storage-location">Trailer 5, Nose</option>
+                                            <option value="storage-location">Trailer 5, Middle</option>
+                                            <option value="storage-location">Trailer 5, Doors</option>
+                                            <option value="storage-location">Trailer 6, Nose</option>
+                                            <option value="storage-location">Trailer 6, Middle</option>
+                                            <option value="storage-location">Trailer 6, Doors</option>
+                                            <option value="storage-location">Trailer 7, Nose</option>
+                                            <option value="storage-location">Trailer 7, Middle</option>
+                                            <option value="storage-location">Trailer 7, Doors</option>
+                                            <option value="storage-location">Trailer 8, Nose</option>
+                                            <option value="storage-location">Trailer 8, Middle</option>
+                                            <option value="storage-location">Trailer 8, Doors</option>
+                                        </select> </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="date" name="date picked-up" placeholder="dd-mm-yyyy" value=""></td>
+                                    <td><input type="time" name="time picked-up" placeholder="_ _ : _ _ am/pm" /></td>
+                                    <td><input type="name" name="customer name" placeholder="Last, First" /></td>
+                                    <td> <select>
+                                            <option value="storage-location">Gallery 3 Bays</option>
+                                            <option value="storage-location">Warehouse R1</option>
+                                            <option value="storage-location">Warehouse R2</option>
+                                            <option value="storage-location">Warehouse R3</option>
+                                            <option value="storage-location">Warehouse R4</option>
+                                            <option value="storage-location">Warehouse R5</option>
+                                            <option value="storage-location">Warehouse L1</option>
+                                            <option value="storage-location">Warehouse L2</option>
+                                            <option value="storage-location">Warehouse L3</option>
+                                            <option value="storage-location">Warehouse L4</option>
+                                            <option value="storage-location">Warehouse L5</option>
+                                            <option value="storage-location">Trailer 1, Nose</option>
+                                            <option value="storage-location">Trailer 1, Middle</option>
+                                            <option value="storage-location">Trailer 1, Doors</option>
+                                            <option value="storage-location">Trailer 2, Nose</option>
+                                            <option value="storage-location">Trailer 2, Middle</option>
+                                            <option value="storage-location">Trailer 2, Doors</option>
+                                            <option value="storage-location">Trailer 3, Nose</option>
+                                            <option value="storage-location">Trailer 3, Middle</option>
+                                            <option value="storage-location">Trailer 3, Doors</option>
+                                            <option value="storage-location">Trailer 4, Nose</option>
+                                            <option value="storage-location">Trailer 4, Middle</option>
+                                            <option value="storage-location">Trailer 4, Doors</option>
+                                            <option value="storage-location">Trailer 5, Nose</option>
+                                            <option value="storage-location">Trailer 5, Middle</option>
+                                            <option value="storage-location">Trailer 5, Doors</option>
+                                            <option value="storage-location">Trailer 6, Nose</option>
+                                            <option value="storage-location">Trailer 6, Middle</option>
+                                            <option value="storage-location">Trailer 6, Doors</option>
+                                            <option value="storage-location">Trailer 7, Nose</option>
+                                            <option value="storage-location">Trailer 7, Middle</option>
+                                            <option value="storage-location">Trailer 7, Doors</option>
+                                            <option value="storage-location">Trailer 8, Nose</option>
+                                            <option value="storage-location">Trailer 8, Middle</option>
+                                            <option value="storage-location">Trailer 8, Doors</option>
+                                        </select> </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="date" name="date picked-up" placeholder="dd-mm-yyyy" value=""></td>
+                                    <td><input type="time" name="time picked-up" placeholder="_ _ : _ _ am/pm" /></td>
+                                    <td><input type="name" name="customer name" placeholder="Last, First" /></td>
+                                    <td>
+                                        <select>
+                                            <option value="storage-location">Gallery 3 Bays</option>
+                                            <option value="storage-location">Warehouse R1</option>
+                                            <option value="storage-location">Warehouse R2</option>
+                                            <option value="storage-location">Warehouse R3</option>
+                                            <option value="storage-location">Warehouse R4</option>
+                                            <option value="storage-location">Warehouse R5</option>
+                                            <option value="storage-location">Warehouse L1</option>
+                                            <option value="storage-location">Warehouse L2</option>
+                                            <option value="storage-location">Warehouse L3</option>
+                                            <option value="storage-location">Warehouse L4</option>
+                                            <option value="storage-location">Warehouse L5</option>
+                                            <option value="storage-location">Trailer 1, Nose</option>
+                                            <option value="storage-location">Trailer 1, Middle</option>
+                                            <option value="storage-location">Trailer 1, Doors</option>
+                                            <option value="storage-location">Trailer 2, Nose</option>
+                                            <option value="storage-location">Trailer 2, Middle</option>
+                                            <option value="storage-location">Trailer 2, Doors</option>
+                                            <option value="storage-location">Trailer 3, Nose</option>
+                                            <option value="storage-location">Trailer 3, Middle</option>
+                                            <option value="storage-location">Trailer 3, Doors</option>
+                                            <option value="storage-location">Trailer 4, Nose</option>
+                                            <option value="storage-location">Trailer 4, Middle</option>
+                                            <option value="storage-location">Trailer 4, Doors</option>
+                                            <option value="storage-location">Trailer 5, Nose</option>
+                                            <option value="storage-location">Trailer 5, Middle</option>
+                                            <option value="storage-location">Trailer 5, Doors</option>
+                                            <option value="storage-location">Trailer 6, Nose</option>
+                                            <option value="storage-location">Trailer 6, Middle</option>
+                                            <option value="storage-location">Trailer 6, Doors</option>
+                                            <option value="storage-location">Trailer 7, Nose</option>
+                                            <option value="storage-location">Trailer 7, Middle</option>
+                                            <option value="storage-location">Trailer 7, Doors</option>
+                                            <option value="storage-location">Trailer 8, Nose</option>
+                                            <option value="storage-location">Trailer 8, Middle</option>
+                                            <option value="storage-location">Trailer 8, Doors</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="date" name="date picked-up" placeholder="dd-mm-yyyy" value=""></td>
+                                    <td><input type="time" name="time picked-up" placeholder="_ _ : _ _ am/pm" /></td>
+                                    <td><input type="name" name="customer name" placeholder="Last, First" /></td>
+                                    <td> <select>
+                                            <option value="storage-location">Gallery 3 Bays</option>
+                                            <option value="storage-location">Warehouse R1</option>
+                                            <option value="storage-location">Warehouse R2</option>
+                                            <option value="storage-location">Warehouse R3</option>
+                                            <option value="storage-location">Warehouse R4</option>
+                                            <option value="storage-location">Warehouse R5</option>
+                                            <option value="storage-location">Warehouse L1</option>
+                                            <option value="storage-location">Warehouse L2</option>
+                                            <option value="storage-location">Warehouse L3</option>
+                                            <option value="storage-location">Warehouse L4</option>
+                                            <option value="storage-location">Warehouse L5</option>
+                                            <option value="storage-location">Trailer 1, Nose</option>
+                                            <option value="storage-location">Trailer 1, Middle</option>
+                                            <option value="storage-location">Trailer 1, Doors</option>
+                                            <option value="storage-location">Trailer 2, Nose</option>
+                                            <option value="storage-location">Trailer 2, Middle</option>
+                                            <option value="storage-location">Trailer 2, Doors</option>
+                                            <option value="storage-location">Trailer 3, Nose</option>
+                                            <option value="storage-location">Trailer 3, Middle</option>
+                                            <option value="storage-location">Trailer 3, Doors</option>
+                                            <option value="storage-location">Trailer 4, Nose</option>
+                                            <option value="storage-location">Trailer 4, Middle</option>
+                                            <option value="storage-location">Trailer 4, Doors</option>
+                                            <option value="storage-location">Trailer 5, Nose</option>
+                                            <option value="storage-location">Trailer 5, Middle</option>
+                                            <option value="storage-location">Trailer 5, Doors</option>
+                                            <option value="storage-location">Trailer 6, Nose</option>
+                                            <option value="storage-location">Trailer 6, Middle</option>
+                                            <option value="storage-location">Trailer 6, Doors</option>
+                                            <option value="storage-location">Trailer 7, Nose</option>
+                                            <option value="storage-location">Trailer 7, Middle</option>
+                                            <option value="storage-location">Trailer 7, Doors</option>
+                                            <option value="storage-location">Trailer 8, Nose</option>
+                                            <option value="storage-location">Trailer 8, Middle</option>
+                                            <option value="storage-location">Trailer 8, Doors</option>
+                                        </select> </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="date" name="date picked-up" placeholder="dd-mm-yyyy" value=""></td>
+                                    <td><input type="time" name="time picked-up" placeholder="_ _ : _ _ am/pm" /></td>
+                                    <td><input type="name" name="customer name" placeholder="Last, First" /></td>
+                                    <td> <select>
+                                            <option value="storage-location">Gallery 3 Bays</option>
+                                            <option value="storage-location">Warehouse R1</option>
+                                            <option value="storage-location">Warehouse R2</option>
+                                            <option value="storage-location">Warehouse R3</option>
+                                            <option value="storage-location">Warehouse R4</option>
+                                            <option value="storage-location">Warehouse R5</option>
+                                            <option value="storage-location">Warehouse L1</option>
+                                            <option value="storage-location">Warehouse L2</option>
+                                            <option value="storage-location">Warehouse L3</option>
+                                            <option value="storage-location">Warehouse L4</option>
+                                            <option value="storage-location">Warehouse L5</option>
+                                            <option value="storage-location">Trailer 1, Nose</option>
+                                            <option value="storage-location">Trailer 1, Middle</option>
+                                            <option value="storage-location">Trailer 1, Doors</option>
+                                            <option value="storage-location">Trailer 2, Nose</option>
+                                            <option value="storage-location">Trailer 2, Middle</option>
+                                            <option value="storage-location">Trailer 2, Doors</option>
+                                            <option value="storage-location">Trailer 3, Nose</option>
+                                            <option value="storage-location">Trailer 3, Middle</option>
+                                            <option value="storage-location">Trailer 3, Doors</option>
+                                            <option value="storage-location">Trailer 4, Nose</option>
+                                            <option value="storage-location">Trailer 4, Middle</option>
+                                            <option value="storage-location">Trailer 4, Doors</option>
+                                            <option value="storage-location">Trailer 5, Nose</option>
+                                            <option value="storage-location">Trailer 5, Middle</option>
+                                            <option value="storage-location">Trailer 5, Doors</option>
+                                            <option value="storage-location">Trailer 6, Nose</option>
+                                            <option value="storage-location">Trailer 6, Middle</option>
+                                            <option value="storage-location">Trailer 6, Doors</option>
+                                            <option value="storage-location">Trailer 7, Nose</option>
+                                            <option value="storage-location">Trailer 7, Middle</option>
+                                            <option value="storage-location">Trailer 7, Doors</option>
+                                            <option value="storage-location">Trailer 8, Nose</option>
+                                            <option value="storage-location">Trailer 8, Middle</option>
+                                            <option value="storage-location">Trailer 8, Doors</option>
+                                        </select> </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="date" name="date picked-up" placeholder="dd-mm-yyyy" value=""></td>
+                                    <td><input type="time" name="time picked-up" placeholder="_ _ : _ _ am/pm" /></td>
+                                    <td><input type="name" name="customer name" placeholder="Last, First" /></td>
+                                    <td> <select>
+                                            <option value="storage-location">Gallery 3 Bays</option>
+                                            <option value="storage-location">Warehouse R1</option>
+                                            <option value="storage-location">Warehouse R2</option>
+                                            <option value="storage-location">Warehouse R3</option>
+                                            <option value="storage-location">Warehouse R4</option>
+                                            <option value="storage-location">Warehouse R5</option>
+                                            <option value="storage-location">Warehouse L1</option>
+                                            <option value="storage-location">Warehouse L2</option>
+                                            <option value="storage-location">Warehouse L3</option>
+                                            <option value="storage-location">Warehouse L4</option>
+                                            <option value="storage-location">Warehouse L5</option>
+                                            <option value="storage-location">Trailer 1, Nose</option>
+                                            <option value="storage-location">Trailer 1, Middle</option>
+                                            <option value="storage-location">Trailer 1, Doors</option>
+                                            <option value="storage-location">Trailer 2, Nose</option>
+                                            <option value="storage-location">Trailer 2, Middle</option>
+                                            <option value="storage-location">Trailer 2, Doors</option>
+                                            <option value="storage-location">Trailer 3, Nose</option>
+                                            <option value="storage-location">Trailer 3, Middle</option>
+                                            <option value="storage-location">Trailer 3, Doors</option>
+                                            <option value="storage-location">Trailer 4, Nose</option>
+                                            <option value="storage-location">Trailer 4, Middle</option>
+                                            <option value="storage-location">Trailer 4, Doors</option>
+                                            <option value="storage-location">Trailer 5, Nose</option>
+                                            <option value="storage-location">Trailer 5, Middle</option>
+                                            <option value="storage-location">Trailer 5, Doors</option>
+                                            <option value="storage-location">Trailer 6, Nose</option>
+                                            <option value="storage-location">Trailer 6, Middle</option>
+                                            <option value="storage-location">Trailer 6, Doors</option>
+                                            <option value="storage-location">Trailer 7, Nose</option>
+                                            <option value="storage-location">Trailer 7, Middle</option>
+                                            <option value="storage-location">Trailer 7, Doors</option>
+                                            <option value="storage-location">Trailer 8, Nose</option>
+                                            <option value="storage-location">Trailer 8, Middle</option>
+                                            <option value="storage-location">Trailer 8, Doors</option>
+                                        </select> </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="date" name="date picked-up" placeholder="dd-mm-yyyy" value=""></td>
+                                    <td><input type="time" name="time picked-up" placeholder="_ _ : _ _ am/pm" /></td>
+                                    <td><input type="name" name="customer name" placeholder="Last, First" /></td>
+                                    <td> <select>
+                                            <option value="storage-location">Gallery 3 Bays</option>
+                                            <option value="storage-location">Warehouse R1</option>
+                                            <option value="storage-location">Warehouse R2</option>
+                                            <option value="storage-location">Warehouse R3</option>
+                                            <option value="storage-location">Warehouse R4</option>
+                                            <option value="storage-location">Warehouse R5</option>
+                                            <option value="storage-location">Warehouse L1</option>
+                                            <option value="storage-location">Warehouse L2</option>
+                                            <option value="storage-location">Warehouse L3</option>
+                                            <option value="storage-location">Warehouse L4</option>
+                                            <option value="storage-location">Warehouse L5</option>
+                                            <option value="storage-location">Trailer 1, Nose</option>
+                                            <option value="storage-location">Trailer 1, Middle</option>
+                                            <option value="storage-location">Trailer 1, Doors</option>
+                                            <option value="storage-location">Trailer 2, Nose</option>
+                                            <option value="storage-location">Trailer 2, Middle</option>
+                                            <option value="storage-location">Trailer 2, Doors</option>
+                                            <option value="storage-location">Trailer 3, Nose</option>
+                                            <option value="storage-location">Trailer 3, Middle</option>
+                                            <option value="storage-location">Trailer 3, Doors</option>
+                                            <option value="storage-location">Trailer 4, Nose</option>
+                                            <option value="storage-location">Trailer 4, Middle</option>
+                                            <option value="storage-location">Trailer 4, Doors</option>
+                                            <option value="storage-location">Trailer 5, Nose</option>
+                                            <option value="storage-location">Trailer 5, Middle</option>
+                                            <option value="storage-location">Trailer 5, Doors</option>
+                                            <option value="storage-location">Trailer 6, Nose</option>
+                                            <option value="storage-location">Trailer 6, Middle</option>
+                                            <option value="storage-location">Trailer 6, Doors</option>
+                                            <option value="storage-location">Trailer 7, Nose</option>
+                                            <option value="storage-location">Trailer 7, Middle</option>
+                                            <option value="storage-location">Trailer 7, Doors</option>
+                                            <option value="storage-location">Trailer 8, Nose</option>
+                                            <option value="storage-location">Trailer 8, Middle</option>
+                                            <option value="storage-location">Trailer 8, Doors</option>
+                                        </select> </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="date" name="date picked-up" placeholder="dd-mm-yyyy" value=""></td>
+                                    <td><input type="time" name="time picked-up" placeholder="_ _ : _ _ am/pm" /></td>
+                                    <td><input type="name" name="customer name" placeholder="Last, First" /></td>
+                                    <td> <select>
+                                            <option value="storage-location">Gallery 3 Bays</option>
+                                            <option value="storage-location">Warehouse R1</option>
+                                            <option value="storage-location">Warehouse R2</option>
+                                            <option value="storage-location">Warehouse R3</option>
+                                            <option value="storage-location">Warehouse R4</option>
+                                            <option value="storage-location">Warehouse R5</option>
+                                            <option value="storage-location">Warehouse L1</option>
+                                            <option value="storage-location">Warehouse L2</option>
+                                            <option value="storage-location">Warehouse L3</option>
+                                            <option value="storage-location">Warehouse L4</option>
+                                            <option value="storage-location">Warehouse L5</option>
+                                            <option value="storage-location">Trailer 1, Nose</option>
+                                            <option value="storage-location">Trailer 1, Middle</option>
+                                            <option value="storage-location">Trailer 1, Doors</option>
+                                            <option value="storage-location">Trailer 2, Nose</option>
+                                            <option value="storage-location">Trailer 2, Middle</option>
+                                            <option value="storage-location">Trailer 2, Doors</option>
+                                            <option value="storage-location">Trailer 3, Nose</option>
+                                            <option value="storage-location">Trailer 3, Middle</option>
+                                            <option value="storage-location">Trailer 3, Doors</option>
+                                            <option value="storage-location">Trailer 4, Nose</option>
+                                            <option value="storage-location">Trailer 4, Middle</option>
+                                            <option value="storage-location">Trailer 4, Doors</option>
+                                            <option value="storage-location">Trailer 5, Nose</option>
+                                            <option value="storage-location">Trailer 5, Middle</option>
+                                            <option value="storage-location">Trailer 5, Doors</option>
+                                            <option value="storage-location">Trailer 6, Nose</option>
+                                            <option value="storage-location">Trailer 6, Middle</option>
+                                            <option value="storage-location">Trailer 6, Doors</option>
+                                            <option value="storage-location">Trailer 7, Nose</option>
+                                            <option value="storage-location">Trailer 7, Middle</option>
+                                            <option value="storage-location">Trailer 7, Doors</option>
+                                            <option value="storage-location">Trailer 8, Nose</option>
+                                            <option value="storage-location">Trailer 8, Middle</option>
+                                            <option value="storage-location">Trailer 8, Doors</option>
+                                        </select> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
             </div>
         </div>
-        <div class=" row">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Customer Name</th>
-                        <th scope="col">Item</th>
-                        <th scope="col">Weight</th>
-                        <th scope="col">Sales Price</th>
-                        <th scope="col">Storage Location</th>
-                        <th scope="col">Storage Purpose</th>
-                        <th scope="col">Initial Storage Date</th>
-                        <th scope="col">Auction Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Jenny</td>
-                        <td>Books</td>
-                        <td>10 lbs.</td>
-                        <td>$23</td>
-                        <td>Basement</td>
-                        <td>Auction</td>
-                        <td>01/01/2021</td>
-                        <td>04/01/2021</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jenny</td>
-                        <td>Books</td>
-                        <td>10 lbs.</td>
-                        <td>$23</td>
-                        <td>Basement</td>
-                        <td>Auction</td>
-                        <td>01/01/2021</td>
-                        <td>04/01/2021</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Jenny</td>
-                        <td>Books</td>
-                        <td>10 lbs.</td>
-                        <td>$23</td>
-                        <td>Basement</td>
-                        <td>Auction</td>
-                        <td>01/01/2021</td>
-                        <td>04/01/2021</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </section>
     <footer class="bg-light text-left text-lg-start">
