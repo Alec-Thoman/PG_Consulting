@@ -56,7 +56,7 @@ namespace Lab2
             if (loginResults.Read())
             {
                 Session["UserName"] = HttpUtility.HtmlEncode(txtEmail.Value);
-                Response.Redirect("EmployeeHomePage.aspx");
+                Response.Redirect("EmployeeHomePageBStrap.aspx");
 
             }
             else
@@ -72,6 +72,11 @@ namespace Lab2
         protected void backtostartpage_Click(object sender, EventArgs e)
         {
             Response.Redirect("LandingPage.aspx");
+        }
+        protected void populate_Click(object sender, EventArgs e)
+        {
+            txtEmail.Value = "123@gmail.com";
+            txtPassword.Value = "pas6684word";
         }
     }
 }
