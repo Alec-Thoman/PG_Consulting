@@ -23,8 +23,10 @@ CREATE TABLE Service (
 
 CREATE TABLE serviceTicket (
 	[ServiceTicketID] [int] IDENTITY(1,1) primary key,
-	TicketBeginDate  datetime,
+	TicketBeginDate  char(10),
 	TicketStatus   char(30),
+	Address char(50),
+	Deadline char(50),
 	EmployeeID		int not null,
 	CustomerID		int not null,
 	ServiceID		int not null,
@@ -135,7 +137,6 @@ SET IDENTITY_INSERT [dbo].[Service] ON
 GO  
   insert [dbo].[Service] ([ServiceID],[ServiceType],[ServiceDescription]) Values('1','Auction','Sell items');
   insert [dbo].[Service] ([ServiceID],[ServiceType],[ServiceDescription]) Values('2','Move','Move items');
-  insert [dbo].[Service] ([ServiceID],[ServiceType],[ServiceDescription]) Values('3','Appraisal','Appraise items');
 
 SET IDENTITY_INSERT [dbo].[Service] OFF
 GO  
@@ -144,17 +145,17 @@ GO
 SET IDENTITY_INSERT [dbo].[serviceTicket] ON 
 GO
   
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[EmployeeID],[CustomerID],[ServiceID]) values('1','Completion','1/1/2021','1','1','1');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[EmployeeID],[CustomerID],[ServiceID]) values('2','Completion','1/2/2021','2','1','2');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[EmployeeID],[CustomerID],[ServiceID]) values('3','Completion','1/3/2021','3','2','1');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[EmployeeID],[CustomerID],[ServiceID]) values('4','Completion','1/4/2021','4','2','2');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[EmployeeID],[CustomerID],[ServiceID]) values('5','InitiatingContract','1/5/2021','5','3','1');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[EmployeeID],[CustomerID],[ServiceID]) values('6','InitiatingContract','1/6/2021','6','4','1');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[EmployeeID],[CustomerID],[ServiceID]) values('7','InitiatingContract','1/7/2021','7','5','1');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[EmployeeID],[CustomerID],[ServiceID]) values('8','InitiatingContract','1/8/2021','8','6','1');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[EmployeeID],[CustomerID],[ServiceID]) values('9','InitiatingContract','1/9/2021','9','7','2');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[EmployeeID],[CustomerID],[ServiceID]) values('10','InitiatingContract','1/10/2021','1','8','2');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[EmployeeID],[CustomerID],[ServiceID]) values('11','InitiatingContract','1/10/2021','2','9','2');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate], [Address], [Deadline], [EmployeeID],[CustomerID],[ServiceID]) values('1','Completion','1/1/2021', '1452 Bradley Drive Harrisonburg VA 22801', '2/5/2021','1','1','1');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('2','Completion','1/2/2021', '101 Wish Lane Harrisonburg VA 22801', '2/10/2021','2','1','2');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('3','Completion','1/3/2021', '530 Christy Lane Harrisonburg VA 22801', '2/3/2021','3','2','1');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('4','Completion','1/4/2021', '753 Cricket Drive Waynesboro VA 22802', '2/12/2021','4','2','2');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('5','InitiatingContract','1/5/2021', '8732 Green Drive Harrisonburg VA 22801', '2/9/2021','5','3','1');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('6','InitiatingContract','1/6/2021', '1523 Hollow Path Waynesboro VA 22802', '1/22/2021','6','4','1');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('7','InitiatingContract','1/7/2021', '202 Pantheon Lane Harrisonburg VA 22801', '1/30/2021','7','5','1');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('8','InitiatingContract','1/8/2021', '801 Champ Street Harrisonburg VA 22801', '2/4/2021','8','6','1');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('9','InitiatingContract','1/9/2021', '924 Sleepy Street Harrisonburg VA 22801', '2/9/2021','9','7','2');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('10','InitiatingContract','1/10/2021', '451 Demaskus Drive Harrisonburg VA 22801', '2/10/2021','1','8','2');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('11','InitiatingContract','1/10/2021', '444 Lucky Ave Waynesboro VA 22804', '2/10/2021','2','9','2');
   
 SET IDENTITY_INSERT [dbo].[serviceTicket] Off 
 GO
@@ -249,17 +250,3 @@ Go
 
 Alter Table Customer ADD ContactWay char(50);
 Alter Table Customer ADD HearAbout  char(50);
-Alter Table serviceTicket ADD Address char(50);
-Alter Table serviceTicket ADD Deadline char(50);
-  
-  
-  
-  
-
- 
-
-
-
-
-
-
