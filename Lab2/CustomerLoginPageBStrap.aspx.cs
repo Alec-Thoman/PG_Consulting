@@ -71,5 +71,11 @@ namespace Lab2
         {
             Response.Redirect("LandingPage.aspx");
         }
+
+        protected void populate_Click(object sender, EventArgs e)
+        {
+            emailTB.Text = "Jenny@jmu.edu";
+            passwordTB.Text = "testpass";
+        }
     }
 }
