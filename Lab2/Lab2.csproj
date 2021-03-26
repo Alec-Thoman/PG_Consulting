@@ -206,6 +206,7 @@
     <Content Include="FileUpload.aspx" />
     <Content Include="LandingPage.aspx" />
     <Content Include="CustomerLoginPageBStrap.aspx" />
+    <Content Include="CustomerHomePageBStrap.aspx" />
     <Content Include="Workflow.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -323,6 +324,13 @@
     </Compile>
     <Compile Include="CustomerLoginPageBStrap.aspx.designer.cs">
       <DependentUpon>CustomerLoginPageBStrap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerHomePageBStrap.aspx.cs">
+      <DependentUpon>CustomerHomePageBStrap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerHomePageBStrap.aspx.designer.cs">
+      <DependentUpon>CustomerHomePageBStrap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Workflow.aspx.cs">
       <DependentUpon>Workflow.aspx</DependentUpon>
