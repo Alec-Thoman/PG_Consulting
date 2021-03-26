@@ -137,6 +137,7 @@ SET IDENTITY_INSERT [dbo].[Service] ON
 GO  
   insert [dbo].[Service] ([ServiceID],[ServiceType],[ServiceDescription]) Values('1','Auction','Sell items');
   insert [dbo].[Service] ([ServiceID],[ServiceType],[ServiceDescription]) Values('2','Move','Move items');
+  insert [dbo].[Service] ([ServiceID],[ServiceType],[ServiceDescription]) Values('3','Appraisal','Appraise items');
 
 SET IDENTITY_INSERT [dbo].[Service] OFF
 GO  
