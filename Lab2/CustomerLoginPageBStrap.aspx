@@ -49,6 +49,7 @@
                                     <%--<a class="btn btn-primary js-scroll-trigger" href="customer/customer-index.html">Login</a>--%>
                                     <asp:Button ID="loginButton" runat="server" Text="Login" class="btn btn-primary js-scroll-trigger" OnClick="loginButton_Click"/>
                                     <asp:Button ID="backtostartpage" runat="server" Text="Return to start page" class="btn btn-primary js-scroll-trigger" OnClick="backtostartpage_Click"/>
+                                    <asp:Button ID="popButton" runat="server" Text="Populate" class="btn btn-primary js-scroll-trigger" OnClick="populate_Click"/>
                                 </div>
                                 <!--form-group-->
                                 <label id="lblStatus"></label>
