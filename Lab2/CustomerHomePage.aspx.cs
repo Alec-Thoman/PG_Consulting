@@ -115,7 +115,8 @@ namespace Lab2
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            Session["Notification"] = txtName.Text + "request " + ServiceList.SelectedValue + " Event On " + txtDate.Text;
+            //Session["Notification"] = txtName.Text + "request " + ServiceList.SelectedValue + " Event On " + txtDate.Text;
+            Session["Notification"] = txtName.Text + "request " + CheckBoxList1.SelectedValue + " Event On " + txtDate.Text;
             Details.Text = "Request Successful, Notification sent!";
         }
 

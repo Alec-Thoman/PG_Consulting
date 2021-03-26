@@ -49,7 +49,7 @@ namespace Lab2
 
         protected void Back_Click(object sender, EventArgs e)
         {
-            Response.Redirect("EmployeeHomePage.aspx");
+            Response.Redirect("EmployeeHomePageBStrap.aspx");
         }
     }
 }

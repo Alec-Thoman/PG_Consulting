@@ -145,11 +145,16 @@
                 <asp:Label ID="lblServiceRequest" runat="server" Text="Requested Service:  "></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:DropDownList ID="ddlServiceRequest" runat="server">
+                <%--<asp:DropDownList ID="ddlServiceRequest" runat="server">
                     <asp:ListItem Text="-Select-" Selected="True" Value="default"></asp:ListItem>
                     <asp:ListItem Text="Moving"></asp:ListItem>
                     <asp:ListItem Text="Auction"></asp:ListItem>
-                </asp:DropDownList>
+                </asp:DropDownList>--%>
+                <asp:CheckBoxList ID="CheckBoxList1" runat="server">
+                            <asp:ListItem> Auction </asp:ListItem>
+                            <asp:ListItem> Move </asp:ListItem>
+                            <asp:ListItem> Appraisal </asp:ListItem>
+                </asp:CheckBoxList>
             </asp:TableCell>
         </asp:TableRow>
 

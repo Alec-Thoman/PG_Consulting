@@ -59,8 +59,13 @@
                         <asp:Label ID="lblType" runat="server" Text="ServiceType: "></asp:Label>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:DropDownList ID="ServiceList" runat="server"
-                    DataSourceID="dtasrcServiceList" DataTextField="ServiceType" DataValueField="ServiceID" AutoPostBack="true" ></asp:DropDownList>
+                        <%--<asp:DropDownList ID="ServiceList" runat="server"--%>
+                    <%--DataSourceID="dtasrcServiceList" DataTextField="ServiceType" DataValueField="ServiceID" AutoPostBack="true" ></asp:DropDownList>--%>
+                        <asp:CheckBoxList ID="CheckBoxList1" runat="server">
+                            <asp:ListItem> Auction </asp:ListItem>
+                            <asp:ListItem> Move </asp:ListItem>
+                            <asp:ListItem> Appraisal </asp:ListItem>
+                        </asp:CheckBoxList>
                     </asp:TableCell>
                 </asp:TableRow>
                      <asp:TableRow>
@@ -68,7 +73,7 @@
                         <asp:Label ID="lblDate" runat="server" Text="Event Date: "></asp:Label>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:TextBox ID="txtDate" runat="server" Text=""></asp:TextBox>
+                        <asp:TextBox ID="txtDate" runat="server" Text="" TextMode="Date"></asp:TextBox>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" 
                             ControlToValidate="txtDate" Text="Field Cannot Be Blank" ForeColor="Red" EnableClientScript="false"></asp:RequiredFieldValidator>
                     </asp:TableCell>
@@ -94,7 +99,7 @@
                         <asp:Label ID="lbInitStorDate" runat="server" Text="Initial Storage Date:"></asp:Label>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:TextBox ID="tbInitStorDate" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="tbInitStorDate" runat="server" TextMode="Date"></asp:TextBox>
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
@@ -102,7 +107,7 @@
                         <asp:Label ID="lbAuctionDate" runat="server" Text="Auction Date:"></asp:Label>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:TextBox ID="tbAuctionDate" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="tbAuctionDate" runat="server" TextMode="Date"></asp:TextBox>
                     </asp:TableCell>
                 </asp:TableRow>
                       <asp:TableRow>
