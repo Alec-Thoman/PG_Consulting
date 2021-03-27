@@ -68,7 +68,7 @@
                 <%--</div>--%>
             <%--</div>--%>
             <div>
-                <a class="btn btn-primary" href="../add-service/add-service.html">New Service</a>
+                <a class="btn btn-primary" href="CustomerNewService.aspx">New Service</a>
             </div>
         </div>
         <div class="row">
