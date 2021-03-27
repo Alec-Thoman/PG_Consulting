@@ -209,6 +209,7 @@
     <Content Include="CustomerLoginPageBStrap.aspx" />
     <Content Include="CustomerHomePageBStrap.aspx" />
     <Content Include="Customer_ServiceViewBStrap.aspx" />
+    <Content Include="CustomerContactPage.aspx" />
     <Content Include="Workflow.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -347,6 +348,13 @@
     </Compile>
     <Compile Include="Customer_ServiceViewBStrap.aspx.designer.cs">
       <DependentUpon>Customer_ServiceViewBStrap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerContactPage.aspx.cs">
+      <DependentUpon>CustomerContactPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerContactPage.aspx.designer.cs">
+      <DependentUpon>CustomerContactPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Workflow.aspx.cs">
       <DependentUpon>Workflow.aspx</DependentUpon>

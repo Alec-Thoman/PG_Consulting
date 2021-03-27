@@ -1,22 +1,23 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Customer_ServiceViewBStrap.aspx.cs" Inherits="Lab2.Customer_ServiceViewBStrap" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="CustomerContactPage.aspx.cs" Inherits="Lab2.CustomerContactPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <html lang="en-US">
 
 <head>
-    <title>Green Valley Auction</title>
+    <title>Green Valley Auctions</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/styles.css">
-    <link rel="stylesheet" href="../../css/custom-styles.css">
+    <link rel="stylesheet" href="../css/custom-styles.css">
+    <script src="https://kit.fontawesome.com/80d9cd143b.js" crossorigin="anonymous"></script>
 </head>
 
 <body id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger text-black" href="EmployeeHomePageBStrap.aspx">
+            <a class="navbar-brand js-scroll-trigger" href="../customer-index.html">
                 <div class="logo"><img src="img/Logos/GVALogo_Green_resized.png"
                         alt="Green Valley Auctions Logo" width="200" height="100"></div>
             </a>
@@ -28,84 +29,105 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black" href="Customer_ServiceViewBStrap.aspx">Services</a>
-                    </li>
-                    <%--<li class="nav-item"><a class="nav-link js-scroll-trigger text-black"--%>
-                            <%--href="../customer-table/customer-table.html">Customers</a></li>--%>
-                    <%--<li class="nav-item"><a class="nav-link js-scroll-trigger text-black"--%>
-                            <%--href="../inventory/inventory.html">Inventory</a>--%>
-                    <%--</li>--%>
-                    <%--<li class="nav-item"><a class="nav-link js-scroll-trigger text-black"--%>
-                            <%--href="../employee-table/employee-table.html">Employees</a>--%>
-                    <%--</li>--%>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black" href="CustomerContactPage.aspx">Contact</a>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
+                            href="Customer_ServiceViewBStrap.aspx">Services</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black" href="#page-top">Contact</a>
                     </li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
-                            href="customer/profile/customer-profile.html">Profile</a>
+                            href="../profile/customer-profile.html">Profile</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <section class="about-section mt-4 pr-5 pl-5" style="padding-top: 100px;">
+    <!--Section: Contact v.2-->
+    <section class="mb-4 mt-4 pr-5 pl-5" style=" padding-top: 150px;">
+
+        <!--Section heading-->
+        <h2 class="h1-responsive font-weight-bold text-left my-4">Contact us</h2>
+        <!--Section description-->
+        <p class="text-left w-responsive mx-auto mb-5">Interested in one of our services? Get in contact below or call
+            our office at (540) 434-4260.</p>
+
         <div class="row">
-            <div class="col-10">
-                <h1>Services</h1>
+
+            <!--Grid column-->
+            <div class="col-md-9 mb-md-0 mb-5">
+                <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+                    <!--Grid row-->
+                    <div class="row">
+
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-3">
+                                <label for="name" class="">Your name</label>
+                                <%--<input type="text" id="name" name="name" class="form-control">--%>
+                                <asp:TextBox ID="nameTB" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-3">
+                                <label for="email" class="">Your email</label>
+                                <%--<input type="text" id="email" name="email" class="form-control">--%>
+                                <asp:TextBox ID="emailTB" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+
+                    </div>
+                    <!--Grid row-->
+
+                    <!--Grid row-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="md-form mb-3">
+                                <label for="subject" class="">Subject</label>
+                                <%--<input type="text" id="subject" name="subject" class="form-control">--%>
+                                <asp:TextBox ID="subjectTB" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Grid row-->
+
+                    <!--Grid row-->
+                    <div class="row">
+
+                        <!--Grid column-->
+                        <div class="col-md-12">
+
+                            <div class="md-form mb-3">
+                                <label for="message">Your message</label>
+                                <%--<textarea type="text" id="message" name="message" rows="3"--%>
+                                    <%--class="form-control md-textarea"></textarea>--%>
+
+                                <textarea id="bodyTA" rows="3" class="form-control md-textarea" name="bodyTA"></textarea>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--Grid row-->
+
+                </form>
+
+                <div class="text-center text-md-left">
+                    <%--<a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>--%>
+                    <asp:Button ID="sendButton" runat="server" Text="Send" OnClick="sendClick" class="btn btn-primary"/>
+                </div>
+                <div class="status"></div>
             </div>
+            <!--Grid column-->
+
         </div>
-        <div class="row">
-            <%--<div class="col-10">--%>
-                <%--<div class="input-group">--%>
-                    <%--<div class="form-outline">--%>
-                        <%--<input type="search" id="txtName" class="form-control" placeholder="Customer Name" runat="server" />--%>
-                        <%--<input type="search" id="txtDate" class="form-control" placeholder="Date" runat="server"/>--%>
-                        <%--<input type="search" id="txtAddress" class="form-control" placeholder="Address" runat="server"/>--%>
-                        <%--<asp:Button ID="SearchBtn" class="btn btn-primary" onClick="search_click" runat="server" Text="Search" />--%>
-                        <%--<asp:Button ID="PopulateBtn" class="btn btn-primary" onClick="populate_click" runat="server" Text="Populate" />--%>
-                    <%--</div>--%>
-                    <!-- <button type="button" class="btn btn-secondary">
-                <i class="fas fa-search"></i>
-            </button> -->
-                <%--</div>--%>
-            <%--</div>--%>
-            <div>
-                <a class="btn btn-primary" href="../add-service/add-service.html">New Service</a>
-            </div>
-        </div>
-        <div class="row">
-            <asp:GridView ID="searchView" runat="server" class="table table-bordered" EmptyDataText="No Record">
-                </asp:GridView>
-           <%-- <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>--%>
-        </div>
+
     </section>
+    <!--Section: Contact v.2-->
+    <!-- Footer -->
     <footer class="bg-light text-left text-lg-start">
         <!-- Grid container -->
         <div class="container p-4">
@@ -171,6 +193,7 @@
         </div>
         <!-- Copyright -->
     </footer>
+    <!-- Footer -->
     <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -181,7 +204,4 @@
 </body>
 
 </html>
-    <asp:SqlDataSource runat="server" ID="dtasrcCustomerList"
-        ConnectionString="Server=Localhost;Database=Lab3;Trusted_Connection=Yes;" SelectCommand="Select CustomerID, CustomerName from Customer Order By CustomerName ASC" />
-
 </asp:Content>

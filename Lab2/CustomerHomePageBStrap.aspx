@@ -31,7 +31,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger"
                             href="Customer_ServiceViewBStrap.aspx">Services</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="customer/contact/contact.html">Contact</a>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="CustomerContactPage.aspx">Contact</a>
                     </li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger"
                             href="customer/profile/customer-profile.html">Profile</a>
@@ -47,7 +47,7 @@
                 <h1 class="text-white splash-title">Welcome!</h1>
                 <h2 class="text-white mt-2 mb-5">Here you can learn how to contact Green Valley Auctions to schedule an
                     appraisal!</h2>
-                <a class="btn btn-primary" href="customer/contact/contact.html">Contact</a>
+                <a class="btn btn-primary" href="CustomerContactPage.aspx">Contact</a>
             </div>
         </div>
     </header>
