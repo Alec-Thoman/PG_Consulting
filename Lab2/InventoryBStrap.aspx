@@ -1,24 +1,23 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="EmployeeHomePageBStrap.aspx.cs" Inherits="Lab2.EmployeeHomePageBStrap" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="InventoryBStrap.aspx.cs" Inherits="Lab2.InventoryBStrap" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <html lang="en-US">
+<html lang="en-US">
 
 <head>
     <title>Green Valley Auction</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/custom-styles.css">
-    <script src="https://kit.fontawesome.com/80d9cd143b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/custom-styles.css">
 </head>
 
 <body id="page-top">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <div class="logo"><img src="img/Logos/GVALogo_reverse_allwhite_resized.png"
+            <a class="navbar-brand js-scroll-trigger text-black" href="EmployeeHomePageBStrap.aspx">
+                <div class="logo"><img src="img/Logos/GVALogo_Green_resized.png"
                         alt="Green Valley Auctions Logo" width="200" height="100"></div>
             </a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -29,33 +28,35 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger"
-                            href="ServiceViewBStrap.aspx">Services</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger"
-                            href="employee/customer-table/customer-table.html">Customers</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger"
-                            href="InventoryBStrap.aspx">Inventory</a>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
+                            href="../services/services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
+                            href="../customer-table/customer-table.html">Customers</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black" href="#page-top">Inventory</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger"
-                            href="Employee.aspx">Employees</a>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
+                            href="../employee-table/employee-table.html">Employees</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- Masthead-->
-    <header class="masthead">
-        <div class="container d-flex h-100 align-items-center">
-            <div class="ml-5 text-left text-white">
-                <h1 class="text-white splash-title">Welcome!</h1>
-                <h2 class="text-white mt-2 mb-5">Here you can create a new Customer or add a new Customer Service</h2>
-                <a class="btn btn-primary" href="InitialContactInfo.aspx">New
-                    Customer</a>
-                <a class="btn btn-primary" href="ServiceEvent.aspx">New Service</a>
+    <section class="about-section pr-5 pl-5" style="padding-top: 150px;">
+        <div class="col-12">
+            <h1>Inventory</h1>
+            <div class="col-12">
+                <div class="input-group">
+                    <div class="form-outline">
+                        <input type="search" id="searchTxt" class="form-control" runat="server" placeholder="Customer Name" />
+                        <asp:Button ID="SearchBtn" class="btn btn-primary" onClick="search_click" runat="server" Text="Search" />
+                    </div>      
+                </div>
+                <asp:GridView ID="grdInventory" class="table table-bordered" runat="server" AlternatingRowStyle-BackColor="#9dbdb9" EmptyDataText="No Record">
+                </asp:GridView>
             </div>
         </div>
-    </header>
-    <!-- Footer -->
+        </div>
+    </section>
     <footer class="bg-light text-left text-lg-start">
         <!-- Grid container -->
         <div class="container p-4">
@@ -121,7 +122,6 @@
         </div>
         <!-- Copyright -->
     </footer>
-    <!-- Footer -->
     <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -132,4 +132,6 @@
 </body>
 
 </html>
+    <asp:SqlDataSource runat="server" ID="dtasrcCustomerList"
+        ConnectionString="Server=Localhost;Database=Lab3;Trusted_Connection=Yes;" SelectCommand="Select CustomerID, CustomerName from Customer Order By CustomerName ASC"/>
 </asp:Content>

@@ -95,6 +95,7 @@
     <Content Include="img\sm-example1.jpg" />
     <Content Include="img\sm-example2.jpg" />
     <Content Include="InitialContactInfo.aspx" />
+    <Content Include="InventoryBStrap.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -239,6 +240,13 @@
     </Compile>
     <Compile Include="InitialContactInfo.aspx.designer.cs">
       <DependentUpon>InitialContactInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryBStrap.aspx.cs">
+      <DependentUpon>InventoryBStrap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryBStrap.aspx.designer.cs">
+      <DependentUpon>InventoryBStrap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceViewBStrap.aspx.cs">

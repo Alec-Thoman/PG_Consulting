@@ -49,13 +49,10 @@ CREATE TABLE TicketHistory (
 
 CREATE TABLE InventoryItem (
 	[ItemID] [int] IDENTITY(1,1) primary key,
-	ItemDescription 	char(30),
-	Weight			float(10),
-	SalesPrice       float(10),
+	ItemDescription 	char(50),
+	Control char(10),
 	StorageLocation char(50),
-	StoragePurpose char(50),
-	InitialStorageDate date,
-	AuctionDate date,
+	InitialStorageDate char(10),
 ); 
 
 CREATE TABLE Equipment (
@@ -186,16 +183,16 @@ SET IDENTITY_INSERT [dbo].[Inventoryitem] ON
 GO  
   
   
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[weight],[salesprice], [StorageLocation], [StoragePurpose], [InitialStorageDate], [AuctionDate]) values('1','books','10','23', 'Basement', 'Auction', '2019-01-01', '2019-05-01');
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[weight],[salesprice], [StorageLocation], [StoragePurpose], [InitialStorageDate]) values('2','chairs','20','4', 'Storage Locker 1', 'Actual Storage', '2020-01-07');
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[weight],[salesprice], [StorageLocation], [StoragePurpose], [InitialStorageDate], [AuctionDate]) values('3','House','23','66', '3rd Floor, 1st locker', 'Auction', '2016-09-01', '2022-01-01');
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[weight],[salesprice], [StorageLocation], [StoragePurpose], [InitialStorageDate]) values('4','Bed','14','72', 'Trailer out back', 'Actual Storage', '2018-03-06');
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[weight],[salesprice], [StorageLocation], [StoragePurpose], [InitialStorageDate]) values('5','Mirror','6','12', 'Storage Locker 3', 'Actual Storage', '2019-08-08');
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[weight],[salesprice], [StorageLocation], [StoragePurpose], [InitialStorageDate], [AuctionDate]) values('6','Car','50','33', 'Garage 2', 'Auction', '2020-02-05','2021-04-15');
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[weight],[salesprice], [StorageLocation], [StoragePurpose], [InitialStorageDate], [AuctionDate]) values('7','Paper box','10','23', 'Storage Shed 1', 'Auction', '2019-08-01', '2021-07-01');
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[weight],[salesprice], [StorageLocation], [StoragePurpose], [InitialStorageDate]) values('8','Desk','10','11', 'Garage 4', 'Actual Storage', '2021-02-01');
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[weight],[salesprice], [StorageLocation], [StoragePurpose], [InitialStorageDate], [AuctionDate]) values('9','Clothes','12','44', 'Shed 1', 'Auction', '2014-01-11' ,'2021-11-01');
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[weight],[salesprice], [StorageLocation], [StoragePurpose], [InitialStorageDate], [AuctionDate]) values('10','Chairs','11','87', 'Storage Locker 3', 'Auction', '2010-06-01' ,'2021-10-14');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [StorageLocation],[InitialStorageDate]) values('1','books','default', 'Basement','2019-01-01');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [StorageLocation],[InitialStorageDate]) values('2','chairs','default', 'Storage Locker 1','2020-01-07');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [StorageLocation],[InitialStorageDate]) values('3','House','default', '3rd Floor, 1st locker','2016-09-01');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [StorageLocation],[InitialStorageDate]) values('4','Bed','default', 'Trailer out back', '2018-03-06');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [StorageLocation],[InitialStorageDate]) values('5','Mirror','default', 'Storage Locker 3','2019-08-08');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [StorageLocation],[InitialStorageDate]) values('6','Car','default', 'Garage 2', '2020-02-05');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [StorageLocation],[InitialStorageDate]) values('7','Paper box','default', 'Storage Shed 1', '2019-08-01');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [StorageLocation],[InitialStorageDate]) values('8','Desk','default', 'Garage 4', '2021-02-01');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [StorageLocation],[InitialStorageDate]) values('9','Clothes','default', 'Shed 1', '2014-01-11');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [StorageLocation],[InitialStorageDate]) values('10','Chairs','default', 'Storage Locker 3','2010-06-01');
   
 SET IDENTITY_INSERT [dbo].[Inventoryitem] Off 
 GO 
