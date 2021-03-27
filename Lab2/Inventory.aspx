@@ -15,5 +15,4 @@
               <asp:SqlDataSource runat="server" ID="dtasrcCustomerList"
         ConnectionString="Server=Localhost;Database=Lab3;Trusted_Connection=Yes;" SelectCommand="Select CustomerID, CustomerName from Customer Order By CustomerName ASC"/>
         <asp:Button ID="Back" runat="server" Text="Back to Navigate Page" Onclick="Back_Click"/>
-        <asp:Label ID="Label1" runat="server" Text="Created by Yuhui and Jacob" ForeColor="Blue"></asp:Label>
 </asp:Content>
