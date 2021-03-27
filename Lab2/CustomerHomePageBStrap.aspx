@@ -9,8 +9,8 @@
     <title>Green Valley Auction</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/custom-styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/custom-styles.css">
     <script src="https://kit.fontawesome.com/80d9cd143b.js" crossorigin="anonymous"></script>
 </head>
 
@@ -19,7 +19,7 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <div class="logo"><img src="../assets/img/Logos/GVALogo_reverse_allwhite_resized.png"
+                <div class="logo"><img src="img/Logos/GVALogo_reverse_allwhite_resized.png"
                         alt="Green Valley Auctions Logo" width="200" height="100"></div>
             </a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -31,11 +31,11 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger"
-                            href="services/services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="contact/contact.html">Contact</a>
+                            href="customer/services/services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="customer/contact/contact.html">Contact</a>
                     </li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger"
-                            href="profile/customer-profile.html">Profile</a>
+                            href="customer/profile/customer-profile.html">Profile</a>
                     </li>
                 </ul>
             </div>
@@ -48,7 +48,7 @@
                 <h1 class="text-white splash-title">Welcome!</h1>
                 <h2 class="text-white mt-2 mb-5">Here you can learn how to contact Green Valley Auctions to schedule an
                     appraisal!</h2>
-                <a class="btn btn-primary" href="contact/contact.html">Contact</a>
+                <a class="btn btn-primary" href="customer/contact/contact.html">Contact</a>
             </div>
         </div>
     </header>
