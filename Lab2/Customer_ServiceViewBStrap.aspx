@@ -28,16 +28,20 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black" href="#page-top">Services</a>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black" href="Customer_ServiceViewBStrap.aspx">Services</a>
+                    </li>
+                    <%--<li class="nav-item"><a class="nav-link js-scroll-trigger text-black"--%>
+                            <%--href="../customer-table/customer-table.html">Customers</a></li>--%>
+                    <%--<li class="nav-item"><a class="nav-link js-scroll-trigger text-black"--%>
+                            <%--href="../inventory/inventory.html">Inventory</a>--%>
+                    <%--</li>--%>
+                    <%--<li class="nav-item"><a class="nav-link js-scroll-trigger text-black"--%>
+                            <%--href="../employee-table/employee-table.html">Employees</a>--%>
+                    <%--</li>--%>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black" href="customer/contact/contact.html">Contact</a>
                     </li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
-                            href="../customer-table/customer-table.html">Customers</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
-                            href="../inventory/inventory.html">Inventory</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
-                            href="../employee-table/employee-table.html">Employees</a>
-                    </li>
+                            href="customer/profile/customer-profile.html">Profile</a>
                 </ul>
             </div>
         </div>

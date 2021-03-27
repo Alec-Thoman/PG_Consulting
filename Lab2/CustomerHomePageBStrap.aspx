@@ -4,13 +4,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <html lang="en-US">
 
-
-<head>
-    <title>Green Valley Auction</title>
+    <head>
+    <title>Green Valley Auctions</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/custom-styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/custom-styles.css">
     <script src="https://kit.fontawesome.com/80d9cd143b.js" crossorigin="anonymous"></script>
 </head>
 
@@ -129,4 +128,5 @@
 </body>
 
 </html>
+
 </asp:Content>
