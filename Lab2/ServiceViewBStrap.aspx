@@ -68,7 +68,7 @@
             </div>
         </div>
         <div class="row">
-            <asp:GridView ID="searchView" runat="server" class="table table-bordered" EmptyDataText="No Record">
+            <asp:GridView ID="searchView" runat="server" class="table table-bordered" AlternatingRowStyle-BackColor="#9dbdb9" EmptyDataText="No Record">
                 </asp:GridView>
            <%-- <table class="table table-bordered">
                 <thead>
