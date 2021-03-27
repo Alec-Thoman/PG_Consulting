@@ -118,6 +118,7 @@
                 <div class="text-center text-md-left">
                     <%--<a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>--%>
                     <asp:Button ID="sendButton" runat="server" Text="Send" OnClick="sendClick" class="btn btn-primary"/>
+                    <asp:Label ID="reqStatus" runat="server" Text=""></asp:Label>
                 </div>
                 <div class="status"></div>
             </div>

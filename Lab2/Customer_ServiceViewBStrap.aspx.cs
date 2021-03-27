@@ -18,12 +18,14 @@ namespace Lab2
             searchView.DataBind();
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
-            //Console.WriteLine(Session["UserName"].ToString());
-            String email = Session["UserName"].ToString();
-            String uname = email.Substring(0, email.IndexOf("@"));
-
-
-
+            String email = "";
+            String uname = "";
+            if (Session["UserName"] != null)
+            {
+                email = Session["UserName"].ToString();
+                uname = email.Substring(0, email.IndexOf("@"));
+            }
+    
             String sqlMain = "SELECT customer.CustomerName as [Customer Name], service.ServiceType as [Service Type],  employee.employeeName as [Employee Name], ServiceTicket.TicketBeginDate as [Date Created], ServiceTicket.TicketStatus as Status, ServiceTicket.Address, " +
                 "Serviceticket.Deadline as [Date of Service] from serviceTicket inner join" +
                 " customer on customer.customerID = serviceTicket.customerID inner join employee on employee.employeeID = serviceTicket.employeeID inner join service on service.serviceid" +

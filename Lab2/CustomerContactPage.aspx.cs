@@ -17,7 +17,15 @@ namespace Lab2
 
         protected void sendClick(object sender, EventArgs e)
         {
-            sendEmail("GreenValleyServices2021@gmail.com", emailTB.Text);
+            if (!emailTB.Text.Equals("") && !subjectTB.Text.Equals("") 
+                && !Request.Form["bodyTA"].ToString().Equals(""))
+            {
+                sendEmail("GreenValleyServices2021@gmail.com", emailTB.Text);
+                reqStatus.Text = "Contact request successfully sent!";
+            } else
+            {
+                reqStatus.Text = "Please fill out all boxes and try again";
+            }
         }
 
         private void sendEmail(string fromEmail, string toEmail)
