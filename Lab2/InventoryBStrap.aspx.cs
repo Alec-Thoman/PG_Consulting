@@ -20,12 +20,22 @@ namespace Lab2
         {
             grdInventory.DataSource = null;
             grdInventory.DataBind();
+            String sqlQuery = "";
+            if (String.IsNullOrEmpty(searchTxt.Value))
+            {
+                sqlQuery = "SELECT customer.CustomerName as [Customer Name], inventoryitem.StorageLocation as Lot, inventoryitem.Control as Control, inventoryitem.itemDescription as Description,  inventoryitem.InitialStorageDate as [Date Stored] from InventoryService inner join InventoryItem on InventoryItem.itemid " +
+                "= InventoryService.itemid inner join ServiceTicket on ServiceTicket.serviceticketid = inventoryservice.serviceticketid inner join customer on customer.customerid = serviceticket.customerid";
+                
+            }
+            else
+            {
+                String customer = searchTxt.Value;
 
-            String customer = searchTxt.Value;
-
-            String sqlQuery = "SELECT customer.CustomerName as [Customer Name], inventoryitem.StorageLocation as Lot, inventoryitem.Control as Control, inventoryitem.itemDescription as Description,  inventoryitem.InitialStorageDate as [Date Stored] from InventoryService inner join InventoryItem on InventoryItem.itemid " +
-                "= InventoryService.itemid inner join ServiceTicket on ServiceTicket.serviceticketid = inventoryservice.serviceticketid inner join customer on customer.customerid = serviceticket.customerid where " +
-                "Customer.CustomerName = '" + customer + "'";
+                sqlQuery = "SELECT customer.CustomerName as [Customer Name], inventoryitem.StorageLocation as Lot, inventoryitem.Control as Control, inventoryitem.itemDescription as Description,  inventoryitem.InitialStorageDate as [Date Stored] from InventoryService inner join InventoryItem on InventoryItem.itemid " +
+                    "= InventoryService.itemid inner join ServiceTicket on ServiceTicket.serviceticketid = inventoryservice.serviceticketid inner join customer on customer.customerid = serviceticket.customerid where " +
+                    "Customer.CustomerName = '" + customer + "'";
+            }
+            
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 

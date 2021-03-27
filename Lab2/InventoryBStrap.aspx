@@ -29,13 +29,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
-                            href="../services/services.html">Services</a></li>
+                            href="ServiceViewBStrap.aspx">Services</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
-                            href="../customer-table/customer-table.html">Customers</a></li>
+                            href="EmployeeCustomerViewBStrap.aspx">Customers</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger text-black" href="#page-top">Inventory</a>
                     </li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
-                            href="../employee-table/employee-table.html">Employees</a>
+                            href="EmployeeViewBStrap.aspx">Employees</a>
                     </li>
                 </ul>
             </div>

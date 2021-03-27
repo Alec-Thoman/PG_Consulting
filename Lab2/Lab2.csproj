@@ -74,8 +74,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="CustomerHomePage.aspx" />
+    <Content Include="EmployeeCustomerViewBStrap.aspx" />
     <Content Include="EmployeeHomePageBStrap.aspx" />
     <Content Include="EmployeeLoginPageBStrap.aspx" />
+    <Content Include="EmployeeViewBStrap.aspx" />
     <Content Include="img\81.jpg" />
     <Content Include="img\bg-masthead.jpg" />
     <Content Include="img\bg-signup.jpg" />
@@ -202,7 +204,6 @@
     <Content Include="CustomerLoginPage.aspx" />
     <Content Include="NewCustomer.aspx" />
     <Content Include="ServiceEvent.aspx" />
-    <Content Include="Inventory.aspx" />
     <Content Include="Employee.aspx" />
     <Content Include="FileUpload.aspx" />
     <Content Include="LandingPage.aspx" />
@@ -223,6 +224,13 @@
     <Compile Include="CustomerHomePage.aspx.designer.cs">
       <DependentUpon>CustomerHomePage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeCustomerViewBStrap.aspx.cs">
+      <DependentUpon>EmployeeCustomerViewBStrap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeCustomerViewBStrap.aspx.designer.cs">
+      <DependentUpon>EmployeeCustomerViewBStrap.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeHomePageBStrap.aspx.cs">
       <DependentUpon>EmployeeHomePageBStrap.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -236,6 +244,13 @@
     </Compile>
     <Compile Include="EmployeeLoginPageBStrap.aspx.designer.cs">
       <DependentUpon>EmployeeLoginPageBStrap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeViewBStrap.aspx.cs">
+      <DependentUpon>EmployeeViewBStrap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeViewBStrap.aspx.designer.cs">
+      <DependentUpon>EmployeeViewBStrap.aspx</DependentUpon>
     </Compile>
     <Compile Include="InitialContactInfo.aspx.cs">
       <DependentUpon>InitialContactInfo.aspx</DependentUpon>
@@ -294,13 +309,6 @@
     </Compile>
     <Compile Include="ServiceEvent.aspx.designer.cs">
       <DependentUpon>ServiceEvent.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inventory.aspx.cs">
-      <DependentUpon>Inventory.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inventory.aspx.designer.cs">
-      <DependentUpon>Inventory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Employee.aspx.cs">
       <DependentUpon>Employee.aspx</DependentUpon>

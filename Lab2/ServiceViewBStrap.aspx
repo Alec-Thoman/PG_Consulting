@@ -31,12 +31,12 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger text-black" href="#page-top">Services</a>
                     </li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
-                            href="../customer-table/customer-table.html">Customers</a></li>
+                            href="EmployeeCustomerViewBStrap.aspx">Customers</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
-                            href="../inventory/inventory.html">Inventory</a>
+                            href="InventoryBStrap.aspx">Inventory</a>
                     </li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
-                            href="../employee-table/employee-table.html">Employees</a>
+                            href="EmployeeViewBStrap.aspx">Employees</a>
                     </li>
                 </ul>
             </div>
