@@ -34,7 +34,7 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="CustomerContactPage.aspx">Contact</a>
                     </li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger"
-                            href="customer/profile/customer-profile.html">Profile</a>
+                            href="CustomerProfile.aspx">Profile</a>
                     </li>
                 </ul>
             </div>

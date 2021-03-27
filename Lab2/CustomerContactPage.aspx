@@ -17,7 +17,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="../customer-index.html">
+            <a class="navbar-brand js-scroll-trigger" href="CustomerHomePageBStrap.aspx">
                 <div class="logo"><img src="img/Logos/GVALogo_Green_resized.png"
                         alt="Green Valley Auctions Logo" width="200" height="100"></div>
             </a>
@@ -34,7 +34,7 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger text-black" href="#page-top">Contact</a>
                     </li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
-                            href="../profile/customer-profile.html">Profile</a>
+                            href="CustomerProfile.aspx">Profile</a>
                     </li>
                 </ul>
             </div>
