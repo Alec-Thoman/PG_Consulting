@@ -49,9 +49,9 @@
             <div class="ml-5 text-left text-white">
                 <h1 class="text-white splash-title">Welcome!</h1>
                 <h2 class="text-white mt-2 mb-5">Here you can create a new Customer or add a new Customer Service</h2>
-                <a class="btn btn-primary" href="InitialContactInfo.aspx">New
+                <a class="btn btn-primary" href="EmployeeNewCustomerBStrap.aspx">New
                     Customer</a>
-                <a class="btn btn-primary" href="ServiceEvent.aspx">New Service</a>
+                <a class="btn btn-primary" href="ServiceEventBStrap.aspx">New Service</a>
             </div>
         </div>
     </header>

@@ -77,6 +77,7 @@
     <Content Include="EmployeeCustomerViewBStrap.aspx" />
     <Content Include="EmployeeHomePageBStrap.aspx" />
     <Content Include="EmployeeLoginPageBStrap.aspx" />
+    <Content Include="EmployeeNewCustomerBStrap.aspx" />
     <Content Include="EmployeeViewBStrap.aspx" />
     <Content Include="img\81.jpg" />
     <Content Include="img\bg-masthead.jpg" />
@@ -244,6 +245,13 @@
     </Compile>
     <Compile Include="EmployeeLoginPageBStrap.aspx.designer.cs">
       <DependentUpon>EmployeeLoginPageBStrap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeNewCustomerBStrap.aspx.cs">
+      <DependentUpon>EmployeeNewCustomerBStrap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeNewCustomerBStrap.aspx.designer.cs">
+      <DependentUpon>EmployeeNewCustomerBStrap.aspx</DependentUpon>
     </Compile>
     <Compile Include="EmployeeViewBStrap.aspx.cs">
       <DependentUpon>EmployeeViewBStrap.aspx</DependentUpon>

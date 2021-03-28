@@ -1,8 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ServiceViewBStrap.aspx.cs" Inherits="Lab2.ServiceViewBStrap" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="EmployeeNewCustomerBStrap.aspx.cs" Inherits="Lab2.EmployeeNewCustomer" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <html lang="en-US">
+
+<html lang="en-US">
 
 <head>
     <title>Green Valley Auction</title>
@@ -28,10 +29,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black" href="#page-top">Services</a>
-                    </li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
-                            href="EmployeeCustomerViewBStrap.aspx">Customers</a></li>
+                            href="ServiceViewBStrap.aspx">Services</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black" href="EmployeeCustomerViewBStrap.aspx">Customers</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
                             href="InventoryBStrap.aspx">Inventory</a>
                     </li>
@@ -42,64 +43,59 @@
             </div>
         </div>
     </nav>
-    <section class="about-section mt-4 pr-5 pl-5" style="padding-top: 100px;">
+    <section class="about-section pr-5 pl-5" style="padding-top: 150px;">
         <div class="row">
-            <div class="col-10">
-                <h1>Services</h1>
-            </div>
+            <h1>New Customer</h1>
         </div>
         <div class="row">
-            <div class="col-10">
-                <div class="input-group">
-                    <div class="form-outline">
-                        <input type="search" id="txtName" class="form-control" placeholder="Customer Name" runat="server" />
-                        <input type="search" id="txtDate" class="form-control" placeholder="Date" runat="server"/>
-                        <input type="search" id="txtAddress" class="form-control" placeholder="Address" runat="server"/>
-                        <asp:Button ID="SearchBtn" class="btn btn-primary" onClick="search_click" runat="server" Text="Search" />
-                        <asp:Button ID="PopulateBtn" class="btn btn-primary" onClick="populate_click" runat="server" Text="Populate" />
+            <div class="col-12">
+                <form>
+                    <label for="exampleFormControlInput1" id="submitDetail" runat="server"> </label>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Name</label>
+                        <input class="form-control" id="nameTxt" placeholder="First Last" runat="server">
                     </div>
-                    <!-- <button type="button" class="btn btn-secondary">
-                <i class="fas fa-search"></i>
-            </button> -->
-                </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Phone Number</label>
+                        <input class="form-control" id="phoneTxt"
+                            placeholder="555-555-5555" runat="server">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Address</label>
+                        <input class="form-control" id="addressTxt"
+                            placeholder="555 Street City, State ZIP" runat="server">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Email Address (Username)</label>
+                        <input type="email" class="form-control" id="emailTxt"
+                            placeholder="name@example.com" runat="server">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Password</label>
+                        <input class="form-control" id="passwordTxt" runat="server">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Mode of Contact</label>
+                        <asp:DropDownList ID="DropDownList1" runat="server">
+                            <asp:ListItem Text="In Person"></asp:ListItem>
+                            <asp:ListItem Text="By Phone"></asp:ListItem>
+                            <asp:ListItem Text="Email"></asp:ListItem>
+                            <asp:ListItem Text="Text"></asp:ListItem>
+                            <asp:ListItem Text="Other"></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">How did they hear about us?</label>
+                        <input class="form-control" id="hearAboutTxt" runat="server">
+                    </div>
+                </form>
             </div>
-            <div>
-                <a class="btn btn-primary" href="ServiceEventBStrap.aspx">New Service</a>
+            <div class="row">
+                    <asp:Button ID="submitBtn" class="btn btn-primary" runat="server" Text="Submit" OnClick="submit_Click"/>
+                <asp:Button ID="populateBtn" class="btn btn-primary" runat="server" Text="Populate" OnClick="populate_Click"/>
+
+                
             </div>
-        </div>
-        <div class="row">
-            <asp:GridView ID="searchView" runat="server" class="table table-bordered" AlternatingRowStyle-BackColor="#9dbdb9" EmptyDataText="No Record">
-                </asp:GridView>
-           <%-- <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>--%>
         </div>
     </section>
     <footer class="bg-light text-left text-lg-start">
@@ -177,6 +173,4 @@
 </body>
 
 </html>
-    <asp:SqlDataSource runat="server" ID="dtasrcCustomerList"
-        ConnectionString="Server=Localhost;Database=Lab3;Trusted_Connection=Yes;" SelectCommand="Select CustomerID, CustomerName from Customer Order By CustomerName ASC" />
 </asp:Content>

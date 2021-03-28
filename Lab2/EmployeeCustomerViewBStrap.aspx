@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div>
-                <a class="btn btn-primary" href="../create-customer/create-customer.html" type="submit">New Customer</a>
+                <a class="btn btn-primary" href="EmployeeNewCustomerBStrap.aspx" type="submit">New Customer</a>
             </div>
         </div>
         
