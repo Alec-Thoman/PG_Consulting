@@ -16,7 +16,7 @@ namespace Lab2
             if (Request.QueryString.Get("loggedout") == "true")
             {
                 Label loginMessage = new Label();
-                loginMessage.Text = "User has successfully log out";
+                loginMessage.Text = "User has successfully logged out";
                 this.Controls.Add(loginMessage);
                 //lblStatus.Text = "User has successfully log out";
                 //lblStatus.Font.Bold = true;

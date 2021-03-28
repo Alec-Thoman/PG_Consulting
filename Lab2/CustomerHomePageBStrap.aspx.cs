@@ -13,11 +13,5 @@ namespace Lab2
         {
 
         }
-
-        protected void logoLogoutClick(object sender, EventArgs e)
-        {
-            Session.Abandon();
-            Response.Redirect("CustomerLoginPageBStrap.aspx?loggedout=true");
-        }
     }
 }

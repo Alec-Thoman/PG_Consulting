@@ -11,6 +11,11 @@ namespace Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            String email = "";
+            String uname = "";
+            email = Session["UserName"].ToString();
+            uname = email.Substring(0, email.IndexOf("@"));
+            nameTB.Text = uname; // set name box to name of user logged in
             openDateTB.Text = DateTime.Now + ""; // sets open ticket date to current date
         }
     }

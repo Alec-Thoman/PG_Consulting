@@ -16,7 +16,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger text-black" href="customer/customer-index.html">
+            <a class="navbar-brand js-scroll-trigger text-black" href="CustomerHomePageBStrap.aspx">
                 <div class="logo"><img src="img/Logos/GVALogo_Green_resized.png"
                         alt="Green Valley Auctions Logo" width="200" height="100"></div>
             </a> <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -106,10 +106,10 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <a class="btn btn-primary" href="customer/services/services.html">Back</a>
+                    <a class="btn btn-primary" href="Customer_ServiceViewBStrap.aspx">Back</a>
                 </div>
                 <div class="col-md-4 offset-md-4">
-                    <a class="btn btn-primary" href="customer/services/services.html" type="submit">Submit</a>
+                    <a class="btn btn-primary" href="Customer_ServiceViewBStrap.aspx" type="submit">Submit</a>
                 </div>
             </div>
         </div>
