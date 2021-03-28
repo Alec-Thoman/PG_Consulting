@@ -67,9 +67,9 @@
             </button> -->
                 <%--</div>--%>
             <%--</div>--%>
-            <div>
+            <%--<div>
                 <a class="btn btn-primary" href="CustomerNewService.aspx">New Service</a>
-            </div>
+            </div>--%>
         </div>
         <div class="row">
             <asp:GridView ID="searchView" runat="server" class="table table-bordered" EmptyDataText="No Record">
