@@ -15,25 +15,32 @@ namespace Lab2
         {
             
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            
-            String email = Session["UserName"].ToString();
-            String uname = email.Substring(0, email.IndexOf("@"));
+            String email = "";
+            String uname = "";
+            if (Session["UserName"] != null)
+            {
+                email = Session["UserName"].ToString();
+                uname = email.Substring(0, email.IndexOf("@"));
+            }
 
             nameTB.Text = uname;
             emailTB.Text = email;
-            String phoneQuery = "select PhoneNumber from Customer where EmailAddress = '" + email + "'";
-            SqlCommand cmd = new SqlCommand(phoneQuery, sqlConnect);
-            string text = "";
+            String phoneandAddressQuery = "select CustomerAddress, PhoneNumber from Customer where EmailAddress = '" + email + "'";
+            //String addressQuery = "select CustomerAddress from Customer where EmailAddress = '" + email + "'";
+            SqlCommand cmd = new SqlCommand(phoneandAddressQuery, sqlConnect);
+            string pn = "";
+            string address = "";
             sqlConnect.Open();
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    text = (string)reader["PhoneNumber"];
-                    
+                    pn = (string)reader["PhoneNumber"];
+                    address = (string)reader["CustomerAddress"];
                 }
             }
-            pnTB.Text = text;
+            pnTB.Text = pn;
+            addressTB.Text = address;
         }
 
     }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="CustomerProfile.aspx.cs" Inherits="Lab2.CustomerProfile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="EditProfilePage.aspx.cs" Inherits="Lab2.EditProfilePage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -41,10 +41,12 @@
   </nav>
   <!--Primary Profile-->
   <section class="about-section pr-5 pl-5" style="padding-top: 150px;">
-    <h1>Profile</h1>
-    <div class="text-center text-md-right">
-      <a href="EditProfilePage.aspx" class="btn btn-primary">Edit</a>
-    </div>
+    <h1> Edit Profile</h1>
+    <br />
+    <br />
+    <%--<div class="text-center text-md-right">
+      <a href="../profile/customer-edit-profile.html" class="btn btn-primary">Edit</a>
+    </div>--%>
     <div class="col-md-12">
       <div class="card">
         <div class="card-body">
@@ -59,7 +61,7 @@
                   <label for="username" class="col-4 col-form-label">Name</label>
                   <div class="col-8">
                     <%--<input id="name" name="name" placeholder="John" class="form-control here" type="text">--%>
-                      <asp:TextBox ID="nameTB" runat="server" placeholder="John" class="form-control here"></asp:TextBox>
+                      <asp:TextBox ID="nameTB" runat="server" class="form-control here"></asp:TextBox>
                   </div>
                 </div>
                 <%--<div class="form-group row">--%>
@@ -88,7 +90,7 @@
                   <label for="select" class="col-4 col-form-label">Address</label>
                   <div class="col-8">
                     <%--<input id="text" name="text" placeholder="In-state" class="form-control here" type="text">--%>
-                      <asp:TextBox ID="addressTB" runat="server" placeholder="1234 street way" class="form-control here"></asp:TextBox>
+                      <asp:TextBox ID="addressTB" runat="server" class="form-control here"></asp:TextBox>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -96,7 +98,7 @@
                   <div class="col-8">
                     <%--<input id="email" name="email" placeholder="john.doe@yahoo.com" class="form-control here"--%>
                       <%--type="text">--%>
-                      <asp:TextBox ID="emailTB" runat="server" placeholder="john.doe@yahoo.com" class="form-control here"></asp:TextBox>
+                      <asp:TextBox ID="emailTB" runat="server" class="form-control here"></asp:TextBox>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -104,9 +106,19 @@
                   <div class="col-8">
                     <%--<input id="phonenumber" name="phonenuber" placeholder="555-232-0000" class="form-control here"--%>
                       <%--type="text">--%>
-                      <asp:TextBox ID="pnTB" runat="server" placeholder="555-232-0000" class="form-control here"></asp:TextBox>
+                      <asp:TextBox ID="pnTB" runat="server" class="form-control here"></asp:TextBox>
+                      <br />
+                      <div class="form-group">
+                      <div class="col-sm-10 col-sm-offset-2">
+                    <%--<button type="submit" class="btn btn-primary">Submit</button>--%>
+                    <%--<button type="reset" class="btn btn-default" onclick="cancelButtonClick">Cancel</button>--%>
+                    <asp:Button ID="submitButton" runat="server" Text="Submit" OnClick="submitButton_Click" class="btn btn-primary" />
+                    <asp:Button ID="cancelButton" runat="server" Text="Cancel" OnClick="cancelButtonClick" class="btn btn-default"/>
                   </div>
                 </div>
+                  </div>
+                </div>
+
                 <%--<div class="form-group row">
                   <label for="additionalinfo" class="col-4 col-form-label">Additional Info</label>
                   <div class="col-8">
@@ -195,3 +207,4 @@
 
 </html>
 </asp:Content>
+

@@ -215,6 +215,7 @@
     <Content Include="CustomerProfile.aspx" />
     <Content Include="ServiceEventBStrap.aspx" />
     <Content Include="CustomerNewService.aspx" />
+    <Content Include="EditProfilePage.aspx" />
     <Content Include="Workflow.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -395,6 +396,13 @@
     </Compile>
     <Compile Include="CustomerNewService.aspx.designer.cs">
       <DependentUpon>CustomerNewService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditProfilePage.aspx.cs">
+      <DependentUpon>EditProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditProfilePage.aspx.designer.cs">
+      <DependentUpon>EditProfilePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Workflow.aspx.cs">
       <DependentUpon>Workflow.aspx</DependentUpon>
