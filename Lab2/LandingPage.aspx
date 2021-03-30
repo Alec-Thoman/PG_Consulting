@@ -27,7 +27,7 @@
                                 <%--<a href="customer/customer-login.html" class="btn btn-primary cust">Customer Sign In</a>--%>
                                 <asp:Button ID="customerSignInButton" class="btn btn-primary cust" runat="server" Text="Customer Sign In" OnClick="customerSignInButton_Click" />
                                 <%--<a href="" class="btn btn-primary cust">Sign Up</a>--%>
-                                <asp:Button ID="signupButton" runat="server" Text="Sign Up" class="btn btn-primary cust" OnClick="signupButton_Click"/>
+                                <%--<asp:Button ID="signupButton" runat="server" Text="Sign Up" class="btn btn-primary cust" OnClick="signupButton_Click"/>--%>
                             </article>
                         </div>
                     </aside>

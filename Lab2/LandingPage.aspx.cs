@@ -24,9 +24,9 @@ namespace Lab2
             Response.Redirect("CustomerLoginPageBStrap.aspx");
         }
 
-        protected void signupButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("NewCustomer.aspx");
-        }
+        //protected void signupButton_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("NewCustomer.aspx");
+        //}
     }
 }
