@@ -22,7 +22,7 @@ namespace Lab2
             if (Session["UserName"] != null)
             {
                 email = Session["UserName"].ToString();
-                uname = email.Substring(0, email.IndexOf("@"));
+                //uname = email.Substring(0, email.IndexOf("@"));
             }
 
             //nameTB.Text = uname;
@@ -32,8 +32,8 @@ namespace Lab2
             SqlCommand cmd = new SqlCommand(customerQuery, sqlConnect);
             string pn = "";
             string address = "";
-            string dbEmail = "";
-            string name = "";
+            //string dbEmail = "";
+            //string name = "";
             sqlConnect.Open();
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
@@ -41,8 +41,8 @@ namespace Lab2
                 {
                     pn = (string)reader["PhoneNumber"];
                     address = (string)reader["CustomerAddress"];
-                    dbEmail = (string)reader["EmailAddress"];
-                    name = (string)reader["CustomerName"];
+                    //dbEmail = (string)reader["EmailAddress"];
+                    uname = (string)reader["CustomerName"];
                     this.custID = (int)reader["CustomerID"];
 
                 }

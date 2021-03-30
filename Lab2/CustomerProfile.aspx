@@ -98,7 +98,7 @@
                       <%--type="text">--%>
                       <%--<asp:TextBox ID="emailTB" runat="server" placeholder="john.doe@yahoo.com" class="form-control here"></asp:TextBox>--%>
                   <%--</div>--%>
-                <%--</div>--%>--%>
+                <%--</div>--%>
                 <div class="form-group row">
                   <label for="website" class="col-4 col-form-label">Phone Number</label>
                   <div class="col-8">
