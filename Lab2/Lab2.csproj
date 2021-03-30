@@ -201,6 +201,7 @@
     <Content Include="ServiceViewBStrap.aspx" />
     <Content Include="StartPage.aspx" />
     <Content Include="ServiceView.aspx" />
+    <Content Include="StatusBar.aspx" />
     <Content Include="Web.config" />
     <Content Include="CustomerLoginPage.aspx" />
     <Content Include="NewCustomer.aspx" />
@@ -297,6 +298,13 @@
     </Compile>
     <Compile Include="StartPage.aspx.designer.cs">
       <DependentUpon>StartPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBar.aspx.cs">
+      <DependentUpon>StatusBar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StatusBar.aspx.designer.cs">
+      <DependentUpon>StatusBar.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="CustomerLoginPage.aspx.cs">
