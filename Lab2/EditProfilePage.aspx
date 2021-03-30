@@ -93,14 +93,14 @@
                       <asp:TextBox ID="addressTB" runat="server" class="form-control here"></asp:TextBox>
                   </div>
                 </div>
-                <div class="form-group row">
+                <%--<div class="form-group row">
                   <label for="email" class="col-4 col-form-label">Email</label>
                   <div class="col-8">
                     <%--<input id="email" name="email" placeholder="john.doe@yahoo.com" class="form-control here"--%>
                       <%--type="text">--%>
-                      <asp:TextBox ID="emailTB" runat="server" class="form-control here"></asp:TextBox>
-                  </div>
-                </div>
+                      <%--<asp:TextBox ID="emailTB" runat="server" class="form-control here"></asp:TextBox>--%>
+                  <%--</div>--%>
+                <%--</div>--%>--%>
                 <div class="form-group row">
                   <label for="website" class="col-4 col-form-label">Phone Number</label>
                   <div class="col-8">

@@ -20,12 +20,12 @@ namespace Lab2
             if (Session["UserName"] != null)
             {
                 email = Session["UserName"].ToString();
-                uname = email.Substring(0, email.IndexOf("@"));
+                //uname = email.Substring(0, email.IndexOf("@"));
             }
 
-            nameTB.Text = uname;
-            emailTB.Text = email;
-            String phoneandAddressQuery = "select CustomerAddress, PhoneNumber from Customer where EmailAddress = '" + email + "'";
+            //nameTB.Text = uname;
+            //emailTB.Text = email;
+            String phoneandAddressQuery = "select CustomerName, CustomerAddress, PhoneNumber from Customer where EmailAddress = '" + email + "'";
             //String addressQuery = "select CustomerAddress from Customer where EmailAddress = '" + email + "'";
             SqlCommand cmd = new SqlCommand(phoneandAddressQuery, sqlConnect);
             string pn = "";
@@ -37,10 +37,12 @@ namespace Lab2
                 {
                     pn = (string)reader["PhoneNumber"];
                     address = (string)reader["CustomerAddress"];
+                    uname = (string)reader["CustomerName"];
                 }
             }
             pnTB.Text = pn;
             addressTB.Text = address;
+            nameTB.Text = uname;
         }
 
     }

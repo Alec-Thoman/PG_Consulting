@@ -50,7 +50,7 @@ namespace Lab2
             if (!IsPostBack)
             {
                 nameTB.Text = uname;
-                emailTB.Text = email;
+                //emailTB.Text = email;
                 pnTB.Text = pn;
                 addressTB.Text = address;
             }
@@ -110,13 +110,12 @@ namespace Lab2
                     {
                         command.CommandText = "UPDATE Customer SET CustomerAddress = @CustomerAddress," +
                                                 "PhoneNumber = @PhoneNumber," +
-                                                "EmailAddress = @EmailAddress," +
                                                 "CustomerName = @CustomerName" +
                                                 " where CustomerID = @CustID";
 
                         command.Parameters.AddWithValue("@CustomerAddress", addressTB.Text);
                         command.Parameters.AddWithValue("@PhoneNumber", pnTB.Text);
-                        command.Parameters.AddWithValue("@EmailAddress", emailTB.Text);
+                        //command.Parameters.AddWithValue("@EmailAddress", emailTB.Text);
                         command.Parameters.AddWithValue("@CustomerName", nameTB.Text);
                         command.Parameters.AddWithValue("@CustID", custID);
 
