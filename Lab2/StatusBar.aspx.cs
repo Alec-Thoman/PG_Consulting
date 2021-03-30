@@ -70,6 +70,7 @@ namespace Lab2
                     sqlConnect.Close();
 
                 }
+             }   
            
 
             
