@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -40,7 +40,7 @@ namespace Lab2
                 if (name.ToLower() == Results["CustomerName"].ToString().ToLower())
                 {
                     Results.Close();
-                    String sqlQuery1 = "Update ClientStatus set Status = '"+ status + "' where CustomerName = '" + name +"';";
+                    String sqlQuery1 = "Update ClientStatus set Status = '" + status + "' where CustomerName = '" + name + "';";
 
 
                     SqlCommand sqlCommand2 = new SqlCommand();
@@ -57,21 +57,21 @@ namespace Lab2
 
                 else
                 {
-                    string sqlQuery2 = "Insert into clientStatus(customerName, status) value ('" + name + "','" + status + "')";
+                    Results.Close();
+                    string sqlQuery2 = "Insert into clientStatus(customerName, status) values('" + name + "','" + status + "')";
 
                     SqlCommand sqlCommand2 = new SqlCommand();
                     sqlCommand2.Connection = sqlConnect;
                     sqlCommand2.CommandType = CommandType.Text;
                     sqlCommand2.CommandText = sqlQuery2;
 
-                    sqlConnect.Open();
+                    
                     SqlDataReader queryResults = sqlCommand2.ExecuteReader();
                     queryResults.Close();
                     sqlConnect.Close();
-
+                    break;
                 }
-             }   
-           
+            }
 
             
 
