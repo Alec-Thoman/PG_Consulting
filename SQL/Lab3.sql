@@ -91,6 +91,12 @@ CREATE TABLE AuctionEvent(
 	
 )
 
+CREATE TABLE ClientStatus (
+	[ClientStatusID] [int] IDENTITY(1,1) primary key,
+	CustomerName		char(30),
+	Status          char(30),
+); 
+
 
 
 
@@ -246,5 +252,19 @@ GO
 SET IDENTITY_INSERT [dbo].[InventoryService] Off
 Go  
 
+SET IDENTITY_INSERT [dbo].[ClientStatus] ON 
+GO  
+  
+  insert [dbo].[ClientStatus] ([ClientStatusID],[CustomerName],[Status]) values('1','Jenny','Waiting for call back');
+  insert [dbo].[ClientStatus] ([ClientStatusID],[CustomerName],[Status]) values('2','Tony','Waiting on payment');
+  insert [dbo].[ClientStatus] ([ClientStatusID],[CustomerName],[Status]) values('3','William','Waiting Event occur');
+  insert [dbo].[ClientStatus] ([ClientStatusID],[CustomerName],[Status]) values('4','Kobe','Waiting for call back');
+
+SET IDENTITY_INSERT [dbo].[ClientStatus] Off
+Go  
+
 Alter Table Customer ADD ContactWay char(50);
 Alter Table Customer ADD HearAbout  char(50);
+
+
+
