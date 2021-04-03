@@ -34,6 +34,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
+    <LegacyPublishPropertiesPageEnabled>true</LegacyPublishPropertiesPageEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -217,6 +219,7 @@
     <Content Include="ServiceEventBStrap.aspx" />
     <Content Include="CustomerNewService.aspx" />
     <Content Include="EditProfilePage.aspx" />
+    <Content Include="AuctionLookAt.aspx" />
     <Content Include="Workflow.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -411,6 +414,13 @@
     </Compile>
     <Compile Include="EditProfilePage.aspx.designer.cs">
       <DependentUpon>EditProfilePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuctionLookAt.aspx.cs">
+      <DependentUpon>AuctionLookAt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuctionLookAt.aspx.designer.cs">
+      <DependentUpon>AuctionLookAt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Workflow.aspx.cs">
       <DependentUpon>Workflow.aspx</DependentUpon>
