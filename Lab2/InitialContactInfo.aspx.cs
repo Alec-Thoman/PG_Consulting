@@ -20,18 +20,27 @@ namespace Lab2
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            String customerName = HttpUtility.HtmlEncode(txtCustomerName.Text).ToString();
-            String address = HttpUtility.HtmlEncode(txtAddress.Text).ToString();
+            String firstName = HttpUtility.HtmlEncode(txtFirstName.Text).ToString();
+            String lastName = HttpUtility.HtmlEncode(txtLastName.Text).ToString();
+            String phoneType = HttpUtility.HtmlEncode(ddlPhoneType.Text).ToString();
             String phoneNumber = HttpUtility.HtmlEncode(txtPhone.Text).ToString();
             String email = HttpUtility.HtmlEncode(txtEmail.Text).ToString();
-            String contactWay = HttpUtility.HtmlEncode(DropDownList1.Text).ToString();
+            String preferredContact = HttpUtility.HtmlEncode(ddlPreferredContact.Text).ToString();
+            String initialDate = HttpUtility.HtmlEncode(txtInitialDate.Text).ToString();
+            String hear = HttpUtility.HtmlEncode(txtHearAbout.Text).ToString();
+            String requestedService1 = HttpUtility.HtmlEncode(CheckBoxList1.Text).ToString();
+            String requestedService2 = HttpUtility.HtmlEncode(CheckBoxList2.Text).ToString();
+            String street = HttpUtility.HtmlEncode(txtStreet.Text).ToString();
+            String city = HttpUtility.HtmlEncode(txtCity.Text).ToString();
+            String state = HttpUtility.HtmlEncode(txtState.Text).ToString();
+            String zipcode = HttpUtility.HtmlEncode(txtZipcode.Text).ToString();
             String hear = HttpUtility.HtmlEncode(txtHearAbout.Text).ToString();
             
             
-            String sqlQuery = "Insert INTO Customer(CustomerName, PhoneNumber,EmailAddress," +
-                "CustomerAddress, contactWay, hearabout ) Values('" + customerName + "','" + phoneNumber + "','" + email + "','" + address + "','" + contactWay + "','" + hear + "')";
+            String sqlQuery = "Insert INTO InitialInfo(FistName, LastName, PhoneType, PhoneNumber, Email, PreferredContact, InitialDate, HearAboutUs, RequestedService, " +
+                "Street, City, State, ZipCode ) Values('" + firstName + "','" + lastName + "','" + phoneType + "','" + phoneNumber + "','" + email + "','" + preferredContact + "','" + initialDate + "','" + hear + "','" + requestedService1 + "','" + requestedService2 + "','" + street + "','" + city + "','" + state + "','" + zipcode + "')";
 
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["InitialContact"].ConnectionString);
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = sqlConnect;
@@ -43,7 +52,7 @@ namespace Lab2
             queryResults.Close();
             sqlConnect.Close();
             
-            Session["notes"] = HttpUtility.HtmlEncode(TextBox1.Text);
+            Session["notes"] = HttpUtility.HtmlEncode(txtNotes.Text);
             Response.Redirect("ServiceEvent.aspx");
         }
 
