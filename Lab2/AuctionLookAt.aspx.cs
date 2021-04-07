@@ -111,5 +111,96 @@ namespace Lab2
             Session.Abandon();
             Response.Redirect("EmployeeLoginPageBStrap.aspx?loggedout=true");
         }
+
+        protected void submitButton_Click(object sender, EventArgs e)
+        {
+            string lookAtSql = "insert into AuctionLookAtEvent ([TruckAccess], [SuppliesNeeded]) values(@TruckAccess,@SuppliesNeeded)";
+            string boxSql = "insert into Box ([Small], [Medium], [Large], [Art], [SmallPads], [LargePads]) values (@Small,@Medium,@Large,@Art,@SmallPad,@LargePad)";
+            try
+            {
+                using (var connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString))
+                {
+                    connection.Open();
+                    // insert into LookAt Table
+                    using (SqlCommand command = new SqlCommand(lookAtSql, connection))
+                    {
+                        command.Parameters.Add("@TruckAccess", SqlDbType.NVarChar).Value = truckAccesstb.Text;
+                        command.Parameters.Add("@SuppliesNeeded", SqlDbType.NVarChar).Value = supNeedtb.Text;
+
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                    }
+
+                    // insert into box table
+                    using (SqlCommand cmd = new SqlCommand(boxSql, connection))
+                    {
+                        connection.Open();
+
+                        // checking to make sure tb's are not empty
+                        string empty = "0";
+                        if (smallTB.Equals(""))
+                        {
+                            cmd.Parameters.Add("@Small", SqlDbType.Int).Value = empty;
+                        }
+                        else
+                        {
+                            cmd.Parameters.Add("@Small", SqlDbType.Int).Value = smallTB.Text;
+                        }
+
+                        if (mediumTB.Equals(""))
+                        {
+                            cmd.Parameters.Add("@Medium", SqlDbType.Int).Value = empty;
+                        }
+                        else
+                        {
+                            cmd.Parameters.Add("@Medium", SqlDbType.Int).Value = mediumTB.Text;
+                        }
+
+                        if (largeTB.Equals(""))
+                        {
+                            cmd.Parameters.Add("@Large", SqlDbType.Int).Value = empty;
+                        }
+                        else
+                        {
+                            cmd.Parameters.Add("@Large", SqlDbType.Int).Value = largeTB.Text;
+                        }
+
+                        if (artTB.Equals(""))
+                        {
+                            cmd.Parameters.Add("@Art", SqlDbType.Int).Value = empty;
+                        }
+                        else
+                        {
+                            cmd.Parameters.Add("@Art", SqlDbType.Int).Value = artTB.Text;
+                        }
+
+                        if (spTB.Equals(""))
+                        {
+                            cmd.Parameters.Add("@SmallPad", SqlDbType.Int).Value = empty;
+                        }
+                        else
+                        {
+                            cmd.Parameters.Add("@SmallPad", SqlDbType.Int).Value = spTB.Text;
+                        }
+
+                        if (lpTB.Equals(""))
+                        {
+                            cmd.Parameters.Add("@LargePad", SqlDbType.Int).Value = empty;
+                        }
+                        else
+                        {
+                            cmd.Parameters.Add("@LargePad", SqlDbType.Int).Value = lpTB.Text;
+                        }
+
+                        cmd.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                }
+            }
+            catch (Exception b)
+            {
+                //MessageBox.Show($"Failed to update. Error message: {e.Message}");
+            }     
+        }
     }
 }

@@ -85,4 +85,5 @@
     <br />
     <asp:Button ID="HomePage" runat="server" Text="Return to Home Page" OnClick="HomePage_Click"/>
     <asp:Button ID="logoutButton" runat="server" Text="Log Out" OnClick="logoutButton_Click"/>
+    <asp:Button ID="submitButton" runat="server" Text="Submit" OnClick="submitButton_Click"/>
 </asp:Content>
