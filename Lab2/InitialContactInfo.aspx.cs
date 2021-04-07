@@ -34,7 +34,7 @@ namespace Lab2
             String city = HttpUtility.HtmlEncode(txtCity.Text).ToString();
             String state = HttpUtility.HtmlEncode(txtState.Text).ToString();
             String zipcode = HttpUtility.HtmlEncode(txtZipcode.Text).ToString();
-            String hear = HttpUtility.HtmlEncode(txtHearAbout.Text).ToString();
+            //String hear = HttpUtility.HtmlEncode(txtHearAbout.Text).ToString();
             
             
             String sqlQuery = "Insert INTO InitialInfo(FistName, LastName, PhoneType, PhoneNumber, Email, PreferredContact, InitialDate, HearAboutUs, RequestedService, " +

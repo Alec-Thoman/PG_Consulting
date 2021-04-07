@@ -9,7 +9,8 @@
             <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
                 <asp:Label ID="Label1" runat="server" Text="Initial Contact Form: "></asp:Label>
             </asp:TableCell>
-        </asp:TableHeaderRow>
+
+ </asp:TableHeaderRow>
 
         <%--Notes Section--%>
         <asp:TableRow>
