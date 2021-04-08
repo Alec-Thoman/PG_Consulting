@@ -59,7 +59,7 @@
     <br />
     <asp:Label ID="empTitle" runat="server" Text="Crew" Font-Bold="true" Font-Size="Large"></asp:Label>
     <br />
-    <asp:CheckBoxList ID="employeeddl" runat="server"></asp:CheckBoxList>
+    <asp:CheckBoxList ID="employeeList" runat="server"></asp:CheckBoxList>
     <br />
     <br />
     <asp:Label ID="trucklbl" runat="server" Text="Trucks (Select & Enter Quantity)" Font-Bold="true" Font-Size="Large"></asp:Label>

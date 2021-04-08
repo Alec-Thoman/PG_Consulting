@@ -43,10 +43,10 @@ namespace Lab2
                         cmd.CommandType = CommandType.Text;
                         cmd.Connection = con;
                         con.Open();
-                        employeeddl.DataSource = cmd.ExecuteReader();
-                        employeeddl.DataTextField = "EmployeeName";
-                        employeeddl.DataValueField = "EmployeeID";
-                        employeeddl.DataBind();
+                        employeeList.DataSource = cmd.ExecuteReader();
+                        employeeList.DataTextField = "EmployeeName";
+                        employeeList.DataValueField = "EmployeeID";
+                        employeeList.DataBind();
                         con.Close();
                     }
                 }
@@ -138,7 +138,7 @@ namespace Lab2
 
                         // checking to make sure tb's are not empty
                         string empty = "0";
-                        if (smallTB.Equals(""))
+                        if (smallTB.Text.Equals(""))
                         {
                             cmd.Parameters.Add("@Small", SqlDbType.Int).Value = empty;
                         }
@@ -147,7 +147,7 @@ namespace Lab2
                             cmd.Parameters.Add("@Small", SqlDbType.Int).Value = smallTB.Text;
                         }
 
-                        if (mediumTB.Equals(""))
+                        if (mediumTB.Text.Equals(""))
                         {
                             cmd.Parameters.Add("@Medium", SqlDbType.Int).Value = empty;
                         }
@@ -156,7 +156,7 @@ namespace Lab2
                             cmd.Parameters.Add("@Medium", SqlDbType.Int).Value = mediumTB.Text;
                         }
 
-                        if (largeTB.Equals(""))
+                        if (largeTB.Text.Equals(""))
                         {
                             cmd.Parameters.Add("@Large", SqlDbType.Int).Value = empty;
                         }
@@ -165,7 +165,7 @@ namespace Lab2
                             cmd.Parameters.Add("@Large", SqlDbType.Int).Value = largeTB.Text;
                         }
 
-                        if (artTB.Equals(""))
+                        if (artTB.Text.Equals(""))
                         {
                             cmd.Parameters.Add("@Art", SqlDbType.Int).Value = empty;
                         }
@@ -174,7 +174,7 @@ namespace Lab2
                             cmd.Parameters.Add("@Art", SqlDbType.Int).Value = artTB.Text;
                         }
 
-                        if (spTB.Equals(""))
+                        if (spTB.Text.Equals(""))
                         {
                             cmd.Parameters.Add("@SmallPad", SqlDbType.Int).Value = empty;
                         }
@@ -183,7 +183,7 @@ namespace Lab2
                             cmd.Parameters.Add("@SmallPad", SqlDbType.Int).Value = spTB.Text;
                         }
 
-                        if (lpTB.Equals(""))
+                        if (lpTB.Text.Equals(""))
                         {
                             cmd.Parameters.Add("@LargePad", SqlDbType.Int).Value = empty;
                         }
@@ -193,6 +193,21 @@ namespace Lab2
                         }
 
                         cmd.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                    string crewSQL = "insert into Crew ([CrewMateName]) values (@CrewMateName)";
+
+                    using (SqlCommand command = new SqlCommand(crewSQL, connection))
+                    {
+                        foreach (ListItem item in employeeList.Items)
+                        {
+                            if (item.Selected)
+                            {
+                                command.Parameters.Add("@CrewMateName", SqlDbType.NVarChar).Value = item.Text;
+                                connection.Open();
+                                command.ExecuteNonQuery();
+                            }
+                        }
                         connection.Close();
                     }
                 }
