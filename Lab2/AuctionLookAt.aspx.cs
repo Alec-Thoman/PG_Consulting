@@ -116,6 +116,7 @@ namespace Lab2
         {
             string lookAtSql = "insert into AuctionLookAtEvent ([TruckAccess], [SuppliesNeeded]) values(@TruckAccess,@SuppliesNeeded)";
             string boxSql = "insert into Box ([Small], [Medium], [Large], [Art], [SmallPads], [LargePads]) values (@Small,@Medium,@Large,@Art,@SmallPad,@LargePad)";
+            string truckSql = "insert into Truck ([Truck2015], [Truck2011], [Cube], [EnclosedTrailer], [OpenTrailer], [Van]) values (@truck2015,@truck2011,@cube,@et,@ot,@van)";
             try
             {
                 using (var connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString))
@@ -225,17 +226,83 @@ namespace Lab2
                         row1["CrewMateName"] = selectedItems[i];
                         dtInsertRows.Rows.Add(row1);
                     }
+                    connection.Close();
 
-                    SqlCommand comd = new SqlCommand("sp_BatchInsert", connection);
-                    comd.CommandType = CommandType.StoredProcedure;
-                    comd.UpdatedRowSource = UpdateRowSource.None;
+                    using (SqlCommand comd = new SqlCommand("sp_BatchInsert", connection))
+                    {
+                        connection.Open();
+                        comd.CommandType = CommandType.StoredProcedure;
+                        comd.UpdatedRowSource = UpdateRowSource.None;
 
-                    // Set the Parameter with appropriate Source Column Name
-                    comd.Parameters.Add("@CrewMateName", SqlDbType.VarChar, 100,dtInsertRows.Columns[0].ColumnName);
+                        // Set the Parameter with appropriate Source Column Name
+                        comd.Parameters.Add("@CrewMateName", SqlDbType.VarChar, 100, dtInsertRows.Columns[0].ColumnName);
 
-                    SqlDataAdapter adpt = new SqlDataAdapter();
-                    adpt.InsertCommand = comd;
-                    adpt.Update(dtInsertRows);
+                        SqlDataAdapter adpt = new SqlDataAdapter();
+                        adpt.InsertCommand = comd;
+                        adpt.Update(dtInsertRows);
+                        connection.Close();
+                    }
+                 
+                    // Functionality for putting truck data into db
+                    using (SqlCommand cmd2 = new SqlCommand(truckSql, connection))
+                    {
+                        connection.Open();
+
+                        // checking to make sure tb's are not empty
+                        string empty2 = "0";
+                        if (tb2015.Text.Equals(""))
+                        {
+                            cmd2.Parameters.Add("@truck2015", SqlDbType.Int).Value = empty2;
+                        }
+                        else
+                        {
+                            cmd2.Parameters.Add("@truck2015", SqlDbType.Int).Value = tb2015.Text;
+                        }
+
+                        if (tb2011.Text.Equals(""))
+                        {
+                            cmd2.Parameters.Add("@truck2011", SqlDbType.Int).Value = empty2;
+                        }
+                        else
+                        {
+                            cmd2.Parameters.Add("@truck2011", SqlDbType.Int).Value = tb2011.Text;
+                        }
+
+                        if (cubetb.Text.Equals(""))
+                        {
+                            cmd2.Parameters.Add("@cube", SqlDbType.Int).Value = empty2;
+                        }
+                        else
+                        {
+                            cmd2.Parameters.Add("@cube", SqlDbType.Int).Value = cubetb.Text;
+                        }
+
+                        if (ettb.Text.Equals(""))
+                        {
+                            cmd2.Parameters.Add("@et", SqlDbType.Int).Value = empty2;
+                        } else
+                        {
+                            cmd2.Parameters.Add("@et", SqlDbType.Int).Value = ettb.Text;
+                        }
+
+                        if (ottb.Text.Equals(""))
+                        {
+                            cmd2.Parameters.Add("@ot", SqlDbType.Int).Value = empty2;
+                        } else
+                        {
+                            cmd2.Parameters.Add("@ot", SqlDbType.Int).Value = ottb.Text;
+                        }
+
+                        if (vantb.Text.Equals(""))
+                        {
+                            cmd2.Parameters.Add("@van", SqlDbType.Int).Value = empty2;
+                        } else
+                        {
+                            cmd2.Parameters.Add("@van", SqlDbType.Int).Value = vantb.Text;
+                        }
+                        cmd2.ExecuteNonQuery();
+                        connection.Close();
+                    }
                 }
             }
             catch (Exception b)
