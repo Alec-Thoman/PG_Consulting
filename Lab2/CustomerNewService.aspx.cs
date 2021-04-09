@@ -13,8 +13,8 @@ namespace Lab2
         {
             String email = "";
             String uname = "";
-            email = Session["UserName"].ToString();
-            uname = email.Substring(0, email.IndexOf("@"));
+            email = HttpUtility.HtmlEncode(Session["UserName"].ToString());
+            uname = HttpUtility.HtmlEncode(email.Substring(0, email.IndexOf("@")));
             nameTB.Text = uname; // set name box to name of user logged in
             openDateTB.Text = DateTime.Now + ""; // sets open ticket date to current date
         }

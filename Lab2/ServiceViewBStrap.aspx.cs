@@ -51,46 +51,46 @@ namespace Lab2
             }
             else if (String.IsNullOrEmpty(txtName.Value) && String.IsNullOrEmpty(txtDate.Value))
             {
-                sqlHolder = sqlMain + " where serviceTicket.Address = '" + txtAddress.Value + "'";
+                sqlHolder = sqlMain + " where serviceTicket.Address = '" + HttpUtility.HtmlEncode(txtAddress.Value) + "'";
                 objSQLAdapter = new SqlDataAdapter("select customer.customername+ ' ' + CAST(serviceTicket.TicketBeginDate AS varchar(20))+ ' ' + CAST(service.ServiceType AS varchar(20)) as Name, serviceTicket.serviceTicketID as TicketID from serviceTicket inner join customer on" +
-               " customer.customerID = serviceTicket.customerID inner join service on service.serviceID = serviceTicket.serviceid where serviceTicket.Address = '" + txtAddress.Value + "'", sqlConnect);
+               " customer.customerID = serviceTicket.customerID inner join service on service.serviceID = serviceTicket.serviceid where serviceTicket.Address = '" + HttpUtility.HtmlEncode(txtAddress.Value) + "'", sqlConnect);
 
             }
             else if (String.IsNullOrEmpty(txtDate.Value) && String.IsNullOrEmpty(txtAddress.Value))
             {
-                sqlHolder = sqlMain + "where customer.customerName = '" + txtName.Value + "'";
+                sqlHolder = sqlMain + "where customer.customerName = '" + HttpUtility.HtmlEncode(txtName.Value) + "'";
                 objSQLAdapter = new SqlDataAdapter("select customer.customername+ ' ' + CAST(serviceTicket.TicketBeginDate AS varchar(20))+ ' ' + CAST(service.ServiceType AS varchar(20)) as Name, serviceTicket.serviceTicketID as TicketID from serviceTicket inner join customer on" +
-               " customer.customerID = serviceTicket.customerID inner join service on service.serviceID = serviceTicket.serviceid where customer.customerName = '" + txtName.Value + "'", sqlConnect);
+               " customer.customerID = serviceTicket.customerID inner join service on service.serviceID = serviceTicket.serviceid where customer.customerName = '" + HttpUtility.HtmlEncode(txtName.Value) + "'", sqlConnect);
             }
             else if (String.IsNullOrEmpty(txtName.Value) && String.IsNullOrEmpty(txtAddress.Value))
             {
-                sqlHolder = sqlMain + "where serviceTicket.Deadline = '" + txtDate.Value + "'";
+                sqlHolder = sqlMain + "where serviceTicket.Deadline = '" + HttpUtility.HtmlEncode(txtDate.Value) + "'";
                 objSQLAdapter = new SqlDataAdapter("select customer.customername+ ' ' + CAST(serviceTicket.TicketBeginDate AS varchar(20))+ ' ' + CAST(service.ServiceType AS varchar(20)) as Name, serviceTicket.serviceTicketID as TicketID from serviceTicket inner join customer on" +
-               " customer.customerID = serviceTicket.customerID inner join service on service.serviceID = serviceTicket.serviceid where serviceTicket.Deadline = '" + txtDate.Value + "'", sqlConnect);
+               " customer.customerID = serviceTicket.customerID inner join service on service.serviceID = serviceTicket.serviceid where serviceTicket.Deadline = '" + HttpUtility.HtmlEncode(txtDate.Value) + "'", sqlConnect);
             }
             else if (String.IsNullOrEmpty(txtName.Value))
             {
-                sqlHolder = sqlMain + "where serviceTicket.Deadline = '" + txtDate.Value + "' AND serviceTicket.Address = '" + txtAddress.Value + "'";
+                sqlHolder = sqlMain + "where serviceTicket.Deadline = '" + HttpUtility.HtmlEncode(txtDate.Value) + "' AND serviceTicket.Address = '" + HttpUtility.HtmlEncode(txtAddress.Value) + "'";
                 objSQLAdapter = new SqlDataAdapter("select customer.customername+ ' ' + CAST(serviceTicket.TicketBeginDate AS varchar(20))+ ' ' + CAST(service.ServiceType AS varchar(20)) as Name, serviceTicket.serviceTicketID as TicketID from serviceTicket inner join customer on" +
-               " customer.customerID = serviceTicket.customerID inner join service on service.serviceID = serviceTicket.serviceid where serviceTicket.Deadline = '" + txtDate.Value + "' AND serviceTicket.Address = '" + txtAddress.Value + "'", sqlConnect);
+               " customer.customerID = serviceTicket.customerID inner join service on service.serviceID = serviceTicket.serviceid where serviceTicket.Deadline = '" + HttpUtility.HtmlEncode(txtDate.Value) + "' AND serviceTicket.Address = '" + HttpUtility.HtmlEncode(txtAddress.Value) + "'", sqlConnect);
             }
             else if (String.IsNullOrEmpty(txtDate.Value))
             {
-                sqlHolder = sqlMain + "where customer.customerName = '" + txtName.Value + "' AND serviceTicket.Address = '" + txtAddress.Value + "'";
+                sqlHolder = sqlMain + "where customer.customerName = '" + HttpUtility.HtmlEncode(txtName.Value) + "' AND serviceTicket.Address = '" + HttpUtility.HtmlEncode(txtAddress.Value) + "'";
                 objSQLAdapter = new SqlDataAdapter("select customer.customername+ ' ' + CAST(serviceTicket.TicketBeginDate AS varchar(20))+ ' ' + CAST(service.ServiceType AS varchar(20)) as Name, serviceTicket.serviceTicketID as TicketID from serviceTicket inner join customer on" +
-               " customer.customerID = serviceTicket.customerID inner join service on service.serviceID = serviceTicket.serviceid where customer.customerName = '" + txtName.Value + "' AND serviceTicket.Address = '" + txtAddress.Value + "'", sqlConnect);
+               " customer.customerID = serviceTicket.customerID inner join service on service.serviceID = serviceTicket.serviceid where customer.customerName = '" + HttpUtility.HtmlEncode(txtName.Value) + "' AND serviceTicket.Address = '" + HttpUtility.HtmlEncode(txtAddress.Value) + "'", sqlConnect);
             }
             else if (String.IsNullOrEmpty(txtAddress.Value))
             {
-                sqlHolder = sqlMain + "where customer.customerName = '" + txtName.Value + "' AND serviceTicket.Deadline = '" + txtDate.Value + "'";
+                sqlHolder = sqlMain + "where customer.customerName = '" + HttpUtility.HtmlEncode(txtName.Value) + "' AND serviceTicket.Deadline = '" + HttpUtility.HtmlEncode(txtDate.Value) + "'";
                 objSQLAdapter = new SqlDataAdapter("select customer.customername+ ' ' + CAST(serviceTicket.TicketBeginDate AS varchar(20))+ ' ' + CAST(service.ServiceType AS varchar(20)) as Name, serviceTicket.serviceTicketID as TicketID from serviceTicket inner join customer on" +
-               " customer.customerID = serviceTicket.customerID inner join service on service.serviceID = serviceTicket.serviceid where customer.customerName = '" + txtName.Value + "' AND serviceTicket.Deadline = '" + txtDate.Value + "'", sqlConnect);
+               " customer.customerID = serviceTicket.customerID inner join service on service.serviceID = serviceTicket.serviceid where customer.customerName = '" + HttpUtility.HtmlEncode(txtName.Value) + "' AND serviceTicket.Deadline = '" + HttpUtility.HtmlEncode(txtDate.Value) + "'", sqlConnect);
             }
             else
             {
-                sqlHolder = sqlMain + "where customer.customerName = '" + txtName.Value + "' AND serviceTicket.Deadline = '" + txtDate.Value + "' AND serviceTicket.Address = '" + txtAddress.Value + "'";
+                sqlHolder = sqlMain + "where customer.customerName = '" + HttpUtility.HtmlEncode(txtName.Value) + "' AND serviceTicket.Deadline = '" + HttpUtility.HtmlEncode(txtDate.Value) + "' AND serviceTicket.Address = '" + HttpUtility.HtmlEncode(txtAddress.Value) + "'";
                 objSQLAdapter = new SqlDataAdapter("select customer.customername+ ' ' + CAST(serviceTicket.TicketBeginDate AS varchar(20))+ ' ' + CAST(service.ServiceType AS varchar(20)) as Name, serviceTicket.serviceTicketID as TicketID from serviceTicket inner join customer on" +
-               " customer.customerID = serviceTicket.customerID inner join service on service.serviceID = serviceTicket.serviceid where where customer.customerName = '" + txtName.Value + "' AND serviceTicket.Deadline = '" + txtDate.Value + "' AND serviceTicket.Address = '" + txtAddress.Value + "'", sqlConnect);
+               " customer.customerID = serviceTicket.customerID inner join service on service.serviceID = serviceTicket.serviceid where where customer.customerName = '" + HttpUtility.HtmlEncode(txtName.Value) + "' AND serviceTicket.Deadline = '" + HttpUtility.HtmlEncode(txtDate.Value) + "' AND serviceTicket.Address = '" + HttpUtility.HtmlEncode(txtAddress.Value) + "'", sqlConnect);
             }
 
 

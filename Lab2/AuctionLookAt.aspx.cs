@@ -80,7 +80,7 @@ namespace Lab2
             string username = "";
             if (!(customerddl.SelectedIndex == 0))
             {
-                username = customerddl.SelectedItem.Text;
+                username = HttpUtility.HtmlEncode(customerddl.SelectedItem.Text);
             } 
             
             string newDirectory = "C:/Users/alect/Desktop/" + username; // change this to proper aws path when aws is setup
@@ -125,8 +125,8 @@ namespace Lab2
                     // insert into LookAt Table
                     using (SqlCommand command = new SqlCommand(lookAtSql, connection))
                     {
-                        command.Parameters.Add("@TruckAccess", SqlDbType.NVarChar).Value = truckAccesstb.Text;
-                        command.Parameters.Add("@SuppliesNeeded", SqlDbType.NVarChar).Value = supNeedtb.Text;
+                        command.Parameters.Add("@TruckAccess", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(truckAccesstb.Text);
+                        command.Parameters.Add("@SuppliesNeeded", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(supNeedtb.Text);
 
                         command.ExecuteNonQuery();
                         connection.Close();
@@ -145,7 +145,7 @@ namespace Lab2
                         }
                         else
                         {
-                            cmd.Parameters.Add("@Small", SqlDbType.Int).Value = smallTB.Text;
+                            cmd.Parameters.Add("@Small", SqlDbType.Int).Value = HttpUtility.HtmlEncode(smallTB.Text);
                         }
 
                         if (mediumTB.Text.Equals(""))
@@ -154,7 +154,7 @@ namespace Lab2
                         }
                         else
                         {
-                            cmd.Parameters.Add("@Medium", SqlDbType.Int).Value = mediumTB.Text;
+                            cmd.Parameters.Add("@Medium", SqlDbType.Int).Value = HttpUtility.HtmlEncode(mediumTB.Text);
                         }
 
                         if (largeTB.Text.Equals(""))
@@ -163,7 +163,7 @@ namespace Lab2
                         }
                         else
                         {
-                            cmd.Parameters.Add("@Large", SqlDbType.Int).Value = largeTB.Text;
+                            cmd.Parameters.Add("@Large", SqlDbType.Int).Value = HttpUtility.HtmlEncode(largeTB.Text);
                         }
 
                         if (artTB.Text.Equals(""))
@@ -172,7 +172,7 @@ namespace Lab2
                         }
                         else
                         {
-                            cmd.Parameters.Add("@Art", SqlDbType.Int).Value = artTB.Text;
+                            cmd.Parameters.Add("@Art", SqlDbType.Int).Value = HttpUtility.HtmlEncode(artTB.Text);
                         }
 
                         if (spTB.Text.Equals(""))
@@ -181,7 +181,7 @@ namespace Lab2
                         }
                         else
                         {
-                            cmd.Parameters.Add("@SmallPad", SqlDbType.Int).Value = spTB.Text;
+                            cmd.Parameters.Add("@SmallPad", SqlDbType.Int).Value = HttpUtility.HtmlEncode(spTB.Text);
                         }
 
                         if (lpTB.Text.Equals(""))
@@ -190,7 +190,7 @@ namespace Lab2
                         }
                         else
                         {
-                            cmd.Parameters.Add("@LargePad", SqlDbType.Int).Value = lpTB.Text;
+                            cmd.Parameters.Add("@LargePad", SqlDbType.Int).Value = HttpUtility.HtmlEncode(lpTB.Text);
                         }
 
                         cmd.ExecuteNonQuery();
@@ -256,7 +256,7 @@ namespace Lab2
                         }
                         else
                         {
-                            cmd2.Parameters.Add("@truck2015", SqlDbType.Int).Value = tb2015.Text;
+                            cmd2.Parameters.Add("@truck2015", SqlDbType.Int).Value = HttpUtility.HtmlEncode(tb2015.Text);
                         }
 
                         if (tb2011.Text.Equals(""))
@@ -265,7 +265,7 @@ namespace Lab2
                         }
                         else
                         {
-                            cmd2.Parameters.Add("@truck2011", SqlDbType.Int).Value = tb2011.Text;
+                            cmd2.Parameters.Add("@truck2011", SqlDbType.Int).Value = HttpUtility.HtmlEncode(tb2011.Text);
                         }
 
                         if (cubetb.Text.Equals(""))
@@ -274,7 +274,7 @@ namespace Lab2
                         }
                         else
                         {
-                            cmd2.Parameters.Add("@cube", SqlDbType.Int).Value = cubetb.Text;
+                            cmd2.Parameters.Add("@cube", SqlDbType.Int).Value = HttpUtility.HtmlEncode(cubetb.Text);
                         }
 
                         if (ettb.Text.Equals(""))
@@ -282,7 +282,7 @@ namespace Lab2
                             cmd2.Parameters.Add("@et", SqlDbType.Int).Value = empty2;
                         } else
                         {
-                            cmd2.Parameters.Add("@et", SqlDbType.Int).Value = ettb.Text;
+                            cmd2.Parameters.Add("@et", SqlDbType.Int).Value = HttpUtility.HtmlEncode(ettb.Text);
                         }
 
                         if (ottb.Text.Equals(""))
@@ -290,7 +290,7 @@ namespace Lab2
                             cmd2.Parameters.Add("@ot", SqlDbType.Int).Value = empty2;
                         } else
                         {
-                            cmd2.Parameters.Add("@ot", SqlDbType.Int).Value = ottb.Text;
+                            cmd2.Parameters.Add("@ot", SqlDbType.Int).Value = HttpUtility.HtmlEncode(ottb.Text);
                         }
 
                         if (vantb.Text.Equals(""))
@@ -298,7 +298,7 @@ namespace Lab2
                             cmd2.Parameters.Add("@van", SqlDbType.Int).Value = empty2;
                         } else
                         {
-                            cmd2.Parameters.Add("@van", SqlDbType.Int).Value = vantb.Text;
+                            cmd2.Parameters.Add("@van", SqlDbType.Int).Value = HttpUtility.HtmlEncode(vantb.Text);
                         }
                         cmd2.ExecuteNonQuery();
                         connection.Close();

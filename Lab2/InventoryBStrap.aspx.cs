@@ -33,7 +33,7 @@ namespace Lab2
 
                 sqlQuery = "SELECT customer.CustomerName as [Customer Name], inventoryitem.StorageLocation as Lot, inventoryitem.Control as Control, inventoryitem.itemDescription as Description,  inventoryitem.InitialStorageDate as [Date Stored] from InventoryService inner join InventoryItem on InventoryItem.itemid " +
                     "= InventoryService.itemid inner join ServiceTicket on ServiceTicket.serviceticketid = inventoryservice.serviceticketid inner join customer on customer.customerid = serviceticket.customerid where " +
-                    "Customer.CustomerName = '" + customer + "'";
+                    "Customer.CustomerName = '" + HttpUtility.HtmlEncode(customer) + "'";
             }
             
 

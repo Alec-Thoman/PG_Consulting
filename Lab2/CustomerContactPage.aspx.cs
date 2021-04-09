@@ -20,7 +20,7 @@ namespace Lab2
             if (!emailTB.Text.Equals("") && !subjectTB.Text.Equals("") 
                 && !Request.Form["bodyTA"].ToString().Equals(""))
             {
-                sendEmail("GreenValleyServices2021@gmail.com", emailTB.Text);
+                sendEmail("GreenValleyServices2021@gmail.com", HttpUtility.HtmlEncode(emailTB.Text));
                 reqStatus.Text = "Contact request successfully sent!";
             } else
             {

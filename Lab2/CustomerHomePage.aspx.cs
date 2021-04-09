@@ -22,7 +22,7 @@ namespace Lab2
             {
                 lblUserLoggedIn.ForeColor = Color.Green;
                 lblUserLoggedIn.Font.Bold = true;
-                lblUserLoggedIn.Text = Session["UserName"].ToString() + " successfully login";
+                lblUserLoggedIn.Text = HttpUtility.HtmlEncode(Session["UserName"].ToString()) + " successfully login";
             }
 
             else
@@ -40,7 +40,7 @@ namespace Lab2
             
 
             String sqlQuery = "SELECT customer.CustomerName as Name, customer.customeraddress as Address, customer.EmailAddress, customer.PhoneNumber, Customer.ContactWay as Initially_Contact, customer.hearabout " +
-                "as Hear_About_Us from customer where customer.emailaddress = '" + Session["UserName"]+"'";
+                "as Hear_About_Us from customer where customer.emailaddress = '" + HttpUtility.HtmlEncode(Session["UserName"])+"'";
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -64,7 +64,7 @@ namespace Lab2
             String sqlQuery = "SELECT customer.CustomerName as Name, service.ServiceType,  employee.employeeName, ServiceTicket.TicketBeginDate as Date_Begin, ServiceTicket.TicketStatus, ServiceTicket.Address, " +
                 "Serviceticket.Deadline as Deadline_For_Service from serviceTicket inner join" +
                 " customer on customer.customerID = serviceTicket.customerID inner join employee on employee.employeeID = serviceTicket.employeeID inner join service on service.serviceid" +
-                " = serviceTicket.serviceid where customer.emailaddress = '" + Session["UserName"] + "'";
+                " = serviceTicket.serviceid where customer.emailaddress = '" + HttpUtility.HtmlEncode(Session["UserName"]) + "'";
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -116,7 +116,7 @@ namespace Lab2
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             //Session["Notification"] = txtName.Text + "request " + ServiceList.SelectedValue + " Event On " + txtDate.Text;
-            Session["Notification"] = txtName.Text + "request " + CheckBoxList1.SelectedValue + " Event On " + txtDate.Text;
+            Session["Notification"] = HttpUtility.HtmlEncode(txtName.Text) + "request " + CheckBoxList1.SelectedValue + " Event On " + HttpUtility.HtmlEncode(txtDate.Text);
             Details.Text = "Request Successful, Notification sent!";
         }
 

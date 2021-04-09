@@ -49,12 +49,11 @@ namespace Lab2
                 String customer = searchTxt.Value;
 
                 sqlQuery = "SELECT CustomerName as [Customer Name], PhoneNumber as [Phone Number], EmailAddress as [Email], CustomerAddress as [Home Address] from Customer where " +
-                "CustomerName = '" + customer + "'";
+                "CustomerName = '" + HttpUtility.HtmlEncode(customer) + "'";
             }
 
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
             DataTable workflowGridview = new DataTable();

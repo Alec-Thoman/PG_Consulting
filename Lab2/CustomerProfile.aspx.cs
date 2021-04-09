@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -19,15 +20,16 @@ namespace Lab2
             String uname = "";
             if (Session["UserName"] != null)
             {
-                email = Session["UserName"].ToString();
+                email = HttpUtility.HtmlEncode(Session["UserName"].ToString());
                 //uname = email.Substring(0, email.IndexOf("@"));
             }
 
             //nameTB.Text = uname;
             //emailTB.Text = email;
-            String phoneandAddressQuery = "select CustomerName, CustomerAddress, PhoneNumber from Customer where EmailAddress = '" + email + "'";
+            String phoneandAddressQuery = "select CustomerName, CustomerAddress, PhoneNumber from Customer where EmailAddress = @email";
             //String addressQuery = "select CustomerAddress from Customer where EmailAddress = '" + email + "'";
             SqlCommand cmd = new SqlCommand(phoneandAddressQuery, sqlConnect);
+            cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
             string pn = "";
             string address = "";
             sqlConnect.Open();
@@ -35,9 +37,9 @@ namespace Lab2
             {
                 while (reader.Read())
                 {
-                    pn = (string)reader["PhoneNumber"];
-                    address = (string)reader["CustomerAddress"];
-                    uname = (string)reader["CustomerName"];
+                    pn = HttpUtility.HtmlEncode((string)reader["PhoneNumber"]);
+                    address = HttpUtility.HtmlEncode((string)reader["CustomerAddress"]);
+                    uname = HttpUtility.HtmlEncode((string)reader["CustomerName"]);
                 }
             }
             pnTB.Text = pn;
