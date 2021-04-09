@@ -17,7 +17,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+            <a class="navbar-brand js-scroll-trigger" href="EmployeeLoginPageBStrap.aspx?loggedout=true">
                 <div class="logo"><img src="img/Logos/GVALogo_reverse_allwhite_resized.png"
                         alt="Green Valley Auctions Logo" width="200" height="100"></div>
             </a>

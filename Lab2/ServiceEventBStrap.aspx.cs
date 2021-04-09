@@ -93,6 +93,7 @@ namespace Lab2
                     string status = HttpUtility.HtmlEncode(ticketStatus.Value).ToString();
                     string address = "From " + HttpUtility.HtmlEncode(addressTxt.Value).ToString() + " To " + HttpUtility.HtmlEncode(destinationTxt.Value).ToString();
                     string deadline = HttpUtility.HtmlEncode(deadlineDate.Value).ToString();
+                    Session["notes"] = notesTxt.Value;
 
 
                     String sqlQuery = "Insert INTO Serviceticket(TicketBeginDate, TicketStatus," +
@@ -131,7 +132,7 @@ namespace Lab2
 
                     ticketID = Int32.Parse(result);
                     String noteTitle = "Initial Contract";
-                    String noteBody = Session["notes"].ToString();
+                    String noteBody = Session["notes"].ToString(); //the problem
                     String changeDate = DateTime.Now.ToString("g");
 
                     String sqlQuery1 = "Insert INTO tickethistory(NoteTitle, NoteBody, changeDate, employeeID, serviceTicketID ) Values('" + noteTitle + "','" + noteBody + "','" + changeDate + "','" + employeeID + "','" + ticketID + "')";

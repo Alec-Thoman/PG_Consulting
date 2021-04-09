@@ -198,6 +198,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="ServiceOrderFormBStrap.aspx" />
     <Content Include="ServiceViewBStrap.aspx" />
     <Content Include="StartPage.aspx" />
     <Content Include="ServiceView.aspx" />
@@ -278,6 +279,13 @@
       <DependentUpon>InventoryBStrap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceOrderFormBStrap.aspx.cs">
+      <DependentUpon>ServiceOrderFormBStrap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServiceOrderFormBStrap.aspx.designer.cs">
+      <DependentUpon>ServiceOrderFormBStrap.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ServiceViewBStrap.aspx.cs">
       <DependentUpon>ServiceViewBStrap.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
