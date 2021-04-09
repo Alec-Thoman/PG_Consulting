@@ -195,21 +195,47 @@ namespace Lab2
                         cmd.ExecuteNonQuery();
                         connection.Close();
                     }
-                    string crewSQL = "insert into Crew ([CrewMateName]) values (@CrewMateName)";
 
-                    using (SqlCommand command = new SqlCommand(crewSQL, connection))
+                    string str = "";
+
+                    for (int i = 0; i < employeeList.Items.Count; i++)
                     {
-                        foreach (ListItem item in employeeList.Items)
+                        if (employeeList.Items[i].Selected == true)// getting selected value from CheckBox List  
                         {
-                            if (item.Selected)
-                            {
-                                command.Parameters.Add("@CrewMateName", SqlDbType.NVarChar).Value = item.Text;
-                                connection.Open();
-                                command.ExecuteNonQuery();
-                            }
+                            str += employeeList.Items[i].Text + ','; // add selected Item text to the String
                         }
-                        connection.Close();
+
+
                     }
+                    if (str != "")
+                    {
+                        str = str.Substring(0, str.Length - 7); // Remove Last "," from the string
+                    }
+
+                    string[] selectedItems = str.Split(','); //holds selected items
+
+                    connection.Open();
+                    DataTable dtInsertRows = new DataTable();
+                    DataColumn col1 = new DataColumn("CrewMateName");
+                    dtInsertRows.Columns.Add(col1);
+
+                    for (int i = 0; i < selectedItems.Length; i++)
+                    {
+                        DataRow row1 = dtInsertRows.NewRow();
+                        row1["CrewMateName"] = selectedItems[i];
+                        dtInsertRows.Rows.Add(row1);
+                    }
+
+                    SqlCommand comd = new SqlCommand("sp_BatchInsert", connection);
+                    comd.CommandType = CommandType.StoredProcedure;
+                    comd.UpdatedRowSource = UpdateRowSource.None;
+
+                    // Set the Parameter with appropriate Source Column Name
+                    comd.Parameters.Add("@CrewMateName", SqlDbType.VarChar, 100,dtInsertRows.Columns[0].ColumnName);
+
+                    SqlDataAdapter adpt = new SqlDataAdapter();
+                    adpt.InsertCommand = comd;
+                    adpt.Update(dtInsertRows);
                 }
             }
             catch (Exception b)
