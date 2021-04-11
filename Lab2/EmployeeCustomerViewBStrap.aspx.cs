@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 using System.Data;
+using System.Drawing;
 using System.Data.SqlClient;
 using System.Web.Configuration;
 namespace Lab2
@@ -15,6 +15,7 @@ namespace Lab2
         protected void Page_Load(object sender, EventArgs e)
         {
             updateGridView();
+            Session["customerName"] = "test";
         }
         protected void updateGridView()
         {
@@ -62,6 +63,54 @@ namespace Lab2
 
             grdCustomer.DataSource = workflowGridview;
             grdCustomer.DataBind();
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TextBoxUserID.Text = GridView1.SelectedRow.Cells[1].Text;
+            TextBoxUserName.Text = GridView1.SelectedRow.Cells[2].Text;
+        }
+        protected void OnRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(grdCustomer, "Select$" + e.Row.RowIndex);
+                e.Row.ToolTip = "Click to select this row.";
+                
+                String sqlQuery = "SELECT CustomerName from Customer WHERE EmailAddress = '" + e.Row.Cells[2].Text + "'";
+
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                sqlConnect.Open();
+                SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
+
+                String name = (string)cmd.ExecuteScalar();
+                //String name = e.Row.Cells[0].Text;
+                //String name = HttpUtility.HtmlEncode(Session["customerName"]);
+                sqlConnect.Close();
+                System.Diagnostics.Debug.WriteLine("You click me ..................");
+                System.Diagnostics.Debug.WriteLine(name);
+                e.Row.Cells[1].Attributes.Add("onClick", "alert('" + name +"');");
+                //e.Row.Attributes.Add("onClick", "e.Row.BackColor = ColorTranslator.FromHtml('#9dbdb9')");
+            }
+        }
+        protected void OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (GridViewRow row in grdCustomer.Rows)
+            {
+                if (row.RowIndex == grdCustomer.SelectedIndex)
+                {
+                    row.BackColor = ColorTranslator.FromHtml("#9dbdb9");
+                    row.ToolTip = string.Empty;
+                    TextBoxUserID.Text = grdCustomer.SelectedRow.Cells[1].Text;
+                    TextBoxUserName.Text = grdCustomer.SelectedRow.Cells[2].Text;
+                    Session["customerName"] =grdCustomer.SelectedRow.Cells[2].Text;
+                }
+                else
+                {
+                    row.BackColor = ColorTranslator.FromHtml("#FFFFFF");
+                    row.ToolTip = "Click to select this row.";
+                }
+            }
         }
     }
 }
