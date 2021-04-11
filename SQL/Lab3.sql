@@ -135,7 +135,7 @@ CREATE TABLE AuctionLookAtEvent (
 	TruckAccess				varchar(255),
 	SuppliesNeeded		varchar(255),
 	BoxID int,
-	CrewMateID int,
+	CrewID int,
 	TruckID int,
 	Foreign key(BoxID) References Box(BoxID),
 	Foreign key(CrewID) References Crew(CrewID),
