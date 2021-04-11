@@ -38,8 +38,8 @@ namespace Lab2
             //String hear = HttpUtility.HtmlEncode(txtHearAbout.Text).ToString();
             
             
-            String sqlQuery = "Insert INTO InitialInfo(FistName, LastName, PhoneType, PhoneNumber, Email, PreferredContact, InitialDate, HearAboutUs, RequestedService, " +
-                "Street, City, State, ZipCode ) Values('@fn, @ln,@pt,@pn,@email,@pc,@id,@hear,@rs1,@rs2,@street,@city,@state,@zip)";
+            String sqlQuery = "Insert INTO InitialInfo(FistName, LastName, PhoneType, PhoneNumber, Email, PreferredContact, InitialDate, Deadline, HearAboutUs, RequestedService, " +
+                "Street, City, State, ZipCode ) Values('@fn, @ln,@pt,@pn,@email,@pc,@id, @dl,@hear,@rs1,@rs2,@street,@city,@state,@zip)";
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -53,6 +53,7 @@ namespace Lab2
             sqlCommand.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
             sqlCommand.Parameters.Add("@pc", SqlDbType.VarChar).Value = preferredContact;
             sqlCommand.Parameters.Add("@id", SqlDbType.VarChar).Value = initialDate;
+            sqlCommand.Parameters.Add("@dl", SqlDbType.VarChar).Value = deadline;
             sqlCommand.Parameters.Add("@hear", SqlDbType.VarChar).Value = hear;
             sqlCommand.Parameters.Add("@rs1", SqlDbType.VarChar).Value = requestedService1;
             sqlCommand.Parameters.Add("@rs2", SqlDbType.VarChar).Value = requestedService2;
