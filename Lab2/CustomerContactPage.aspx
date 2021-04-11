@@ -61,13 +61,20 @@
                         <!--Grid column-->
                         <div class="col-md-6">
                             <div class="md-form mb-3">
-                                <label for="name" class="">Your name</label>
+                                <label for="name" class="">First name</label>
                                 <%--<input type="text" id="name" name="name" class="form-control">--%>
                                 <asp:TextBox ID="nameTB" runat="server" class="form-control"></asp:TextBox>
                             </div>
                         </div>
                         <!--Grid column-->
-
+                        <div class="col-md-6">
+                            <div class="md-form mb-3">
+                                <label for="name" class="">Last name</label>
+                                <%--<input type="text" id="name" name="name" class="form-control">--%>
+                                <asp:TextBox ID="lnameTB" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                        <!--Grid column-->
                         <!--Grid column-->
                         <div class="col-md-6">
                             <div class="md-form mb-3">
@@ -77,40 +84,80 @@
                             </div>
                         </div>
                         <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-3">
+                                <label for="phone" class="">Primary Phone</label>
+                                <%--<input type="text" id="email" name="email" class="form-control">--%>
+                                <asp:TextBox ID="phoneTB" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-3">
+                                <label for="hearabout" class="">How'd you hear about us?</label>
+                                <%--<input type="text" id="email" name="email" class="form-control">--%>
+                                <asp:TextBox ID="hearAboutTB" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-3">
+                                <label for="serviceReq" class="">Service Requested</label>
+                                <%--<input type="text" id="email" name="email" class="form-control">--%>
+                                <asp:TextBox ID="servReqTB" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                          <div class="col-md-6">
+                            <div class="md-form mb-3">
+                                <label for="contactPref" class="">Contact Preference</label>
+                                <%--<input type="text" id="email" name="email" class="form-control">--%>
+                                <asp:TextBox ID="contPrefTB" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-3">
+                                <label for="serviceDeadline" class="">Service Deadline</label>
+                                <%--<input type="text" id="email" name="email" class="form-control">--%>
+                                <asp:TextBox ID="servDeadlineTB" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                        <!--Grid column-->
 
                     </div>
                     <!--Grid row-->
 
                     <!--Grid row-->
-                    <div class="row">
+                    <%--<div class="row">
                         <div class="col-md-12">
                             <div class="md-form mb-3">
                                 <label for="subject" class="">Subject</label>
                                 <%--<input type="text" id="subject" name="subject" class="form-control">--%>
-                                <asp:TextBox ID="subjectTB" runat="server" class="form-control"></asp:TextBox>
-                            </div>
-                        </div>
-                    </div>
+                                <%--<asp:TextBox ID="subjectTB" runat="server" class="form-control"></asp:TextBox>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
                     <!--Grid row-->
 
                     <!--Grid row-->
-                    <div class="row">
+                    <%--<div class="row">--%>
 
                         <!--Grid column-->
-                        <div class="col-md-12">
+                        <%--<div class="col-md-12">--%>
 
-                            <div class="md-form mb-3">
-                                <label for="message">Your message</label>
+                            <%--<div class="md-form mb-3">--%>
+                                <%--<label for="message">Your message</label>--%>
                                 <%--<textarea type="text" id="message" name="message" rows="3"--%>
                                     <%--class="form-control md-textarea"></textarea>--%>
 
-                                <textarea id="bodyTA" rows="3" class="form-control md-textarea" name="bodyTA"></textarea>
+                                <%--<textarea id="bodyTA" rows="3" class="form-control md-textarea" name="bodyTA"></textarea>--%>
 
 
-                            </div>
+                            <%--</div>--%>
 
-                        </div>
-                    </div>
+                        <%--</div>--%>
+                    <%--</div>--%>
                     <!--Grid row-->
 
                 </form>

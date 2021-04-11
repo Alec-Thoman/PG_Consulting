@@ -17,12 +17,12 @@ namespace Lab2
 
         protected void sendClick(object sender, EventArgs e)
         {
-            if (!emailTB.Text.Equals("") && !subjectTB.Text.Equals("") 
-                && !Request.Form["bodyTA"].ToString().Equals(""))
+            if (!emailTB.Text.Equals(""))
             {
                 sendEmail("GreenValleyServices2021@gmail.com", HttpUtility.HtmlEncode(emailTB.Text));
                 reqStatus.Text = "Contact request successfully sent!";
-            } else
+            }
+            else
             {
                 reqStatus.Text = "Please fill out all boxes and try again";
             }
@@ -44,8 +44,19 @@ namespace Lab2
             mailMessage.From = new MailAddress(fromEmail);
             //mailMessage.To.Add("thomanac@dukes.jmu.edu");
             mailMessage.To.Add(toEmail);
-            mailMessage.Subject = subjectTB.Text;
-            mailMessage.Body = Request.Form["bodyTA"].ToString();
+            //mailMessage.Subject = subjectTB.Text;
+            mailMessage.Subject = "Customer Request!";
+
+            // Adding all fields to email body
+            string customerName = nameTB.Text + " " + lnameTB.Text;
+            string custPhone = phoneTB.Text;
+            string hearAbout = hearAboutTB.Text;
+            string serviceReq = servReqTB.Text;
+            string contactPref = contPrefTB.Text;
+            string servDeadline = servDeadlineTB.Text;
+            //mailMessage.Body = Request.Form["bodyTA"].ToString();
+            mailMessage.Body = "Name: " + customerName + "\n" + "Primary Phone: " + custPhone + "\n" + "Hear About Us: " + hearAbout + "\n" + "Service Requested: " + serviceReq + "\n" + "Contact Preference: " + contactPref + "\n" + "Service Deadline: " +
+                servDeadline;
             try
             {
                 smtpClient.Send(mailMessage);

@@ -24,6 +24,15 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.TextBox nameTB;
 
         /// <summary>
+        /// lnameTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox lnameTB;
+
+        /// <summary>
         /// emailTB control.
         /// </summary>
         /// <remarks>
@@ -33,13 +42,49 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.TextBox emailTB;
 
         /// <summary>
-        /// subjectTB control.
+        /// phoneTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox subjectTB;
+        protected global::System.Web.UI.WebControls.TextBox phoneTB;
+
+        /// <summary>
+        /// hearAboutTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox hearAboutTB;
+
+        /// <summary>
+        /// servReqTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox servReqTB;
+
+        /// <summary>
+        /// contPrefTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox contPrefTB;
+
+        /// <summary>
+        /// servDeadlineTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox servDeadlineTB;
 
         /// <summary>
         /// sendButton control.
