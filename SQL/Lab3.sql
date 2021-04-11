@@ -109,8 +109,15 @@ Create Table Box (
 );
 
 Create Table Crew (
+	CrewID int IDENTITY(1,1) primary key,
+	CrewName varchar(255)
+);
+
+Create Table CrewMate (
 	CrewMateID int IDENTITY(1,1) primary key,
-	CrewMateName varchar(255)
+	CrewMateName varchar(255),
+	CrewID int,
+	Foreign key(CrewID) References Crew(CrewID)
 );
 
 Create Table Truck (
@@ -128,10 +135,10 @@ CREATE TABLE AuctionLookAtEvent (
 	TruckAccess				varchar(255),
 	SuppliesNeeded		varchar(255),
 	BoxID int,
-	CrewMateID int,
+	CrewID int,
 	TruckID int,
 	Foreign key(BoxID) References Box(BoxID),
-	Foreign key(CrewMateID) References Crew(CrewMateID),
+	Foreign key(CrewID) References Crew(CrewID),
 	Foreign Key(TruckID) References Truck(TruckID)
 );
 
@@ -316,4 +323,15 @@ Go
 
 Alter Table Customer ADD ContactWay char(50);
 Alter Table Customer ADD HearAbout  char(50);
+
+insert [dbo].[Crew] ([CrewName]) values('Team1');
+insert [dbo].[Crew] ([CrewName]) values('Team2');
+insert [dbo].[Crew] ([CrewName]) values('Team3');
+insert [dbo].[Crew] ([CrewName]) values('Team4');
+insert [dbo].[Crew] ([CrewName]) values('Team5');
+insert [dbo].[Crew] ([CrewName]) values('Team6');
+insert [dbo].[Crew] ([CrewName]) values('Team7');
+insert [dbo].[Crew] ([CrewName]) values('Team8');
+insert [dbo].[Crew] ([CrewName]) values('Team9');
+insert [dbo].[Crew] ([CrewName]) values('Team10');
 
