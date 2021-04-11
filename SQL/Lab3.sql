@@ -109,8 +109,15 @@ Create Table Box (
 );
 
 Create Table Crew (
+	CrewID int IDENTITY(1,1) primary key,
+	CrewName varchar(255)
+);
+
+Create Table CrewMate (
 	CrewMateID int IDENTITY(1,1) primary key,
-	CrewMateName varchar(255)
+	CrewMateName varchar(255),
+	CrewID int,
+	Foreign key(CrewID) References Crew(CrewID)
 );
 
 Create Table Truck (
@@ -131,7 +138,7 @@ CREATE TABLE AuctionLookAtEvent (
 	CrewMateID int,
 	TruckID int,
 	Foreign key(BoxID) References Box(BoxID),
-	Foreign key(CrewMateID) References Crew(CrewMateID),
+	Foreign key(CrewID) References Crew(CrewID),
 	Foreign Key(TruckID) References Truck(TruckID)
 );
 
