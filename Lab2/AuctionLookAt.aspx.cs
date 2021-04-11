@@ -114,23 +114,28 @@ namespace Lab2
 
         protected void submitButton_Click(object sender, EventArgs e)
         {
-            string lookAtSql = "insert into AuctionLookAtEvent ([TruckAccess], [SuppliesNeeded]) values(@TruckAccess,@SuppliesNeeded)";
-            string boxSql = "insert into Box ([Small], [Medium], [Large], [Art], [SmallPads], [LargePads]) values (@Small,@Medium,@Large,@Art,@SmallPad,@LargePad)";
-            string truckSql = "insert into Truck ([Truck2015], [Truck2011], [Cube], [EnclosedTrailer], [OpenTrailer], [Van]) values (@truck2015,@truck2011,@cube,@et,@ot,@van)";
+            // IDs
+            int boxID;
+            int truckID;
+            int crewID;
+
+            string lookAtSql = "insert into AuctionLookAtEvent ([TruckAccess], [SuppliesNeeded], [BoxID], [CrewID], [TruckID]) values(@TruckAccess,@SuppliesNeeded,@bid,@cid,@tid)";
+            string boxSql = "insert into Box ([Small], [Medium], [Large], [Art], [SmallPads], [LargePads]) values (@Small,@Medium,@Large,@Art,@SmallPad,@LargePad);SELECT CAST(scope_identity() AS int)";
+            string truckSql = "insert into Truck ([Truck2015], [Truck2011], [Cube], [EnclosedTrailer], [OpenTrailer], [Van]) values (@truck2015,@truck2011,@cube,@et,@ot,@van);SELECT CAST(scope_identity() AS int)";
             try
             {
                 using (var connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString))
                 {
-                    connection.Open();
+                    //connection.Open();
                     // insert into LookAt Table
-                    using (SqlCommand command = new SqlCommand(lookAtSql, connection))
-                    {
-                        command.Parameters.Add("@TruckAccess", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(truckAccesstb.Text);
-                        command.Parameters.Add("@SuppliesNeeded", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(supNeedtb.Text);
+                    //using (SqlCommand command = new SqlCommand(lookAtSql, connection))
+                    //{
+                        //command.Parameters.Add("@TruckAccess", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(truckAccesstb.Text);
+                        //command.Parameters.Add("@SuppliesNeeded", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(supNeedtb.Text);
 
-                        command.ExecuteNonQuery();
-                        connection.Close();
-                    }
+                        //command.ExecuteNonQuery();
+                        //connection.Close();
+                    //}
 
                     // insert into box table
                     using (SqlCommand cmd = new SqlCommand(boxSql, connection))
@@ -192,8 +197,8 @@ namespace Lab2
                         {
                             cmd.Parameters.Add("@LargePad", SqlDbType.Int).Value = HttpUtility.HtmlEncode(lpTB.Text);
                         }
-
-                        cmd.ExecuteNonQuery();
+                        boxID = (int)cmd.ExecuteScalar();
+                        //delme.Text = "" + boxID;
                         connection.Close();
                     }
 
@@ -236,6 +241,9 @@ namespace Lab2
 
                         // Set the Parameter with appropriate Source Column Name
                         comd.Parameters.Add("@CrewMateName", SqlDbType.VarChar, 100, dtInsertRows.Columns[0].ColumnName);
+                        Random random = new Random();
+                        crewID = random.Next(1, 10); // assigns crewmate to a random crew for demo purposes
+                        comd.Parameters.Add("@CrewID", SqlDbType.Int).Value = crewID;
 
                         SqlDataAdapter adpt = new SqlDataAdapter();
                         adpt.InsertCommand = comd;
@@ -300,7 +308,23 @@ namespace Lab2
                         {
                             cmd2.Parameters.Add("@van", SqlDbType.Int).Value = HttpUtility.HtmlEncode(vantb.Text);
                         }
-                        cmd2.ExecuteNonQuery();
+                        //cmd2.ExecuteNonQuery();
+                        truckID = (int)cmd2.ExecuteScalar();
+                        connection.Close();
+                    }
+                    
+                    // Figure out how to incorporate the previous tables PK's into the AuctionLookAt table below so they can have referential integrity
+                    // insert into LookAt Table
+                    using (SqlCommand command = new SqlCommand(lookAtSql, connection))
+                    {
+                        connection.Open();
+                        command.Parameters.Add("@TruckAccess", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(truckAccesstb.Text);
+                        command.Parameters.Add("@SuppliesNeeded", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(supNeedtb.Text);
+                        command.Parameters.Add("@bid", SqlDbType.Int).Value = boxID;
+                        command.Parameters.Add("@cid", SqlDbType.Int).Value = crewID;
+                        command.Parameters.Add("@tid", SqlDbType.Int).Value = truckID;
+
+                        command.ExecuteNonQuery();
                         connection.Close();
                     }
                 }
