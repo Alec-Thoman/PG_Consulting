@@ -127,6 +127,21 @@
                 </asp:RequiredFieldValidator>
             </asp:TableCell>
         </asp:TableRow>
+
+        <%-- Deadline Row --%>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="lblDeadline" runat="server" Text="Deadline: "></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="txtDeadline" runat="server" TextMode="Date"></asp:TextBox>
+                <asp:RequiredFieldValidator
+                    ID="rfvDeadline" runat="server" ErrorMessage="RequiredFieldValidator"
+                    ControlToValidate="txtDeadline" ForeColor="Red" Display="Dynamic" EnableClientScript="false" Text="Field Required">
+                </asp:RequiredFieldValidator>
+            </asp:TableCell>
+        </asp:TableRow>
+
         
          <%-- Hear about Row --%>
         <asp:TableRow>
