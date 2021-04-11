@@ -15,7 +15,7 @@ CREATE TABLE  Customer(
 );
 
 CREATE TABLE Service (
-    [ServiceID] [int] IDENTITY(1,1) primary key,
+        [ServiceID] [int] IDENTITY(1,1) primary key,
 	ServiceType				CHAR(15),
 	ServiceDescription		CHAR(50)
 	
@@ -99,49 +99,50 @@ CREATE TABLE ClientStatus (
 
 -- Next 4 creates are for AuctionLookAtEvent
 Create Table Box (
-	BoxID int IDENTITY(1,1) primary key,
-	Small int,
-	Medium int,
-	Large int,
-	Art int,
-	SmallPads int,
-	LargePads int
+BoxID int IDENTITY(1,1) primary key,
+Small int,
+Medium int,
+Large int,
+Art int,
+SmallPads int,
+LargePads int
 );
 
 Create Table Crew (
-	CrewID int IDENTITY(1,1) primary key,
-	CrewName varchar(255)
+CrewID int IDENTITY(1,1) primary key,
+CrewName varchar(255)
 );
 
 Create Table CrewMate (
-	CrewMateID int IDENTITY(1,1) primary key,
-	CrewMateName varchar(255),
-	CrewID int,
-	Foreign key(CrewID) References Crew(CrewID)
+CrewMateID int IDENTITY(1,1) primary key,
+CrewMateName varchar(255),
+CrewID int,
+Foreign key(CrewID) References Crew(CrewID)
 );
 
 Create Table Truck (
-	TruckID int IDENTITY(1,1) primary key,
-	Truck2015 int,
-	Truck2011 int,
-	Cube int,
-	EnclosedTrailer int,
-	OpenTrailer int,
-	Van int
+TruckID int IDENTITY(1,1) primary key,
+Truck2015 int,
+Truck2011 int,
+Cube int,
+EnclosedTrailer int,
+OpenTrailer int,
+Van int
 );
 
 CREATE TABLE AuctionLookAtEvent (
-    AuctionLookAtID [int] IDENTITY(1,1) primary key,
-	TruckAccess				varchar(255),
-	SuppliesNeeded		varchar(255),
-	BoxID int,
-	CrewID int,
-	TruckID int,
-	Foreign key(BoxID) References Box(BoxID),
-	Foreign key(CrewID) References Crew(CrewID),
-	Foreign Key(TruckID) References Truck(TruckID)
+AuctionLookAtID [int] IDENTITY(1,1) primary key,
+TruckAccess				varchar(255),
+SuppliesNeeded		varchar(255),
+BoxID int,
+CrewID int,
+TruckID int,
+Foreign key(BoxID) References Box(BoxID),
+Foreign key(CrewID) References Crew(CrewID),
+Foreign Key(TruckID) References Truck(TruckID)
 );
 
+--Intial Contact Table
 CREATE TABLE InitialInfo(
 InitialInfoID Numeric(3) primary key,
 FirstName VARCHAR(50),
@@ -158,6 +159,65 @@ City VARCHAR(50),
 State VARCHAR(50),
 ZipCode Numeric(10),
 );
+
+--Move Assessment Tables 
+CREATE TABLE MoveAssessment(
+MoveID Numeric(3) primary key,
+InitialInfoID Numeric(3) FOREIGN KEY REFERENCES InitialInfo(InitialInfoID),
+);
+
+CREATE TABLE Preliminary(
+PreliminaryID Numeric(3) primary key,
+MoveOutDate VARCHAR(50),
+MovingWindow VARCHAR(50),
+MLSListing? VARCHAR(50),
+SendPhotos? VARCHAR(50),
+AddOn? VARCHAR(50),
+AuctionService? VARCHAR(50),
+Street VARCHAR(50),
+City VARCHAR(50),
+State VARCHAR(50),
+ZipCode Numeric(10),
+MoveID Numeric(3) FOREIGN KEY REFERENCES MoveAssessment(MoveID),
+);
+
+CREATE TABLE Room(
+RoomID Numeric(3) primary key,
+RoomType VARCHAR(50),
+Furniture VARCHAR(100),
+FloorLevel VARCHAR(50),
+BoxSizeID Numeric(3) FOREIGN KEY REFERENCES BoxSize(BoxSizeID),
+MoveID Numeric(3) FOREIGN KEY REFERENCES MoveAssessment(MoveID),
+);
+
+CREATE TABLE BoxSize(
+BoxSizeID Numeric(3) primary key,
+Small int(3),
+Medium int(3),
+Large int(3),
+Art int(3),
+Wardrobe int(3),
+);
+
+CREATE TABLE SpecificInfo(
+SpecificInfoID Numeric(3) primary key,
+HomeType VARCHAR(50),
+TruckAccess VARCHAR(50),
+LoadDoorDistance VARCHAR(50),
+Steps? VARCHAR(50),
+SpecialEquip VARCHAR(50),
+TruckType VARCHAR(50),
+MoveID Numeric(3) FOREIGN KEY REFERENCES MoveAssessment(MoveID),
+);
+
+CREATE TABLE Cost(
+CostID Numeric(3) primary key,
+MoveEst VARCHAR(50),
+FixedRate VARCHAR(50),
+ParkFee VARCHAR(50),
+MoveID Numeric(3) FOREIGN KEY REFERENCES MoveAssessment(MoveID),
+);
+
 
 
 SET IDENTITY_INSERT [dbo].[employee] ON 
