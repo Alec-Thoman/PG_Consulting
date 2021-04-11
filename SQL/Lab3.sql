@@ -324,3 +324,14 @@ Go
 Alter Table Customer ADD ContactWay char(50);
 Alter Table Customer ADD HearAbout  char(50);
 
+insert [dbo].[Crew] ([CrewName]) values('Team1');
+insert [dbo].[Crew] ([CrewName]) values('Team2');
+insert [dbo].[Crew] ([CrewName]) values('Team3');
+insert [dbo].[Crew] ([CrewName]) values('Team4');
+insert [dbo].[Crew] ([CrewName]) values('Team5');
+insert [dbo].[Crew] ([CrewName]) values('Team6');
+insert [dbo].[Crew] ([CrewName]) values('Team7');
+insert [dbo].[Crew] ([CrewName]) values('Team8');
+insert [dbo].[Crew] ([CrewName]) values('Team9');
+insert [dbo].[Crew] ([CrewName]) values('Team10');
+
