@@ -97,9 +97,60 @@ CREATE TABLE ClientStatus (
 	Status          char(30),
 ); 
 
+-- Next 4 creates are for AuctionLookAtEvent
+Create Table Box (
+	BoxID int IDENTITY(1,1) primary key,
+	Small int,
+	Medium int,
+	Large int,
+	Art int,
+	SmallPads int,
+	LargePads int
+);
 
+Create Table Crew (
+	CrewMateID int IDENTITY(1,1) primary key,
+	CrewMateName varchar(255)
+);
 
+Create Table Truck (
+	TruckID int IDENTITY(1,1) primary key,
+	Truck2015 int,
+	Truck2011 int,
+	Cube int,
+	EnclosedTrailer int,
+	OpenTrailer int,
+	Van int
+);
 
+CREATE TABLE AuctionLookAtEvent (
+    AuctionLookAtID [int] IDENTITY(1,1) primary key,
+	TruckAccess				varchar(255),
+	SuppliesNeeded		varchar(255),
+	BoxID int,
+	CrewMateID int,
+	TruckID int,
+	Foreign key(BoxID) References Box(BoxID),
+	Foreign key(CrewMateID) References Crew(CrewMateID),
+	Foreign Key(TruckID) References Truck(TruckID)
+);
+
+CREATE TABLE InitialInfo(
+InitialInfoID Numeric(3) primary key,
+FirstName VARCHAR(50),
+LastName VARCHAR(50),
+PhoneType VARCHAR(50),
+PhoneNumber VARCHAR(50),
+Email VARCHAR(50),
+PreferredContact VARCHAR(50),
+InitialDate VARCHAR(50),
+HearAboutUs VARCHAR(50),
+RequestedService VARCHAR(50),
+Street VARCHAR(50),
+City VARCHAR(50),
+State VARCHAR(50),
+ZipCode Numeric(10),
+);
 
 
 SET IDENTITY_INSERT [dbo].[employee] ON 
@@ -265,6 +316,4 @@ Go
 
 Alter Table Customer ADD ContactWay char(50);
 Alter Table Customer ADD HearAbout  char(50);
-
-
 

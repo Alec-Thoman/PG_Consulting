@@ -13,7 +13,7 @@
              <asp:TableRow>
                     <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
                         <br />
-                        <asp:Label ID="lblHeaderMessage" runat="server" Text="Choose What You Want To View" Font-Bold="true" Font-Size="Larger"></asp:Label>
+                        <asp:Label ID="lblHeaderMessage" runat="server" Text="Choose What You Want To View" Font-Bold="true" Font-Size="Larger"></asp:Label> <asp:Button ID="Button1" runat="server" Text="Status Bar-->" style="float:right" OnClick="Button1_Click"/>
                         <br />
                     </asp:TableCell>
              </asp:TableRow>

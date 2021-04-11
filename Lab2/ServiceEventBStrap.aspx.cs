@@ -34,7 +34,7 @@ namespace Lab2
 
 
                     String sqlQuery = "Insert INTO Serviceticket(TicketBeginDate, TicketStatus," +
-                        "CustomerID, ServiceID, employeeID, Address, deadline) Values('" + beginDate + "','" + status + "','" + customerID + "','" + ServiceID + "','" + employeeID + "','" + address + "' ,'" + deadline + "')";
+                        "CustomerID, ServiceID, employeeID, Address, deadline) Values(@bd,@status,@cid,@sid,@eid,@addy,@dl)";
 
 
                     SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -42,6 +42,13 @@ namespace Lab2
                     SqlCommand sqlCommand = new SqlCommand();
                     sqlCommand.Connection = sqlConnect;
                     sqlCommand.CommandType = CommandType.Text;
+                    sqlCommand.Parameters.Add("@bd", SqlDbType.VarChar).Value = beginDate;
+                    sqlCommand.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+                    sqlCommand.Parameters.Add("@cid", SqlDbType.VarChar).Value = customerID;
+                    sqlCommand.Parameters.Add("@sid", SqlDbType.VarChar).Value = ServiceID;
+                    sqlCommand.Parameters.Add("@eid", SqlDbType.VarChar).Value = employeeID;
+                    sqlCommand.Parameters.Add("@addy", SqlDbType.VarChar).Value = address;
+                    sqlCommand.Parameters.Add("@dl", SqlDbType.VarChar).Value = deadline;
                     sqlCommand.CommandText = sqlQuery;
 
                     sqlConnect.Open();
@@ -71,11 +78,16 @@ namespace Lab2
                     String noteBody = Session["notes"].ToString();
                     String changeDate = DateTime.Now.ToString("g");
 
-                    String sqlQuery1 = "Insert INTO tickethistory(NoteTitle, NoteBody, changeDate, employeeID, serviceTicketID ) Values('" + noteTitle + "','" + noteBody + "','" + changeDate + "','" + employeeID + "','" + ticketID + "')";
+                    String sqlQuery1 = "Insert INTO tickethistory(NoteTitle, NoteBody, changeDate, employeeID, serviceTicketID ) Values(@nt,@nb,@cd,@eid,@tid)";
 
                     SqlCommand sqlCommand2 = new SqlCommand();
                     sqlCommand2.Connection = sqlConnect;
                     sqlCommand2.CommandType = CommandType.Text;
+                    sqlCommand2.Parameters.Add("@nt", SqlDbType.Char).Value = noteTitle;
+                    sqlCommand2.Parameters.Add("@nb", SqlDbType.Char).Value = noteBody;
+                    sqlCommand2.Parameters.Add("@cd", SqlDbType.Date).Value = changeDate;
+                    sqlCommand2.Parameters.Add("@eid", SqlDbType.Int).Value = employeeID;
+                    sqlCommand2.Parameters.Add("@tid", SqlDbType.Int).Value = ticketID;
                     sqlCommand2.CommandText = sqlQuery1;
 
 

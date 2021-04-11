@@ -9,38 +9,39 @@
             <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
                 <asp:Label ID="Label1" runat="server" Text="Initial Contact Form: "></asp:Label>
             </asp:TableCell>
-        </asp:TableHeaderRow>
+
+ </asp:TableHeaderRow>
 
         <%--Notes Section--%>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Label ID="Label2" runat="server" Text="Notes:"></asp:Label>
+                <asp:Label ID="lblNotes" runat="server" Text="Notes:"></asp:Label>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:TextBox ID="TextBox1" runat="server" TextMode="MultiLine" Width="400px" Height="200px"></asp:TextBox>
+                <asp:TextBox ID="txtNotes" runat="server" TextMode="MultiLine" Width="400px" Height="200px"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
 
-    <asp:Table ID="TblInitialContact" runat="server" Height="297px" Width="629px">
+    <asp:Table ID="TblInitialContact" runat="server" Height="297px" Width="862px">
 
         
         <%-- Customer Name Row --%>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Label ID="lblCustomerName" runat="server" Text="Customer Name:"></asp:Label>
+                <asp:Label ID="lblFirstName" runat="server" Text="First Name:"></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox ID="txtCustomerName" runat="server" Text=""></asp:TextBox>
+                <asp:TextBox ID="txtFirstName" runat="server" Text=""></asp:TextBox>
                 <asp:RequiredFieldValidator
                     ID="rfvFirstName" runat="server" ErrorMessage="RequiredFieldValidator"
-                    ControlToValidate="txtCustomerName" ForeColor="Red" Display="Dynamic" EnableClientScript="false" Text="Field Required">
+                    ControlToValidate="txtFirstname" ForeColor="Red" Display="Dynamic" EnableClientScript="false" Text="Field Required">
                 </asp:RequiredFieldValidator>
             </asp:TableCell>
 
-            <%--<asp:TableCell>
+            <asp:TableCell>
                 <asp:Label ID="lblLastName" runat="server" Text="Last Name:"></asp:Label>
            </asp:TableCell>
            <asp:TableCell>
@@ -49,22 +50,25 @@
                     ID="rfvLastName" runat="server" ErrorMessage="RequiredFieldValidator"
                     ControlToValidate="txtLastName" ForeColor="Red" Display="Dynamic" EnableClientScript="false" Text="Field Required">
                 </asp:RequiredFieldValidator>
-            </asp:TableCell>--%>
+            </asp:TableCell>
         </asp:TableRow>
 
-        <%-- Customer Address Row --%>
+
+
+        <%-- Phone Type Row --%>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Label ID="lblAddress" runat="server" Text="Address: "></asp:Label>
+                <asp:Label ID="lblPhoneType" runat="server" Text="PhoneType: "></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox ID="txtAddress" runat="server" Text=""></asp:TextBox>
-                <asp:RequiredFieldValidator
-                    ID="rfvAddress" runat="server" ErrorMessage="RequiredFieldValidator"
-                    ControlToValidate="txtAddress" ForeColor="Red" Display="Dynamic" EnableClientScript="false" Text="Field Required">
-                </asp:RequiredFieldValidator>
-            </asp:TableCell>
+                <asp:DropDownList ID="ddlPhoneType" runat="server">
+                    <asp:ListItem Text="-Select-" Selected="True" Value="default"></asp:ListItem>
+                    <asp:ListItem Text="Home Phone"></asp:ListItem>
+                    <asp:ListItem Text="Mobile Phone"></asp:ListItem>
+               </asp:DropDownList>
+           </asp:TableCell>
         </asp:TableRow>
+
 
         <%-- Phone Number Row --%>
         <asp:TableRow>
@@ -94,16 +98,16 @@
             </asp:TableCell>
         </asp:TableRow>
 
-        <%-- Initial Contact Row --%>
+        <%-- Preferred Contact Row --%>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Label ID="lblInitialContact" runat="server" Text="How to Contact Us Initially: "></asp:Label>
+                <asp:Label ID="lblPreferredContact" runat="server" Text="Preferred Contact: "></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:DropDownList ID="DropDownList1" runat="server">
+                <asp:DropDownList ID="ddlPreferredContact" runat="server">
                     <asp:ListItem Text="-Select-" Selected="True" Value="default"></asp:ListItem>
-                    <asp:ListItem Text="In Person"></asp:ListItem>
-                    <asp:ListItem Text="By Phone"></asp:ListItem>
+                    <asp:ListItem Text="By Home Phone"></asp:ListItem>
+                    <asp:ListItem Text="By Mobile Phone"></asp:ListItem>
                     <asp:ListItem Text="Email"></asp:ListItem>
                     <asp:ListItem Text="Text"></asp:ListItem>
                     <asp:ListItem Text="Other"></asp:ListItem>
@@ -153,9 +157,62 @@
                 <asp:CheckBoxList ID="CheckBoxList1" runat="server">
                             <asp:ListItem> Auction </asp:ListItem>
                             <asp:ListItem> Move </asp:ListItem>
-                            <asp:ListItem> Appraisal </asp:ListItem>
                 </asp:CheckBoxList>
             </asp:TableCell>
+            <asp:TableCell>
+                <asp:CheckBoxList ID="CheckBoxList2" runat="server">
+                            <asp:ListItem> Appraisal </asp:ListItem>
+                            <asp:ListItem> Consignment </asp:ListItem>
+                </asp:CheckBoxList>
+            </asp:TableCell>
+        </asp:TableRow>
+
+        <%-- Customer Address Row --%>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="lblStreet" runat="server" Text="Street:"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="txtStreet" runat="server" Text=""></asp:TextBox>
+                <asp:RequiredFieldValidator
+                    ID="rfvStreet" runat="server" ErrorMessage="RequiredFieldValidator"
+                    ControlToValidate="txtStreet" ForeColor="Red" Display="Dynamic" EnableClientScript="false" Text="Field Required">
+                </asp:RequiredFieldValidator>
+            </asp:TableCell> 
+        <asp:TableCell>
+                <asp:Label ID="lblCity" runat="server" Text="City:"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="txtCity" runat="server" Text=""></asp:TextBox>
+                <asp:RequiredFieldValidator
+                    ID="rfvCity" runat="server" ErrorMessage="RequiredFieldValidator"
+                    ControlToValidate="txtCity" ForeColor="Red" Display="Dynamic" EnableClientScript="false" Text="Field Required">
+                </asp:RequiredFieldValidator>
+            </asp:TableCell> 
+        </asp:TableRow>
+
+
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="lblState" runat="server" Text="State:"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="txtState" runat="server" Text=""></asp:TextBox>
+                <asp:RequiredFieldValidator
+                    ID="rfvState" runat="server" ErrorMessage="RequiredFieldValidator"
+                    ControlToValidate="txtState" ForeColor="Red" Display="Dynamic" EnableClientScript="false" Text="Field Required">
+                </asp:RequiredFieldValidator>
+            </asp:TableCell> 
+             <asp:TableCell>
+                <asp:Label ID="lblZipcode" runat="server" Text="Zipcode:"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="txtZipcode" runat="server" Text=""></asp:TextBox>
+                <asp:RequiredFieldValidator
+                    ID="rfvZipcode" runat="server" ErrorMessage="RequiredFieldValidator"
+                    ControlToValidate="txtZipcode" ForeColor="Red" Display="Dynamic" EnableClientScript="false" Text="Field Required">
+                </asp:RequiredFieldValidator>
+            </asp:TableCell> 
         </asp:TableRow>
 
         <%-- Submit Info Button --%>

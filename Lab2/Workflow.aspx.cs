@@ -203,13 +203,18 @@ namespace Lab2
 
 
 
-                String sqlQuery = "Insert INTO tickethistory(NoteTitle, NoteBody, changeDate, employeeID, serviceTicketID ) Values('" + title + "','" + body + "','" + date + "','" + employeeID + "','" + ticketID + "')";
+                String sqlQuery = "Insert INTO tickethistory(NoteTitle, NoteBody, changeDate, employeeID, serviceTicketID ) Values(@title,@body,@date,@eid,@tid)";
 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
                 SqlCommand sqlCommand = new SqlCommand();
                 sqlCommand.Connection = sqlConnect;
                 sqlCommand.CommandType = CommandType.Text;
+                sqlCommand.Parameters.Add("@title", SqlDbType.Char).Value = title;
+                sqlCommand.Parameters.Add("@body", SqlDbType.Char).Value = body;
+                sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = date;
+                sqlCommand.Parameters.Add("@eid", SqlDbType.Int).Value = employeeID;
+                sqlCommand.Parameters.Add("@tid", SqlDbType.Int).Value = ticketID;
                 sqlCommand.CommandText = sqlQuery;
 
                 sqlConnect.Open();

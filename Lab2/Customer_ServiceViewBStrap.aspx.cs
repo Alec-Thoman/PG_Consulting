@@ -23,13 +23,14 @@ namespace Lab2
             String uname = "";
             if (Session["UserName"] != null)
             {
-                email = Session["UserName"].ToString();
+                email = HttpUtility.HtmlEncode(Session["UserName"].ToString());
                 //uname = email.Substring(0, email.IndexOf("@"));
             }
 
             // Loop to get custID
-            String customerIDQuery = "select CustomerID from Customer where EmailAddress = '" + email + "'";
+            String customerIDQuery = "select CustomerID from Customer where EmailAddress = @email";
             SqlCommand cmd = new SqlCommand(customerIDQuery, sqlConnect);
+            cmd.Parameters.Add("@email", SqlDbType.NVarChar).Value = email;
             sqlConnect.Open();
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
@@ -54,7 +55,6 @@ namespace Lab2
 
 
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
-
             DataTable serviceGridview = new DataTable();
 
             sqlAdapter.Fill(serviceGridview);

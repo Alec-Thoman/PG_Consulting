@@ -27,7 +27,7 @@ namespace Lab2
             if (Session["InvalidUse"] != null)
             {
                 Label loginMessage = new Label();
-                loginMessage.Text = Session["InvalidUse"].ToString();
+                loginMessage.Text = HttpUtility.HtmlEncode(Session["InvalidUse"].ToString());
                 this.Controls.Add(loginMessage);
                 //lblStatus.Text = Session["InvalidUse"].ToString();
                 //lblStatus.Font.Bold = true;
@@ -46,8 +46,8 @@ namespace Lab2
             userLogin.Connection = sc;
             userLogin.CommandType = System.Data.CommandType.StoredProcedure;
             userLogin.CommandText = "Employee_SP";
-            userLogin.Parameters.AddWithValue("@UserName", txtEmail.Value.ToString());
-            userLogin.Parameters.AddWithValue("@PassWord", txtPassword.Value.ToString());
+            userLogin.Parameters.AddWithValue("@UserName", HttpUtility.HtmlEncode(txtEmail.Value.ToString()));
+            userLogin.Parameters.AddWithValue("@PassWord", HttpUtility.HtmlEncode(txtPassword.Value.ToString()));
 
             sc.Open(); 
             SqlDataReader loginResults = userLogin.ExecuteReader();

@@ -11,7 +11,7 @@ namespace Lab2
 {
 
 
-    public partial class WebForm1
+    public partial class FileUpload
     {
 
         /// <summary>

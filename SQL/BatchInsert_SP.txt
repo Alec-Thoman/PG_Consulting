@@ -1,0 +1,7 @@
+USE [Lab3]
+GO
+CREATE PROCEDURE sp_BatchInsert (@CrewMateName VARCHAR(100) ) 
+AS 
+BEGIN 
+            INSERT INTO Crew VALUES ( @CrewMateName); 
+END
