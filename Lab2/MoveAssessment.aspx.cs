@@ -30,13 +30,13 @@ namespace Lab2
                 using (var connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString))
                 {
                     connection.Open();
-                    // insert into LookAt Table
+                    
                     using (SqlCommand command = new SqlCommand(preliminarySql, connection))
                     {
                         
                     }
 
-                    // insert into box table
+                    
                     using (SqlCommand cmd = new SqlCommand(roomSql, connection))
                     {
                         connection.Open();
