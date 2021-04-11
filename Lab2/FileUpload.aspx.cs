@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace Lab2
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class FileUpload : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,7 +46,7 @@ namespace Lab2
 
         protected void fileUploadbtn_Click(object sender, EventArgs e)
         {
-            string username = Session["UserName"].ToString();
+            string username = HttpUtility.HtmlEncode(Session["UserName"].ToString());
             string newDirectory = "C:/Users/alect/Desktop/" + username; // change this to proper aws path when aws is setup
             //New Directory Name in string variable
             //CreateDirectoryIfNotExists(newDirectory);

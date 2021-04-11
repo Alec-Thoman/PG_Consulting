@@ -16,7 +16,7 @@ namespace Lab2
             {
                 state.ForeColor = Color.Green;
                 state.Font.Bold = true;
-                state.Text = Session["UserName"].ToString() + " Online";
+                state.Text = HttpUtility.HtmlEncode(Session["UserName"]).ToString() + " Online";
             }
 
             else

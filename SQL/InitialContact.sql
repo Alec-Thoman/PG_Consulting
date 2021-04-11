@@ -1,0 +1,16 @@
+CREATE TABLE InitialInfo(
+InitialInfoID Numeric(3) primary key,
+FirstName VARCHAR(50),
+LastName VARCHAR(50),
+PhoneType VARCHAR(50),
+PhoneNumber VARCHAR(50),
+Email VARCHAR(50),
+PreferredContact VARCHAR(50),
+InitialDate VARCHAR(50),
+HearAboutUs VARCHAR(50),
+RequestedService VARCHAR(50),
+Street VARCHAR(50),
+City VARCHAR(50),
+State VARCHAR(50),
+ZipCode Numeric(10),
+);

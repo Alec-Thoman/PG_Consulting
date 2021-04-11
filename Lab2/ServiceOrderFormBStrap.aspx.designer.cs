@@ -11,394 +11,358 @@ namespace Lab2
 {
 
 
-    public partial class WebForm5
+    public partial class ServiceOrderFormBStrap
     {
 
         /// <summary>
-        /// title control.
+        /// ServiceList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label title;
+        protected global::System.Web.UI.WebControls.DropDownList ServiceList;
 
         /// <summary>
-        /// customerSelectLabel control.
+        /// requestDetail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label customerSelectLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl requestDetail;
 
         /// <summary>
-        /// customerddl control.
+        /// deadlineDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList customerddl;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText deadlineDate;
 
         /// <summary>
-        /// fileUploadLabel control.
+        /// serviceTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label fileUploadLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText serviceTime;
 
         /// <summary>
-        /// FileUpload1 control.
+        /// ddlCustomerList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCustomerList;
 
         /// <summary>
-        /// fileUploadbtn control.
+        /// addressLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button fileUploadbtn;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl addressLbl;
 
         /// <summary>
-        /// fileStatus control.
+        /// addressTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label fileStatus;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText addressTxt;
 
         /// <summary>
-        /// TruckAccesslbl control.
+        /// destinationLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TruckAccesslbl;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl destinationLbl;
 
         /// <summary>
-        /// truckAccesstb control.
+        /// destinationTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox truckAccesstb;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText destinationTxt;
 
         /// <summary>
-        /// supNeedlbl control.
+        /// packingLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label supNeedlbl;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl packingLbl;
 
         /// <summary>
-        /// supNeedtb control.
+        /// boxLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox supNeedtb;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl boxLbl;
 
         /// <summary>
-        /// boxTypelbl control.
+        /// smallLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label boxTypelbl;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl smallLbl;
 
         /// <summary>
-        /// smallBox control.
+        /// txtSmall control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox smallBox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtSmall;
 
         /// <summary>
-        /// smallTB control.
+        /// mediumLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox smallTB;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mediumLbl;
 
         /// <summary>
-        /// mediumBox control.
+        /// txtMedium control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox mediumBox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtMedium;
 
         /// <summary>
-        /// mediumTB control.
+        /// largeLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox mediumTB;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl largeLbl;
 
         /// <summary>
-        /// largeBox control.
+        /// txtLarge control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox largeBox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtLarge;
 
         /// <summary>
-        /// largeTB control.
+        /// wardrobeLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox largeTB;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl wardrobeLbl;
 
         /// <summary>
-        /// artBox control.
+        /// txtWardrobe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox artBox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtWardrobe;
 
         /// <summary>
-        /// artTB control.
+        /// artLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox artTB;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl artLbl;
 
         /// <summary>
-        /// smallPads control.
+        /// txtArt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox smallPads;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtArt;
 
         /// <summary>
-        /// spTB control.
+        /// assignedCrewLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox spTB;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl assignedCrewLbl;
 
         /// <summary>
-        /// largePads control.
+        /// txtCrew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox largePads;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtCrew;
 
         /// <summary>
-        /// lpTB control.
+        /// dumpsterOption control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lpTB;
+        protected global::System.Web.UI.WebControls.DropDownList dumpsterOption;
 
         /// <summary>
-        /// empTitle control.
+        /// addressLbl2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label empTitle;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl addressLbl2;
 
         /// <summary>
-        /// employeeList control.
+        /// txtTrashAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList employeeList;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtTrashAddress;
 
         /// <summary>
-        /// trucklbl control.
+        /// countMenLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label trucklbl;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl countMenLbl;
 
         /// <summary>
-        /// check2015 control.
+        /// txtCountMen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox check2015;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtCountMen;
 
         /// <summary>
-        /// tb2015 control.
+        /// chargeLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb2015;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chargeLbl;
 
         /// <summary>
-        /// check2011 control.
+        /// txtCharging control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox check2011;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtCharging;
 
         /// <summary>
-        /// tb2011 control.
+        /// scheduleLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb2011;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl scheduleLbl;
 
         /// <summary>
-        /// cubecheck control.
+        /// txtScheduling control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cubecheck;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtScheduling;
 
         /// <summary>
-        /// cubetb control.
+        /// trashLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cubetb;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl trashLbl;
 
         /// <summary>
-        /// etcheck control.
+        /// txtTrashDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox etcheck;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtTrashDescription;
 
         /// <summary>
-        /// ettb control.
+        /// requestBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ettb;
+        protected global::System.Web.UI.WebControls.Button requestBtn;
 
         /// <summary>
-        /// otcheck control.
+        /// populateBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox otcheck;
+        protected global::System.Web.UI.WebControls.Button populateBtn;
 
         /// <summary>
-        /// ottb control.
+        /// dtasrcCustomerList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ottb;
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcCustomerList;
 
         /// <summary>
-        /// vancheck control.
+        /// dtasrcServiceList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox vancheck;
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcServiceList;
 
         /// <summary>
-        /// vantb control.
+        /// dtasrcEmployeeList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox vantb;
-
-        /// <summary>
-        /// HomePage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button HomePage;
-
-        /// <summary>
-        /// logoutButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button logoutButton;
-
-        /// <summary>
-        /// submitButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button submitButton;
-
-        /// <summary>
-        /// delme control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label delme;
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcEmployeeList;
     }
 }

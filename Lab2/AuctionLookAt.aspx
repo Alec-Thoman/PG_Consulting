@@ -59,7 +59,7 @@
     <br />
     <asp:Label ID="empTitle" runat="server" Text="Crew" Font-Bold="true" Font-Size="Large"></asp:Label>
     <br />
-    <asp:CheckBoxList ID="employeeddl" runat="server"></asp:CheckBoxList>
+    <asp:CheckBoxList ID="employeeList" runat="server"></asp:CheckBoxList>
     <br />
     <br />
     <asp:Label ID="trucklbl" runat="server" Text="Trucks (Select & Enter Quantity)" Font-Bold="true" Font-Size="Large"></asp:Label>
@@ -85,4 +85,6 @@
     <br />
     <asp:Button ID="HomePage" runat="server" Text="Return to Home Page" OnClick="HomePage_Click"/>
     <asp:Button ID="logoutButton" runat="server" Text="Log Out" OnClick="logoutButton_Click"/>
+    <asp:Button ID="submitButton" runat="server" Text="Submit" OnClick="submitButton_Click"/>
+    <asp:Label ID="delme" runat="server" Text=""></asp:Label>
 </asp:Content>

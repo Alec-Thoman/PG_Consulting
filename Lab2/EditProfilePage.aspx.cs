@@ -21,15 +21,16 @@ namespace Lab2
             String uname = "";
             if (Session["UserName"] != null)
             {
-                email = Session["UserName"].ToString();
+                email = HttpUtility.HtmlEncode(Session["UserName"].ToString());
                 //uname = email.Substring(0, email.IndexOf("@"));
             }
 
             //nameTB.Text = uname;
             //emailTB.Text = email;
 
-            String customerQuery = "select CustomerID, CustomerAddress, PhoneNumber, EmailAddress, CustomerName from Customer where EmailAddress = '" + email + "'";
+            String customerQuery = "select CustomerID, CustomerAddress, PhoneNumber, EmailAddress, CustomerName from Customer where EmailAddress = @email";
             SqlCommand cmd = new SqlCommand(customerQuery, sqlConnect);
+            cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
             string pn = "";
             string address = "";
             //string dbEmail = "";
@@ -39,10 +40,10 @@ namespace Lab2
             {
                 while (reader.Read())
                 {
-                    pn = (string)reader["PhoneNumber"];
-                    address = (string)reader["CustomerAddress"];
+                    pn = HttpUtility.HtmlEncode((string)reader["PhoneNumber"]);
+                    address = HttpUtility.HtmlEncode((string)reader["CustomerAddress"]);
                     //dbEmail = (string)reader["EmailAddress"];
-                    uname = (string)reader["CustomerName"];
+                    uname = HttpUtility.HtmlEncode((string)reader["CustomerName"]);
                     this.custID = (int)reader["CustomerID"];
 
                 }
@@ -113,10 +114,10 @@ namespace Lab2
                                                 "CustomerName = @CustomerName" +
                                                 " where CustomerID = @CustID";
 
-                        command.Parameters.AddWithValue("@CustomerAddress", addressTB.Text);
-                        command.Parameters.AddWithValue("@PhoneNumber", pnTB.Text);
+                        command.Parameters.AddWithValue("@CustomerAddress", HttpUtility.HtmlEncode(addressTB.Text));
+                        command.Parameters.AddWithValue("@PhoneNumber", HttpUtility.HtmlEncode(pnTB.Text));
                         //command.Parameters.AddWithValue("@EmailAddress", emailTB.Text);
-                        command.Parameters.AddWithValue("@CustomerName", nameTB.Text);
+                        command.Parameters.AddWithValue("@CustomerName", HttpUtility.HtmlEncode(nameTB.Text));
                         command.Parameters.AddWithValue("@CustID", custID);
 
                         connection.Open();

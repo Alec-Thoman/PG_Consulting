@@ -32,13 +32,19 @@ namespace Lab2
                 String hear = HttpUtility.HtmlEncode(hearAboutTxt.Value).ToString();
 
                 String sqlQuery = "Insert INTO Customer(CustomerName, PhoneNumber,EmailAddress," +
-                    "CustomerAddress, contactWay, hearabout ) Values('" + customerName + "','" + phoneNumber + "','" + email + "','" + address + "','" + contactWay + "','" + hear + "')";
+                    "CustomerAddress, contactWay, hearabout ) Values(@name,@phone,@email,@address,@contactWay,@hear)";
 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
                 SqlCommand sqlCommand = new SqlCommand();
                 sqlCommand.Connection = sqlConnect;
                 sqlCommand.CommandType = CommandType.Text;
+                sqlCommand.Parameters.Add("@name", SqlDbType.Char).Value = customerName;
+                sqlCommand.Parameters.Add("@phone", SqlDbType.Char).Value = phoneNumber;
+                sqlCommand.Parameters.Add("@email", SqlDbType.Char).Value = email;
+                sqlCommand.Parameters.Add("@address", SqlDbType.Char).Value = address;
+                sqlCommand.Parameters.Add("@contactWay", SqlDbType.Char).Value = contactWay;
+                sqlCommand.Parameters.Add("@hear", SqlDbType.Char).Value = hear;
                 sqlCommand.CommandText = sqlQuery;
 
                 sqlConnect.Open();
@@ -59,9 +65,9 @@ namespace Lab2
                     // INSERT PASSWORD RECORD AND CONNECT TO USER
                     setPass.CommandText = "INSERT INTO CustomerUserInfo(Username, Password) VALUES (@Username, @Password)";
                     System.Diagnostics.Debug.WriteLine("P1");
-                    setPass.Parameters.Add(new SqlParameter("@Username", emailTxt.Value));
+                    setPass.Parameters.Add(new SqlParameter("@Username", HttpUtility.HtmlEncode(emailTxt.Value)));
                     System.Diagnostics.Debug.WriteLine("P1");
-                    setPass.Parameters.Add(new SqlParameter("@Password", passwordTxt.Value));
+                    setPass.Parameters.Add(new SqlParameter("@Password", HttpUtility.HtmlEncode(passwordTxt.Value)));
                     System.Diagnostics.Debug.WriteLine("P1");
                     setPass.ExecuteNonQuery();
                     System.Diagnostics.Debug.WriteLine("P1");
