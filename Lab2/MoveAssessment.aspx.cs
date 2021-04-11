@@ -41,7 +41,7 @@ namespace Lab2
                     {
                         connection.Open();
 
-                        // checking to make sure tb's are not empty
+                        
                         string empty = "0";
                         if (TextBox79.Equals(""))
                         {
