@@ -187,7 +187,6 @@ RoomID Numeric(3) primary key,
 RoomType VARCHAR(50),
 Furniture VARCHAR(100),
 FloorLevel VARCHAR(50),
-BoxSizeID Numeric(3) FOREIGN KEY REFERENCES BoxSize(BoxSizeID),
 MoveID Numeric(3) FOREIGN KEY REFERENCES MoveAssessment(MoveID),
 );
 
