@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MoveAssessment.aspx.cs" Inherits="Lab2.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MoveAssessment.aspx.cs" Inherits="Lab2.WebForm1" %>
 
 <!DOCTYPE html>
 
@@ -13,65 +13,19 @@
             <br />
             <br />
             <asp:Label ID="Label9" runat="server" Text="Contact Info" Font-Bold="true" Font-Size="Large"></asp:Label>
-            <asp:Table ID="Table1" runat="server">
+            <asp:Table ID="Table1" runat="server" Height="52px" Width="147px">
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label ID="Label1" runat="server" Text="First Name:"></asp:Label>
+                        <asp:Label ID="customerSelectLabel" runat="server" Text="Select Customer:"></asp:Label>
+                        <asp:DropDownList ID="customerddl" runat="server" OnSelectedIndexChanged="customerddl_SelectedIndexChanged" AutoPostBack="true">
+                        </asp:DropDownList>
                     </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
                     <asp:TableCell>
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        <asp:GridView ID="grdCustomer" runat="server"></asp:GridView>
                     </asp:TableCell>
                 </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>
-                        <asp:Label ID="Label2" runat="server" Text="Last Name:"></asp:Label>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                    </asp:TableCell>
-                 </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>
-                        <asp:Label ID="Label3" runat="server" Text="Email Address:"></asp:Label>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-                    </asp:TableCell>
-                 </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>
-                        <asp:Label ID="Label4" runat="server" Text="Phone Number:"></asp:Label>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
-                    </asp:TableCell>
-                 </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>
-                        <asp:Label ID="Label5" runat="server" Text="Current Address:"></asp:Label>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:Label ID="Label6" runat="server" Text="City:"></asp:Label>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:Label ID="Label7" runat="server" Text="State:"></asp:Label>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:Label ID="Label8" runat="server" Text="Zip:"></asp:Label>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
-                    </asp:TableCell>
-                 </asp:TableRow>
             </asp:Table>
             <br />
             <br />
@@ -772,6 +726,11 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:TextBox ID="TextBox91" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Button ID="btnSubmit" runat="server" Text="Submit" onclick="btnSubmit_Click"/>
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
