@@ -61,7 +61,7 @@
                         <input class="form-control" runat="server" id="deadlineDate" placeholder="01/01/2021">
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Time of Service</label>  <%--D--%>
+                        <label for="exampleFormControlInput1">Time of Service</label>  
                         <input class="form-control" runat="server" id="serviceTime" placeholder="04:50 AM">
                     </div>
                     <div class="form-group">

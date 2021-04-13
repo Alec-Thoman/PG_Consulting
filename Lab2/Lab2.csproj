@@ -101,7 +101,6 @@
     <Content Include="img\sm-example2.jpg" />
     <Content Include="InitialContactInfo.aspx" />
     <Content Include="InventoryBStrap.aspx" />
-    <Content Include="MoveAssessment.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -281,12 +280,6 @@
     </Compile>
     <Compile Include="InventoryBStrap.aspx.designer.cs">
       <DependentUpon>InventoryBStrap.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MoveAssessment.aspx.cs">
-      <DependentUpon>MoveAssessment.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MoveAssessment.aspx.designer.cs">
-      <DependentUpon>MoveAssessment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceOrderFormBStrap.aspx.cs">
