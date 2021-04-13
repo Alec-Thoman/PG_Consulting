@@ -151,7 +151,7 @@ PhoneType VARCHAR(50),
 PhoneNumber VARCHAR(50),
 Email VARCHAR(50),
 PreferredContact VARCHAR(50),
-InitialDate VARCHAR(50)
+InitialDate VARCHAR(50),
 Deadline VARCHAR(50),
 HearAboutUs VARCHAR(50),
 RequestedService VARCHAR(50),
@@ -171,10 +171,10 @@ CREATE TABLE Preliminary(
 PreliminaryID Numeric(3) primary key,
 MoveOutDate VARCHAR(50),
 MovingWindow VARCHAR(50),
-MLSListing? VARCHAR(50),
-SendPhotos? VARCHAR(50),
-AddOn? VARCHAR(50),
-AuctionService? VARCHAR(50),
+MLSListing VARCHAR(50),
+SendPhotos VARCHAR(50),
+AddOn VARCHAR(50),
+AuctionService VARCHAR(50),
 Street VARCHAR(50),
 City VARCHAR(50),
 State VARCHAR(50),
@@ -192,11 +192,11 @@ MoveID Numeric(3) FOREIGN KEY REFERENCES MoveAssessment(MoveID),
 
 CREATE TABLE BoxSize(
 BoxSizeID Numeric(3) primary key,
-Small int(3),
-Medium int(3),
-Large int(3),
-Art int(3),
-Wardrobe int(3),
+Small int,
+Medium int,
+Large int,
+Art int,
+Wardrobe int,
 );
 
 CREATE TABLE SpecificInfo(
@@ -204,7 +204,7 @@ SpecificInfoID Numeric(3) primary key,
 HomeType VARCHAR(50),
 TruckAccess VARCHAR(50),
 LoadDoorDistance VARCHAR(50),
-Steps? VARCHAR(50),
+Steps VARCHAR(50),
 SpecialEquip VARCHAR(50),
 TruckType VARCHAR(50),
 MoveID Numeric(3) FOREIGN KEY REFERENCES MoveAssessment(MoveID),
@@ -394,4 +394,3 @@ insert [dbo].[Crew] ([CrewName]) values('Team7');
 insert [dbo].[Crew] ([CrewName]) values('Team8');
 insert [dbo].[Crew] ([CrewName]) values('Team9');
 insert [dbo].[Crew] ([CrewName]) values('Team10');
-
