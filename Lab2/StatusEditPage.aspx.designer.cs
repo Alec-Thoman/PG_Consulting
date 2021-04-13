@@ -11,61 +11,52 @@ namespace Lab2
 {
 
 
-    public partial class EmployeeCustomerViewBStrap
+    public partial class StatusEditPage
     {
 
         /// <summary>
-        /// searchTxt control.
+        /// servicesGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl searchTxt;
+        protected global::System.Web.UI.WebControls.GridView servicesGridView;
 
         /// <summary>
-        /// SearchBtn control.
+        /// txtStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SearchBtn;
+        protected global::System.Web.UI.WebControls.TextBox txtStatus;
 
         /// <summary>
-        /// grdCustomer control.
+        /// txtStatusNotes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdCustomer;
+        protected global::System.Web.UI.WebControls.TextBox txtStatusNotes;
 
         /// <summary>
-        /// TextBoxUserID control.
+        /// editBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxUserID;
+        protected global::System.Web.UI.WebControls.Button editBtn;
 
         /// <summary>
-        /// TextBoxUserName control.
+        /// dtasrcServiceList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxUserName;
-
-        /// <summary>
-        /// ViewCustomers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ViewCustomers;
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcServiceList;
     }
 }
