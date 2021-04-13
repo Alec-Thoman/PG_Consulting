@@ -27,6 +27,7 @@ namespace Lab2
             String email = HttpUtility.HtmlEncode(txtEmail.Text).ToString();
             String preferredContact = HttpUtility.HtmlEncode(ddlPreferredContact.Text).ToString();
             String initialDate = HttpUtility.HtmlEncode(txtInitialDate.Text).ToString();
+            String deadline = HttpUtility.HtmlEncode(txtDeadline.Text).ToString();
             String hear = HttpUtility.HtmlEncode(txtHearAbout.Text).ToString();
             String requestedService1 = HttpUtility.HtmlEncode(CheckBoxList1.Text).ToString();
             String requestedService2 = HttpUtility.HtmlEncode(CheckBoxList2.Text).ToString();
@@ -37,10 +38,10 @@ namespace Lab2
             //String hear = HttpUtility.HtmlEncode(txtHearAbout.Text).ToString();
             
             
-            String sqlQuery = "Insert INTO InitialInfo(FistName, LastName, PhoneType, PhoneNumber, Email, PreferredContact, InitialDate, HearAboutUs, RequestedService, " +
-                "Street, City, State, ZipCode ) Values('@fn, @ln,@pt,@pn,@email,@pc,@id,@hear,@rs1,@rs2,@street,@city,@state,@zip)";
+            String sqlQuery = "Insert INTO InitialInfo(FistName, LastName, PhoneType, PhoneNumber, Email, PreferredContact, InitialDate, Deadline, HearAboutUs, RequestedService, " +
+                "Street, City, State, ZipCode ) Values('@fn, @ln,@pt,@pn,@email,@pc,@id, @dl,@hear,@rs1,@rs2,@street,@city,@state,@zip)";
 
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["InitialContact"].ConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = sqlConnect;
@@ -52,6 +53,7 @@ namespace Lab2
             sqlCommand.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
             sqlCommand.Parameters.Add("@pc", SqlDbType.VarChar).Value = preferredContact;
             sqlCommand.Parameters.Add("@id", SqlDbType.VarChar).Value = initialDate;
+            sqlCommand.Parameters.Add("@dl", SqlDbType.VarChar).Value = deadline;
             sqlCommand.Parameters.Add("@hear", SqlDbType.VarChar).Value = hear;
             sqlCommand.Parameters.Add("@rs1", SqlDbType.VarChar).Value = requestedService1;
             sqlCommand.Parameters.Add("@rs2", SqlDbType.VarChar).Value = requestedService2;

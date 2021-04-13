@@ -75,6 +75,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="CustomerContactPage.aspx" />
     <Content Include="CustomerHomePage.aspx" />
     <Content Include="EmployeeCustomerViewBStrap.aspx" />
     <Content Include="EmployeeHomePageBStrap.aspx" />
@@ -215,7 +216,6 @@
     <Content Include="CustomerLoginPageBStrap.aspx" />
     <Content Include="CustomerHomePageBStrap.aspx" />
     <Content Include="Customer_ServiceViewBStrap.aspx" />
-    <Content Include="CustomerContactPage.aspx" />
     <Content Include="CustomerProfile.aspx" />
     <Content Include="ServiceEventBStrap.aspx" />
     <Content Include="CustomerNewService.aspx" />
@@ -225,6 +225,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appcode\PasswordHash.cs" />
+    <Compile Include="CustomerContactPage.aspx.cs">
+      <DependentUpon>CustomerContactPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerContactPage.aspx.designer.cs">
+      <DependentUpon>CustomerContactPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerHomePage.aspx.cs">
       <DependentUpon>CustomerHomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -387,13 +394,6 @@
     </Compile>
     <Compile Include="Customer_ServiceViewBStrap.aspx.designer.cs">
       <DependentUpon>Customer_ServiceViewBStrap.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerContactPage.aspx.cs">
-      <DependentUpon>CustomerContactPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CustomerContactPage.aspx.designer.cs">
-      <DependentUpon>CustomerContactPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerProfile.aspx.cs">
       <DependentUpon>CustomerProfile.aspx</DependentUpon>
