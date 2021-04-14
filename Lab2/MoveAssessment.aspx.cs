@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace Lab2
 {
-    public partial class MoveAssessment : System.Web.UI.Page
+    public partial class WebForm1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -61,14 +61,13 @@ namespace Lab2
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             int custID = int.Parse(customerddl.SelectedValue);
-            string msSql = "insert into MoveAssessment ([InitialInfoID]) values(@custID)";
-            string preliminarySql = "insert into Prelimicary([MoveOutDate], [MovingWindow], [MLSListing?], [SendPhotos?], [AddOn?], [AuctionService?], [Street], [City], [State], [ZipCode], [MoveID]) values (@MoveOutDate, @MovingWindow, @MLSListing, @SendPhotos, @AddOn, @AuctionService, @Street, @City, @State, @ZipCode, @MoveID)";
+            string msSql = "insert into MoveAssessment ([CustomerID]) values(@custID)";
+            string preliminarySql = "insert into Preliminary([MoveOutDate], [MovingWindow], [MLSListing], [SendPhotos], [AddOn], [AuctionService], [Street], [City], [State], [ZipCode], [MoveID]) values (@MoveOutDate, @MovingWindow, @MLSListing, @SendPhotos, @AddOn, @AuctionService, @Street, @City, @State, @ZipCode, @MoveID)";
             string roomSql = "insert into Room([RoomType], [Furniture], [FloorLevel], [MoveID]) values(@RoomType, @Furniture, @FloorLevel, @MoveID)";
-            string specificSql = "insert into SpecificInfo([HomeType], [TruckAccess], [LoadDoorDistance], [Steps?], [SpecialEquip], [TruckType], [MoveID]) values(@HomeType, @TruckAccess, @LoadDoorDistance, @Steps, @SpecialEquip, @TruckType, @MoveID)";
+            string specificSql = "insert into SpecificInfo([HomeType], [TruckAccess], [LoadDoorDistance], [Steps], [SpecialEquip], [TruckType], [MoveID]) values(@HomeType, @TruckAccess, @LoadDoorDistance, @Steps, @SpecialEquip, @TruckType, @MoveID)";
             string costSql = "insert into Cost([MoveEst], [FixedRate], [ParkFee], [MoveID]) values(@MoveEst, @Fixed, @ParkFee, @MoveID)";
 
-            try
-            {
+           
                 using (var connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString))
                 {
                     connection.Open();
@@ -142,6 +141,8 @@ namespace Lab2
                         cmd.Parameters.Add("@State", SqlDbType.NVarChar).Value = TextBox13.Text;
                         cmd.Parameters.Add("@ZipCode", SqlDbType.NVarChar).Value = TextBox14.Text;
                         cmd.Parameters.Add("@MoveID", SqlDbType.Int).Value = moveID;
+
+                    
 
                         cmd.ExecuteNonQuery();
                         connection.Close();
@@ -386,7 +387,7 @@ namespace Lab2
 
                         for (int i = 0; i < CheckBoxList2.Items.Count; i++)
                         {
-                            if (CheckBoxList1.Items[i].Selected)
+                            if (CheckBoxList2.Items[i].Selected)
                             { truckType += CheckBoxList2.Items[i].Text + ", "; }
                         }
 
@@ -417,13 +418,10 @@ namespace Lab2
 
 
 
-                }
+                
 
             }
-            catch (Exception b)
-            {
-                //MessageBox.Show($"Failed to update. Error message: {e.Message}");
-            }
+           
         }
     
     }
