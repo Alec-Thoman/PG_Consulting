@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="CustomerInfoPage.aspx.cs" Inherits="Lab2.CustomerInfoPage" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+ <!DOCTYPE html>
 
 <html lang="en-US">
 
@@ -22,7 +26,7 @@
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
         <div class="navbar-header">
             <a class="navbar-brand js-scroll-trigger text-black" href="../employee-index.html">
-                <div class="logo"><img src="../../assets/img/Logos/GVALogo_Green_resized.png"
+                <div class="logo"><img src="img/Logos/GVALogo_Green_resized.png"
                         alt="Green Valley Auctions Logo" width="200" height="100"></div>
             </a>
         </div>
@@ -41,8 +45,9 @@
             <div class="col-md-12">
                 <div class="jumbotron">
                     <div class="container-fluid text-left">
-                        <h1 class="text-black">Customer Name</h1>
-                        <p>Info about Customer?</p>
+                      <%--  <h1 class="text-black">Customer Name</h1>--%>
+                        <asp:Label ID="namelbl" runat="server" class="text-black" Font-Bold="true" Font-Size="X-Large"></asp:Label>
+                        <asp:Label ID="createDatelbl" runat="server" class="text-black"></asp:Label>
                     </div>
                 </div>
             </div>
@@ -64,35 +69,39 @@
         <div class="container-fluid pr-5 pl-5">
             <div class="tab-content">
                 <div class="tab-pane fade show active">
-                    <a class="btn btn-primary" href="#">Edit</a>
+                 <%--   <a class="btn btn-primary" href="#">Edit</a>--%>
+                    <asp:Button ID="editButton" runat="server" Text="Edit" Class="btn btn-primary" OnClick="editButton_Click" />
                     <form class="border p-3">
                         <div class="form-group row">
                             <div class="col-3">
-                                <label for="firstName" class="col-form-label">First Name:</label>
+                                <label for="fnlbl" class="col-form-label">First Name:</label>
                                 <div class="ml-2">
-                                    <input type="first-name" class="form-control" id="firstName"
-                                        placeholder="First Name Placeholder" readonly>
+                                    <%--<input type="first-name" class="form-control" id="firstName"
+                                        placeholder="First Name Placeholder" readonly>--%>
+                                    <asp:TextBox ID="fnTB" class="form-control" runat="server" Text=""></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <label for="lastName" class="col-form-label">Last Name:</label>
                                 <div class="ml-2">
-                                    <input type="last-name" class="form-control" id="lastName"
-                                        placeholder="Last Name Placeholder" readonly>
+                                    <asp:TextBox ID="lnTB" runat="server" class="form-control" Text=""></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <label for="email" class="col-form-label">Email Address:</label>
                                 <div class="ml-2">
-                                    <input type="email" class="form-control" id="email" placeholder="email@email.com"
-                                        readonly>
+                                    <%--<input type="email" class="form-control" id="email" placeholder="email@email.com"
+                                        readonly>--%>
+
+                                    <asp:TextBox ID="emailTB" class="form-control" runat="server" Text=""></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <label for="phone" class="col-form-label">Phone Number:</label>
                                 <div class="ml-2">
-                                    <input type="phone" class="form-control" id="phone" placeholder="(555) 555-5555"
-                                        readonly>
+                                    <%--<input type="phone" class="form-control" id="phone" placeholder="(555) 555-5555"
+                                        readonly>--%>
+                                    <asp:TextBox ID="phoneTB" runat="server" class="form-control" Text=""></asp:TextBox>
                                 </div>
                             </div>
                         </div>
@@ -100,30 +109,36 @@
                             <div class="col-3">
                                 <label for="streetAddress" class="col-form-label">Street Address:</label>
                                 <div class="ml-2">
-                                    <input type="street-address" class="form-control" id="streetAddress"
-                                        placeholder="555 Elk St." readonly>
+                                    <%--<input type="street-address" class="form-control" id="streetAddress"
+                                        placeholder="555 Elk St." readonly>--%>
+                                    <asp:TextBox ID="addressTB" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <label for="city" class="col-form-label">City:</label>
                                 <div class="ml-2">
-                                    <input type="city" class="form-control" id="city" placeholder="Harrisonburg"
-                                        readonly>
+                                    <%--<input type="city" class="form-control" id="city" placeholder="Harrisonburg"
+                                        readonly>--%>
+                                    <asp:TextBox ID="cityTB" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <label for="state" class="col-form-label">State:</label>
                                 <div class="ml-2">
-                                    <input type="state" class="form-control" id="state" placeholder="VA" readonly>
+                                    <%--<input type="state" class="form-control" id="state" placeholder="VA" readonly>--%>
+                                    <asp:TextBox ID="stateTB" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <label for="zip" class="col-form-label">ZIP Code:</label>
                                 <div class="ml-2">
-                                    <input type="zip" class="form-control" id="zip" placeholder="22801" readonly>
+                                    <%--<input type="zip" class="form-control" id="zip" placeholder="22801" readonly>--%>
+                                    <asp:TextBox ID="zipTB" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
+                         <%-- <asp:Button ID="submitButton" runat="server" Text="Submit" class="btn btn-primary" OnClick="submitButton_Click"/>
+                          <asp:Button ID="cancelButton" runat="server" Text="Cancel" class="btn btn-default" OnClick="cancelButton_Click"/>--%>
                     </form>
                 </div>
             </div>
@@ -132,3 +147,6 @@
 </body>
 
 </html>
+</asp:Content>
+
+

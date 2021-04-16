@@ -104,6 +104,9 @@ namespace Lab2
                     TextBoxUserID.Text = grdCustomer.SelectedRow.Cells[1].Text;
                     TextBoxUserName.Text = grdCustomer.SelectedRow.Cells[2].Text;
                     Session["customerName"] =grdCustomer.SelectedRow.Cells[2].Text;
+
+                    // Alec added this to test out (commented out for now)
+                    //Response.Redirect("CustomerInfoPage.aspx");
                 }
                 else
                 {

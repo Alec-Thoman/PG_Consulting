@@ -56,7 +56,7 @@ namespace Lab2
             if (loginResults.Read())
             {
                 Session["UserName"] = HttpUtility.HtmlEncode(txtEmail.Value);
-                Response.Redirect("EmployeeHomePageBStrap.aspx");
+                Response.Redirect("NewestEmployeeHomePage.aspx");
 
             }
             else
