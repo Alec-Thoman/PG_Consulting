@@ -37,66 +37,55 @@ namespace Lab2
             String notes = HttpUtility.HtmlEncode(txtNotes.Text).ToString();
             
             
-            String sqlInitial = "Insert INTO InitialInfo(FistName, LastName, PhoneType, PhoneNumber, Email, PreferredContact, InitialDate, Deadline, HearAboutUs, RequestedService, " +
-                "Street, City, State, ZipCode ) Values('@fn, @ln,@pt,@pn,@email,@pc,@id, @dl,@hear,@rs1,@street,@city,@state,@zip)";
+            String sqlInitial = "Insert INTO InitialInfo(FirstName, LastName, PhoneType, PhoneNumber, Email, PreferredContact, InitialDate, Deadline, HearAboutUs, RequestedService, " +
+                "Street, City, State, ZipCode ) Values(@fn,@ln,@pt,@pn,@email,@pc,@id, @dl,@hear,@rs1,@street,@city,@state,@zip);SELECT CAST(scope_identity() AS int)";
 
-            String sqlNote = "Insert INTO Notes(NoteBody) Values(@note)"
+            String sqlNote = "Insert INTO Notes(NoteBody, InitialInfoID) Values(@note,@InitialInfoID)";
 
-            using (SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            int initialInfoID = 0;
+            using (SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString))
             {
-              using (SqlCommand command = new SqlCommand(sqlInitial, sqlConnect))
-              {
-                sqlConnect.Open();
-                SqlCommand sqlCommand = new SqlCommand();
-                sqlCommand.Connection = sqlConnect;
-                sqlCommand.CommandType = CommandType.Text;
-                sqlCommand.Parameters.Add("@fn", SqlDbType.VarChar).Value = firstName;
-                sqlCommand.Parameters.Add("@ln", SqlDbType.VarChar).Value = lastName;
-                sqlCommand.Parameters.Add("@pt", SqlDbType.VarChar).Value = phoneType;
-                sqlCommand.Parameters.Add("@pn", SqlDbType.VarChar).Value = phoneNumber;
-                sqlCommand.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
-                sqlCommand.Parameters.Add("@pc", SqlDbType.VarChar).Value = preferredContact;
-                sqlCommand.Parameters.Add("@id", SqlDbType.VarChar).Value = initialDate;
-                sqlCommand.Parameters.Add("@dl", SqlDbType.VarChar).Value = deadline;
-                sqlCommand.Parameters.Add("@hear", SqlDbType.VarChar).Value = hear;
-                sqlCommand.Parameters.Add("@rs1", SqlDbType.VarChar).Value = requestedService1;
-                sqlCommand.Parameters.Add("@street", SqlDbType.VarChar).Value = street;
-                sqlCommand.Parameters.Add("@city", SqlDbType.VarChar).Value = city;
-                sqlCommand.Parameters.Add("@state", SqlDbType.VarChar).Value = state;
-                sqlCommand.Parameters.Add("@zip", SqlDbType.Int).Value = zipcode;
-                sqlCommand.CommandText = sqlInitial;
+                using (SqlCommand command = new SqlCommand(sqlInitial, sqlConnect))
+                {
+                    sqlConnect.Open();
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.Add("@fn", SqlDbType.VarChar).Value = firstName;
+                    command.Parameters.Add("@ln", SqlDbType.VarChar).Value = lastName;
+                    command.Parameters.Add("@pt", SqlDbType.VarChar).Value = phoneType;
+                    command.Parameters.Add("@pn", SqlDbType.VarChar).Value = phoneNumber;
+                    command.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
+                    command.Parameters.Add("@pc", SqlDbType.VarChar).Value = preferredContact;
+                    command.Parameters.Add("@id", SqlDbType.VarChar).Value = initialDate;
+                    command.Parameters.Add("@dl", SqlDbType.VarChar).Value = deadline;
+                    command.Parameters.Add("@hear", SqlDbType.VarChar).Value = hear;
+                    command.Parameters.Add("@rs1", SqlDbType.VarChar).Value = requestedService1;
+                    command.Parameters.Add("@street", SqlDbType.VarChar).Value = street;
+                    command.Parameters.Add("@city", SqlDbType.VarChar).Value = city;
+                    command.Parameters.Add("@state", SqlDbType.VarChar).Value = state;
+                    command.Parameters.Add("@zip", SqlDbType.Int).Value = zipcode;
+                    //command.ExecuteNonQuery();
+                    initialInfoID = (int)command.ExecuteScalar();
 
-                command.ExecuteNonQuery();
-                SqlDataReader queryResults = sqlCommand.ExecuteReader();
-                queryResults.Close();
-                sqlConnect.Close();
-            
-              }
-              using (SqlCommand command = new SqlCommand(sqlNote, sqlConnect))
-              {
+                    sqlConnect.Close();
+                }
 
-                SqlConnection.Open();
-                sqlCommand.Parameters.Add("@note", SqlDbType.Int).Value = notes;
+                using (SqlCommand command2 = new SqlCommand(sqlNote, sqlConnect))
+                {
+                    sqlConnect.Open();
+                    command2.Parameters.Add("@note", SqlDbType.VarChar).Value = notes;
+                    command2.Parameters.Add("@InitialInfoID", SqlDbType.Int).Value = initialInfoID;
 
-                command.ExecuteNonQuery();
-                SqlDataReader queryResults = sqlCommand.ExecuteReader();
-                queryResults.Close();
-                sqlConnect.Close();
-            
-              }
+                    command2.ExecuteNonQuery();
+                    //SqlDataReader queryResults = command.ExecuteReader();
+                    //queryResults.Close();
+                    sqlConnect.Close();
+                }
             }
-            //sqlConnect.Open();
-            //SqlDataReader queryResults = sqlCommand.ExecuteReader();
-            //queryResults.Close();
-            //sqlConnect.Close();
-            
-            //Session["notes"] = HttpUtility.HtmlEncode(txtNotes.Text);
-            //Response.Redirect("ServiceEvent.aspx");
         }
 
         protected void Back_Click(object sender, EventArgs e)
         {
-            Response.Redirect("EmployeeHomePageBStrap.aspx");
+            Response.Redirect("NewestEmployeeHomePage.aspx");
         }
     }
 }
