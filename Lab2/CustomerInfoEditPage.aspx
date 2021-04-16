@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="CustomerInfoPage.aspx.cs" Inherits="Lab2.CustomerInfoPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="CustomerInfoEditPage.aspx.cs" Inherits="Lab2.WebForm7" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -45,9 +45,8 @@
             <div class="col-md-12">
                 <div class="jumbotron">
                     <div class="container-fluid text-left">
-                      <%--  <h1 class="text-black">Customer Name</h1>--%>
-                        <asp:Label ID="namelbl" runat="server" class="text-black" Font-Bold="true" Font-Size="X-Large"></asp:Label>
-                        <asp:Label ID="createDatelbl" runat="server" class="text-black"></asp:Label>
+                        <h1 class="text-black">Customer Name</h1>
+                        <p>Info about Customer?</p>
                     </div>
                 </div>
             </div>
@@ -70,7 +69,7 @@
             <div class="tab-content">
                 <div class="tab-pane fade show active">
                  <%--   <a class="btn btn-primary" href="#">Edit</a>--%>
-                    <asp:Button ID="editButton" runat="server" Text="Edit" Class="btn btn-primary" OnClick="editButton_Click" />
+                    <%--<asp:Button ID="editButton" runat="server" Text="Edit" Class="btn btn-primary" OnClick="editButton_Click" />--%>
                     <form class="border p-3">
                         <div class="form-group row">
                             <div class="col-3">
@@ -137,8 +136,8 @@
                                 </div>
                             </div>
                         </div>
-                         <%-- <asp:Button ID="submitButton" runat="server" Text="Submit" class="btn btn-primary" OnClick="submitButton_Click"/>
-                          <asp:Button ID="cancelButton" runat="server" Text="Cancel" class="btn btn-default" OnClick="cancelButton_Click"/>--%>
+                          <asp:Button ID="submitButton" runat="server" Text="Submit" class="btn btn-primary" OnClick="submitButton_Click"/>
+                          <asp:Button ID="cancelButton" runat="server" Text="Cancel" class="btn btn-default" OnClick="cancelButton_Click"/>
                     </form>
                 </div>
             </div>
@@ -148,5 +147,4 @@
 
 </html>
 </asp:Content>
-
 

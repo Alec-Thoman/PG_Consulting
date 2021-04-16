@@ -11,106 +11,79 @@ namespace Lab2
 {
 
 
-    public partial class CustomerInfoPage
+    public partial class ServiceSearchBStrap
     {
 
         /// <summary>
-        /// namelbl control.
+        /// searchRecordList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label namelbl;
+        protected global::System.Web.UI.WebControls.DropDownList searchRecordList;
 
         /// <summary>
-        /// createDatelbl control.
+        /// txtDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label createDatelbl;
+        protected global::System.Web.UI.WebControls.TextBox txtDate;
 
         /// <summary>
-        /// editButton control.
+        /// cityLists control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button editButton;
+        protected global::System.Web.UI.WebControls.DropDownList cityLists;
 
         /// <summary>
-        /// fnTB control.
+        /// storageLists control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fnTB;
+        protected global::System.Web.UI.WebControls.DropDownList storageLists;
 
         /// <summary>
-        /// lnTB control.
+        /// searchBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lnTB;
+        protected global::System.Web.UI.WebControls.Button searchBtn;
 
         /// <summary>
-        /// emailTB control.
+        /// recordsGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox emailTB;
+        protected global::System.Web.UI.WebControls.GridView recordsGridView;
 
         /// <summary>
-        /// phoneTB control.
+        /// storageList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox phoneTB;
+        protected global::System.Web.UI.WebControls.SqlDataSource storageList;
 
         /// <summary>
-        /// addressTB control.
+        /// cityList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox addressTB;
-
-        /// <summary>
-        /// cityTB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cityTB;
-
-        /// <summary>
-        /// stateTB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox stateTB;
-
-        /// <summary>
-        /// zipTB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox zipTB;
+        protected global::System.Web.UI.WebControls.SqlDataSource cityList;
     }
 }
