@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -11,13 +14,42 @@ namespace Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string email = Session["customerName"].ToString();
-            emailTB.Text = email;
+            string fn = "";
+            string ln = "";
+            int initialInfoID = 1;
+            if (Session["InitialInfoID"] != null)
+            {
+                initialInfoID = Convert.ToInt32(Session["InitialInfoID"]);
+            }
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            string initialInfoQuery = "select FirstName, LastName, Email, PhoneNumber, Street, City, State, ZipCode from InitialInfo where InitialInfoID = @ID";
+
+            SqlCommand cmd = new SqlCommand(initialInfoQuery, sqlConnect);
+            cmd.Parameters.Add("@ID", SqlDbType.Int).Value = initialInfoID;
+            sqlConnect.Open();
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    fnTB.Text = HttpUtility.HtmlEncode((string)reader["FirstName"]);
+                    lnTB.Text = HttpUtility.HtmlEncode((string)reader["LastName"]);
+                    fn = (string)reader["FirstName"];
+                    ln = (string)reader["LastName"];
+                    emailTB.Text = HttpUtility.HtmlEncode((string)reader["Email"]);
+                    phoneTB.Text = HttpUtility.HtmlEncode((string)reader["PhoneNumber"]);
+                    addressTB.Text = HttpUtility.HtmlEncode((string)reader["Street"]);
+                    cityTB.Text = HttpUtility.HtmlEncode((string)reader["City"]);
+                    stateTB.Text = HttpUtility.HtmlEncode((string)reader["State"]);
+                    zipTB.Text = Convert.ToInt32(reader["ZipCode"]) + "";
+                }
+            }
+            namelbl.Text = fn + " " + ln;
+            createDatelbl.Text = "";
         }
 
         protected void editButton_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("CustomerInfoEditPage.aspx");
         }
     }
 }
