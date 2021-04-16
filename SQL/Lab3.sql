@@ -33,7 +33,7 @@ ZipCode Numeric(10),
 );
 
 CREATE TABLE Notes(
-NotesID Numeric(3) primary key ,
+NotesID int(3) primary key ,
 NoteBody varchar(150),
 InitialInfoID int(6) FOREIGN KEY REFERENCES InitialInfo(InitialInfoID)
 );
