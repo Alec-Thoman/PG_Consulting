@@ -33,9 +33,9 @@ ZipCode Numeric(10),
 );
 
 CREATE TABLE Notes(
-NotesID int(3) primary key ,
+NotesID int primary key ,
 NoteBody varchar(150),
-InitialInfoID int(6) FOREIGN KEY REFERENCES InitialInfo(InitialInfoID)
+InitialInfoID int FOREIGN KEY REFERENCES InitialInfo(InitialInfoID)
 );
 
 CREATE TABLE Service (
