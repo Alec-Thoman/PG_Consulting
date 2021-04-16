@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace Lab2
 {
-    public partial class MoveAssessment : System.Web.UI.Page
+    public partial class WebForm1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,14 +20,14 @@ namespace Lab2
                 string constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(constr))
                 {
-                    using (SqlCommand cmd = new SqlCommand("SELECT CustomerId, CustomerName FROM Customer"))
+                    using (SqlCommand cmd = new SqlCommand("SELECT InitialInfoID, Email FROM InitialInfo"))
                     {
                         cmd.CommandType = CommandType.Text;
                         cmd.Connection = con;
                         con.Open();
                         customerddl.DataSource = cmd.ExecuteReader();
-                        customerddl.DataTextField = "CustomerName";
-                        customerddl.DataValueField = "CustomerId";
+                        customerddl.DataTextField = "Email";
+                        customerddl.DataValueField = "InitialInfoID";
                         customerddl.DataBind();
                         con.Close();
                     }
@@ -43,8 +43,8 @@ namespace Lab2
 
             int custID = int.Parse(customerddl.SelectedValue);
 
-            String sqlQuery = "SELECT customer.CustomerName as Name, customer.customeraddress as Address, customer.EmailAddress, customer.PhoneNumber " +
-                "from customer where customer.customerID = " + custID;
+            String sqlQuery = "SELECT FirstName + ' ' + LastName as CustomerName, PhoneNumber, Email, State " +
+                "from InitialInfo where InitialInfoID = " + custID;
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -61,7 +61,7 @@ namespace Lab2
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             int custID = int.Parse(customerddl.SelectedValue);
-            string msSql = "insert into MoveAssessment ([CustomerID]) values(@custID)";
+            string msSql = "insert into MoveAssessment ([InitialInfoID]) values(@custID)";
             string preliminarySql = "insert into Preliminary([MoveOutDate], [MovingWindow], [MLSListing], [SendPhotos], [AddOn], [AuctionService], [Street], [City], [State], [ZipCode], [MoveID]) values (@MoveOutDate, @MovingWindow, @MLSListing, @SendPhotos, @AddOn, @AuctionService, @Street, @City, @State, @ZipCode, @MoveID)";
             string roomSql = "insert into Room([RoomType], [Furniture], [FloorLevel], [MoveID]) values(@RoomType, @Furniture, @FloorLevel, @MoveID)";
             string specificSql = "insert into SpecificInfo([HomeType], [TruckAccess], [LoadDoorDistance], [Steps], [SpecialEquip], [TruckType], [MoveID]) values(@HomeType, @TruckAccess, @LoadDoorDistance, @Steps, @SpecialEquip, @TruckType, @MoveID)";
