@@ -76,12 +76,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="CustomerContactPage.aspx" />
-    <Content Include="CustomerHomePage.aspx" />
-    <Content Include="EmployeeCustomerViewBStrap.aspx" />
+    <Content Include="RowSelectTester.aspx" />
     <Content Include="EmployeeHomePageBStrap.aspx" />
     <Content Include="EmployeeLoginPageBStrap.aspx" />
-    <Content Include="EmployeeNewCustomerBStrap.aspx" />
-    <Content Include="EmployeeViewBStrap.aspx" />
     <Content Include="img\81.jpg" />
     <Content Include="img\bg-masthead.jpg" />
     <Content Include="img\bg-signup.jpg" />
@@ -101,7 +98,7 @@
     <Content Include="img\sm-example1.jpg" />
     <Content Include="img\sm-example2.jpg" />
     <Content Include="InitialContactInfo.aspx" />
-    <Content Include="InventoryBStrap.aspx" />
+    <Content Include="InventoryBStrap-USESCUSTOMER.aspx" />
     <Content Include="MoveAssessment.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -206,29 +203,20 @@
     <Content Include="ServiceSearchBStrap.aspx" />
     <Content Include="ServiceViewBStrap.aspx" />
     <Content Include="StartPage.aspx" />
-    <Content Include="ServiceView.aspx" />
-    <Content Include="StatusBar.aspx" />
     <Content Include="StatusEditPage.aspx" />
     <Content Include="Web.config" />
-    <Content Include="CustomerLoginPage.aspx" />
-    <Content Include="NewCustomer.aspx" />
-    <Content Include="ServiceEvent.aspx" />
-    <Content Include="Employee.aspx" />
     <Content Include="FileUpload.aspx" />
     <Content Include="LandingPage.aspx" />
     <Content Include="CustomerLoginPageBStrap.aspx" />
     <Content Include="CustomerHomePageBStrap.aspx" />
     <Content Include="Customer_ServiceViewBStrap.aspx" />
     <Content Include="CustomerProfile.aspx" />
-    <Content Include="ServiceEventBStrap.aspx" />
-    <Content Include="CustomerNewService.aspx" />
     <Content Include="EditProfilePage.aspx" />
     <Content Include="AuctionLookAt.aspx" />
     <Content Include="AuctionOrder.aspx" />
     <Content Include="AppraisalServiceOrder.aspx" />
     <Content Include="CustomerInfoPage.aspx" />
     <Content Include="NewestEmployeeHomePage.aspx" />
-    <Content Include="CustomerStatusPage.aspx" />
     <Content Include="CustomerInfoEditPage.aspx" />
     <Content Include="Workflow.aspx" />
   </ItemGroup>
@@ -241,19 +229,12 @@
     <Compile Include="CustomerContactPage.aspx.designer.cs">
       <DependentUpon>CustomerContactPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CustomerHomePage.aspx.cs">
-      <DependentUpon>CustomerHomePage.aspx</DependentUpon>
+    <Compile Include="RowSelectTester.aspx.cs">
+      <DependentUpon>RowSelectTester.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CustomerHomePage.aspx.designer.cs">
-      <DependentUpon>CustomerHomePage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EmployeeCustomerViewBStrap.aspx.cs">
-      <DependentUpon>EmployeeCustomerViewBStrap.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EmployeeCustomerViewBStrap.aspx.designer.cs">
-      <DependentUpon>EmployeeCustomerViewBStrap.aspx</DependentUpon>
+    <Compile Include="RowSelectTester.aspx.designer.cs">
+      <DependentUpon>RowSelectTester.aspx</DependentUpon>
     </Compile>
     <Compile Include="EmployeeHomePageBStrap.aspx.cs">
       <DependentUpon>EmployeeHomePageBStrap.aspx</DependentUpon>
@@ -269,20 +250,6 @@
     <Compile Include="EmployeeLoginPageBStrap.aspx.designer.cs">
       <DependentUpon>EmployeeLoginPageBStrap.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeNewCustomerBStrap.aspx.cs">
-      <DependentUpon>EmployeeNewCustomerBStrap.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EmployeeNewCustomerBStrap.aspx.designer.cs">
-      <DependentUpon>EmployeeNewCustomerBStrap.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EmployeeViewBStrap.aspx.cs">
-      <DependentUpon>EmployeeViewBStrap.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EmployeeViewBStrap.aspx.designer.cs">
-      <DependentUpon>EmployeeViewBStrap.aspx</DependentUpon>
-    </Compile>
     <Compile Include="InitialContactInfo.aspx.cs">
       <DependentUpon>InitialContactInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -290,12 +257,12 @@
     <Compile Include="InitialContactInfo.aspx.designer.cs">
       <DependentUpon>InitialContactInfo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="InventoryBStrap.aspx.cs">
-      <DependentUpon>InventoryBStrap.aspx</DependentUpon>
+    <Compile Include="InventoryBStrap-USESCUSTOMER.aspx.cs">
+      <DependentUpon>InventoryBStrap-USESCUSTOMER.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="InventoryBStrap.aspx.designer.cs">
-      <DependentUpon>InventoryBStrap.aspx</DependentUpon>
+    <Compile Include="InventoryBStrap-USESCUSTOMER.aspx.designer.cs">
+      <DependentUpon>InventoryBStrap-USESCUSTOMER.aspx</DependentUpon>
     </Compile>
     <Compile Include="MoveAssessment.aspx.cs">
       <DependentUpon>MoveAssessment.aspx</DependentUpon>
@@ -340,13 +307,6 @@
     <Compile Include="StartPage.aspx.designer.cs">
       <DependentUpon>StartPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="StatusBar.aspx.cs">
-      <DependentUpon>StatusBar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="StatusBar.aspx.designer.cs">
-      <DependentUpon>StatusBar.aspx</DependentUpon>
-    </Compile>
     <Compile Include="StatusEditPage.aspx.cs">
       <DependentUpon>StatusEditPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -355,47 +315,12 @@
       <DependentUpon>StatusEditPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
-    <Compile Include="CustomerLoginPage.aspx.cs">
-      <DependentUpon>CustomerLoginPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CustomerLoginPage.aspx.designer.cs">
-      <DependentUpon>CustomerLoginPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NewCustomer.aspx.cs">
-      <DependentUpon>NewCustomer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewCustomer.aspx.designer.cs">
-      <DependentUpon>NewCustomer.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ServiceEvent.aspx.cs">
-      <DependentUpon>ServiceEvent.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ServiceEvent.aspx.designer.cs">
-      <DependentUpon>ServiceEvent.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Employee.aspx.cs">
-      <DependentUpon>Employee.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Employee.aspx.designer.cs">
-      <DependentUpon>Employee.aspx</DependentUpon>
-    </Compile>
     <Compile Include="FileUpload.aspx.cs">
       <DependentUpon>FileUpload.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="FileUpload.aspx.designer.cs">
       <DependentUpon>FileUpload.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ServiceView.aspx.cs">
-      <DependentUpon>ServiceView.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ServiceView.aspx.designer.cs">
-      <DependentUpon>ServiceView.aspx</DependentUpon>
     </Compile>
     <Compile Include="LandingPage.aspx.cs">
       <DependentUpon>LandingPage.aspx</DependentUpon>
@@ -431,20 +356,6 @@
     </Compile>
     <Compile Include="CustomerProfile.aspx.designer.cs">
       <DependentUpon>CustomerProfile.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ServiceEventBStrap.aspx.cs">
-      <DependentUpon>ServiceEventBStrap.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ServiceEventBStrap.aspx.designer.cs">
-      <DependentUpon>ServiceEventBStrap.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerNewService.aspx.cs">
-      <DependentUpon>CustomerNewService.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CustomerNewService.aspx.designer.cs">
-      <DependentUpon>CustomerNewService.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditProfilePage.aspx.cs">
       <DependentUpon>EditProfilePage.aspx</DependentUpon>
@@ -487,13 +398,6 @@
     </Compile>
     <Compile Include="NewestEmployeeHomePage.aspx.designer.cs">
       <DependentUpon>NewestEmployeeHomePage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerStatusPage.aspx.cs">
-      <DependentUpon>CustomerStatusPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CustomerStatusPage.aspx.designer.cs">
-      <DependentUpon>CustomerStatusPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerInfoEditPage.aspx.cs">
       <DependentUpon>CustomerInfoEditPage.aspx</DependentUpon>

@@ -17,7 +17,7 @@ namespace Lab2
             string fn = "";
             string ln = "";
             string initDate = "";
-            int initialInfoID = 1;
+            int initialInfoID = Convert.ToInt32(Session["InitialInfoID"]);
             if (Session["InitialInfoID"] != null)
             {
                 initialInfoID = Convert.ToInt32(Session["InitialInfoID"]);
