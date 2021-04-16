@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../../css/custom-styles.css">
+    <link rel="stylesheet" href="customer-styles.css">
     <script src="https://kit.fontawesome.com/80d9cd143b.js" crossorigin="anonymous"></script>
 </head>
 
@@ -127,6 +128,27 @@
                 </div>
             </div>
         </div>
+        <button class="btn open-button" onclick="openForm()">Notes</button>
+
+        <div class="form-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+                <h2>Notes</h2>
+                <div class="text-center">
+                    <textarea type="text" placeholder="Type notes here..." name="email" rows="10" cols="55"></textarea>
+                </div>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+
+        <script>
+            function openForm() {
+                document.getElementById( "myForm" ).style.display = "block";
+            }
+
+            function closeForm() {
+                document.getElementById( "myForm" ).style.display = "none";
+            }
+        </script>
     </div>
 </body>
 
