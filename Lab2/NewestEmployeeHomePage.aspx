@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="NewestEmployeeHomePage.aspx.cs" Inherits="Lab2.NewestEmployeeHomePage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="NewestEmployeeHomePage.aspx.cs" Inherits="Lab2.NewestEmployeeHomePage" EnableEventValidation = "false"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -6,8 +6,7 @@
 
 <html lang="en-US">
 
-<head>
-    <title>Green Valley Auction</title>
+<head>Green Valley Auction</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
@@ -28,7 +27,7 @@
     </style>
 </head>
 
-<body id="page-top" class="bg-light">
+<body>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-white" id="mainNav">
         <div class="navbar-header">
@@ -82,13 +81,16 @@
                 <h2 class="pb-3">Search Customer</h2>
                 <div class="pr-5 pl-5 pb-3 text-center">
                     <div class="input-group">
-                        <input type="search" class="form-control rounded mr-3 mt-2" placeholder="Search"
-                            aria-label="Search" aria-describedby="search-addon" />
-                        <button type="button" class="btn border shadow-none p-sm-3 cust-button">Search</button>
+                        <asp:TextBox ID="txtCustomerSearch" runat="server" class="form-control rounded mr-3 mt-2" AutoPostBack="true" placeholder="Search" Visible="true" aria-label="Search" aria-describedby="search-addon"></asp:TextBox>
+                        <%--<input type="search" class="form-control rounded mr-3 mt-2" placeholder="Search"
+                            aria-label="Search" aria-describedby="search-addon" />--%>
+                        <asp:Button ID="custSearchBtn" class="btn border shadow-none p-sm-3 cust-button" runat="server" Text="Search" OnClick="customerSearch_Click" />
+                        <%--<button type="button" class="btn border shadow-none p-sm-3 cust-button" onclick="customerSearch_Click">Search</button>--%>
                     </div>
                 </div>
                 <div class="border p-4 text-center">
-                    Results for Search go here.
+                    <asp:GridView ID="customerGridView" runat="server" class="table table-bordered" EmptyDataText="No Record" OnRowDataBound="OnRowDataBound" OnSelectedIndexChanged="OnSelectedIndexChanged">
+                    </asp:GridView>
                 </div>
             </div>
         </div>
@@ -101,59 +103,36 @@
                 </div>
                 <div class="row pb-3">
                     <div class="col-4">
+                         <asp:DropDownList ID="searchRecordList" AutoPostBack="True"
+                                OnSelectedIndexChanged="Selection_Change"
+                                runat="server" class="btn border dropdown-toggle p-3 cust-dropdown" aria-haspopup="true" aria-expanded="false">
+                                <asp:ListItem Selected="True" Value="ActiveCustomers">Active Customers</asp:ListItem>
+                                <asp:ListItem Value="NewCustomers"> New Customers </asp:ListItem>
+                                <asp:ListItem Value="DateofService"> Date Of Service </asp:ListItem>
+                                <asp:ListItem Value="Storage"> Storage </asp:ListItem>
+                            </asp:DropDownList>
                         <div class="input-group">
-                            <input type="search" class="form-control rounded mr-3 mt-2" placeholder="Search"
-                                aria-label="Search" aria-describedby="search-addon" />
-                            <button type="button" class="btn border shadow-none p-sm-3 cust-button">Search</button>
+                            <asp:TextBox ID="txtDate" runat="server" class="form-control rounded mr-3 mt-2" AutoPostBack="true" placeholder="Date" Visible="true" aria-label="Search" aria-describedby="search-addon"></asp:TextBox>
+                            
+                            <asp:Button ID="searchBtn" class="btn border shadow-none p-sm-3 cust-button" runat="server" Text="Search" OnClick="searchClick" />
+                            <%--<input type="search" class="form-control rounded mr-3 mt-2" placeholder="Search"
+                                aria-label="Search" aria-describedby="search-addon" />--%>
+                            
+                            <%--<button type="button" class="btn border shadow-none p-sm-3 cust-button">Search</button>--%>
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="dropdown show">
-                            <a class="btn border dropdown-toggle p-3 cust-dropdown" href="#" role="button"
-                                id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown link
-                            </a>
-
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
+                            <asp:DropDownList ID="cityLists" runat="server" Visible="true" DataSourceID="cityList" DataTextField="City" DataValueField="City" class="btn border dropdown-toggle p-3 cust-dropdown" aria-haspopup="true" aria-expanded="false"></asp:DropDownList>
+                            <asp:DropDownList ID="storageLists" runat="server" Visible="false" DataSourceID="storageList" DataTextField="Location" DataValueField="Location" class="btn border dropdown-toggle p-3 cust-dropdown" aria-haspopup="true" aria-expanded="false"></asp:DropDownList>
                         </div>
                     </div>
 
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Order</th>
-                                    <th scope="col">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td scope="row"><a href="view-customer/customer-information.html">Jenny Murdock</a>
-                                    </td>
-                                    <td>Auction Order</td>
-                                    <td>Waiting</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row"><a href="view-customer/customer-information.html">Jenny Murdock</a>
-                                    </td>
-                                    <td>Auction Order</td>
-                                    <td>Waiting</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row"><a href="view-customer/customer-information.html">Jenny Murdock</a>
-                                    </td>
-                                    <td>Auction Order</td>
-                                    <td>Waiting</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <asp:GridView ID="recordsGridView" runat="server" class="table table-bordered" EmptyDataText="No Record" OnRowDataBound="OnRowDataBound" OnSelectedIndexChanged="OnSelectedIndexChanged">
+                    </asp:GridView>
                     </div>
                 </div>
             </div>
@@ -162,4 +141,8 @@
 </body>
 
 </html>
+    <asp:SqlDataSource runat="server" ID="storageList"
+        ConnectionString="Server=Localhost;Database=Lab3;Trusted_Connection=Yes;" SelectCommand="SELECT Location FROM Storage" />
+    <asp:SqlDataSource runat="server" ID="cityList"
+        ConnectionString="Server=Localhost;Database=Lab3;Trusted_Connection=Yes;" SelectCommand="SELECT DISTINCT City FROM InitialInfo" />
 </asp:Content>
