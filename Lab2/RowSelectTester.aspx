@@ -1,8 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="InventoryBStrap.aspx.cs" Inherits="Lab2.InventoryBStrap" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="RowSelectTester.aspx.cs" Inherits="Lab2.EmployeeCustomerViewBStrap" EnableEventValidation = "false"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<html lang="en-US">
+    <!DOCTYPE html>
+
+<html>
 
 <head>
     <title>Green Valley Auction</title>
@@ -12,7 +14,7 @@
     <link rel="stylesheet" href="../../css/custom-styles.css">
 </head>
 
-<body id="page-top">
+<body>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white" id="mainNav">
         <div class="container">
@@ -30,9 +32,10 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
                             href="ServiceViewBStrap.aspx">Services</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black" href="#page-top">Customers</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
-                            href="EmployeeCustomerViewBStrap.aspx">Customers</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black" href="#page-top">Inventory</a>
+                            href="InventoryBStrap.aspx">Inventory</a>
                     </li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
                             href="EmployeeViewBStrap.aspx">Employees</a>
@@ -42,20 +45,51 @@
         </div>
     </nav>
     <section class="about-section pr-5 pl-5" style="padding-top: 150px;">
-        <div class="col-12">
-            <h1>Inventory</h1>
-            <div class="col-12">
+        <div class="row">
+            <div class="col-10">
+                <h1>Customers</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
                 <div class="input-group">
                     <div class="form-outline">
                         <input type="search" id="searchTxt" class="form-control" runat="server" placeholder="Customer Name" />
                         <asp:Button ID="SearchBtn" class="btn btn-primary" onClick="search_click" runat="server" Text="Search" />
-                    </div>      
+                    </div>
+                    <!-- <button type="button" class="btn btn-secondary">
+                <i class="fas fa-search"></i>
+                 </button> -->
                 </div>
-                <asp:GridView ID="grdInventory" class="table table-bordered" runat="server" AlternatingRowStyle-BackColor="#9dbdb9" EmptyDataText="No Record">
-                </asp:GridView>
+            </div>
+            <div>
+                <a class="btn btn-primary" href="EmployeeNewCustomerBStrap.aspx" type="submit">New Customer</a>
             </div>
         </div>
-        </div>
+        
+            <asp:GridView ID="grdCustomer" runat="server" class="table table-bordered" EmptyDataText="No Record" OnRowDataBound = "OnRowDataBound" OnSelectedIndexChanged = "OnSelectedIndexChanged">
+                </asp:GridView>
+        
+        <br />
+        <asp:TextBox ID="TextBoxUserID" runat="server" AutoPostBack="true"></asp:TextBox> 
+        <br />
+        UserName:  
+        <asp:TextBox ID="TextBoxUserName" runat="server" AutoPostBack="true"></asp:TextBox>  
+        <br />
+        <%--<asp:GridView ID="GridView1" runat="server"  class="table table-bordered" AlternatingRowStyle-BackColor="#9dbdb9" EmptyDataText="No Record" AutoGenerateColumns="False" DataKeyNames="CustomerID" DataSourceID="ViewCustomers" >
+            <Columns>
+                <asp:CommandField ShowSelectButton="True" />
+                <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" InsertVisible="False" ReadOnly="True" SortExpression="CustomerID" />
+                <asp:BoundField DataField="CustomerName" HeaderText="CustomerName" SortExpression="CustomerName" />
+                <asp:BoundField DataField="PhoneNumber" HeaderText="PhoneNumber" SortExpression="PhoneNumber" />
+                <asp:BoundField DataField="EmailAddress" HeaderText="EmailAddress" SortExpression="EmailAddress" />
+                <asp:BoundField DataField="CustomerAddress" HeaderText="CustomerAddress" SortExpression="CustomerAddress" />
+                <asp:BoundField DataField="ContactWay" HeaderText="ContactWay" SortExpression="ContactWay" />
+                <asp:BoundField DataField="HearAbout" HeaderText="HearAbout" SortExpression="HearAbout" />
+            </Columns>
+        </asp:GridView>--%>
+        <asp:SqlDataSource ID="ViewCustomers" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3ConnectionString %>" SelectCommand="SELECT * FROM [Customer]"></asp:SqlDataSource>
+        
     </section>
     <footer class="bg-light text-left text-lg-start">
         <!-- Grid container -->
@@ -132,6 +166,5 @@
 </body>
 
 </html>
-    <asp:SqlDataSource runat="server" ID="dtasrcCustomerList"
-        ConnectionString="Server=Localhost;Database=Lab3;Trusted_Connection=Yes;" SelectCommand="Select CustomerID, CustomerName from Customer Order By CustomerName ASC"/>
+    
 </asp:Content>
