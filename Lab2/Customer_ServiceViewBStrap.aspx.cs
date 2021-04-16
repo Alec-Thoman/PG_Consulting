@@ -12,7 +12,7 @@ namespace Lab2
 {
     public partial class Customer_ServiceViewBStrap : System.Web.UI.Page
     {
-        private int custID = 7;
+        private int initialInfoID = 7;
         protected void Page_Load(object sender, EventArgs e)
         {
             searchView.DataSource = null;
@@ -36,21 +36,21 @@ namespace Lab2
             {
                 while (reader.Read())
                 {
-                    this.custID = (int)reader["CustomerID"];
+                    this.initialInfoID = (int)reader["CustomerID"];
                 }
             }
 
             String sqlMain = "SELECT customer.CustomerName as [Customer Name], service.ServiceType as [Service Type],  employee.employeeName as [Employee Name], ServiceTicket.TicketBeginDate as [Date Created], ServiceTicket.TicketStatus as Status, ServiceTicket.Address, " +
                 "Serviceticket.Deadline as [Date of Service] from serviceTicket inner join" +
                 " customer on customer.customerID = serviceTicket.customerID inner join employee on employee.employeeID = serviceTicket.employeeID inner join service on service.serviceid" +
-                " = serviceTicket.serviceid where customer.CustomerID = " + this.custID;
+                " = serviceTicket.serviceid where customer.CustomerID = " + this.initialInfoID;
 
-            String sqlQuery = "SELECT customer.CustomerName as [Customer Name], service.ServiceType as [Service Type],  employee.employeeName as [Employee Name], ServiceTicket.TicketBeginDate as [Date Created], ServiceTicket.TicketStatus as Status, ServiceTicket.Address, " +
+            String sqlQuery = "SELECT InitialInfo.FirstName, InitialInfo.LastName, service.ServiceType as [Service Type],  employee.employeeName as [Employee Name], ServiceTicket.TicketBeginDate as [Date Created], ServiceTicket.TicketStatus as Status, ServiceTicket.Address, " +
                 "Serviceticket.Deadline as [Date of Service] from serviceTicket inner join" +
-                " customer on customer.customerID = serviceTicket.customerID inner join" +
+                " InitialInfo on InitialInfo.InitialInfoID = serviceTicket.InitialInfoID inner join" +
                 " employee on employee.employeeID = serviceTicket.employeeID inner join" +
                 //" service on service.serviceid = serviceTicket.serviceid where customer.CustomerName = '" + this.custID + "'";
-                " service on service.serviceid = serviceTicket.serviceid where customer.CustomerID = " + this.custID;
+                " service on service.serviceid = serviceTicket.serviceid where InitialInfo.InitialInfoID = " + this.initialInfoID;
 
 
 
