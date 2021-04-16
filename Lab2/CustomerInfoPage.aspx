@@ -46,7 +46,8 @@
                 <div class="jumbotron">
                     <div class="container-fluid text-left">
                       <%--  <h1 class="text-black">Customer Name</h1>--%>
-                        <asp:Label ID="namelbl" runat="server" class="text-black" Font-Bold="true" Font-Size="X-Large"></asp:Label>
+                        <asp:Label ID="namelbl" runat="server" class="text-black" Font-Bold="true" Font-Size="XX-Large"></asp:Label>
+                        <br/>
                         <asp:Label ID="createDatelbl" runat="server" class="text-black"></asp:Label>
                     </div>
                 </div>

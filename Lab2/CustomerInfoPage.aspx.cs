@@ -16,13 +16,14 @@ namespace Lab2
         {
             string fn = "";
             string ln = "";
+            string initDate = "";
             int initialInfoID = 1;
             if (Session["InitialInfoID"] != null)
             {
                 initialInfoID = Convert.ToInt32(Session["InitialInfoID"]);
             }
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            string initialInfoQuery = "select FirstName, LastName, Email, PhoneNumber, Street, City, State, ZipCode from InitialInfo where InitialInfoID = @ID";
+            string initialInfoQuery = "select FirstName, LastName, Email, InitialDate, PhoneNumber, Street, City, State, ZipCode from InitialInfo where InitialInfoID = @ID";
 
             SqlCommand cmd = new SqlCommand(initialInfoQuery, sqlConnect);
             cmd.Parameters.Add("@ID", SqlDbType.Int).Value = initialInfoID;
@@ -41,10 +42,11 @@ namespace Lab2
                     cityTB.Text = HttpUtility.HtmlEncode((string)reader["City"]);
                     stateTB.Text = HttpUtility.HtmlEncode((string)reader["State"]);
                     zipTB.Text = Convert.ToInt32(reader["ZipCode"]) + "";
+                    initDate = (string)reader["InitialDate"];
                 }
             }
             namelbl.Text = fn + " " + ln;
-            createDatelbl.Text = "";
+            createDatelbl.Text = "Created Account: " + initDate;
         }
 
         protected void editButton_Click(object sender, EventArgs e)

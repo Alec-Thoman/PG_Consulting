@@ -32,6 +32,12 @@ State VARCHAR(50),
 ZipCode Numeric(10),
 );
 
+CREATE TABLE Notes(
+NotesID int(3) primary key ,
+NoteBody varchar(150),
+InitialInfoID int(6) FOREIGN KEY REFERENCES InitialInfo(InitialInfoID)
+);
+
 CREATE TABLE Service (
         [ServiceID] [int] IDENTITY(1,1) primary key,
 	ServiceType				CHAR(15),

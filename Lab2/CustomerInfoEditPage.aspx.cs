@@ -16,12 +16,15 @@ namespace Lab2
         protected void Page_Load(object sender, EventArgs e)
         {
             //int initialInfoID = 1;
+            string initDate = "";
+            string fn = "";
+            string ln = "";
             if (Session["InitialInfoID"] != null)
             {
                 initialInfoID = Convert.ToInt32(Session["InitialInfoID"]);
             }
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            string initialInfoQuery = "select FirstName, LastName, Email, PhoneNumber, Street, City, State, ZipCode from InitialInfo where InitialInfoID = @ID";
+            string initialInfoQuery = "select FirstName, LastName, Email, PhoneNumber, InitialDate, Street, City, State, ZipCode from InitialInfo where InitialInfoID = @ID";
 
             SqlCommand cmd = new SqlCommand(initialInfoQuery, sqlConnect);
             cmd.Parameters.Add("@ID", SqlDbType.Int).Value = initialInfoID;
@@ -34,15 +37,21 @@ namespace Lab2
                     {
                         fnTB.Text = HttpUtility.HtmlEncode((string)reader["FirstName"]);
                         lnTB.Text = HttpUtility.HtmlEncode((string)reader["LastName"]);
+                        fn = (string)reader["FirstName"];
+                        ln = (string)reader["LastName"];
                         emailTB.Text = HttpUtility.HtmlEncode((string)reader["Email"]);
                         phoneTB.Text = HttpUtility.HtmlEncode((string)reader["PhoneNumber"]);
                         addressTB.Text = HttpUtility.HtmlEncode((string)reader["Street"]);
                         cityTB.Text = HttpUtility.HtmlEncode((string)reader["City"]);
                         stateTB.Text = HttpUtility.HtmlEncode((string)reader["State"]);
                         zipTB.Text = Convert.ToInt32(reader["ZipCode"]) + "";
+                        initDate = (string)reader["InitialDate"];
                     }
+                    //initDate = (string)reader["InitialDate"];
                 }
             }
+            namelbl.Text = fn + " " + ln;
+            createDatelbl.Text = "Created Account: " + initDate;
         }
 
         protected void updateDB()

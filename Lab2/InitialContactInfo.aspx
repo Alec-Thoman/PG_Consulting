@@ -172,12 +172,7 @@
                 <asp:CheckBoxList ID="CheckBoxList1" runat="server">
                             <asp:ListItem> Auction </asp:ListItem>
                             <asp:ListItem> Move </asp:ListItem>
-                </asp:CheckBoxList>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:CheckBoxList ID="CheckBoxList2" runat="server">
                             <asp:ListItem> Appraisal </asp:ListItem>
-                            <asp:ListItem> Consignment </asp:ListItem>
                 </asp:CheckBoxList>
             </asp:TableCell>
         </asp:TableRow>
