@@ -13,6 +13,24 @@ CREATE TABLE  Customer(
 	EmailAddress		CHAR(30),
 	CustomerAddress 	CHAR(50),
 );
+--Intial Contact Table
+CREATE TABLE InitialInfo(
+[InitialInfoID] [int] IDENTITY(1,1) primary key,
+FirstName VARCHAR(50),
+LastName VARCHAR(50),
+PhoneType VARCHAR(50),
+PhoneNumber VARCHAR(50),
+Email VARCHAR(50),
+PreferredContact VARCHAR(50),
+InitialDate VARCHAR(50),
+Deadline VARCHAR(50),
+HearAboutUs VARCHAR(50),
+RequestedService VARCHAR(50),
+Street VARCHAR(50),
+City VARCHAR(50),
+State VARCHAR(50),
+ZipCode Numeric(10),
+);
 
 CREATE TABLE Service (
         [ServiceID] [int] IDENTITY(1,1) primary key,
@@ -29,9 +47,9 @@ CREATE TABLE serviceTicket (
 	Address char(50),
 	Deadline char(50),
 	EmployeeID		int not null,
-	CustomerID		int not null,
+	InitialInfoID		int not null,
 	ServiceID		int not null,
-	Foreign key(CustomerID) ReFerences Customer(CustomerID),
+	Foreign key(InitialInfoID) ReFerences InitialInfo(InitialInfoID),
 	Foreign key(ServiceID) ReFerences Service(ServiceID),
 	Foreign key(EmployeeID) ReFerences Employee(EmployeeID)
 );
@@ -151,29 +169,12 @@ Foreign key(CrewID) References Crew(CrewID),
 Foreign Key(TruckID) References Truck(TruckID)
 );
 
---Intial Contact Table
-CREATE TABLE InitialInfo(
-InitialInfoID Numeric(3) primary key,
-FirstName VARCHAR(50),
-LastName VARCHAR(50),
-PhoneType VARCHAR(50),
-PhoneNumber VARCHAR(50),
-Email VARCHAR(50),
-PreferredContact VARCHAR(50),
-InitialDate VARCHAR(50),
-Deadline VARCHAR(50),
-HearAboutUs VARCHAR(50),
-RequestedService VARCHAR(50),
-Street VARCHAR(50),
-City VARCHAR(50),
-State VARCHAR(50),
-ZipCode Numeric(10),
-);
+
 
 --Move Assessment Tables 
 CREATE TABLE MoveAssessment(
 MoveID  int IDENTITY(1,1) primary key,
-CustomerID int FOREIGN KEY REFERENCES Customer(CustomerID),
+InitialInfoID int FOREIGN KEY REFERENCES InitialInfo(InitialInfoID),
 );
 
 CREATE TABLE Preliminary(
@@ -231,7 +232,6 @@ MoveID int FOREIGN KEY REFERENCES MoveAssessment(MoveID),
 
 SET IDENTITY_INSERT [dbo].[employee] ON 
 GO
-
   insert [dbo].[employee] ([EmployeeID],[EmployeeName],[position],[cellnumber],[emailaddress]) values('1','Gogo','AuctionManager','5401234567','123@gmail.com');
   insert [dbo].[employee] ([EmployeeID],[EmployeeName],[position],[cellnumber],[emailaddress]) values('2','Messi','MoveManager','5401234567','123@gmail.com');
   insert [dbo].[employee] ([EmployeeID],[EmployeeName],[position],[cellnumber],[emailaddress]) values('3','Catty','AuctionManager','5401234567','1234543@gmail.com');
@@ -261,6 +261,30 @@ GO
   
 SET IDENTITY_INSERT [dbo].[Customer] off
 GO
+SET IDENTITY_INSERT [dbo].[InitialInfo] ON
+GO
+
+insert [dbo].[InitialInfo] ([InitialInfoID],[FirstName],[LastName],[PhoneType],[PhoneNumber],[Email],[PreferredContact], [InitialDate],[Deadline],[HearAboutUs],[RequestedService],[Street],[City],[State],[ZipCode])Values ('1', 'Jenny', 'Harper', 'Home Phone', '5407467845', 'Jenny@jmu.edu', 'Email', '01/05/2021', '01/30/2021', 'Through a Friend', 'Auction', '801 S Main St', 'Harrisonburg', 'VA', '22801');
+
+insert [dbo].[InitialInfo] ([InitialInfoID],[FirstName],[LastName],[PhoneType],[PhoneNumber],[Email],[PreferredContact], [InitialDate],[Deadline],[HearAboutUs],[RequestedService],[Street],[City],[State],[ZipCode])Values ('2', 'Tony', 'Edwards', 'Home Phone', '5402548716', 'Tony@jmu.edu', 'Email', '02/15/2021', '03/30/2021', 'Facebook Ad', 'Move', '8910 Hollow Lane', 'Harrisonburg', 'VA', '22801');
+
+insert [dbo].[InitialInfo] ([InitialInfoID],[FirstName],[LastName],[PhoneType],[PhoneNumber],[Email],[PreferredContact], [InitialDate],[Deadline],[HearAboutUs],[RequestedService],[Street],[City],[State],[ZipCode])Values ('3', 'William', 'Harris', 'Mobile Phone', '3029182930', 'William@jmu.edu', 'Text', '01/11/2021', '01/26/2021', 'Instagram Ad', 'Auction', '102 Downturn Drive', 'Harrisonburg', 'VA', '22801');
+
+insert [dbo].[InitialInfo] ([InitialInfoID],[FirstName],[LastName],[PhoneType],[PhoneNumber],[Email],[PreferredContact], [InitialDate],[Deadline],[HearAboutUs],[RequestedService],[Street],[City],[State],[ZipCode])Values ('4', 'Kobe', 'Geoffery', 'Mobile Phone', '5401238767', 'Kobe@jmu.edu', 'Text', '12/11/2020', '01/15/2021', 'Flyer', 'Move', '50 Clark Blvd', 'Harrisonburg', 'VA', '22801');
+
+insert [dbo].[InitialInfo] ([InitialInfoID],[FirstName],[LastName],[PhoneType],[PhoneNumber],[Email],[PreferredContact], [InitialDate],[Deadline],[HearAboutUs],[RequestedService],[Street],[City],[State],[ZipCode])Values ('5', 'Jocab', 'Arnolds', 'Home Phone', '5401238432', 'Jocab@jmu.edu', 'By Home Phone', '12/05/2020', '01/16/2021', 'Flyer', 'Move', '321 Rainbow Ave', 'Rockingham', 'VA', '22801');
+
+insert [dbo].[InitialInfo] ([InitialInfoID],[FirstName],[LastName],[PhoneType],[PhoneNumber],[Email],[PreferredContact], [InitialDate],[Deadline],[HearAboutUs],[RequestedService],[Street],[City],[State],[ZipCode])Values ('6', 'Huang', 'Chen', 'Home Phone', '5401288475', 'Huang@jmu.edu', 'By Mobile Phone', '11/15/2020', '12/21/2021', 'Facebook', 'Auction', '981 Tether Blvd', 'Rockingham', 'VA', '28301');
+
+insert [dbo].[InitialInfo] ([InitialInfoID],[FirstName],[LastName],[PhoneType],[PhoneNumber],[Email],[PreferredContact], [InitialDate],[Deadline],[HearAboutUs],[RequestedService],[Street],[City],[State],[ZipCode])Values ('7', 'Tran', 'Huang', 'Mobile Phone', '5401238111', 'Huang@jmu.edu', 'By Mobile Phone', '11/04/2020', '12/10/2021', 'Facebook', 'Auction', '651 Charles St', 'Rockingham', 'VA', '28301');
+
+insert [dbo].[InitialInfo] ([InitialInfoID],[FirstName],[LastName],[PhoneType],[PhoneNumber],[Email],[PreferredContact], [InitialDate],[Deadline],[HearAboutUs],[RequestedService],[Street],[City],[State],[ZipCode])Values ('8', 'Peter', 'Rhee', 'Mobile Phone', '5401238111', 'Huang@jmu.edu', 'By Mobile Phone', '11/04/2020', '12/10/2021', 'Flyer', 'Move', '952 Sunny St', 'Rockingham', 'VA', '28501');
+
+insert [dbo].[InitialInfo] ([InitialInfoID],[FirstName],[LastName],[PhoneType],[PhoneNumber],[Email],[PreferredContact], [InitialDate],[Deadline],[HearAboutUs],[RequestedService],[Street],[City],[State],[ZipCode])Values ('9', 'Tom', 'Roberts', 'Home Phone', '5401238333', 'Tom@jmu.edu', 'By Mobile Phone', '11/08/2020', '12/11/2021', 'Flyer', 'Move', '891 Galavan St', 'Gainesville', 'VA', '20112');
+
+
+SET IDENTITY_INSERT [dbo].[InitialInfo] off
+GO
 
   
 SET IDENTITY_INSERT [dbo].[Service] ON 
@@ -276,17 +300,17 @@ GO
 SET IDENTITY_INSERT [dbo].[serviceTicket] ON 
 GO
   
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate], [Address], [Deadline], [EmployeeID],[CustomerID],[ServiceID]) values('1','Completion', 'customer was very happy','1/1/2021', '1452 Bradley Drive Harrisonburg VA 22801', '2/5/2021','1','1','1');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('2','Completion','customer was very happy','1/2/2021', '101 Wish Lane Harrisonburg VA 22801', '2/10/2021','2','1','2');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('3','Completion','customer was very happy','1/3/2021', '530 Christy Lane Harrisonburg VA 22801', '2/3/2021','3','2','1');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('4','Completion','customer was very happy','1/4/2021', '753 Cricket Drive Waynesboro VA 22802', '2/12/2021','4','2','2');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('5','InitiatingContract','Hasnt responded to emails or calls','1/5/2021','8732 Green Drive Harrisonburg VA 22801', '2/9/2021','5','3','1');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('6','InitiatingContract','Waiting on payment','1/6/2021', '1523 Hollow Path Waynesboro VA 22802', '1/22/2021','6','4','1');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('7','InitiatingContract','Waiting on payment','1/7/2021', '202 Pantheon Lane Harrisonburg VA 22801', '1/30/2021','7','5','1');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('8','InitiatingContract','customer hasnt responded back','1/8/2021', '801 Champ Street Harrisonburg VA 22801', '2/4/2021','8','6','1');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('9','InitiatingContract','need to move items','1/9/2021', '924 Sleepy Street Harrisonburg VA 22801', '2/9/2021','9','7','2');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('10','InitiatingContract','Waiting on customers response','1/10/2021', '451 Demaskus Drive Harrisonburg VA 22801', '2/10/2021','1','8','2');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[CustomerID],[ServiceID]) values('11','InitiatingContract','Need to email for clarification','1/10/2021', '444 Lucky Ave Waynesboro VA 22804', '2/10/2021','2','9','2');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate], [Address], [Deadline], [EmployeeID],[InitialInfoID],[ServiceID]) values('1','Completion', 'customer was very happy','1/1/2021', '1452 Bradley Drive Harrisonburg VA 22801', '2/5/2021','1','1','1');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('2','Completion','customer was very happy','1/2/2021', '101 Wish Lane Harrisonburg VA 22801', '2/10/2021','2','1','2');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('3','Completion','customer was very happy','1/3/2021', '530 Christy Lane Harrisonburg VA 22801', '2/3/2021','3','2','1');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('4','Completion','customer was very happy','1/4/2021', '753 Cricket Drive Waynesboro VA 22802', '2/12/2021','4','2','2');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('5','InitiatingContract','Hasnt responded to emails or calls','1/5/2021','8732 Green Drive Harrisonburg VA 22801', '2/9/2021','5','3','1');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('6','InitiatingContract','Waiting on payment','1/6/2021', '1523 Hollow Path Waynesboro VA 22802', '1/22/2021','6','4','1');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('7','InitiatingContract','Waiting on payment','1/7/2021', '202 Pantheon Lane Harrisonburg VA 22801', '1/30/2021','7','5','1');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('8','InitiatingContract','customer hasnt responded back','1/8/2021', '801 Champ Street Harrisonburg VA 22801', '2/4/2021','8','6','1');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('9','InitiatingContract','need to move items','1/9/2021', '924 Sleepy Street Harrisonburg VA 22801', '2/9/2021','9','7','2');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('10','InitiatingContract','Waiting on customers response','1/10/2021', '451 Demaskus Drive Harrisonburg VA 22801', '2/10/2021','1','8','2');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('11','InitiatingContract','Need to email for clarification','1/10/2021', '444 Lucky Ave Waynesboro VA 22804', '2/10/2021','2','9','2');
   
 SET IDENTITY_INSERT [dbo].[serviceTicket] Off 
 GO
