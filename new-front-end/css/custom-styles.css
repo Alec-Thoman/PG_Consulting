@@ -55,3 +55,18 @@
   margin-right: auto;
   border: 0px;
 }
+
+.cust-button {
+  border-color: #095951 !important;
+
+  color: #fff !important;
+  background-color: #095951 !important;
+}
+
+.cust-dropdown {
+  border-color: #095951 !important;
+  color: #095951 !important;
+  text-transform: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+}
