@@ -1,12 +1,22 @@
-USE [Lab3]
+USE [AUTH]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_BatchInsert]    Script Date: 4/10/2021 9:24:47 PM ******/
+/****** Object:  StoredProcedure [dbo].[Customer_SP]    Script Date: 4/17/2021 4:09:03 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [dbo].[sp_BatchInsert] (@CrewMateName VARCHAR(100), @CrewID int) 
-AS 
-BEGIN 
-            INSERT INTO CrewMate VALUES ( @CrewMateName, @CrewID); 
+CREATE PROCEDURE [dbo].[Customer_SP]
+	-- Parameters added here
+	@UserName as NVARCHAR(50),
+	@PassWord as NVARCHAR(50)
+AS
+BEGIN
+
+	Set NOCOUNT ON;
+
+	SELECT Username, Password
+	FROM CustomerUserInfo
+	WHERE Username = @UserName
+	AND Password = @PassWord;
+
 END
