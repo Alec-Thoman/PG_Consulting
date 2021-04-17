@@ -306,17 +306,17 @@ GO
 SET IDENTITY_INSERT [dbo].[serviceTicket] ON 
 GO
   
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate], [Address], [Deadline], [EmployeeID],[InitialInfoID],[ServiceID]) values('1','Completion', 'customer was very happy','1/1/2021', '1452 Bradley Drive Harrisonburg VA 22801', '2/5/2021','1','1','1');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('2','Completion','customer was very happy','1/2/2021', '101 Wish Lane Harrisonburg VA 22801', '2/10/2021','2','1','2');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('3','Completion','customer was very happy','1/3/2021', '530 Christy Lane Harrisonburg VA 22801', '2/3/2021','3','2','1');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('4','Completion','customer was very happy','1/4/2021', '753 Cricket Drive Waynesboro VA 22802', '2/12/2021','4','2','2');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('5','InitiatingContract','Hasnt responded to emails or calls','1/5/2021','8732 Green Drive Harrisonburg VA 22801', '2/9/2021','5','3','1');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('6','InitiatingContract','Waiting on payment','1/6/2021', '1523 Hollow Path Waynesboro VA 22802', '1/22/2021','6','4','1');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('7','InitiatingContract','Waiting on payment','1/7/2021', '202 Pantheon Lane Harrisonburg VA 22801', '1/30/2021','7','5','1');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('8','InitiatingContract','customer hasnt responded back','1/8/2021', '801 Champ Street Harrisonburg VA 22801', '2/4/2021','8','6','1');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('9','InitiatingContract','need to move items','1/9/2021', '924 Sleepy Street Harrisonburg VA 22801', '2/9/2021','9','7','2');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('10','InitiatingContract','Waiting on customers response','1/10/2021', '451 Demaskus Drive Harrisonburg VA 22801', '2/10/2021','1','8','2');
-  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('11','InitiatingContract','Need to email for clarification','1/10/2021', '444 Lucky Ave Waynesboro VA 22804', '2/10/2021','2','9','2');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate], [Address], [Deadline], [EmployeeID],[InitialInfoID],[ServiceID]) values('1','Completion', 'customer was very happy','01/01/2021', '1452 Bradley Drive Harrisonburg VA 22801', '02/05/2021','1','1','1');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('2','Completion','customer was very happy','01/02/2021', '101 Wish Lane Harrisonburg VA 22801', '02/10/2021','2','1','2');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('3','Completion','customer was very happy','01/03/2021', '530 Christy Lane Harrisonburg VA 22801', '02/03/2021','3','2','1');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('4','Completion','customer was very happy','01/04/2021', '753 Cricket Drive Waynesboro VA 22802', '02/12/2021','4','2','2');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('5','InitiatingContract','Hasnt responded to emails or calls','01/05/2021','8732 Green Drive Harrisonburg VA 22801', '02/09/2021','5','3','1');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('6','InitiatingContract','Waiting on payment','01/06/2021', '1523 Hollow Path Waynesboro VA 22802', '01/22/2021','6','4','1');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('7','InitiatingContract','Waiting on payment','01/07/2021', '202 Pantheon Lane Harrisonburg VA 22801', '01/30/2021','7','5','1');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('8','InitiatingContract','customer hasnt responded back','01/08/2021', '801 Champ Street Harrisonburg VA 22801', '02/04/2021','8','6','1');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('9','InitiatingContract','need to move items','01/09/2021', '924 Sleepy Street Harrisonburg VA 22801', '02/09/2021','9','7','2');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('10','InitiatingContract','Waiting on customers response','01/10/2021', '451 Demaskus Drive Harrisonburg VA 22801', '02/10/2021','1','8','2');
+  insert [dbo].[serviceTicket] ([ServiceTicketID],[TicketStatus],[TicketStatusNotes],[TicketBeginDate],[Address], [Deadline],[EmployeeID],[InitialInfoID],[ServiceID]) values('11','InitiatingContract','Need to email for clarification','01/10/2021', '444 Lucky Ave Waynesboro VA 22804', '02/10/2021','2','9','2');
   
 SET IDENTITY_INSERT [dbo].[serviceTicket] Off 
 GO
@@ -324,19 +324,19 @@ GO
 SET IDENTITY_INSERT [dbo].[TicketHistory] ON 
 GO 
   
-  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('1','Sign Contract','','1/2/2021','3','1');
-  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('2','Moving','','1/20/2021','2','1');
-  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('3','Completion','','2/10/2021','1','1');
-  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('4','Sign Contract','','1/4/2021','6','2');
-  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('5','Auction','','1/18/2021','6','2');
+  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('1','Sign Contract','','01/02/2021','3','1');
+  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('2','Moving','','01/20/2021','2','1');
+  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('3','Completion','','02/10/2021','1','1');
+  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('4','Sign Contract','','01/04/2021','6','2');
+  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('5','Auction','','01/18/2021','6','2');
   insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('6','Completion','','2/11/2021','6','2');
-  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('7','Sign Contract','','1/6/2021','9','3');
-  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('8','Moving','','1/12/2021','8','3');
-  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('9','Completion','','2/9/2021','7','3');
-  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('10','Sign Contract','','1/10/2021','8','4');
-  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('11','Auction','','2/4/2021','8','4');
-  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('12','Completion','','2/6/2021','8','4');
-  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('13','Sign Contract','','1/10/2021','6','5');
+  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('7','Sign Contract','','01/06/2021','9','3');
+  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('8','Moving','','01/12/2021','8','3');
+  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('9','Completion','','02/09/2021','7','3');
+  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('10','Sign Contract','','01/10/2021','8','4');
+  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('11','Auction','','02/04/2021','8','4');
+  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('12','Completion','','02/06/2021','8','4');
+  insert [dbo].[TicketHistory] ([TicketHistoryID],[NoteTitle],[NoteBody],[ChangeDate],[EmployeeID],[serviceTicketID]) values('13','Sign Contract','','01/10/2021','6','5');
 
   
 SET IDENTITY_INSERT [dbo].[TicketHistory] Off 
@@ -357,16 +357,16 @@ SET IDENTITY_INSERT [dbo].[Inventoryitem] ON
 GO  
   
   
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('1','books','default','2019-01-01', '1', '1');
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('2','chairs','default','2020-01-07', '1', '2');
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('3','House','default', '2016-09-01', '1', '3');
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('4','Bed','default', '2018-03-06', '2', '4');
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('5','Mirror','default','2019-08-08', '2', '5');
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('6','Car','default','2020-02-05', '3', '6');
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('7','Paper box','default','2019-08-01', '3', '7');
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('8','Desk','default','2021-02-01', '3', '8');
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('9','Clothes','default','2014-01-11', '4', '9');
-  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('10','Chairs','default','2010-06-01', '4', '10');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('1','books','default','01/01/2019', '1', '1');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('2','chairs','default','01/07/2020', '1', '2');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('3','House','default', '01/09/2016', '1', '3');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('4','Bed','default', '03/06/2018', '2', '4');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('5','Mirror','default','08/08/2019', '2', '5');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('6','Car','default','02/05/2019', '3', '6');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('7','Paper box','default','08/01/2018', '3', '7');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('8','Desk','default','02/01/2021', '3', '8');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('9','Clothes','default','01/11/2021', '4', '9');
+  insert [dbo].[Inventoryitem] ([ItemID],[ItemDescription],[Control], [InitialStorageDate], [StorageID], [ServiceTicketID]) values('10','Chairs','default','03/01/2021', '4', '10');
   
 SET IDENTITY_INSERT [dbo].[Inventoryitem] Off 
 GO 
@@ -375,9 +375,9 @@ SET IDENTITY_INSERT [dbo].[Equipment] ON
 GO  
   
   
-  insert [dbo].[Equipment] ([EquipmentID],[Description],[Cost],[PurchaseDate]) values('1','Truck','50','2/11/2020');
-  insert [dbo].[Equipment] ([EquipmentID],[Description],[Cost],[PurchaseDate]) values('2','Lift','20','2/13/2020');
-  insert [dbo].[Equipment] ([EquipmentID],[Description],[Cost],[PurchaseDate]) values('3','Mini-fork','35','2/14/2020');
+  insert [dbo].[Equipment] ([EquipmentID],[Description],[Cost],[PurchaseDate]) values('1','Truck','50','02/11/2020');
+  insert [dbo].[Equipment] ([EquipmentID],[Description],[Cost],[PurchaseDate]) values('2','Lift','20','02/13/2020');
+  insert [dbo].[Equipment] ([EquipmentID],[Description],[Cost],[PurchaseDate]) values('3','Mini-fork','35','02/14/2020');
   
 SET IDENTITY_INSERT [dbo].[Equipment] Off 
 GO
