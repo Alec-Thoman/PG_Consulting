@@ -48,34 +48,10 @@
 
     <div class="container pt-lg-4">
         <div class="row pb-md-4">
-            <div class="col-5 bg-white border shadow-sm p-4">
+            <div class="col-6 bg-white border shadow-sm p-4" style="height:400px;overflow:auto">
                 <h2 class="pb-3">Customer Statuses</h2>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Order</th>
-                            <th scope="col">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td scope="row"><a href="view-customer/customer-information.html">Jenny Murdock</a></td>
-                            <td>Auction Order</td>
-                            <td>Waiting</td>
-                        </tr>
-                        <tr>
-                            <td scope="row"><a href="view-customer/customer-information.html">Jenny Murdock</a></td>
-                            <td>Auction Order</td>
-                            <td>Waiting</td>
-                        </tr>
-                        <tr>
-                            <td scope="row"><a href="view-customer/customer-information.html">Jenny Murdock</a></td>
-                            <td>Auction Order</td>
-                            <td>Waiting</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <asp:GridView ID="statusGridView" runat="server" class="table table-bordered" EmptyDataText="No Record" OnRowDataBound = "StatusRowDataBound" OnSelectedIndexChanged = "StatusSelectedIndexChanged">
+                    </asp:GridView>
             </div>
             <div class="col-5 ml-auto bg-white border shadow-sm p-4">
                 <h2 class="pb-3">Search Customer</h2>

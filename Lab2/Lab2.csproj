@@ -76,6 +76,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="CustomerContactPage.aspx" />
+    <Content Include="CustomerInfoPage-Forms.aspx" />
+    <Content Include="CustomerInfoPage-StatusTab.aspx" />
     <Content Include="RowSelectTester.aspx" />
     <Content Include="EmployeeHomePageBStrap.aspx" />
     <Content Include="EmployeeLoginPageBStrap.aspx" />
@@ -228,6 +230,20 @@
     </Compile>
     <Compile Include="CustomerContactPage.aspx.designer.cs">
       <DependentUpon>CustomerContactPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerInfoPage-Forms.aspx.cs">
+      <DependentUpon>CustomerInfoPage-Forms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerInfoPage-Forms.aspx.designer.cs">
+      <DependentUpon>CustomerInfoPage-Forms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerInfoPage-StatusTab.aspx.cs">
+      <DependentUpon>CustomerInfoPage-StatusTab.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerInfoPage-StatusTab.aspx.designer.cs">
+      <DependentUpon>CustomerInfoPage-StatusTab.aspx</DependentUpon>
     </Compile>
     <Compile Include="RowSelectTester.aspx.cs">
       <DependentUpon>RowSelectTester.aspx</DependentUpon>

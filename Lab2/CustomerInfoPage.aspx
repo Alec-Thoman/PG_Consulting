@@ -63,7 +63,7 @@
                     <a class="nav-link" href="customer-forms.html">Forms</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="customer-statuses.html">Statuses</a>
+                    <a class="nav-link" href="CustomerInfoPage-StatusTab.aspx">Statuses</a>
                 </li>
             </ul>
         </div>

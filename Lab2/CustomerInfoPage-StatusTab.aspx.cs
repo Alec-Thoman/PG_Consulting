@@ -4,25 +4,51 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 using System.Data;
 using System.Drawing;
 using System.Data.SqlClient;
 using System.Web.Configuration;
+
 namespace Lab2
 {
-    public partial class StatusEditPage : System.Web.UI.Page
+    public partial class CustomerInfoPage_StatusTab : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("test`1232");
+            string fn = "";
+            string ln = "";
+            string initDate = "";
+            int initialInfoID = Convert.ToInt32(Session["InitialInfoID"]);
+            if (Session["InitialInfoID"] != null)
+            {
+                initialInfoID = Convert.ToInt32(Session["InitialInfoID"]);
+            }
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            string initialInfoQuery = "select FirstName, LastName, InitialDate from InitialInfo where InitialInfoID = @ID";
 
-            Session["InitialInfoID"] = 1;
+            SqlCommand cmd = new SqlCommand(initialInfoQuery, sqlConnect);
+            cmd.Parameters.Add("@ID", SqlDbType.Int).Value = initialInfoID;
+            sqlConnect.Open();
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    
+                    fn = (string)reader["FirstName"];
+                    ln = (string)reader["LastName"];
+                    initDate = (string)reader["InitialDate"];
+                }
+            }
+            namelbl.Text = fn + " " + ln;
+            createDatelbl.Text = "Created Account: " + initDate;
+            //Session["InitialInfoID"] = 1;
             //int custID = Convert.ToInt32(Session["InitialInfoID"]);
             //dtasrcServiceList.SelectParameters.Add("InitialInfoID", Session["InitialInfoID"].ToString());
             //dtasrcServiceList.SelectCommand = "Select ServiceTicketID from serviceTicket WHERE(InitialInfoID = @InitialInfoID)";
             //WHERE(CustomerID = @customerID)
             updateGridView();
-            
+
         }
 
         protected void updateGridView()
@@ -32,7 +58,8 @@ namespace Lab2
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
 
-            String sqlMain = "SELECT * FROM ServiceTicket WHERE InitialInfoID =" + Session["InitialInfoID"].ToString();
+            String sqlMain = "SELECT Service.ServiceType as [Service], serviceTicket.TicketStatus as [Status], serviceTicket.TicketBeginDate as [Date Created], serviceTicket.Deadline as [Date of Service] FROM InitialInfo INNER JOIN serviceTicket on serviceTicket.InitialInfoID = InitialInfo.InitialInfoID" +
+                " INNER JOIN Service on Service.ServiceID = serviceTicket.ServiceID WHERE InitialInfo.InitialInfoID =" + Session["InitialInfoID"].ToString();
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlMain, sqlConnect);
 
             DataTable serviceGrid = new DataTable();
@@ -75,8 +102,8 @@ namespace Lab2
                 ////String name = e.Row.Cells[0].Text;
                 ////String name = HttpUtility.HtmlEncode(Session["customerName"]);
                 //sqlConnect.Close();
-                
-                
+
+
                 //e.Row.Attributes.Add("onClick", "e.Row.BackColor = ColorTranslator.FromHtml('#9dbdb9')");
             }
         }
@@ -92,10 +119,10 @@ namespace Lab2
                     row.BackColor = ColorTranslator.FromHtml("#9dbdb9");
                     row.ToolTip = string.Empty;
 
-                    String sqlQueryStatus = "SELECT TicketStatus FROM serviceTicket WHERE ServiceTicketID = " + servicesGridView.SelectedRow.Cells[0].Text;
+                    String sqlQueryStatus = "SELECT TicketStatus FROM serviceTicket WHERE serviceTicket.TicketStatus = '" + servicesGridView.SelectedRow.Cells[1].Text +"' AND serviceTicket.TicketBeginDate = '" + servicesGridView.SelectedRow.Cells[2].Text + "' AND serviceTicket.Deadline = '" + servicesGridView.SelectedRow.Cells[3].Text + "'" ;
                     SqlCommand cmd = new SqlCommand(sqlQueryStatus, sqlConnect);
                     String tickStatus = (string)cmd.ExecuteScalar();
-                    String sqlQueryNotes = "SELECT TicketStatusNotes FROM serviceTicket WHERE ServiceTicketID = " + servicesGridView.SelectedRow.Cells[0].Text;
+                    String sqlQueryNotes = "SELECT TicketStatusNotes FROM serviceTicket WHERE serviceTicket.TicketStatus = '" + servicesGridView.SelectedRow.Cells[1].Text + "' AND serviceTicket.TicketBeginDate = '" + servicesGridView.SelectedRow.Cells[2].Text + "' AND serviceTicket.Deadline = '" + servicesGridView.SelectedRow.Cells[3].Text + "'";
                     SqlCommand cmd2 = new SqlCommand(sqlQueryNotes, sqlConnect);
                     String tickNotes = (string)cmd2.ExecuteScalar();
 
@@ -118,11 +145,8 @@ namespace Lab2
         {
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             sqlConnect.Open();
-            String sqlUpdate ="UPDATE serviceTicket SET TicketStatus = '" + txtStatus.Text.Trim() +"', TicketStatusNotes = '" + txtStatusNotes.Text.Trim() + "' WHERE ServiceTicketID = " + servicesGridView.SelectedRow.Cells[0].Text;
+            String sqlUpdate = "UPDATE serviceTicket SET TicketStatus = '" + txtStatus.Text.Trim() + "', TicketStatusNotes = '" + txtStatusNotes.Text.Trim() + "' WHERE serviceTicket.TicketStatus = '" + servicesGridView.SelectedRow.Cells[1].Text + "' AND serviceTicket.TicketBeginDate = '" + servicesGridView.SelectedRow.Cells[2].Text + "' AND serviceTicket.Deadline = '" + servicesGridView.SelectedRow.Cells[3].Text + "'";
             //SqlCommand updater = new SqlCommand(sqlUpdate, sqlConnect);
-            System.Diagnostics.Debug.WriteLine("test");
-
-            System.Diagnostics.Debug.WriteLine(sqlUpdate);
 
 
             SqlCommand sqlCommand = new SqlCommand();
@@ -134,7 +158,7 @@ namespace Lab2
 
             queryResults.Close();
             sqlConnect.Close();
-            
+
         }
     }
 }

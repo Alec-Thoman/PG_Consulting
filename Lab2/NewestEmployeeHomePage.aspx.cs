@@ -15,7 +15,20 @@ namespace Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("tester");
+            statusGridView.DataSource = null;
+            statusGridView.DataBind();
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+
+            String sqlMain = "SELECT InitialInfo.LastName as [Last Name], Service.ServiceType as [Service], serviceTicket.TicketStatus as [Status], serviceTicket.Deadline as [Date of Service] FROM InitialInfo INNER JOIN serviceTicket on serviceTicket.InitialInfoID = InitialInfo.InitialInfoID INNER JOIN Service on Service.ServiceID = serviceTicket.ServiceID ORDER BY " +
+            "serviceTicket.Deadline DESC";
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlMain, sqlConnect);
+
+            DataTable statusGrid = new DataTable();
+
+            sqlAdapter.Fill(statusGrid);
+            statusGridView.DataSource = statusGrid;
+            statusGridView.DataBind();
         }
         protected void Selection_Change(object sender, EventArgs e)
         {
@@ -53,7 +66,7 @@ namespace Lab2
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
 
-            String sqlMain = "SELECT FirstName as [First Name], LastName as [Last Name], PhoneNumber as [Phone Number], Email FROM InitialInfo WHERE LastName = '" + txtCustomerSearch.Text + "'";
+            String sqlMain = "SELECT LastName as [Last Name], PhoneNumber as [Phone Number], Email FROM InitialInfo WHERE LastName = '" + txtCustomerSearch.Text + "'";
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlMain, sqlConnect);
 
             DataTable customerGrid = new DataTable();
@@ -62,7 +75,7 @@ namespace Lab2
             customerGridView.DataSource = customerGrid;
             customerGridView.DataBind();
         }
-            protected void OnRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        protected void OnRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
@@ -86,7 +99,7 @@ namespace Lab2
 
 
 
-                    String sqlQuery = "SELECT InitialInfoID from InitialInfo WHERE Email = '" + customerGridView.SelectedRow.Cells[3].Text + "'";
+                    String sqlQuery = "SELECT InitialInfoID from InitialInfo WHERE Email = '" + customerGridView.SelectedRow.Cells[2].Text + "'";
 
                     SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                     sqlConnect.Open();
@@ -177,6 +190,49 @@ namespace Lab2
                 sqlAdapter.Fill(serviceGrid);
                 recordsGridView.DataSource = serviceGrid;
                 recordsGridView.DataBind();
+            }
+        }
+        protected void StatusRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        {
+            e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(statusGridView, "Select$" + e.Row.RowIndex);
+            e.Row.ToolTip = "Click to select this row.";
+        }
+        protected void StatusSelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (GridViewRow row in statusGridView.Rows)
+            {
+                if (row.RowIndex == statusGridView.SelectedIndex)
+                {
+
+
+                    row.BackColor = ColorTranslator.FromHtml("#9dbdb9");
+                    row.ToolTip = string.Empty;
+
+                    String sqlQuery = "SELECT InitialInfo.InitialInfoID FROM InitialInfo INNER JOIN serviceTicket on serviceTicket.InitialInfoID = InitialInfo.InitialInfoID INNER JOIN Service on Service.ServiceID = serviceTicket.ServiceID WHERE " +
+                    "InitialInfo.LastName = '" + statusGridView.SelectedRow.Cells[0].Text + "' AND Service.ServiceType = '" + statusGridView.SelectedRow.Cells[1].Text +
+                    "' AND serviceTicket.TicketStatus = '" + statusGridView.SelectedRow.Cells[2].Text + "' AND serviceTicket.Deadline = '" + statusGridView.SelectedRow.Cells[3].Text +"'";
+
+                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                    sqlConnect.Open();
+                    SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
+
+                    int id = Convert.ToInt32(cmd.ExecuteScalar());
+                    //String name = e.Row.Cells[0].Text;
+                    //String name = HttpUtility.HtmlEncode(Session["customerName"]);
+                    sqlConnect.Close();
+                    System.Diagnostics.Debug.WriteLine("test");
+                    System.Diagnostics.Debug.WriteLine(id);
+                    Session["InitialInfoID"] = id;
+                    //Response.Redirect("CustomerInfoPage.aspx");
+
+
+
+                }
+                else
+                {
+                    row.BackColor = ColorTranslator.FromHtml("#FFFFFF");
+                    row.ToolTip = "Click to select this row.";
+                }
             }
         }
     }
