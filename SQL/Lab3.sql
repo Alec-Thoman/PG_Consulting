@@ -444,3 +444,29 @@ insert [dbo].[Crew] ([CrewName]) values('Team7');
 insert [dbo].[Crew] ([CrewName]) values('Team8');
 insert [dbo].[Crew] ([CrewName]) values('Team9');
 insert [dbo].[Crew] ([CrewName]) values('Team10');
+
+Create table AppraisalServiceOrder(
+	[AppraisalServiceOrderID] [int] IDENTITY(1,1) primary key,
+	Deadline varchar(10),
+	AppraisalSize varchar(200),
+	Inventory varchar(500)
+);
+
+Create table AppraisalPurpose(
+	[AppraisalPurposeID] [int] IDENTITY(1,1) primary key,
+	Purpose varchar(200),
+	AppraisalServiceOrderID int,
+	Foreign Key(AppraisalServiceOrderID) References AppraisalServiceOrder(AppraisalServiceOrderID)
+);
+
+Create table AppraisalServiceInvoice(
+	[AppraisalServiceInvoiceID] [int] IDENTITY(1,1) primary key,
+	ContactName varchar(100),
+	AppraisalName varchar(100),
+	SendAppraisalAddress varchar(300),
+	AppraisalDate varchar(20),
+	AppraisalCost varchar(20),
+	PaymentSection varchar(700),
+	AppraisalServiceOrderID int,
+	Foreign Key(AppraisalServiceOrderID) References AppraisalServiceOrder(AppraisalServiceOrderID)
+);
