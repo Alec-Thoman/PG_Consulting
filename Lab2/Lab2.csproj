@@ -69,6 +69,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AuctionAssessment.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -226,6 +227,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appcode\PasswordHash.cs" />
+    <Compile Include="AuctionAssessment.aspx.cs">
+      <DependentUpon>AuctionAssessment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuctionAssessment.aspx.designer.cs">
+      <DependentUpon>AuctionAssessment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerContactPage.aspx.cs">
       <DependentUpon>CustomerContactPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
