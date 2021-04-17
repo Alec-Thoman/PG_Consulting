@@ -5,6 +5,10 @@
     <asp:Label ID="title" runat="server" Text="Auction Look At Form" Font-Bold="true" Font-Size="X-Large"></asp:Label>
     <br />
     <br />
+    <asp:Label ID="lookatDatelbl" runat="server" Text="Date: "></asp:Label>
+    <asp:TextBox ID="lookatDateTB" runat="server" TextMode="Date"></asp:TextBox>
+    <br />
+    <br />
     <asp:Label ID="customerSelectLabel" runat="server" Text="Select Customer:"></asp:Label>
     <asp:DropDownList ID="customerddl" runat="server">
     </asp:DropDownList>
