@@ -167,6 +167,7 @@ CREATE TABLE AuctionLookAtEvent (
 AuctionLookAtID [int] IDENTITY(1,1) primary key,
 TruckAccess				varchar(255),
 SuppliesNeeded		varchar(255),
+Date varchar(255),
 BoxID int,
 CrewID int,
 TruckID int,
