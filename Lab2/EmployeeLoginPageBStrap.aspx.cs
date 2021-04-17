@@ -75,7 +75,7 @@ namespace Lab2
         }
         protected void populate_Click(object sender, EventArgs e)
         {
-            txtEmail.Value = "123@gmail.com";
+            txtEmail.Value = "1234@gmail.com";
             txtPassword.Value = "pas6684word";
         }
     }

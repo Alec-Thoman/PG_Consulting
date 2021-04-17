@@ -220,6 +220,8 @@
     <Content Include="CustomerInfoEditPage.aspx" />
     <Content Include="AppraisalServiceOrder.aspx" />
     <Content Include="AuctionServiceOrder.aspx" />
+    <Content Include="EmployeeProfile.aspx" />
+    <Content Include="EditEmployeeProfile.aspx" />
     <Content Include="Workflow.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -421,6 +423,20 @@
     </Compile>
     <Compile Include="AuctionServiceOrder.aspx.designer.cs">
       <DependentUpon>AuctionServiceOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeProfile.aspx.cs">
+      <DependentUpon>EmployeeProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeProfile.aspx.designer.cs">
+      <DependentUpon>EmployeeProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditEmployeeProfile.aspx.cs">
+      <DependentUpon>EditEmployeeProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditEmployeeProfile.aspx.designer.cs">
+      <DependentUpon>EditEmployeeProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Workflow.aspx.cs">
       <DependentUpon>Workflow.aspx</DependentUpon>
