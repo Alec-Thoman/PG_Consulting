@@ -27,7 +27,7 @@ INSERT INTO CustomerUserInfo (Username, Password) VALUES ('Alec@jmu.edu', 'pass7
 INSERT INTO CustomerUserInfo (Username, Password) VALUES ('Pat@dukes.jmu.edu', 'pas123word');
 INSERT INTO CustomerUserInfo (Username, Password) VALUES ('admin', 'password');
 
-INSERT INTO EmployeeUserInfo (Username, Password) VALUES ('123@gmail.com', 'pas6684word');
+INSERT INTO EmployeeUserInfo (Username, Password) VALUES ('1234@gmail.com', 'pas6684word');
 INSERT INTO EmployeeUserInfo (Username, Password) VALUES ('123@gmail.com', 'pas6633word');
 INSERT INTO EmployeeUserInfo (Username, Password) VALUES ('1234543@gmail.com', 'pas6word22');
 INSERT INTO EmployeeUserInfo (Username, Password) VALUES ('123hgf@gmail.com', 'pas60ord03');

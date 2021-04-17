@@ -239,7 +239,7 @@ MoveID int FOREIGN KEY REFERENCES MoveAssessment(MoveID),
 
 SET IDENTITY_INSERT [dbo].[employee] ON 
 GO
-  insert [dbo].[employee] ([EmployeeID],[EmployeeName],[position],[cellnumber],[emailaddress]) values('1','Gogo','AuctionManager','5401234567','123@gmail.com');
+  insert [dbo].[employee] ([EmployeeID],[EmployeeName],[position],[cellnumber],[emailaddress]) values('1','Gogo','AuctionManager','5401234567','1234@gmail.com');
   insert [dbo].[employee] ([EmployeeID],[EmployeeName],[position],[cellnumber],[emailaddress]) values('2','Messi','MoveManager','5401234567','123@gmail.com');
   insert [dbo].[employee] ([EmployeeID],[EmployeeName],[position],[cellnumber],[emailaddress]) values('3','Catty','AuctionManager','5401234567','1234543@gmail.com');
   insert [dbo].[employee] ([EmployeeID],[EmployeeName],[position],[cellnumber],[emailaddress]) values('4','Cindy','clerk','5401234567','123hgf@gmail.com');
