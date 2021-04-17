@@ -223,7 +223,7 @@ namespace Lab2
                     System.Diagnostics.Debug.WriteLine("test");
                     System.Diagnostics.Debug.WriteLine(id);
                     Session["InitialInfoID"] = id;
-                    //Response.Redirect("CustomerInfoPage.aspx");
+                    Response.Redirect("CustomerInfoPage.aspx");
 
 
 
