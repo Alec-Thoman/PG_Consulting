@@ -215,11 +215,11 @@
     <Content Include="CustomerProfile.aspx" />
     <Content Include="EditProfilePage.aspx" />
     <Content Include="AuctionLookAt.aspx" />
-    <Content Include="AuctionOrder.aspx" />
-    <Content Include="AppraisalServiceOrder.aspx" />
     <Content Include="CustomerInfoPage.aspx" />
     <Content Include="NewestEmployeeHomePage.aspx" />
     <Content Include="CustomerInfoEditPage.aspx" />
+    <Content Include="AppraisalServiceOrder.aspx" />
+    <Content Include="AuctionServiceOrder.aspx" />
     <Content Include="Workflow.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -387,20 +387,6 @@
     <Compile Include="AuctionLookAt.aspx.designer.cs">
       <DependentUpon>AuctionLookAt.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AuctionOrder.aspx.cs">
-      <DependentUpon>AuctionOrder.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AuctionOrder.aspx.designer.cs">
-      <DependentUpon>AuctionOrder.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AppraisalServiceOrder.aspx.cs">
-      <DependentUpon>AppraisalServiceOrder.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AppraisalServiceOrder.aspx.designer.cs">
-      <DependentUpon>AppraisalServiceOrder.aspx</DependentUpon>
-    </Compile>
     <Compile Include="CustomerInfoPage.aspx.cs">
       <DependentUpon>CustomerInfoPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -421,6 +407,20 @@
     </Compile>
     <Compile Include="CustomerInfoEditPage.aspx.designer.cs">
       <DependentUpon>CustomerInfoEditPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppraisalServiceOrder.aspx.cs">
+      <DependentUpon>AppraisalServiceOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppraisalServiceOrder.aspx.designer.cs">
+      <DependentUpon>AppraisalServiceOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuctionServiceOrder.aspx.cs">
+      <DependentUpon>AuctionServiceOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuctionServiceOrder.aspx.designer.cs">
+      <DependentUpon>AuctionServiceOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Workflow.aspx.cs">
       <DependentUpon>Workflow.aspx</DependentUpon>

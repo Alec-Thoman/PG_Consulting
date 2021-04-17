@@ -119,7 +119,7 @@ namespace Lab2
             int truckID;
             int crewID;
 
-            string lookAtSql = "insert into AuctionLookAtEvent ([TruckAccess], [SuppliesNeeded], [BoxID], [CrewID], [TruckID]) values(@TruckAccess,@SuppliesNeeded,@bid,@cid,@tid)";
+            string lookAtSql = "insert into AuctionLookAtEvent ([TruckAccess], [SuppliesNeeded], [Date], [BoxID], [CrewID], [TruckID]) values(@TruckAccess,@SuppliesNeeded,@date,@bid,@cid,@tid)";
             string boxSql = "insert into Box ([Small], [Medium], [Large], [Art], [SmallPads], [LargePads]) values (@Small,@Medium,@Large,@Art,@SmallPad,@LargePad);SELECT CAST(scope_identity() AS int)";
             string truckSql = "insert into Truck ([Truck2015], [Truck2011], [Cube], [EnclosedTrailer], [OpenTrailer], [Van]) values (@truck2015,@truck2011,@cube,@et,@ot,@van);SELECT CAST(scope_identity() AS int)";
             try
@@ -197,6 +197,7 @@ namespace Lab2
                         {
                             cmd.Parameters.Add("@LargePad", SqlDbType.Int).Value = HttpUtility.HtmlEncode(lpTB.Text);
                         }
+
                         boxID = (int)cmd.ExecuteScalar();
                         //delme.Text = "" + boxID;
                         connection.Close();
@@ -318,13 +319,14 @@ namespace Lab2
                     using (SqlCommand command = new SqlCommand(lookAtSql, connection))
                     {
                         connection.Open();
-                        command.Parameters.Add("@TruckAccess", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(truckAccesstb.Text);
-                        command.Parameters.Add("@SuppliesNeeded", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(supNeedtb.Text);
+                        command.Parameters.Add("@TruckAccess", SqlDbType.VarChar).Value = HttpUtility.HtmlEncode(truckAccesstb.Text).ToString();
+                        command.Parameters.Add("@SuppliesNeeded", SqlDbType.VarChar).Value = HttpUtility.HtmlEncode(supNeedtb.Text).ToString();
+                        command.Parameters.Add("@date", SqlDbType.VarChar).Value = HttpUtility.HtmlEncode(lookatDateTB.Text).ToString();
                         command.Parameters.Add("@bid", SqlDbType.Int).Value = boxID;
                         command.Parameters.Add("@cid", SqlDbType.Int).Value = crewID;
                         command.Parameters.Add("@tid", SqlDbType.Int).Value = truckID;
 
-                        command.ExecuteNonQuery();
+                        command.ExecuteScalar();
                         connection.Close();
                     }
                 }

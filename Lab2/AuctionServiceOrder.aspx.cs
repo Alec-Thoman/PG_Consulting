@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Lab2
 {
-    public partial class AuctionOrder : System.Web.UI.Page
+    public partial class AuctionServiceOrder : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

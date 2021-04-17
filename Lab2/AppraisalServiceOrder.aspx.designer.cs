@@ -15,67 +15,67 @@ namespace Lab2
     {
 
         /// <summary>
-        /// titlelbl control.
+        /// custNamelbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label titlelbl;
+        protected global::System.Web.UI.WebControls.Label custNamelbl;
 
         /// <summary>
-        /// contactInfolbl control.
+        /// createAccountDatelbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label contactInfolbl;
+        protected global::System.Web.UI.WebControls.Label createAccountDatelbl;
 
         /// <summary>
-        /// Label1 control.
+        /// estateappraisalCB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.CheckBox estateappraisalCB;
 
         /// <summary>
-        /// appraisalTitle control.
+        /// familyappraisalCB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label appraisalTitle;
+        protected global::System.Web.UI.WebControls.CheckBox familyappraisalCB;
 
         /// <summary>
-        /// purposelbl control.
+        /// deadlineYesRB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label purposelbl;
+        protected global::System.Web.UI.WebControls.RadioButton deadlineYesRB;
 
         /// <summary>
-        /// DropDownList1 control.
+        /// deadlineNoRB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.RadioButton deadlineNoRB;
 
         /// <summary>
-        /// deadlinelbl control.
+        /// labelDeadline control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label deadlinelbl;
+        protected global::System.Web.UI.WebControls.Label labelDeadline;
 
         /// <summary>
         /// deadlineTB control.
@@ -87,102 +87,111 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.TextBox deadlineTB;
 
         /// <summary>
-        /// sizelbl control.
+        /// appraisalSizeTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label sizelbl;
+        protected global::System.Web.UI.WebControls.TextBox appraisalSizeTB;
 
         /// <summary>
-        /// sizeTB control.
+        /// FileUploadPhotos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox sizeTB;
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadPhotos;
 
         /// <summary>
-        /// HyperLink1 control.
+        /// inventoryTA control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea inventoryTA;
 
         /// <summary>
-        /// fileuploadLbl control.
+        /// moveassessmentbtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label fileuploadLbl;
+        protected global::System.Web.UI.WebControls.Button moveassessmentbtn;
 
         /// <summary>
-        /// FileUpload1 control.
+        /// contactNameTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::System.Web.UI.WebControls.TextBox contactNameTB;
 
         /// <summary>
-        /// fileUploadButton control.
+        /// apprNameTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button fileUploadButton;
+        protected global::System.Web.UI.WebControls.TextBox apprNameTB;
 
         /// <summary>
-        /// invLbl control.
+        /// sendToAddressTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label invLbl;
+        protected global::System.Web.UI.WebControls.TextBox sendToAddressTB;
 
         /// <summary>
-        /// invTB control.
+        /// appraisalDateTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox invTB;
+        protected global::System.Web.UI.WebControls.TextBox appraisalDateTB;
 
         /// <summary>
-        /// addtlServiceslbl control.
+        /// appraisalCostTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label addtlServiceslbl;
+        protected global::System.Web.UI.WebControls.TextBox appraisalCostTB;
 
         /// <summary>
-        /// addtlServicesrl control.
+        /// paymentsectTA control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList addtlServicesrl;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea paymentsectTA;
 
         /// <summary>
-        /// submitBtn control.
+        /// uploadAppraisalButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button submitBtn;
+        protected global::System.Web.UI.WebControls.Button uploadAppraisalButton;
+
+        /// <summary>
+        /// emailButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button emailButton;
     }
 }
