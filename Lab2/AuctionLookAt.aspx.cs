@@ -13,7 +13,8 @@ namespace Lab2
 {
     public partial class WebForm5 : System.Web.UI.Page
     {
-        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+        string constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
+        string constr2 = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         bool isAWS = true;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,7 +27,8 @@ namespace Lab2
                 {
                     if (!testConn.IsAvailable())
                     {
-                        constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+                        constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
+                        constr2 = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
                         isAWS = false;
                     }
                 }
@@ -51,7 +53,7 @@ namespace Lab2
                 
                 // For emp ddl
                 //string conn = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-                using (SqlConnection con = new SqlConnection(constr))
+                using (SqlConnection con = new SqlConnection(constr2))
                 {
                     using (SqlCommand cmd = new SqlCommand("SELECT EmployeeID, EmployeeName FROM employee"))
                     {
@@ -142,7 +144,7 @@ namespace Lab2
             string truckSql = "insert into Truck ([Truck2015], [Truck2011], [Cube], [EnclosedTrailer], [OpenTrailer], [Van]) values (@truck2015,@truck2011,@cube,@et,@ot,@van);SELECT CAST(scope_identity() AS int)";
             try
             {
-                using (var connection = new SqlConnection(constr))
+                using (var connection = new SqlConnection(constr2))
                 {
                     //connection.Open();
                     // insert into LookAt Table
