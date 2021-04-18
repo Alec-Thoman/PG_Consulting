@@ -537,3 +537,72 @@ AS
 BEGIN 
             INSERT INTO CrewMate VALUES ( @CrewMateName, @CrewID); 
 END
+
+ -- inserts for appraisal report (test data)
+ insert [dbo].AppraisalServiceOrder([Deadline],[AppraisalSize],[Inventory]) values ('07/04/2022', 'Small', 'One table');
+ 
+ insert [dbo].AppraisalServiceInvoice([ContactName],[AppraisalName],[SendAppraisalAddress],[AppraisalDate],[AppraisalCost],[PaymentSection],[AppraisalServiceOrderID]) 
+ values('Alec','Redwood Table','alec@gmail.com','03/12/2022','$500.00', 'Cleaning, Estimate fees', 1);
+
+ insert [dbo].AppraisalServiceOrder([Deadline],[AppraisalSize],[Inventory]) values ('04/20/2021', 'Small', 'One table');
+ 
+ insert [dbo].AppraisalServiceInvoice([ContactName],[AppraisalName],[SendAppraisalAddress],[AppraisalDate],[AppraisalCost],[PaymentSection],[AppraisalServiceOrderID]) 
+ values('Brian','Antique Table','brian@gmail.com','04/21/2021','30.00', 'Cleaning, Estimate fees', 2);
+
+ insert [dbo].AppraisalServiceOrder([Deadline],[AppraisalSize],[Inventory]) values ('05/01/2021', 'Small', 'One PC');
+ 
+ insert [dbo].AppraisalServiceInvoice([ContactName],[AppraisalName],[SendAppraisalAddress],[AppraisalDate],[AppraisalCost],[PaymentSection],[AppraisalServiceOrderID]) 
+ values('Briana','Windows 10 PC','briana@gmail.com','04/24/2021','$100.00', 'Minor PC upgrades needed', 3);
+
+ insert [dbo].AppraisalServiceOrder([Deadline],[AppraisalSize],[Inventory]) values ('04/29/2021', 'Large', 'Three Shelves');
+ 
+ insert [dbo].AppraisalServiceInvoice([ContactName],[AppraisalName],[SendAppraisalAddress],[AppraisalDate],[AppraisalCost],[PaymentSection],[AppraisalServiceOrderID]) 
+ values('Jacob','Antique Shelf','jacob@gmail.com','08/12/2021','$350.00', 'Cleaning, Estimate fees', 4);
+
+ -- inserts for move assessment report (test data)
+ insert [dbo].MoveAssessment([InitialInfoID]) values (1);
+ insert [dbo].MoveAssessment([InitialInfoID]) values (3);
+ insert [dbo].MoveAssessment([InitialInfoID]) values (4);
+ insert [dbo].MoveAssessment([InitialInfoID]) values (8);
+
+ insert [dbo].Preliminary([DateCreated],[MoveOutDate],[MovingWindow],[MLSListing], [SendPhotos], [AddOn], [AuctionService], [Street], [City], [State], [ZipCode], [MoveID])
+ values ('01/01/2021', '05/01/2021', '04/19/2021-05/03/2021', 'NA', ' ', 'NA', 'No', '1234 Duke Avenue', 'Harrisonburg', 'VA', '22801', 1);
+
+ insert [dbo].Preliminary([DateCreated],[MoveOutDate],[MovingWindow],[MLSListing], [SendPhotos], [AddOn], [AuctionService], [Street], [City], [State], [ZipCode], [MoveID])
+ values ('01/08/2021', '05/09/2021', '04/22/2021-05/12/2021', 'NA', ' ', 'NA', 'No', '1234 Chiefs Avenue', 'Dayton', 'VA', '22809', 2);
+
+ insert [dbo].Preliminary([DateCreated],[MoveOutDate],[MovingWindow],[MLSListing], [SendPhotos], [AddOn], [AuctionService], [Street], [City], [State], [ZipCode], [MoveID])
+ values ('02/01/2021', '04/30/2021', '04/27/2021-04/29/2021', 'NA', ' ', 'NA', 'No', '1234 UVA Avenue', 'Charlottesville', 'VA', '22843', 3);
+
+ insert [dbo].Preliminary([DateCreated],[MoveOutDate],[MovingWindow],[MLSListing], [SendPhotos], [AddOn], [AuctionService], [Street], [City], [State], [ZipCode], [MoveID])
+ values ('03/01/2021', '05/04/2021', '04/23/2021-05/19/2021', 'NA', ' ', 'NA', 'No', '1234 Liberty Avenue', 'Lynchburg', 'VA', '22301', 4);
+
+ -- inserts for auction assessment report (test data)
+ insert [dbo].AuctionAssessment([InitialInfoID]) values (2);
+ insert [dbo].AuctionAssessment([InitialInfoID]) values (5);
+ insert [dbo].AuctionAssessment([InitialInfoID]) values (6);
+ insert [dbo].AuctionAssessment([InitialInfoID]) values (7);
+
+ insert into [dbo].Assessment([DateCreated], [ItemsSelling], [WhyService], [Deadline], [Scheduled], [AskedPhotos], [AskedItemList], [AdtlService], [AuctionID])
+ values ('04/29/2021', 'Replica truck, iPhone 11', 'Settling an Estate', 'NA', 'Pickup', 'No', 'No', 'NA', 1);
+
+ insert into [dbo].Assessment([DateCreated], [ItemsSelling], [WhyService], [Deadline], [Scheduled], [AskedPhotos], [AskedItemList], [AdtlService], [AuctionID])
+ values ('04/27/2021', 'Mustang GT', 'Getting rid of stuff', 'NA', 'Pickup', 'No', 'No', 'NA', 2);
+
+ insert into [dbo].Assessment([DateCreated], [ItemsSelling], [WhyService], [Deadline], [Scheduled], [AskedPhotos], [AskedItemList], [AdtlService], [AuctionID])
+ values ('06/09/2021', 'Macbook Computer', 'Getting rid of stuff', 'NA', 'Pickup', 'No', 'No', 'NA', 3);
+
+ insert into [dbo].Assessment([DateCreated], [ItemsSelling], [WhyService], [Deadline], [Scheduled], [AskedPhotos], [AskedItemList], [AdtlService], [AuctionID])
+ values ('04/25/2021', 'Signed NFL Jersey', 'Getting rid of stuff', 'NA', 'Pickup', 'No', 'No', 'NA', 4);
+
+ -- inserts for auction look at report (test data)
+ insert into [dbo].AuctionLookAtEvent([TruckAccess], [SuppliesNeeded], [Date], [InitialInfoID]) values ('Narrow driveway', 'Magnifying Glass', '04/20/2021', 1);
+ insert into [dbo].AuctionLookAtEvent([TruckAccess], [SuppliesNeeded], [Date], [InitialInfoID]) values ('Easy access', 'Trailer', '07/01/2021', 4);
+ insert into [dbo].AuctionLookAtEvent([TruckAccess], [SuppliesNeeded], [Date], [InitialInfoID]) values ('Not accessible; park in street', 'Gold tester device', '04/27/2021', 6);
+ insert into [dbo].AuctionLookAtEvent([TruckAccess], [SuppliesNeeded], [Date], [InitialInfoID]) values ('Easy access', 'Hammer', '04/23/2021', 7);
+ 
+ -- inserts for auction event report (test data)
+ insert into [dbo].AuctionEvent([InventoryAssginDate],[EmployeeID], [ServiceTicketID], [ItemID]) values ('04/22/2021', 1, 1, 1);
+ insert into [dbo].AuctionEvent([InventoryAssginDate],[EmployeeID], [ServiceTicketID], [ItemID]) values ('09/08/2021', 2, 2, 2);
+ insert into [dbo].AuctionEvent([InventoryAssginDate],[EmployeeID], [ServiceTicketID], [ItemID]) values ('04/28/2021',3, 3, 3);
+ insert into [dbo].AuctionEvent([InventoryAssginDate],[EmployeeID], [ServiceTicketID], [ItemID]) values ('06/20/2021',4,4,4);

@@ -16,6 +16,15 @@ namespace Lab2
         string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            using (SqlConnection testConn = new SqlConnection(constr))
+            {
+                if (!testConn.IsAvailable())
+                {
+                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+                    
+                }
+            }
+
             Session["InitialInfoID"] = 1;
             //Session["OrderForm"] = "";
             //Session["CompletionForm"] = "";
@@ -139,7 +148,7 @@ namespace Lab2
             formsGridView.DataBind();
             SqlConnection sqlConnect = new SqlConnection(constr);
 
-            String sqlMain = "SELECT AuctionLookAtEvent.Date, AuctionLookAtEvent.Supplies FROM AuctionLookAtEvent INNER JOIN InitialInfo on InitialInfo.InitialInfoID = AuctionLookAtEvent.InitialInfoID WHERE InitialInfo.InitialInfoID =" + Session["InitialInfoID"].ToString();
+            String sqlMain = "SELECT AuctionLookAtEvent.Date, AuctionLookAtEvent.SuppliesNeeded FROM AuctionLookAtEvent INNER JOIN InitialInfo on InitialInfo.InitialInfoID = AuctionLookAtEvent.InitialInfoID WHERE InitialInfo.InitialInfoID =" + Session["InitialInfoID"].ToString();
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlMain, sqlConnect);
 
             DataTable formsGrid = new DataTable();
