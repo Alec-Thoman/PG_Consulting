@@ -13,7 +13,7 @@ namespace Lab2
 {
     public partial class NewestEmployeeHomePage : System.Web.UI.Page
     {
-        string constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
+        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             // test if aws connection is open & available
@@ -21,7 +21,7 @@ namespace Lab2
             {
                 if (!testConn.IsAvailable())
                 {
-                    constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
+                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
                     //isAWS = false;
                 }
             }
