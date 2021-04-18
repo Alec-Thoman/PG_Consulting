@@ -13,7 +13,7 @@ namespace Lab2
     public partial class WebForm7 : System.Web.UI.Page
     {
         int initialInfoID = 1;
-        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+        string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             //int initialInfoID = 1;
@@ -25,14 +25,13 @@ namespace Lab2
                 initialInfoID = Convert.ToInt32(Session["InitialInfoID"]);
             }
 
-            // test if aws connection is open & available
-            using (SqlConnection testConn = new SqlConnection(constr))
+            if (Session["DBSource"].Equals("AWS"))
             {
-                if (!testConn.IsAvailable())
-                {
-                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-                    //isAWS = false;
-                }
+                constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+            }
+            else
+            {
+                constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
             }
 
             SqlConnection sqlConnect = new SqlConnection(constr);

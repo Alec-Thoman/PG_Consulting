@@ -80,7 +80,6 @@
     <Content Include="CustomerInfoPage-Forms.aspx" />
     <Content Include="CustomerInfoPage-StatusTab.aspx" />
     <Content Include="RowSelectTester.aspx" />
-    <Content Include="EmployeeHomePageBStrap.aspx" />
     <Content Include="EmployeeLoginPageBStrap.aspx" />
     <Content Include="img\81.jpg" />
     <Content Include="img\bg-masthead.jpg" />
@@ -223,6 +222,7 @@
     <Content Include="EmployeeProfile.aspx" />
     <Content Include="EditEmployeeProfile.aspx" />
     <Content Include="TableauVisualization.aspx" />
+    <Content Include="ReportsLandingPage.aspx" />
     <Content Include="Workflow.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -262,13 +262,6 @@
     </Compile>
     <Compile Include="RowSelectTester.aspx.designer.cs">
       <DependentUpon>RowSelectTester.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EmployeeHomePageBStrap.aspx.cs">
-      <DependentUpon>EmployeeHomePageBStrap.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EmployeeHomePageBStrap.aspx.designer.cs">
-      <DependentUpon>EmployeeHomePageBStrap.aspx</DependentUpon>
     </Compile>
     <Compile Include="EmployeeLoginPageBStrap.aspx.cs">
       <DependentUpon>EmployeeLoginPageBStrap.aspx</DependentUpon>
@@ -446,6 +439,13 @@
     </Compile>
     <Compile Include="TableauVisualization.aspx.designer.cs">
       <DependentUpon>TableauVisualization.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportsLandingPage.aspx.cs">
+      <DependentUpon>ReportsLandingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportsLandingPage.aspx.designer.cs">
+      <DependentUpon>ReportsLandingPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Workflow.aspx.cs">
       <DependentUpon>Workflow.aspx</DependentUpon>

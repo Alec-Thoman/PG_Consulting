@@ -21,17 +21,15 @@ namespace Lab2
             Session["InitialInfoID"] = 1;
             if (!this.IsPostBack)
             {
-                //string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-
-                // test if aws connection is open & available
-                using (SqlConnection testConn = new SqlConnection(constr))
+                if (Session["DBSource"].Equals("AWS"))
                 {
-                    if (!testConn.IsAvailable())
-                    {
-                        constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
-                        constr2 = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-                        isAWS = false;
-                    }
+                    constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
+                    constr2 = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+                }
+                else
+                {
+                    constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
+                    constr2 = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
                 }
 
 

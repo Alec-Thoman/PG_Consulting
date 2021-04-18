@@ -11,17 +11,16 @@ namespace Lab2
 {
     public partial class WebForm3 : System.Web.UI.Page
     {
-        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+        string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            // test if aws connection is open & available
-            using (SqlConnection testConn = new SqlConnection(constr))
+            if (Session["DBSource"].Equals("AWS"))
             {
-                if (!testConn.IsAvailable())
-                {
-                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-                    //isAWS = false;
-                }
+                constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
+            }
+            else
+            {
+                constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
             }
 
             if (Request.QueryString.Get("loggedout") == "true")

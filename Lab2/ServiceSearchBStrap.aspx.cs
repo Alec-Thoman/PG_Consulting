@@ -13,16 +13,16 @@ namespace Lab2
 {
     public partial class ServiceSearchBStrap : System.Web.UI.Page
     {
-        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+        string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            // test if aws connection is open & available
-            using (SqlConnection testConn = new SqlConnection(constr))
+            if (Session["DBSource"].Equals("AWS"))
             {
-                if (!testConn.IsAvailable())
-                {
-                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-                }
+                constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+            }
+            else
+            {
+                constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
             }
         }
         protected void Selection_Change(object sender, EventArgs e)

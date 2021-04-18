@@ -24,6 +24,8 @@
                     <aside class="col-md-5.5 mx-auto">
                         <div class="card shadow border-0">
                             <article class="card-body">
+                                <asp:RadioButton ID="localhostbtn" runat="server" Text="Localhost"/>
+                                <asp:RadioButton ID="awsbutton" runat="server" Text="AWS"/>
                                 <%--<a href="employee/employee-login.html" class="btn btn-primary cust">Employee Sign In</a>--%>
                                 <asp:Button ID="employeeSignInButton" class="btn btn-primary cust" runat="server" Text="Employee Sign In" OnClick="employeeSignInButton_Click"/>
                                 <%--<a href="customer/customer-login.html" class="btn btn-primary cust">Customer Sign In</a>--%>

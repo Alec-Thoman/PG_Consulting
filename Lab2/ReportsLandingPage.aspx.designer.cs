@@ -11,52 +11,34 @@ namespace Lab2
 {
 
 
-    public partial class WebForm2
+    public partial class WebForm4
     {
 
         /// <summary>
-        /// form_login control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form_login;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// localhostbtn control.
+        /// tableauButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton localhostbtn;
+        protected global::System.Web.UI.WebControls.Button tableauButton;
 
         /// <summary>
-        /// awsbutton control.
+        /// upcomingSvcBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton awsbutton;
-
-        /// <summary>
-        /// employeeSignInButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button employeeSignInButton;
-
-        /// <summary>
-        /// customerSignInButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button customerSignInButton;
+        protected global::System.Web.UI.WebControls.Button upcomingSvcBtn;
     }
 }
