@@ -245,6 +245,7 @@ InitialInfoID Int FOREIGN KEY REFERENCES InitialInfo(InitialInfoID),
 
 CREATE TABLE Assessment(
 AssessmentID int IDENTITY(1,1) primary key,
+DateCreated VARCHAR(50),
 ItemsSelling VARCHAR(50),
 WhyService VARCHAR(50),
 Deadline VARCHAR(50),
