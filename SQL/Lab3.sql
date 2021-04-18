@@ -602,7 +602,7 @@ END
  insert into [dbo].AuctionLookAtEvent([TruckAccess], [SuppliesNeeded], [Date], [InitialInfoID]) values ('Easy access', 'Hammer', '04/23/2021', 7);
  
  -- inserts for auction event report (test data)
- insert into [dbo].AuctionEvent([InventoryAssginDate]) values ('04/22/2021');
- insert into [dbo].AuctionEvent([InventoryAssginDate]) values ('09/08/2021');
- insert into [dbo].AuctionEvent([InventoryAssginDate]) values ('04/28/2021');
- insert into [dbo].AuctionEvent([InventoryAssginDate]) values ('06/20/2021');
+ insert into [dbo].AuctionEvent([InventoryAssginDate],[EmployeeID], [ServiceTicketID], [ItemID]) values ('04/22/2021', 1, 1, 1);
+ insert into [dbo].AuctionEvent([InventoryAssginDate],[EmployeeID], [ServiceTicketID], [ItemID]) values ('09/08/2021', 2, 2, 2);
+ insert into [dbo].AuctionEvent([InventoryAssginDate],[EmployeeID], [ServiceTicketID], [ItemID]) values ('04/28/2021',3, 3, 3);
+ insert into [dbo].AuctionEvent([InventoryAssginDate],[EmployeeID], [ServiceTicketID], [ItemID]) values ('06/20/2021',4,4,4);
