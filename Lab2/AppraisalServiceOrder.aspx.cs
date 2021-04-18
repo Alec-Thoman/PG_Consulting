@@ -13,6 +13,7 @@ namespace Lab2
 {
     public partial class AppraisalServiceOrder : System.Web.UI.Page
     {
+        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             // grabs cust fn and ln as well as creation date from db
@@ -24,7 +25,17 @@ namespace Lab2
             {
                 initialInfoID = Convert.ToInt32(Session["InitialInfoID"]);
             }
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            // test if aws connection is open & available
+            using (SqlConnection testConn = new SqlConnection(constr))
+            {
+                if (!testConn.IsAvailable())
+                {
+                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+                    //isAWS = false;
+                }
+            }
+            SqlConnection sqlConnect = new SqlConnection(constr);
             string initialInfoQuery = "select FirstName, LastName, InitialDate from InitialInfo where InitialInfoID = @ID";
 
             SqlCommand cmd = new SqlCommand(initialInfoQuery, sqlConnect);
@@ -64,7 +75,7 @@ namespace Lab2
         protected void uploadAppraisalButton_Click(object sender, EventArgs e)
         {
             int AppraisalServiceOrderID = 0;
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(constr);
             sqlConnect.Open();
 
             string appraisalServiceOrderInsert = "insert into AppraisalServiceOrder([Deadline],[AppraisalSize],[Inventory]) values (@Deadline,@AppraisalSize,@Inventory);SELECT CAST(scope_identity() AS int)";

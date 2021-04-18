@@ -13,11 +13,23 @@ namespace Lab2
     public partial class Customer_ServiceViewBStrap : System.Web.UI.Page
     {
         private int initialInfoID = 7;
+        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             searchView.DataSource = null;
             searchView.DataBind();
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            // test if aws connection is open & available
+            using (SqlConnection testConn = new SqlConnection(constr))
+            {
+                if (!testConn.IsAvailable())
+                {
+                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+                    //isAWS = false;
+                }
+            }
+            SqlConnection sqlConnect = new SqlConnection(constr);
 
             String email = "";
             String uname = "";

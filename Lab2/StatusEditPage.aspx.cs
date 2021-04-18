@@ -12,8 +12,18 @@ namespace Lab2
 {
     public partial class StatusEditPage : System.Web.UI.Page
     {
+        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            // test if aws connection is open & available
+            using (SqlConnection testConn = new SqlConnection(constr))
+            {
+                if (!testConn.IsAvailable())
+                {
+                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+                    //isAWS = false;
+                }
+            }
             System.Diagnostics.Debug.WriteLine("test`1232");
 
             Session["InitialInfoID"] = 1;
@@ -29,7 +39,7 @@ namespace Lab2
         {
             servicesGridView.DataSource = null;
             servicesGridView.DataBind();
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(constr);
 
 
             String sqlMain = "SELECT * FROM ServiceTicket WHERE InitialInfoID =" + Session["InitialInfoID"].ToString();
@@ -86,7 +96,7 @@ namespace Lab2
             {
                 if (row.RowIndex == servicesGridView.SelectedIndex)
                 {
-                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                    SqlConnection sqlConnect = new SqlConnection(constr);
                     sqlConnect.Open();
 
                     row.BackColor = ColorTranslator.FromHtml("#9dbdb9");
@@ -116,7 +126,7 @@ namespace Lab2
         }
         protected void Edit_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(constr);
             sqlConnect.Open();
             String sqlUpdate ="UPDATE serviceTicket SET TicketStatus = '" + txtStatus.Text.Trim() +"', TicketStatusNotes = '" + txtStatusNotes.Text.Trim() + "' WHERE ServiceTicketID = " + servicesGridView.SelectedRow.Cells[0].Text;
             //SqlCommand updater = new SqlCommand(sqlUpdate, sqlConnect);

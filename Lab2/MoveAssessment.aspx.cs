@@ -13,11 +13,19 @@ namespace Lab2
 {
     public partial class MoveAssessment : System.Web.UI.Page
     {
+        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
             {
-                string constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+                using (SqlConnection testConn = new SqlConnection(constr))
+                {
+                    if (!testConn.IsAvailable())
+                    {
+                        constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+                    }
+                }
+                //string constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(constr))
                 {
                     using (SqlCommand cmd = new SqlCommand("SELECT InitialInfoID, Email FROM InitialInfo"))
@@ -46,7 +54,7 @@ namespace Lab2
             String sqlQuery = "SELECT FirstName + ' ' + LastName as CustomerName, PhoneNumber, Email, State " +
                 "from InitialInfo where InitialInfoID = " + custID;
 
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(constr);
 
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
@@ -68,7 +76,7 @@ namespace Lab2
             string costSql = "insert into Cost([MoveEst], [FixedRate], [ParkFee], [MoveID]) values(@MoveEst, @Fixed, @ParkFee, @MoveID)";
 
            
-                using (var connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString))
+                using (var connection = new SqlConnection(constr))
                 {
                     connection.Open();
                     // insert into moveassessment table Table

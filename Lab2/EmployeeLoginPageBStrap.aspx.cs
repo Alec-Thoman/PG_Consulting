@@ -12,8 +12,18 @@ namespace Lab2
 {
     public partial class EmployeeLoginPageBStrap : System.Web.UI.Page
     {
+        string constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            // test if aws connection is open & available
+            using (SqlConnection testConn = new SqlConnection(constr))
+            {
+                if (!testConn.IsAvailable())
+                {
+                    constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
+                    //isAWS = false;
+                }
+            }
             if (Request.QueryString.Get("loggedout") == "true")
             {
                 Label loginMessage = new Label();
@@ -39,7 +49,7 @@ namespace Lab2
         {
             
             // Added functionality for Lab3 (Using the stored procedure)
-            SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString.ToString());
+            SqlConnection sc = new SqlConnection(constr);
 
             SqlCommand userLogin = new SqlCommand();
            

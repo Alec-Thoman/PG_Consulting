@@ -12,10 +12,20 @@ namespace Lab2
 {
     public partial class CustomerProfile : System.Web.UI.Page
     {
+        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            // test if aws connection is open & available
+            using (SqlConnection testConn = new SqlConnection(constr))
+            {
+                if (!testConn.IsAvailable())
+                {
+                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+                    //isAWS = false;
+                }
+            }
+
+            SqlConnection sqlConnect = new SqlConnection(constr);
             String email = "";
             String uname = "";
             if (Session["UserName"] != null)

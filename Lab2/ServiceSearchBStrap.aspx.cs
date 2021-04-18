@@ -13,9 +13,17 @@ namespace Lab2
 {
     public partial class ServiceSearchBStrap : System.Web.UI.Page
     {
+        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // test if aws connection is open & available
+            using (SqlConnection testConn = new SqlConnection(constr))
+            {
+                if (!testConn.IsAvailable())
+                {
+                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+                }
+            }
         }
         protected void Selection_Change(object sender, EventArgs e)
         {
@@ -86,7 +94,7 @@ namespace Lab2
             {
                 recordsGridView.DataSource = null;
                 recordsGridView.DataBind();
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                SqlConnection sqlConnect = new SqlConnection(constr);
 
 
                 String sqlMain = "SELECT InitialInfo.LastName as [Last Name], serviceTicket.Deadline as [Date of Service], Service.ServiceType as [Service] FROM InitialInfo INNER JOIN serviceTicket on serviceTicket.InitialInfoID = InitialInfo.InitialInfoID INNER JOIN Service on Service.ServiceID = serviceTicket.ServiceID WHERE InitialInfo.City = '" + cityLists.SelectedValue.ToString() +
@@ -103,7 +111,7 @@ namespace Lab2
             {
                 recordsGridView.DataSource = null;
                 recordsGridView.DataBind();
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                SqlConnection sqlConnect = new SqlConnection(constr);
 
 
                 String sqlMain = "SELECT InitialInfo.FirstName as [First Name], InitialInfo.LastName as [Last Name], InitialInfo.InitialDate as [Date Created] FROM InitialInfo WHERE InitialInfo.InitialDate = '" + txtDate.Text + "'";
@@ -119,7 +127,7 @@ namespace Lab2
             {
                 recordsGridView.DataSource = null;
                 recordsGridView.DataBind();
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                SqlConnection sqlConnect = new SqlConnection(constr);
 
 
                 String sqlMain = "SELECT InitialInfo.LastName as [Last Name], Service.ServiceType as [Service], InitialInfo.City, serviceTicket.Deadline as [Date of Service] FROM InitialInfo INNER JOIN serviceTicket on serviceTicket.InitialInfoID = InitialInfo.InitialInfoID INNER JOIN Service on Service.ServiceID = serviceTicket.ServiceID WHERE serviceTicket.Deadline = '" + txtDate.Text + "'";
@@ -135,7 +143,7 @@ namespace Lab2
             {
                 recordsGridView.DataSource = null;
                 recordsGridView.DataBind();
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                SqlConnection sqlConnect = new SqlConnection(constr);
 
 
                 String sqlMain = "SELECT InitialInfo.FirstName as [First Name], InitialInfo.LastName as [Last Name], InventoryItem.ItemDescription as [Item], InventoryItem.InitialStorageDate as [Initial Storage Date] FROM InitialInfo INNER JOIN serviceTicket on serviceTicket.InitialInfoID = InitialInfo.InitialInfoID INNER JOIN InventoryItem on InventoryItem.ServiceTicketID = serviceTicket.ServiceTicketID INNER JOIN Storage on Storage.StorageID = InventoryItem.StorageID WHERE Storage.Location = '" + storageLists.SelectedValue.ToString() + "'";

@@ -12,8 +12,16 @@ namespace Lab2
 {
     public partial class InventoryBStrap : System.Web.UI.Page
     {
+        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            using (SqlConnection testConn = new SqlConnection(constr))
+            {
+                if (!testConn.IsAvailable())
+                {
+                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+                }
+            }
             updateGridView();
         }
         protected void search_click(object sender, EventArgs e)
@@ -37,7 +45,7 @@ namespace Lab2
             }
             
 
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(constr);
 
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
@@ -58,7 +66,7 @@ namespace Lab2
                 "= InventoryService.itemid inner join ServiceTicket on ServiceTicket.serviceticketid = inventoryservice.serviceticketid inner join customer on customer.customerid = serviceticket.customerid";
 
 
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(constr);
 
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 

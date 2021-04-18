@@ -13,6 +13,7 @@ namespace Lab2
     public partial class WebForm7 : System.Web.UI.Page
     {
         int initialInfoID = 1;
+        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             //int initialInfoID = 1;
@@ -23,7 +24,18 @@ namespace Lab2
             {
                 initialInfoID = Convert.ToInt32(Session["InitialInfoID"]);
             }
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            // test if aws connection is open & available
+            using (SqlConnection testConn = new SqlConnection(constr))
+            {
+                if (!testConn.IsAvailable())
+                {
+                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+                    //isAWS = false;
+                }
+            }
+
+            SqlConnection sqlConnect = new SqlConnection(constr);
             string initialInfoQuery = "select FirstName, LastName, Email, PhoneNumber, InitialDate, Street, City, State, ZipCode from InitialInfo where InitialInfoID = @ID";
 
             SqlCommand cmd = new SqlCommand(initialInfoQuery, sqlConnect);
@@ -99,7 +111,7 @@ namespace Lab2
 
             try
             {
-                using (var connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString))
+                using (var connection = new SqlConnection(constr))
                 {
                     using (SqlCommand command = connection.CreateCommand())
                     {

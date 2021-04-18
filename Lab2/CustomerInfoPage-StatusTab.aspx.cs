@@ -14,6 +14,7 @@ namespace Lab2
 {
     public partial class CustomerInfoPage_StatusTab : System.Web.UI.Page
     {
+        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             string fn = "";
@@ -24,7 +25,17 @@ namespace Lab2
             {
                 initialInfoID = Convert.ToInt32(Session["InitialInfoID"]);
             }
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            // test if aws connection is open & available
+            using (SqlConnection testConn = new SqlConnection(constr))
+            {
+                if (!testConn.IsAvailable())
+                {
+                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+                    //isAWS = false;
+                }
+            }
+            SqlConnection sqlConnect = new SqlConnection(constr);
             string initialInfoQuery = "select FirstName, LastName, InitialDate from InitialInfo where InitialInfoID = @ID";
 
             SqlCommand cmd = new SqlCommand(initialInfoQuery, sqlConnect);
@@ -55,7 +66,7 @@ namespace Lab2
         {
             servicesGridView.DataSource = null;
             servicesGridView.DataBind();
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(constr);
 
 
             String sqlMain = "SELECT Service.ServiceType as [Service], serviceTicket.TicketStatus as [Status], serviceTicket.TicketBeginDate as [Date Created], serviceTicket.Deadline as [Date of Service] FROM InitialInfo INNER JOIN serviceTicket on serviceTicket.InitialInfoID = InitialInfo.InitialInfoID" +
@@ -113,7 +124,7 @@ namespace Lab2
             {
                 if (row.RowIndex == servicesGridView.SelectedIndex)
                 {
-                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                    SqlConnection sqlConnect = new SqlConnection(constr);
                     sqlConnect.Open();
 
                     row.BackColor = ColorTranslator.FromHtml("#9dbdb9");
@@ -143,7 +154,7 @@ namespace Lab2
         }
         protected void Edit_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(constr);
             sqlConnect.Open();
             String sqlUpdate = "UPDATE serviceTicket SET TicketStatus = '" + txtStatus.Text.Trim() + "', TicketStatusNotes = '" + txtStatusNotes.Text.Trim() + "' WHERE serviceTicket.TicketStatus = '" + servicesGridView.SelectedRow.Cells[1].Text + "' AND serviceTicket.TicketBeginDate = '" + servicesGridView.SelectedRow.Cells[2].Text + "' AND serviceTicket.Deadline = '" + servicesGridView.SelectedRow.Cells[3].Text + "'";
             //SqlCommand updater = new SqlCommand(sqlUpdate, sqlConnect);
