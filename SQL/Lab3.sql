@@ -524,3 +524,16 @@ Create table AppraisalServiceInvoice(
 	AppraisalServiceOrderID int,
 	Foreign Key(AppraisalServiceOrderID) References AppraisalServiceOrder(AppraisalServiceOrderID)
 );
+
+USE [Lab3]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_BatchInsert]    Script Date: 4/10/2021 9:24:47 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_BatchInsert] (@CrewMateName VARCHAR(100), @CrewID int) 
+AS 
+BEGIN 
+            INSERT INTO CrewMate VALUES ( @CrewMateName, @CrewID); 
+END
