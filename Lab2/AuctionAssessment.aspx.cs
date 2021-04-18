@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -13,22 +13,11 @@ namespace Lab2
 {
     public partial class WebForm6 : System.Web.UI.Page
     {
-        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
             {
-                // test if aws connection is open & available
-                using (SqlConnection testConn = new SqlConnection(constr))
-                {
-                    if (!testConn.IsAvailable())
-                    {
-                        constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-                        //isAWS = false;
-                    }
-                }
-
-                //string constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+                string constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(constr))
                 {
                     using (SqlCommand cmd = new SqlCommand("SELECT InitialInfoID, Email FROM InitialInfo"))
@@ -57,7 +46,7 @@ namespace Lab2
             String sqlQuery = "SELECT FirstName + ' ' + LastName as CustomerName, PhoneNumber, Email, State " +
                 "from InitialInfo where InitialInfoID = " + custID;
 
-            SqlConnection sqlConnect = new SqlConnection(constr);
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
@@ -73,13 +62,13 @@ namespace Lab2
         {
             int custID = int.Parse(customerddl.SelectedValue);
             string asSql = "insert into AuctionAssessment ([InitialInfoID]) values(@custID)";
-            string assessmentSql = "insert into Assessment([DateCreated], [ItemsSelling], [WhyService], [Deadline], [Scheduled], [AskedPhotos], [AskedItemList], [AdtlService], [AuctionID]) values (@DateCreated, @ItemsSelling, @WhyService, @Deadline, @Scheduled, @AskedPhotos, @AskedItemList, @AdtlService, @AuctionID)";
+            string assessmentSql = "insert into Assessment([DateCreated], [ItemsSelling], [WhyService], [Deadline], [Scheduled], [AskedPhotos], [AskedItemList], [AdtlService], [AuctionID]) values (@DateCreated, @ItemSelling, @WhyService, @Deadline, @Scheduled, @AskPhotos, @AskItemList, @AdtlService, @AuctionID)";
             string otherInfoSql = "insert into OtherInfo([HomeType], [TruckAccess], [LoadDoorDistance], [Steps], [SpecialEquip], [TruckType], [AuctionID]) values(@HomeType, @TruckAccess, @LoadDoorDistance, @Steps, @SpecialEquip, @TruckType, @AuctionID)";
             string feesSql = "insert into Fees([PickUp], [ConsignmentRate], [TrashFee], [AdditionalFee], [AuctionID]) values(@PickUp, @ConsignmentRate, @TrashFee, @AdditionalFee, @AuctionID)";
 
 
 
-            using (var connection = new SqlConnection(constr))
+            using (var connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString))
             {
                 connection.Open();
                 // insert into moveassessment table Table
@@ -118,24 +107,24 @@ namespace Lab2
                     connection.Open();
                     string yes = "Yes";
                     string no = "No";
-                    cmd.Parameters.Add("@ItemsSelling", SqlDbType.NVarChar).Value = TextBox9.Text;
+                    cmd.Parameters.Add("@ItemSelling", SqlDbType.NVarChar).Value = TextBox9.Text;
                     cmd.Parameters.Add("@Deadline", SqlDbType.NVarChar).Value = TextBox10.Text;
                     if (CheckBox9.Checked == true)
                     {
-                        cmd.Parameters.Add("@AskedPhotos", SqlDbType.NVarChar).Value = yes;
+                        cmd.Parameters.Add("@AskPhotos", SqlDbType.NVarChar).Value = yes;
                     }
                     else
                     {
-                        cmd.Parameters.Add("@AskedPhotos", SqlDbType.NVarChar).Value = no;
+                        cmd.Parameters.Add("@AskPhotos", SqlDbType.NVarChar).Value = no;
                     }
 
                     if (CheckBox10.Checked == true)
                     {
-                        cmd.Parameters.Add("@AskedItemList", SqlDbType.NVarChar).Value = yes;
+                        cmd.Parameters.Add("@AskItemList", SqlDbType.NVarChar).Value = yes;
                     }
                     else
                     {
-                        cmd.Parameters.Add("@AskedItemList", SqlDbType.NVarChar).Value = no;
+                        cmd.Parameters.Add("@AskItemList", SqlDbType.NVarChar).Value = no;
                     }
 
 
@@ -143,7 +132,8 @@ namespace Lab2
                     cmd.Parameters.Add("@Scheduled", SqlDbType.NVarChar).Value = TextBox11.Text;
                     cmd.Parameters.Add("@AdtlService", SqlDbType.NVarChar).Value = DropDownList2.SelectedValue;
                     cmd.Parameters.Add("@AuctionID", SqlDbType.NVarChar).Value = auctionID;
-                    cmd.Parameters.Add("@DateCreated", SqlDbType.NVarChar).Value = DateTime.Now.ToString("MM/dd/yyyy");
+                    cmd.Parameters.Add("@DateCreated", SqlDbType.NVarChar).Value = DateTime.Now.ToString("g"); 
+                    
 
 
 
