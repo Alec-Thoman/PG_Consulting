@@ -223,6 +223,7 @@
     <Content Include="EmployeeProfile.aspx" />
     <Content Include="EditEmployeeProfile.aspx" />
     <Content Include="TableauVisualization.aspx" />
+    <Content Include="ReportsLandingPage.aspx" />
     <Content Include="Workflow.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -446,6 +447,13 @@
     </Compile>
     <Compile Include="TableauVisualization.aspx.designer.cs">
       <DependentUpon>TableauVisualization.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportsLandingPage.aspx.cs">
+      <DependentUpon>ReportsLandingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportsLandingPage.aspx.designer.cs">
+      <DependentUpon>ReportsLandingPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Workflow.aspx.cs">
       <DependentUpon>Workflow.aspx</DependentUpon>
