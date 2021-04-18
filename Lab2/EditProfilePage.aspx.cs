@@ -13,10 +13,19 @@ namespace Lab2
     public partial class EditProfilePage : System.Web.UI.Page
     {
         private int custID = 7;
+        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         protected void Page_Load()
         {
+            // test if aws connection is open & available
+            using (SqlConnection testConn = new SqlConnection(constr))
+            {
+                if (!testConn.IsAvailable())
+                {
+                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+                }
+            }
             // Reading db for values
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(constr);
             String email = "";
             String uname = "";
             if (Session["UserName"] != null)
@@ -105,7 +114,7 @@ namespace Lab2
 
             try
             {
-                using (var connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString))
+                using (var connection = new SqlConnection(constr))
                 {
                     using (SqlCommand command = connection.CreateCommand())
                     {

@@ -12,8 +12,18 @@ namespace Lab2
 {
     public partial class EmployeeCustomerViewBStrap : System.Web.UI.Page
     {
+        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            // test if aws connection is open & available
+            using (SqlConnection testConn = new SqlConnection(constr))
+            {
+                if (!testConn.IsAvailable())
+                {
+                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+                }
+            }
+
             updateGridView();
             Session["customerName"] = "test";
         }
@@ -24,7 +34,7 @@ namespace Lab2
 
             String sqlQuery = "SELECT CustomerName as [Customer Name], PhoneNumber as [Phone Number], EmailAddress as [Email], CustomerAddress as [Home Address] from Customer";
 
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(constr);
 
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
@@ -54,7 +64,7 @@ namespace Lab2
             }
 
 
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(constr);
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
             DataTable workflowGridview = new DataTable();
@@ -79,7 +89,7 @@ namespace Lab2
                 
                 String sqlQuery = "SELECT CustomerName from Customer WHERE EmailAddress = '" + e.Row.Cells[2].Text + "'";
 
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                SqlConnection sqlConnect = new SqlConnection(constr);
                 sqlConnect.Open();
                 SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
 

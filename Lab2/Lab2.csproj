@@ -205,7 +205,6 @@
     <Content Include="ServiceOrderFormBStrap.aspx" />
     <Content Include="ServiceSearchBStrap.aspx" />
     <Content Include="ServiceViewBStrap.aspx" />
-    <Content Include="StartPage.aspx" />
     <Content Include="StatusEditPage.aspx" />
     <Content Include="Web.config" />
     <Content Include="FileUpload.aspx" />
@@ -223,6 +222,7 @@
     <Content Include="AuctionServiceOrder.aspx" />
     <Content Include="EmployeeProfile.aspx" />
     <Content Include="EditEmployeeProfile.aspx" />
+    <Content Include="TableauVisualization.aspx" />
     <Content Include="Workflow.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -234,6 +234,7 @@
     <Compile Include="AuctionAssessment.aspx.designer.cs">
       <DependentUpon>AuctionAssessment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SqlExtensions.cs" />
     <Compile Include="CustomerContactPage.aspx.cs">
       <DependentUpon>CustomerContactPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -325,13 +326,6 @@
     </Compile>
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
-    </Compile>
-    <Compile Include="StartPage.aspx.cs">
-      <DependentUpon>StartPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="StartPage.aspx.designer.cs">
-      <DependentUpon>StartPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="StatusEditPage.aspx.cs">
       <DependentUpon>StatusEditPage.aspx</DependentUpon>
@@ -445,6 +439,13 @@
     </Compile>
     <Compile Include="EditEmployeeProfile.aspx.designer.cs">
       <DependentUpon>EditEmployeeProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TableauVisualization.aspx.cs">
+      <DependentUpon>TableauVisualization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TableauVisualization.aspx.designer.cs">
+      <DependentUpon>TableauVisualization.aspx</DependentUpon>
     </Compile>
     <Compile Include="Workflow.aspx.cs">
       <DependentUpon>Workflow.aspx</DependentUpon>

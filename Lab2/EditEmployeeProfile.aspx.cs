@@ -12,10 +12,21 @@ namespace Lab2
 {
     public partial class EditEmployeeProfile : System.Web.UI.Page
     {
+        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         private int empID = 7;
         protected void Page_Load()
         {
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            // test if aws connection is open & available
+            using (SqlConnection testConn = new SqlConnection(constr))
+            {
+                if (!testConn.IsAvailable())
+                {
+                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+                    //isAWS = false;
+                }
+            }
+
+            SqlConnection sqlConnect = new SqlConnection(constr);
             String email = "";
             String uname = "";
             if (Session["UserName"] != null)
@@ -57,7 +68,7 @@ namespace Lab2
 
             try
             {
-                using (var connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString))
+                using (var connection = new SqlConnection(constr))
                 {
                     using (SqlCommand command = connection.CreateCommand())
                     {

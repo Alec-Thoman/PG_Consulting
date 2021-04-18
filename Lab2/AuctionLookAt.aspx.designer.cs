@@ -11,7 +11,7 @@ namespace Lab2
 {
 
 
-    public partial class WebForm5
+    public partial class AuctionLookAt
     {
 
         /// <summary>
