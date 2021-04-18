@@ -62,7 +62,7 @@ namespace Lab2
         {
             int custID = int.Parse(customerddl.SelectedValue);
             string asSql = "insert into AuctionAssessment ([InitialInfoID]) values(@custID)";
-            string assessmentSql = "insert into Assessment([ItemSelling], [WhyService], [Deadline], [Scheduled], [AskPhotos], [AskItemList], [AdtlService], [AuctionID]) values (@ItemSelling, @WhyService, @Deadline, @Scheduled, @AskPhotos, @AskItemList, @AdtlService, @AuctionID)";
+            string assessmentSql = "insert into Assessment([DateCreated], [ItemSelling], [WhyService], [Deadline], [Scheduled], [AskPhotos], [AskItemList], [AdtlService], [AuctionID]) values (@DateCreated, @ItemSelling, @WhyService, @Deadline, @Scheduled, @AskPhotos, @AskItemList, @AdtlService, @AuctionID)";
             string otherInfoSql = "insert into OtherInfo([HomeType], [TruckAssess], [LoadDoorDistance], [Steps], [SpecialEquip], [TruckType], [AuctionID]) values(@HomeType, @TruckAssess, @LoadDoorDistance, @Steps, @SpecialEquip, @TruckType, @AuctionID)";
             string feesSql = "insert into Fees([PickUp], [ConsignmentRate], [TrashFee], [AdditionalFee], [AuctionID]) values(@PickUp, @ConsignmentRate, @TrashFee, @AdditionalFee, @AuctionID)";
 
@@ -132,6 +132,7 @@ namespace Lab2
                     cmd.Parameters.Add("@Scheduled", SqlDbType.NVarChar).Value = TextBox11.Text;
                     cmd.Parameters.Add("@AdtlService", SqlDbType.NVarChar).Value = DropDownList2.SelectedValue;
                     cmd.Parameters.Add("@AuctionID", SqlDbType.NVarChar).Value = auctionID;
+                    cmd.Parameters.Add("@DateCreated", SqlDbType.NVarChar).Value = DateTime.Now.ToString("g"); 
 
 
 
