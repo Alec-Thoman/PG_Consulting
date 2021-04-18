@@ -38,7 +38,7 @@ INSERT INTO EmployeeUserInfo (Username, Password) VALUES ('123ooo@gmail.com', 'w
 INSERT INTO EmployeeUserInfo (Username, Password) VALUES ('123ppp@gmail.com', 'wordpass21');
 INSERT INTO EmployeeUserInfo (Username, Password) VALUES ('admin', 'password');
             
-USE [AUTH]
+--USE [AUTH]
 GO
 /****** Object:  StoredProcedure [dbo].[Customer_SP]    Script Date: 4/17/2021 4:09:03 PM ******/
 SET ANSI_NULLS ON
@@ -64,7 +64,7 @@ END
              
 -- Alec, Yuhui, Jacob
 
-USE [AUTH]
+--USE [AUTH]
 GO
 /****** Object:  StoredProcedure [dbo].[JeremyEzellLab3]    Script Date: 2/26/2021 7:36:05 PM ******/
 SET ANSI_NULLS ON
