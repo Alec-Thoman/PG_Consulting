@@ -17,6 +17,11 @@ namespace Lab2
         {
             if (!this.IsPostBack)
             {
+                
+                if(Session["IsForm"].ToString() == "true")
+                {
+                    autofill();
+                }
                 string constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(constr))
                 {
@@ -57,8 +62,12 @@ namespace Lab2
             grdCustomer.DataSource = Gridview;
             grdCustomer.DataBind();
         }
+        protected void autofill()
+        {
+            TextBox9.Text = "FUCK YA I DID IT";
+        }
 
-        protected void btnSubmit_Click(object sender, EventArgs e)
+            protected void btnSubmit_Click(object sender, EventArgs e)
         {
             int custID = int.Parse(customerddl.SelectedValue);
             string msSql = "insert into MoveAssessment ([InitialInfoID]) values(@custID)";

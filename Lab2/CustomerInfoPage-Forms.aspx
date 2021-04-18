@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="CustomerInfoPage-Forms.aspx.cs" Inherits="Lab2.CustomerInfoPage_Forms" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="CustomerInfoPage-Forms.aspx.cs" Inherits="Lab2.CustomerInfoPage_Forms" EnableEventValidation = "false"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -71,14 +71,18 @@
                 <asp:Button ID="Appraisal" class="btn btn-primary" runat="server" Text="Appraisals" />
                 <asp:Button ID="Completion" class="btn btn-primary" runat="server" Text="Completion" />
                 <br />
-                <asp:GridView ID="formsGridView" runat="server" class="table table-bordered" EmptyDataText="No Record">
+                <asp:GridView ID="formsGridView" runat="server" class="table table-bordered" EmptyDataText="No Record" OnRowDataBound = "OnRowDataBound" OnSelectedIndexChanged = "OnSelectedIndexChanged">
                                 </asp:GridView>
                 </div>
                 <div class="row">
                     <div class="col-12 text-center">
-                        <a class="btn btn-primary" href="">Add Form</a>
+                         <asp:Button ID="addForm" class="btn btn-primary" runat="server" Visible="true" Text="Add Form" OnClick="addForm_Click" />
+                        <asp:Button ID="addMoveForm" class="btn btn-primary" runat="server" Visible="false" Text="Add Move Form" OnClick="addMoveForm_Click" />
+                        <asp:Button ID="addServiceForm" class="btn btn-primary" runat="server" Visible="false" Text="Add Auction Form" OnClick="addAuctionForm_Click" />
                     </div>
+
                 </div>
+            <iframe ID="formFrame" visible="false" runat="server" height="1000" width="900" title="Iframe Example"></iframe>
             </div>
         </div>
         <button class="btn open-button" onclick="openForm()">Notes</button>
