@@ -141,7 +141,7 @@ namespace Lab2
             int truckID;
             int crewID;
 
-            string lookAtSql = "insert into AuctionLookAtEvent ([TruckAccess], [SuppliesNeeded], [Date], [CustomerID], [BoxID], [CrewID], [TruckID]) values(@TruckAccess,@SuppliesNeeded,@date,@custID,@bid,@cid,@tid)";
+            string lookAtSql = "insert into AuctionLookAtEvent ([TruckAccess], [SuppliesNeeded], [Date], [InitialInfoID], [BoxID], [CrewID], [TruckID]) values(@TruckAccess,@SuppliesNeeded,@date,@custID,@bid,@cid,@tid)";
             string boxSql = "insert into Box ([Small], [Medium], [Large], [Art], [SmallPads], [LargePads]) values (@Small,@Medium,@Large,@Art,@SmallPad,@LargePad);SELECT CAST(scope_identity() AS int)";
             string truckSql = "insert into Truck ([Truck2015], [Truck2011], [Cube], [EnclosedTrailer], [OpenTrailer], [Van]) values (@truck2015,@truck2011,@cube,@et,@ot,@van);SELECT CAST(scope_identity() AS int)";
             try
