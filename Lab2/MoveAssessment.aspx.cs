@@ -13,19 +13,16 @@ namespace Lab2
 {
     public partial class MoveAssessment : System.Web.UI.Page
     {
-        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
             {
-                using (SqlConnection testConn = new SqlConnection(constr))
+                
+                if(Session["IsForm"].ToString() == "true")
                 {
-                    if (!testConn.IsAvailable())
-                    {
-                        constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-                    }
+                    autofill();
                 }
-                //string constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+                string constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(constr))
                 {
                     using (SqlCommand cmd = new SqlCommand("SELECT InitialInfoID, Email FROM InitialInfo"))
@@ -54,7 +51,7 @@ namespace Lab2
             String sqlQuery = "SELECT FirstName + ' ' + LastName as CustomerName, PhoneNumber, Email, State " +
                 "from InitialInfo where InitialInfoID = " + custID;
 
-            SqlConnection sqlConnect = new SqlConnection(constr);
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
@@ -65,18 +62,22 @@ namespace Lab2
             grdCustomer.DataSource = Gridview;
             grdCustomer.DataBind();
         }
+        protected void autofill()
+        {
+            TextBox9.Text = "FUCK YA I DID IT";
+        }
 
-        protected void btnSubmit_Click(object sender, EventArgs e)
+            protected void btnSubmit_Click(object sender, EventArgs e)
         {
             int custID = int.Parse(customerddl.SelectedValue);
             string msSql = "insert into MoveAssessment ([InitialInfoID]) values(@custID)";
-            string preliminarySql = "insert into Preliminary([MoveOutDate], [MovingWindow], [MLSListing], [SendPhotos], [AddOn], [AuctionService], [Street], [City], [State], [ZipCode], [MoveID]) values (@MoveOutDate, @MovingWindow, @MLSListing, @SendPhotos, @AddOn, @AuctionService, @Street, @City, @State, @ZipCode, @MoveID)";
+             string preliminarySql = "insert into Preliminary([MoveOutDate], [MovingWindow], [MLSListing], [SendPhotos], [AddOn], [AuctionService], [Street], [City], [State], [ZipCode], [MoveID] ,[DateCreated]) values (@MoveOutDate, @MovingWindow, @MLSListing, @SendPhotos, @AddOn, @AuctionService, @Street, @City, @State, @ZipCode, @MoveID, @DateCreated)";
             string roomSql = "insert into Room([RoomType], [Furniture], [FloorLevel], [MoveID]) values(@RoomType, @Furniture, @FloorLevel, @MoveID)";
             string specificSql = "insert into SpecificInfo([HomeType], [TruckAccess], [LoadDoorDistance], [Steps], [SpecialEquip], [TruckType], [MoveID]) values(@HomeType, @TruckAccess, @LoadDoorDistance, @Steps, @SpecialEquip, @TruckType, @MoveID)";
             string costSql = "insert into Cost([MoveEst], [FixedRate], [ParkFee], [MoveID]) values(@MoveEst, @Fixed, @ParkFee, @MoveID)";
 
            
-                using (var connection = new SqlConnection(constr))
+                using (var connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString))
                 {
                     connection.Open();
                     // insert into moveassessment table Table
@@ -149,6 +150,7 @@ namespace Lab2
                         cmd.Parameters.Add("@State", SqlDbType.NVarChar).Value = TextBox13.Text;
                         cmd.Parameters.Add("@ZipCode", SqlDbType.NVarChar).Value = TextBox14.Text;
                         cmd.Parameters.Add("@MoveID", SqlDbType.Int).Value = moveID;
+                        cmd.Parameters.Add("@DateCreated", SqlDbType.Int).Value = DateTime.Now.ToString("g");
 
                     
 
