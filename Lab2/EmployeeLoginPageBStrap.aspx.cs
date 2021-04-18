@@ -15,27 +15,17 @@ namespace Lab2
         string constr = "";// WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            // test if aws connection is open & available
-            //try
+
+
+            //if (Session["DBSource"].Equals("AWS"))
             //{
-            //    //constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
-            //    SqlConnection testConn = new SqlConnection(constr);
-            //    testConn.Open();
-            //    testConn.Close();
-            //    //constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
-            //}
-            //catch (SqlException ex)
+            //    constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
+            //} else
             //{
             //    constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
             //}
 
-            if (Session["DBSource"].Equals("AWS"))
-            {
-                constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
-            } else
-            {
-                constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
-            }
+            constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
 
 
             // test if aws connection is open & available

@@ -14,14 +14,15 @@ namespace Lab2
         string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["DBSource"].Equals("AWS"))
-            {
-                constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
-            }
-            else
-            {
-                constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
-            }
+            //if (Session["DBSource"].Equals("AWS"))
+            //{
+            //    constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
+            //}
+            //else
+            //{
+            //    constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
+            //}
+            constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
 
             if (Request.QueryString.Get("loggedout") == "true")
             {

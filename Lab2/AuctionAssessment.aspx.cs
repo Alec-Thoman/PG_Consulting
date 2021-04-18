@@ -16,14 +16,15 @@ namespace Lab2
         string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["DBSource"].Equals("AWS"))
-            {
-                constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-            }
-            else
-            {
-                constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-            }
+            //if (Session["DBSource"].Equals("AWS"))
+            //{
+            //    constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+            //}
+            //else
+            //{
+            //    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+            //}
+            constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
 
             if (!this.IsPostBack)
             {

@@ -27,14 +27,15 @@ namespace Lab2
                 initialInfoID = Convert.ToInt32(Session["InitialInfoID"]);
             }
 
-            if (Session["DBSource"].Equals("AWS"))
-            {
-                constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-            }
-            else
-            {
-                constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-            }
+            //if (Session["DBSource"].Equals("AWS"))
+            //{
+            //    constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+            //}
+            //else
+            //{
+            //    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+            //}
+            constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
 
             SqlConnection sqlConnect = new SqlConnection(constr);
             string initialInfoQuery = "select FirstName, LastName, InitialDate from InitialInfo where InitialInfoID = @ID";

@@ -23,14 +23,15 @@ namespace Lab2
             //Session["LookAtForm"] = "";
             //Session["AssessmentForm"] = "";
 
-            if (Session["DBSource"].Equals("AWS"))
-            {
-                constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-            }
-            else
-            {
-                constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-            }
+            //if (Session["DBSource"].Equals("AWS"))
+            //{
+            //    constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+            //}
+            //else
+            //{
+            //    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+            //}
+            constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         }
         protected void order_Click(object sender, EventArgs e)
         {

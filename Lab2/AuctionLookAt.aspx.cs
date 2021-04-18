@@ -21,16 +21,16 @@ namespace Lab2
             Session["InitialInfoID"] = 1;
             if (!this.IsPostBack)
             {
-                if (Session["DBSource"].Equals("AWS"))
-                {
-                    constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
-                    constr2 = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-                }
-                else
-                {
-                    constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
-                    constr2 = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-                }
+                //if (Session["DBSource"].Equals("AWS"))
+                //{
+                //    constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
+                //    constr2 = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+                //}
+                //else
+                //{
+                //    constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
+                //    constr2 = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+                //}
 
 
 
