@@ -13,8 +13,18 @@ namespace Lab2
 {
     public partial class CustomerInfoPage_Forms : System.Web.UI.Page
     {
+        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            using (SqlConnection testConn = new SqlConnection(constr))
+            {
+                if (!testConn.IsAvailable())
+                {
+                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+                    
+                }
+            }
+
             Session["InitialInfoID"] = 1;
             //Session["OrderForm"] = "";
             //Session["CompletionForm"] = "";
@@ -42,7 +52,7 @@ namespace Lab2
             {
                 if (row.RowIndex == formsGridView.SelectedIndex)
                 {
-                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                    SqlConnection sqlConnect = new SqlConnection(constr);
                     sqlConnect.Open();
 
                     row.BackColor = ColorTranslator.FromHtml("#9dbdb9");
@@ -94,7 +104,7 @@ namespace Lab2
 
             formsGridView.DataSource = null;
             formsGridView.DataBind();
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(constr);
 
             String sqlMain = "SELECT 'Move' as [Service Type], Preliminary.DateCreated as [Date Created], Preliminary.MoveOutDate as [Date of Service] From InitialInfo INNER JOIN MoveAssessment on MoveAssessment.InitialInfoID = InitialInfo.InitialInfoID INNER JOIN " +
                 "Preliminary on Preliminary.MoveID = MoveAssessment.MoveID WHERE InitialInfo.InitialInfoID =" + Session["InitialInfoID"].ToString() + " UNION "+
@@ -126,9 +136,9 @@ namespace Lab2
 
             formsGridView.DataSource = null;
             formsGridView.DataBind();
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(constr);
 
-            String sqlMain = "SELECT AuctionLookAtEvent.Date, AuctionLookAtEvent.Supplies FROM AuctionLookAtEvent INNER JOIN InitialInfo on InitialInfo.InitialInfoID = AuctionLookAtEvent.InitialInfoID WHERE InitialInfo.InitialInfoID =" + Session["InitialInfoID"].ToString();
+            String sqlMain = "SELECT AuctionLookAtEvent.Date, AuctionLookAtEvent.SuppliesNeeded FROM AuctionLookAtEvent INNER JOIN InitialInfo on InitialInfo.InitialInfoID = AuctionLookAtEvent.InitialInfoID WHERE InitialInfo.InitialInfoID =" + Session["InitialInfoID"].ToString();
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlMain, sqlConnect);
 
             DataTable formsGrid = new DataTable();
