@@ -525,7 +525,7 @@ Create table AppraisalServiceInvoice(
 	Foreign Key(AppraisalServiceOrderID) References AppraisalServiceOrder(AppraisalServiceOrderID)
 );
 
-USE [Lab3]
+--USE [Lab3]
 GO
 /****** Object:  StoredProcedure [dbo].[sp_BatchInsert]    Script Date: 4/10/2021 9:24:47 PM ******/
 SET ANSI_NULLS ON
