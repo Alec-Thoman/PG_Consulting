@@ -67,7 +67,7 @@
                 
                 <asp:Button ID="Orders" class="btn btn-primary" runat="server" Text="Orders" OnClick="order_Click"/>
                     <asp:Button ID="Assessments" class="btn btn-primary" runat="server" Text="Assessments" OnClick="assessments_Click" />
-                    <asp:Button ID="LookAts" class="btn btn-primary" runat="server" Text="LookAts" />
+                    <asp:Button ID="LookAts" class="btn btn-primary" runat="server" Text="LookAts" OnClick="lookAt_Click" />
                 <asp:Button ID="Appraisal" class="btn btn-primary" runat="server" Text="Appraisals" />
                 <asp:Button ID="Completion" class="btn btn-primary" runat="server" Text="Completion" />
                 <br />
@@ -78,11 +78,11 @@
                     <div class="col-12 text-center">
                          <asp:Button ID="addForm" class="btn btn-primary" runat="server" Visible="true" Text="Add Form" OnClick="addForm_Click" />
                         <asp:Button ID="addMoveForm" class="btn btn-primary" runat="server" Visible="false" Text="Add Move Form" OnClick="addMoveForm_Click" />
-                        <asp:Button ID="addServiceForm" class="btn btn-primary" runat="server" Visible="false" Text="Add Auction Form" OnClick="addAuctionForm_Click" />
+                        <asp:Button ID="addAuctionForm" class="btn btn-primary" runat="server" Visible="false" Text="Add Auction Form" OnClick="addAuctionForm_Click" />
                     </div>
 
                 </div>
-            <iframe ID="formFrame" visible="false" runat="server" height="1000" width="900" title="Iframe Example"></iframe>
+            <iframe ID="formFrame" visible="false" runat="server" height="2000" width="2000" title="Iframe Example" ></iframe>
             </div>
         </div>
         <button class="btn open-button" onclick="openForm()">Notes</button>

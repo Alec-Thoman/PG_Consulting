@@ -18,7 +18,7 @@ namespace Lab2
             if (!this.IsPostBack)
             {
                 
-                if(Session["IsForm"].ToString() == "true")
+                if (Session["IsForm"].ToString() == "true")
                 {
                     autofill();
                 }

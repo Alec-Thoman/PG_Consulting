@@ -17,6 +17,7 @@ namespace Lab2
         string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["InitialInfoID"] = 1;
             string fn = "";
             string ln = "";
             string initDate = "";

@@ -87,13 +87,13 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.Button addMoveForm;
 
         /// <summary>
-        /// addServiceForm control.
+        /// addAuctionForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addServiceForm;
+        protected global::System.Web.UI.WebControls.Button addAuctionForm;
 
         /// <summary>
         /// formFrame control.
