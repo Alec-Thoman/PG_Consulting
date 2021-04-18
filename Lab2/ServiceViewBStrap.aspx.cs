@@ -13,11 +13,22 @@ namespace Lab2
 {
     public partial class ServiceViewBStrap : System.Web.UI.Page
     {
+        string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             searchView.DataSource = null;
             searchView.DataBind();
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            if (Session["DBSource"].Equals("AWS"))
+            {
+                constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+            }
+            else
+            {
+                constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+            }
+
+            SqlConnection sqlConnect = new SqlConnection(constr);
 
 
             String sqlMain = "SELECT customer.CustomerName as [Customer Name], service.ServiceType as [Service Type],  employee.employeeName as [Employee Name], ServiceTicket.TicketBeginDate as [Date Created], ServiceTicket.TicketStatus as Status, ServiceTicket.Address, " +
@@ -36,7 +47,7 @@ namespace Lab2
         {
             searchView.DataSource = null;
             searchView.DataBind();
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(constr);
 
             String sqlMain = "SELECT customer.CustomerName as [Customer Name], service.ServiceType as [Service Type],  employee.employeeName as [Employee Name], ServiceTicket.TicketBeginDate as [Date Created], ServiceTicket.TicketStatus as Status, ServiceTicket.Address, " +
                 "Serviceticket.Deadline as [Date of Service] from serviceTicket inner join" +

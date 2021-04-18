@@ -24,6 +24,24 @@ namespace Lab2
         protected global::System.Web.UI.HtmlControls.HtmlForm form_login;
 
         /// <summary>
+        /// localhostbtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton localhostbtn;
+
+        /// <summary>
+        /// awsbutton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton awsbutton;
+
+        /// <summary>
         /// employeeSignInButton control.
         /// </summary>
         /// <remarks>

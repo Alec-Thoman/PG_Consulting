@@ -13,17 +13,18 @@ namespace Lab2
     public partial class EditProfilePage : System.Web.UI.Page
     {
         private int custID = 7;
-        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+        string constr = "";
         protected void Page_Load()
         {
-            // test if aws connection is open & available
-            using (SqlConnection testConn = new SqlConnection(constr))
+            if (Session["DBSource"].Equals("AWS"))
             {
-                if (!testConn.IsAvailable())
-                {
-                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-                }
+                constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
             }
+            else
+            {
+                constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+            }
+
             // Reading db for values
             SqlConnection sqlConnect = new SqlConnection(constr);
             String email = "";

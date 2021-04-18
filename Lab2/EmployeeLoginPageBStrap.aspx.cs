@@ -12,18 +12,42 @@ namespace Lab2
 {
     public partial class EmployeeLoginPageBStrap : System.Web.UI.Page
     {
-        string constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
+        string constr = "";// WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             // test if aws connection is open & available
-            using (SqlConnection testConn = new SqlConnection(constr))
+            //try
+            //{
+            //    //constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
+            //    SqlConnection testConn = new SqlConnection(constr);
+            //    testConn.Open();
+            //    testConn.Close();
+            //    //constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
+            //}
+            //catch (SqlException ex)
+            //{
+            //    constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
+            //}
+
+            if (Session["DBSource"].Equals("AWS"))
             {
-                if (!testConn.IsAvailable())
-                {
-                    constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
-                    //isAWS = false;
-                }
+                constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
+            } else
+            {
+                constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
             }
+
+
+            // test if aws connection is open & available
+            //using (SqlConnection testConn = new SqlConnection(constr))
+            //{
+            //    if (testConn.State.Equals("Closed"))
+            //    {
+            //        constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
+            //        //isAWS = false;
+            //    }
+            //}
+
             if (Request.QueryString.Get("loggedout") == "true")
             {
                 Label loginMessage = new Label();
