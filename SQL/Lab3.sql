@@ -181,8 +181,6 @@ Foreign Key(TruckID) References Truck(TruckID)
 --Move Assessment Tables 
 CREATE TABLE MoveAssessment(
 MoveID  int IDENTITY(1,1) primary key,
-Status VARCHAR(50),
-StatusNotes VARCHAR(500),
 InitialInfoID int FOREIGN KEY REFERENCES InitialInfo(InitialInfoID),
 );
 
