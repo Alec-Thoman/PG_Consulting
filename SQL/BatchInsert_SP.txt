@@ -5,7 +5,7 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-ALTER PROCEDURE [dbo].[sp_BatchInsert] (@CrewMateName VARCHAR(100), @CrewID int) 
+CREATE PROCEDURE [dbo].[sp_BatchInsert] (@CrewMateName VARCHAR(100), @CrewID int) 
 AS 
 BEGIN 
             INSERT INTO CrewMate VALUES ( @CrewMateName, @CrewID); 

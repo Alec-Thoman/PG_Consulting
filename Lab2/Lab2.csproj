@@ -69,6 +69,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AuctionAssessment.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -220,10 +221,19 @@
     <Content Include="CustomerInfoEditPage.aspx" />
     <Content Include="AppraisalServiceOrder.aspx" />
     <Content Include="AuctionServiceOrder.aspx" />
+    <Content Include="EmployeeProfile.aspx" />
+    <Content Include="EditEmployeeProfile.aspx" />
     <Content Include="Workflow.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appcode\PasswordHash.cs" />
+    <Compile Include="AuctionAssessment.aspx.cs">
+      <DependentUpon>AuctionAssessment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuctionAssessment.aspx.designer.cs">
+      <DependentUpon>AuctionAssessment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerContactPage.aspx.cs">
       <DependentUpon>CustomerContactPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -421,6 +431,20 @@
     </Compile>
     <Compile Include="AuctionServiceOrder.aspx.designer.cs">
       <DependentUpon>AuctionServiceOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeProfile.aspx.cs">
+      <DependentUpon>EmployeeProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeProfile.aspx.designer.cs">
+      <DependentUpon>EmployeeProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditEmployeeProfile.aspx.cs">
+      <DependentUpon>EditEmployeeProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditEmployeeProfile.aspx.designer.cs">
+      <DependentUpon>EditEmployeeProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Workflow.aspx.cs">
       <DependentUpon>Workflow.aspx</DependentUpon>

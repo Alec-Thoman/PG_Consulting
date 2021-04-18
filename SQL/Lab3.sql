@@ -186,6 +186,7 @@ InitialInfoID int FOREIGN KEY REFERENCES InitialInfo(InitialInfoID),
 
 CREATE TABLE Preliminary(
 PreliminaryID Numeric(3)  IDENTITY(1,1) primary key,
+DateCreated VARCHAR(50),
 MoveOutDate VARCHAR(50),
 MovingWindow VARCHAR(50),
 MLSListing VARCHAR(50),
@@ -235,11 +236,61 @@ ParkFee VARCHAR(50),
 MoveID int FOREIGN KEY REFERENCES MoveAssessment(MoveID),
 );
 
+--Auction Assessment Tables
+
+CREATE TABLE AuctionAssessment(
+AuctionID  int IDENTITY(1,1) primary key,
+InitialInfoID Int FOREIGN KEY REFERENCES InitialInfo(InitialInfoID),
+);
+
+CREATE TABLE Assessment(
+AssessmentID int IDENTITY(1,1) primary key,
+DateCreated VARCHAR(50),
+ItemsSelling VARCHAR(50),
+WhyService VARCHAR(50),
+Deadline VARCHAR(50),
+Scheduled VARCHAR(50),
+AskedPhotos VARCHAR(50),
+AskedItemList VARCHAR(50),
+AdtlService VARCHAR(50),
+AuctionID Int FOREIGN KEY REFERENCES AuctionAssessment(AuctionID),
+);
+
+CREATE TABLE OtherInfo (
+OtherInfoID int IDENTITY(1,1) primary key,
+HomeType VARCHAR(50),
+TruckAccess VARCHAR(50),
+LoadDoorDistance VARCHAR(50),
+Steps VARCHAR(50),
+SpecialEquip VARCHAR(50),
+TruckType VARCHAR(50),
+AuctionID Int FOREIGN KEY REFERENCES AuctionAssessment(AuctionID),
+);
+
+CREATE TABLE Boxes(
+BoxesID int IDENTITY(1,1) primary key,
+Small int,
+Medium int,
+Large int,
+Art int,
+SmallPad int,
+LargePad int,
+);
+
+CREATE TABLE Fees(
+FeesID int IDENTITY(1,1) primary key,
+PickUp VARCHAR(50),
+ConsignmentRate VARCHAR(50),
+TrashFee VARCHAR(50),
+AdditionalFee VARCHAR(50),
+AuctionID int FOREIGN KEY REFERENCES AuctionAssessment(AuctionID),
+);
+
 
 
 SET IDENTITY_INSERT [dbo].[employee] ON 
 GO
-  insert [dbo].[employee] ([EmployeeID],[EmployeeName],[position],[cellnumber],[emailaddress]) values('1','Gogo','AuctionManager','5401234567','123@gmail.com');
+  insert [dbo].[employee] ([EmployeeID],[EmployeeName],[position],[cellnumber],[emailaddress]) values('1','Gogo','AuctionManager','5401234567','1234@gmail.com');
   insert [dbo].[employee] ([EmployeeID],[EmployeeName],[position],[cellnumber],[emailaddress]) values('2','Messi','MoveManager','5401234567','123@gmail.com');
   insert [dbo].[employee] ([EmployeeID],[EmployeeName],[position],[cellnumber],[emailaddress]) values('3','Catty','AuctionManager','5401234567','1234543@gmail.com');
   insert [dbo].[employee] ([EmployeeID],[EmployeeName],[position],[cellnumber],[emailaddress]) values('4','Cindy','clerk','5401234567','123hgf@gmail.com');

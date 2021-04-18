@@ -7,7 +7,7 @@
 <html lang="en-US">
 
 <head>
-    <title>Green Valley Auction</title>
+    <title>Green Valley Auctions</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/styles.css">
@@ -25,7 +25,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
         <div class="navbar-header">
-            <a class="navbar-brand js-scroll-trigger text-black" href="../employee-index.html">
+            <a class="navbar-brand js-scroll-trigger text-black" href="NewestEmployeeHomePage.aspx">
                 <div class="logo"><img src="img/Logos/GVALogo_Green_resized.png"
                         alt="Green Valley Auctions Logo" width="200" height="100"></div>
             </a>
@@ -33,8 +33,8 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item "><a class="nav-link text-black" href="#">Reports</a></li>
-                <li class="nav-item"><a class="nav-link text-black" href="#">Profile</a></li>
-                <li class="nav-item"><a class="nav-link text-black" href="#">Logout</a></li>
+                <li class="nav-item"><a class="nav-link text-black" href="EmployeeProfile.aspx">Profile</a></li>
+                <li class="nav-item"><a class="nav-link text-black" href="EmployeeLoginPageBStrap.aspx">Logout</a></li>
             </ul>
         </div>
     </nav>
