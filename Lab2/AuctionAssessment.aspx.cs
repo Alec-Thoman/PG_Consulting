@@ -221,7 +221,15 @@ namespace Lab2
                 }
             }
 
+            protected void btnPopulateAuctionA_Click(object sender, EventArgs e)
+            {
+
+            }
+
 
         }
+        
+        
+
         
 }
