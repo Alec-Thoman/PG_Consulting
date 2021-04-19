@@ -51,7 +51,6 @@
             <div class="col-6 bg-white border shadow-sm p-4" style="height:400px;overflow:auto">
                 <h2 class="pb-3">Customer Statuses</h2>
                 <asp:GridView ID="statusGridView" runat="server" class="table table-bordered" EmptyDataText="No Record" OnRowDataBound = "StatusRowDataBound" OnSelectedIndexChanged = "StatusSelectedIndexChanged">
-                   
                     </asp:GridView>
             </div>
             <div class="col-5 ml-auto bg-white border shadow-sm p-4">

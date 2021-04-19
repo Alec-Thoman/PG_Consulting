@@ -626,42 +626,42 @@ namespace Lab2
             }
             
             
-            sqlQuery = "SELECT MoveEst FROM Cost WHERE MoveID=" + Session["FormID"];
-            cmd = new SqlCommand(sqlQuery, sqlConnect);
-            Holder = cmd.ExecuteScalar().ToString();
-            TextBox87.Text = Holder;
-
-            sqlQuery = "SELECT FixedRate FROM Cost WHERE MoveID=" + Session["FormID"];
-            cmd = new SqlCommand(sqlQuery, sqlConnect);
-            Holder = cmd.ExecuteScalar().ToString();
-            TextBox88.Text = Holder;
-
-            sqlQuery = "SELECT ParkFee FROM Cost WHERE MoveID=" + Session["FormID"];
-            cmd = new SqlCommand(sqlQuery, sqlConnect);
-            Holder = cmd.ExecuteScalar().ToString();
-            TextBox89.Text = Holder;
-
-            //sqlQuery = "SELECT StorageFee FROM Cost WHERE MoveID=" + Session["FormID"];
+            //sqlQuery = "SELECT MoveEst FROM Cost WHERE MoveID=" + Session["FormID"];
             //cmd = new SqlCommand(sqlQuery, sqlConnect);
             //Holder = cmd.ExecuteScalar().ToString();
-            //TextBox10.Text = Holder;
+            //TextBox87.Text = Holder;
 
-            sqlQuery = "SELECT MoveEst FROM Cost WHERE MoveID=" + Session["FormID"];
-            cmd = new SqlCommand(sqlQuery, sqlConnect);
-            Holder = cmd.ExecuteScalar().ToString();
-            TextBox91.Text = Holder;
+            //sqlQuery = "SELECT FixedRate FROM Cost WHERE MoveID=" + Session["FormID"];
+            //cmd = new SqlCommand(sqlQuery, sqlConnect);
+            //Holder = cmd.ExecuteScalar().ToString();
+            //TextBox88.Text = Holder;
+
+            //sqlQuery = "SELECT ParkFee FROM Cost WHERE MoveID=" + Session["FormID"];
+            //cmd = new SqlCommand(sqlQuery, sqlConnect);
+            //Holder = cmd.ExecuteScalar().ToString();
+            //TextBox89.Text = Holder;
+
+            ////sqlQuery = "SELECT StorageFee FROM Cost WHERE MoveID=" + Session["FormID"];
+            ////cmd = new SqlCommand(sqlQuery, sqlConnect);
+            ////Holder = cmd.ExecuteScalar().ToString();
+            ////TextBox10.Text = Holder;
+
+            //sqlQuery = "SELECT MoveEst FROM Cost WHERE MoveID=" + Session["FormID"];
+            //cmd = new SqlCommand(sqlQuery, sqlConnect);
+            //Holder = cmd.ExecuteScalar().ToString();
+            //TextBox91.Text = Holder;
             
             
 
-            String sqlQuery = "SELECT Furniture FROM Room WHERE MoveID = " + Session["FormID"] + " and RoomType = 'Dining Room:' ";
-            SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
-            String Holder = cmd.ExecuteScalar().ToString();
-            TextBox15.Text = Holder;
+            // sqlQuery = "SELECT Furniture FROM Room WHERE MoveID = " + Session["FormID"] + " and RoomType = 'Dining Room:' ";
+            // cmd = new SqlCommand(sqlQuery, sqlConnect);
+            // Holder = cmd.ExecuteScalar().ToString();
+            //TextBox15.Text = Holder;
 
-            sqlQuery = "SELECT FloorLevel FROM Room WHERE MoveID = " + Session["FormID"] + " and RoomType = 'Dining Room:' ";
-            cmd = new SqlCommand(sqlQuery, sqlConnect);
-            Holder = cmd.ExecuteScalar().ToString();
-            DropDownList2.SelectedValue = Holder;
+            //sqlQuery = "SELECT FloorLevel FROM Room WHERE MoveID = " + Session["FormID"] + " and RoomType = 'Dining Room:' ";
+            //cmd = new SqlCommand(sqlQuery, sqlConnect);
+            //Holder = cmd.ExecuteScalar().ToString();
+            //DropDownList2.SelectedValue = Holder;
 
 
             sqlQuery = "SELECT Furniture FROM Room WHERE MoveID = " + Session["FormID"] + " and RoomType = 'Living Room:' ";
@@ -674,15 +674,15 @@ namespace Lab2
             Holder = cmd.ExecuteScalar().ToString();
             DropDownList3.SelectedValue = Holder;
 
-            sqlQuery = "SELECT Furniture FROM Room WHERE MoveID = " + Session["FormID"] + " and RoomType = 'Kitchen:' ";
-            cmd = new SqlCommand(sqlQuery, sqlConnect);
-            Holder = cmd.ExecuteScalar().ToString();
-            TextBox27.Text = Holder;
+            //sqlQuery = "SELECT Furniture FROM Room WHERE MoveID = " + Session["FormID"] + " and RoomType = 'Kitchen:' ";
+            //cmd = new SqlCommand(sqlQuery, sqlConnect);
+            //Holder = cmd.ExecuteScalar().ToString();
+            //TextBox27.Text = Holder;
 
-            sqlQuery = "SELECT FloorLevel FROM Room WHERE MoveID = " + Session["FormID"] + " and RoomType = 'Kitchen:' ";
-            cmd = new SqlCommand(sqlQuery, sqlConnect);
-            Holder = cmd.ExecuteScalar().ToString();
-            DropDownList4.SelectedValue = Holder;
+            //sqlQuery = "SELECT FloorLevel FROM Room WHERE MoveID = " + Session["FormID"] + " and RoomType = 'Kitchen:' ";
+            //cmd = new SqlCommand(sqlQuery, sqlConnect);
+            //Holder = cmd.ExecuteScalar().ToString();
+            //DropDownList4.SelectedValue = Holder;
 
 
 
