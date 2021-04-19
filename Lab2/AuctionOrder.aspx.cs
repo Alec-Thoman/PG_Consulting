@@ -12,24 +12,26 @@ using System.Web.UI.WebControls;
 
 namespace Lab2
 {
-    public partial class WebForm8 : System.Web.UI.Page
+    public partial class AuctionOrder : System.Web.UI.Page
     {
+        
         string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+            constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+            Session["custid"] = 1;
             updateGridview();
 
 
-            chargeAmountTB.Text = Session["TrashFee"].ToString();
-            scheduledTB.Text = Session["Scheduled"].ToString();
-            trashDescTB.Text = Session["decription"].ToString();
-            homeTypeTB.Text = Session["HomeType"].ToString();
-            truckAccessTB.Text = Session["truckAccess"].ToString();
-            walkTB.Text = Session["dis"].ToString();
-            stepsTB.Text = Session["step"].ToString();
-            specEquipTB.Text = Session["specialEquip"].ToString();
-            trucksTB.Text = Session["TruckType"].ToString();
+            //chargeAmountTB.Text = Session["TrashFee"].ToString();
+            //scheduledTB.Text = Session["Scheduled"].ToString();
+            //trashDescTB.Text = Session["decription"].ToString();
+            //homeTypeTB.Text = Session["HomeType"].ToString();
+            //truckAccessTB.Text = Session["truckAccess"].ToString();
+            //walkTB.Text = Session["dis"].ToString();
+            //stepsTB.Text = Session["step"].ToString();
+            //specEquipTB.Text = Session["specialEquip"].ToString();
+            //trucksTB.Text = Session["TruckType"].ToString();
 
 
         }

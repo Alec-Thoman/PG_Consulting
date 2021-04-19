@@ -247,6 +247,17 @@ namespace Lab2
 
             protected void btnPopulateAuctionA_Click(object sender, EventArgs e)
             {
+                TextBox9.Text = "2 Vases";
+                TextBox10.Text = "9/18/2021";
+                TextBox84.Text = "Easy access";
+                TextBox85.Text = "2ft";
+                TextBox86.Text = "yes";
+
+                //Fee Calculation
+                TextBox87.Text = "20.00";
+                TextBox88.Text = "2%";
+                TextBox91.Text = "5.00";
+                TextBox12.Text = "25.00"
 
             }
 

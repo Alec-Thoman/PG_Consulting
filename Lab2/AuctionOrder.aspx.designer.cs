@@ -11,7 +11,7 @@ namespace Lab2
 {
 
 
-    public partial class WebForm8
+    public partial class AuctionOrder
     {
 
         /// <summary>
