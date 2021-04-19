@@ -69,7 +69,7 @@ namespace Lab2
             grdCustomer.DataBind();
         }
 
-        protected void btnSumbit_Click(object sender, EventArgs e)
+        protected void btnSubmit_Click(object sender, EventArgs e)
         {
             int custID = int.Parse(Session["InitialInfoID"].ToString());
             string asSql = "insert into AuctionAssessment ([InitialInfoID]) values(@custID)";
