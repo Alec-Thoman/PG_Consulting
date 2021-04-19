@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../../css/custom-styles.css">
-    <link rel="stylesheet" href="customer-styles.css">
+    <link rel="stylesheet" href="../../css/customer-styles.css">
     <script src="https://kit.fontawesome.com/80d9cd143b.js" crossorigin="anonymous"></script>
     <style>
         .navbar {
@@ -93,26 +93,42 @@
             <iframe ID="formFrame" visible="false" runat="server" height="2000" width="2000" title="Iframe Example" ></iframe>
             </div>
         </div>
-        <button class="btn open-button" onclick="openForm()">Notes</button>
+        <button class="btn open-button" id="openBtn">Notes</button>
 
         <div class="form-popup" id="myForm">
             <form action="/action_page.php" class="form-container">
                 <h2>Notes</h2>
                 <div class="text-center">
-                    <textarea class="p-2" type="text" placeholder="Type notes here..." name="email" rows="10"
+                   <%-- <asp:TextBox ID="notesTA" runat="server" placeholder="Type notes here..." class="p-2" rows="10"
+                        cols="55" AutoPostBack="true"></asp:TextBox>
+                   <asp:TextBox ID="TextBox1" runat="server" placeholder="Type notes here..." class="p-2" rows="10"
+                        cols="55"></asp:TextBox>--%>
+                    <textarea class="p-2" id="notesTA" runat="server" type="text" placeholder="Type notes here..." name="email" rows="10"
                         cols="55"></textarea>
                 </div>
-                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                <button type="button" id="closeBtn" class="btn cancel">Close</button>
+                <asp:Button ID="saveBtn" runat="server" Text="Save" class="btn cancel" OnClick="notesSave_Click" />
+                
             </form>
         </div>
 
         <script>
-            function openForm() {
-                document.getElementById( "myForm" ).style.display = "block";
+
+            var popUp = document.getElementById('myForm');
+
+            var openBtn = document.getElementById('openBtn');
+
+            var closeBtn = document.getElementById('closeBtn');
+
+   
+
+            openBtn.onclick = function (event) {
+                event.preventDefault();
+                popUp.style.display = "block";
             }
 
-            function closeForm() {
-                document.getElementById( "myForm" ).style.display = "none";
+            closeBtn.onclick = function (event) {
+                popUp.style.display = "none";
             }
         </script>
     </div>

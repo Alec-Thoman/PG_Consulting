@@ -17,24 +17,34 @@ namespace Lab2
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //Session["InitialInfoID"] = 1;
-            
+
+            Session["InitialInfoID"] = 1;
+
             //Session["OrderForm"] = "";
             //Session["CompletionForm"] = "";
             //Session["AppraisalForm"] = "";
             //Session["LookAtForm"] = "";
             //Session["AssessmentForm"] = "";
 
-            constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+            constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
 
             SqlConnection sqlConnect = new SqlConnection(constr);
+            sqlConnect.Open();
+            string notesQuery = "Select  NoteBody FROM Notes WHERE InitialInfoID = " + Session["InitialInfoID"];
+            SqlCommand cmd = new SqlCommand(notesQuery, sqlConnect);
+            if (cmd.ExecuteScalar() != null)
+            {
+                notesTA.Value = cmd.ExecuteScalar().ToString();
+                
+
+            }
             string initialInfoQuery = "select FirstName, LastName, InitialDate from InitialInfo where InitialInfoID = @ID";
             string fn = "";
             string ln = "";
             string initDate = "";
-            SqlCommand cmd = new SqlCommand(initialInfoQuery, sqlConnect);
+            cmd = new SqlCommand(initialInfoQuery, sqlConnect);
             cmd.Parameters.Add("@ID", SqlDbType.Int).Value = Convert.ToInt32(Session["InitialInfoID"]);
-            sqlConnect.Open();
+
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
                 while (reader.Read())
@@ -93,7 +103,7 @@ namespace Lab2
                 e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(formsGridView, "Select$" + e.Row.RowIndex);
                 e.Row.ToolTip = "Click to select this row.";
 
-                if(Session["LookAtForm"] == "true")
+                if (Session["LookAtForm"] == "true")
                 {
                     formsGridView.HeaderRow.Cells[1].Text = "Date";
                     formsGridView.HeaderRow.Cells[2].Text = "Supplies Needed";
@@ -132,7 +142,7 @@ namespace Lab2
 
                     row.BackColor = ColorTranslator.FromHtml("#9dbdb9");
                     row.ToolTip = string.Empty;
-          
+
                     System.Diagnostics.Debug.WriteLine(formsGridView.DataKeys[row.RowIndex].Values["Id"]);
                     formFrame.Visible = true;
                     Session["IsForm"] = "true";
@@ -229,16 +239,16 @@ namespace Lab2
             formsGridView.DataSource = formsGrid;
             formsGridView.DataBind();
         }
-            protected void assessments_Click(object sender, EventArgs e)
+        protected void assessments_Click(object sender, EventArgs e)
         {
-            
+
 
 
             ((BoundField)formsGridView.Columns[1]).DataField = "Service Type";
             ((BoundField)formsGridView.Columns[2]).DataField = "Date Created";
             ((BoundField)formsGridView.Columns[3]).DataField = "Date of Service";
 
-            
+
             formsGridView.Columns[3].Visible = true;
 
 
@@ -248,7 +258,7 @@ namespace Lab2
             formFrame.Visible = false;
             formsGridView.Visible = true;
 
-            
+
 
             Session["OrderForm"] = "false";
             Session["CompletionForm"] = "false";
@@ -263,8 +273,8 @@ namespace Lab2
             SqlConnection sqlConnect = new SqlConnection(constr);
 
             String sqlMain = "SELECT Preliminary.MoveID as [ID], 'Move' as [Service Type], Preliminary.DateCreated as [Date Created], Preliminary.MoveOutDate as [Date of Service] From InitialInfo INNER JOIN MoveAssessment on MoveAssessment.InitialInfoID = InitialInfo.InitialInfoID INNER JOIN " +
-                "Preliminary on Preliminary.MoveID = MoveAssessment.MoveID WHERE InitialInfo.InitialInfoID =" + Session["InitialInfoID"].ToString() + " UNION "+
-                "SELECT AuctionAssessment.AuctionID as [ID], 'Auction' as [Service Type], Assessment.DateCreated as [Date Created], Assessment.Deadline as [Date of Service] From Assessment INNER JOIN AuctionAssessment ON AuctionAssessment.AuctionID = Assessment.AuctionID INNER JOIN InitialInfo on "+
+                "Preliminary on Preliminary.MoveID = MoveAssessment.MoveID WHERE InitialInfo.InitialInfoID =" + Session["InitialInfoID"].ToString() + " UNION " +
+                "SELECT AuctionAssessment.AuctionID as [ID], 'Auction' as [Service Type], Assessment.DateCreated as [Date Created], Assessment.Deadline as [Date of Service] From Assessment INNER JOIN AuctionAssessment ON AuctionAssessment.AuctionID = Assessment.AuctionID INNER JOIN InitialInfo on " +
                 "InitialInfo.InitialInfoID = AuctionAssessment.InitialInfoID WHERE InitialInfo.InitialInfoID =" + Session["InitialInfoID"].ToString();
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlMain, sqlConnect);
 
@@ -273,16 +283,16 @@ namespace Lab2
             sqlAdapter.Fill(formsGrid);
             formsGridView.DataSource = formsGrid;
             formsGridView.DataBind();
-            
-           
+
+
 
         }
         protected void lookAt_Click(object sender, EventArgs e)
         {
-            
+
             ((BoundField)formsGridView.Columns[1]).DataField = "Date";
             ((BoundField)formsGridView.Columns[2]).DataField = "SuppliesNeeded";
-            
+
             //formsGridView.Columns[0].Visible = false;
             formsGridView.Columns[3].Visible = false;
 
@@ -298,9 +308,9 @@ namespace Lab2
             Session["LookAtForm"] = "true";
             Session["AssessmentForm"] = "false";
 
-            
 
-            
+
+
             //formsGridView.HeaderRow.Cells[0].Text = "Date";
 
             System.Diagnostics.Debug.WriteLine("fml");
@@ -308,7 +318,7 @@ namespace Lab2
             formsGridView.DataSource = null;
             formsGridView.DataBind();
 
-            
+
             SqlConnection sqlConnect = new SqlConnection(constr);
 
             String sqlMain = "SELECT AuctionLookAtEvent.AuctionLookAtID as [ID], AuctionLookAtEvent.Date as [Date], AuctionLookAtEvent.SuppliesNeeded as [SuppliesNeeded] FROM AuctionLookAtEvent INNER JOIN InitialInfo on InitialInfo.InitialInfoID = AuctionLookAtEvent.InitialInfoID WHERE InitialInfo.InitialInfoID =" + Session["InitialInfoID"].ToString();
@@ -320,7 +330,7 @@ namespace Lab2
             formsGridView.DataSource = formsGrid;
             formsGridView.DataBind();
 
-            
+
 
 
         }
@@ -329,8 +339,8 @@ namespace Lab2
             formsGridView.Visible = false;
             formFrame.Visible = true;
             Session["IsForm"] = "false";
-            
-            
+
+
             if (Session["CompletionForm"].ToString() == "true")
             {
                 formFrame.Src = " ";
@@ -355,7 +365,8 @@ namespace Lab2
             {
                 formFrame.Src = "MoveAssessment.aspx";
             }
-            else if (Session["OrderForm"].ToString() == "true"){
+            else if (Session["OrderForm"].ToString() == "true")
+            {
                 formFrame.Src = "MoveOrder.aspx";
             }
         }
@@ -373,6 +384,27 @@ namespace Lab2
             {
                 formFrame.Src = "AuctionOrder.aspx";
             }
+        }
+        protected void notesSave_Click(object sender, EventArgs e)
+        {
+            SqlConnection sqlConnect = new SqlConnection(constr);
+            sqlConnect.Open();
+            String sqlUpdate = "UPDATE Notes SET NoteBody = '" + notesTA.Value + "' WHERE InitialInfoID = '" + Session["InitialInfoID"] + "'";
+            //SqlCommand updater = new SqlCommand(sqlUpdate, sqlConnect);
+            System.Diagnostics.Debug.WriteLine(sqlUpdate);
+            System.Diagnostics.Debug.WriteLine("testing");
+
+           
+
+
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnect;
+            sqlCommand.CommandType = CommandType.Text;
+            sqlCommand.CommandText = sqlUpdate;
+            SqlDataReader queryResults = sqlCommand.ExecuteReader();
+
+            queryResults.Close();
+            sqlConnect.Close();
         }
     }
 }

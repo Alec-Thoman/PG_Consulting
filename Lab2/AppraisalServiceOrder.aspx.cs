@@ -16,9 +16,9 @@ namespace Lab2
         string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-            //Session["InitialInfoID"] = 1;
-            //Session["IsForm"] = "true";
+            constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+            Session["InitialInfoID"] = 1;
+            Session["IsForm"] = "false";
             //Session["FormID"] = 13;
             if (Session["IsForm"].ToString() == "true")
             {
@@ -206,63 +206,88 @@ namespace Lab2
 
             String sqlQuery = "SELECT AppraisalPurpose.Purpose FROM AppraisalPurpose INNER JOIN AppraisalServiceInvoice on AppraisalServiceInvoice.AppraisalServiceOrderID = AppraisalPurpose.AppraisalServiceOrderID  WHERE AppraisalServiceInvoice.AppraisalServiceOrderID =" + Session["FormID"];
             SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
-            String Holder = cmd.ExecuteScalar().ToString();
-            if (Holder == "Estate Appraisal")
+            System.Diagnostics.Debug.WriteLine(cmd);
+            System.Diagnostics.Debug.WriteLine("testing");
+            System.Diagnostics.Debug.WriteLine(cmd.ExecuteScalar());
+            String Holder = "";
+            if (cmd.ExecuteScalar() != null)
             {
-                estateappraisalCB.Checked = true;
-                
-            }
-            else
-            {
-                familyappraisalCB.Checked = true;
-            }
+                Holder = cmd.ExecuteScalar().ToString();
+                if (Holder == "Estate Appraisal")
+                {
+                    estateappraisalCB.Checked = true;
 
+                }
+                else
+                {
+                    familyappraisalCB.Checked = true;
+                }
+            }
             deadlineYesRB.Checked = true;
             sqlQuery = "SELECT AppraisalServiceOrder.Deadline FROM AppraisalServiceOrder INNER JOIN AppraisalServiceInvoice on AppraisalServiceInvoice.AppraisalServiceOrderID = AppraisalServiceOrder.AppraisalServiceOrderID  WHERE AppraisalServiceInvoice.AppraisalServiceOrderID =" + Session["FormID"];
             cmd = new SqlCommand(sqlQuery, sqlConnect);
-            Holder = cmd.ExecuteScalar().ToString();
-            deadlineTB.Text = Holder;
+            if (cmd.ExecuteScalar() != null)
+            {
+                Holder = cmd.ExecuteScalar().ToString();
+                deadlineTB.Text = Holder;
+            }
 
             sqlQuery = "SELECT AppraisalServiceOrder.AppraisalSize FROM AppraisalServiceOrder INNER JOIN AppraisalServiceInvoice on AppraisalServiceInvoice.AppraisalServiceOrderID = AppraisalServiceOrder.AppraisalServiceOrderID  WHERE AppraisalServiceInvoice.AppraisalServiceOrderID =" + Session["FormID"];
             cmd = new SqlCommand(sqlQuery, sqlConnect);
-            Holder = cmd.ExecuteScalar().ToString();
-            appraisalSizeTB.Text = Holder;
-
+            if (cmd.ExecuteScalar() != null)
+            {
+                Holder = cmd.ExecuteScalar().ToString();
+                appraisalSizeTB.Text = Holder;
+            }
             sqlQuery = "SELECT AppraisalServiceOrder.Inventory FROM AppraisalServiceOrder INNER JOIN AppraisalServiceInvoice on AppraisalServiceInvoice.AppraisalServiceOrderID = AppraisalServiceOrder.AppraisalServiceOrderID  WHERE AppraisalServiceInvoice.AppraisalServiceOrderID =" + Session["FormID"];
             cmd = new SqlCommand(sqlQuery, sqlConnect);
-            Holder = cmd.ExecuteScalar().ToString();
-            inventoryTA.InnerText = Holder;
-
+            if (cmd.ExecuteScalar() != null)
+            {
+                Holder = cmd.ExecuteScalar().ToString();
+                inventoryTA.InnerText = Holder;
+            }
             sqlQuery = "SELECT AppraisalServiceInvoice.ContactName FROM AppraisalServiceInvoice WHERE AppraisalServiceInvoice.AppraisalServiceOrderID =" + Session["FormID"];
             cmd = new SqlCommand(sqlQuery, sqlConnect);
-            Holder = cmd.ExecuteScalar().ToString();
-            contactNameTB.Text = Holder;
-
+            if (cmd.ExecuteScalar() != null)
+            {
+                Holder = cmd.ExecuteScalar().ToString();
+                contactNameTB.Text = Holder;
+            }
             sqlQuery = "SELECT AppraisalServiceInvoice.AppraisalName FROM AppraisalServiceInvoice WHERE AppraisalServiceInvoice.AppraisalServiceOrderID =" + Session["FormID"];
             cmd = new SqlCommand(sqlQuery, sqlConnect);
-            Holder = cmd.ExecuteScalar().ToString();
-            apprNameTB.Text = Holder;
-
+            if (cmd.ExecuteScalar() != null)
+            {
+                Holder = cmd.ExecuteScalar().ToString();
+                apprNameTB.Text = Holder;
+            }
             sqlQuery = "SELECT AppraisalServiceInvoice.SendAppraisalAddress FROM AppraisalServiceInvoice WHERE AppraisalServiceInvoice.AppraisalServiceOrderID =" + Session["FormID"];
             cmd = new SqlCommand(sqlQuery, sqlConnect);
-            Holder = cmd.ExecuteScalar().ToString();
-            sendToAddressTB.Text = Holder;
-
+            if (cmd.ExecuteScalar() != null)
+            {
+                Holder = cmd.ExecuteScalar().ToString();
+                sendToAddressTB.Text = Holder;
+            }
             sqlQuery = "SELECT AppraisalServiceInvoice.AppraisalDate FROM AppraisalServiceInvoice WHERE AppraisalServiceInvoice.AppraisalServiceOrderID =" + Session["FormID"];
             cmd = new SqlCommand(sqlQuery, sqlConnect);
-            Holder = cmd.ExecuteScalar().ToString();
-            appraisalDateTB.Text = Holder;
-
+            if (cmd.ExecuteScalar() != null)
+            {
+                Holder = cmd.ExecuteScalar().ToString();
+                appraisalDateTB.Text = Holder;
+            }
             sqlQuery = "SELECT AppraisalServiceInvoice.AppraisalCost FROM AppraisalServiceInvoice WHERE AppraisalServiceInvoice.AppraisalServiceOrderID =" + Session["FormID"];
             cmd = new SqlCommand(sqlQuery, sqlConnect);
-            Holder = cmd.ExecuteScalar().ToString();
-            appraisalCostTB.Text = Holder;
-
+            if (cmd.ExecuteScalar() != null)
+            {
+                Holder = cmd.ExecuteScalar().ToString();
+                appraisalCostTB.Text = Holder;
+            }
             sqlQuery = "SELECT AppraisalServiceInvoice.PaymentSection FROM AppraisalServiceInvoice WHERE AppraisalServiceInvoice.AppraisalServiceOrderID =" + Session["FormID"];
             cmd = new SqlCommand(sqlQuery, sqlConnect);
-            Holder = cmd.ExecuteScalar().ToString();
-            paymentsectTA.InnerText = Holder;
-
+            if (cmd.ExecuteScalar() != null)
+            {
+                Holder = cmd.ExecuteScalar().ToString();
+                paymentsectTA.InnerText = Holder;
+            }
 
 
 
