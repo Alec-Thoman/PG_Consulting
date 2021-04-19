@@ -16,32 +16,36 @@ namespace Lab2
         string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            //Session["InitialInfoID"] = 1;
             
-            //using (SqlConnection testConn = new SqlConnection(constr))
-            //{
-            //    if (!testConn.IsAvailable())
-            //    {
-            //        constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-
-            //    }
-            //}
-
-            Session["InitialInfoID"] = 1;
             //Session["OrderForm"] = "";
             //Session["CompletionForm"] = "";
             //Session["AppraisalForm"] = "";
             //Session["LookAtForm"] = "";
             //Session["AssessmentForm"] = "";
 
-            //if (Session["DBSource"].Equals("AWS"))
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-            //}
-            //else
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-            //}
             constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+
+            SqlConnection sqlConnect = new SqlConnection(constr);
+            string initialInfoQuery = "select FirstName, LastName, InitialDate from InitialInfo where InitialInfoID = @ID";
+            string fn = "";
+            string ln = "";
+            string initDate = "";
+            SqlCommand cmd = new SqlCommand(initialInfoQuery, sqlConnect);
+            cmd.Parameters.Add("@ID", SqlDbType.Int).Value = Convert.ToInt32(Session["InitialInfoID"]);
+            sqlConnect.Open();
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    fn = (string)reader["FirstName"];
+                    ln = (string)reader["LastName"];
+                    initDate = (string)reader["InitialDate"];
+                }
+            }
+            namelbl.Text = fn + " " + ln;
+            createDatelbl.Text = "Created Account: " + initDate;
         }
         protected void order_Click(object sender, EventArgs e)
         {

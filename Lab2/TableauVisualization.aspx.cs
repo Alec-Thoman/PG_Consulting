@@ -13,5 +13,10 @@ namespace Lab2
         {
  
         }
+
+        protected void backbtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ReportLandingPage.aspx");
+        }
     }
 }

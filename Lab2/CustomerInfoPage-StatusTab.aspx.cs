@@ -17,7 +17,7 @@ namespace Lab2
         string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["InitialInfoID"] = 1;
+            //Session["InitialInfoID"] = 1;
             string fn = "";
             string ln = "";
             string initDate = "";

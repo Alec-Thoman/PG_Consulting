@@ -225,8 +225,8 @@
     <Content Include="EmployeeProfile.aspx" />
     <Content Include="EditEmployeeProfile.aspx" />
     <Content Include="TableauVisualization.aspx" />
-    <Content Include="ReportsLandingPage.aspx" />
     <Content Include="RecentSvcReport.aspx" />
+    <Content Include="ReportLandingPage.aspx" />
     <Content Include="Workflow.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -465,19 +465,19 @@
     <Compile Include="TableauVisualization.aspx.designer.cs">
       <DependentUpon>TableauVisualization.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ReportsLandingPage.aspx.cs">
-      <DependentUpon>ReportsLandingPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ReportsLandingPage.aspx.designer.cs">
-      <DependentUpon>ReportsLandingPage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="RecentSvcReport.aspx.cs">
       <DependentUpon>RecentSvcReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="RecentSvcReport.aspx.designer.cs">
       <DependentUpon>RecentSvcReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportLandingPage.aspx.cs">
+      <DependentUpon>ReportLandingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportLandingPage.aspx.designer.cs">
+      <DependentUpon>ReportLandingPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Workflow.aspx.cs">
       <DependentUpon>Workflow.aspx</DependentUpon>
