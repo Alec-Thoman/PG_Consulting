@@ -651,9 +651,7 @@ namespace Lab2
             Holder = cmd.ExecuteScalar().ToString();
             TextBox91.Text = Holder;
             
-             System.Diagnostics.Debug.WriteLine("Testing");
-            SqlConnection sqlConnect = new SqlConnection(constr);
-            sqlConnect.Open();
+            
 
             String sqlQuery = "SELECT Furniture FROM Room WHERE MoveID = " + Session["FormID"] + " and RoomType = 'Dining Room:' ";
             SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
