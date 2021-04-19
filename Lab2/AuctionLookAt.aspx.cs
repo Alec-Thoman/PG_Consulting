@@ -13,16 +13,19 @@ namespace Lab2
 {
     public partial class AuctionLookAt : System.Web.UI.Page
     {
-        string constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
-        string constr2 = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+        //string constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
+        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         bool isAWS = true;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["InitialInfoID"] = 1;
+            Session["IsForm"] = "true";
+            Session["FormID"] = 2;
             if (Session["IsForm"].ToString() == "true")
             {
                 autofill();
             }
-                Session["InitialInfoID"] = 1;
+                
             if (!this.IsPostBack)
             {
                 //if (Session["DBSource"].Equals("AWS"))
@@ -57,7 +60,7 @@ namespace Lab2
                 
                 // For emp ddl
                 //string conn = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-                using (SqlConnection con = new SqlConnection(constr2))
+                using (SqlConnection con = new SqlConnection(constr))
                 {
                     using (SqlCommand cmd = new SqlCommand("SELECT EmployeeID, EmployeeName FROM employee"))
                     {
@@ -99,7 +102,7 @@ namespace Lab2
         protected void fileUploadbtn_Click(object sender, EventArgs e)
         {
             string username = "";
-            using (SqlConnection con = new SqlConnection(constr2))
+            using (SqlConnection con = new SqlConnection(constr))
             {
                 using (SqlCommand cmd = new SqlCommand("SELECT FirstName, LastName FROM InitialInfo where InitialInfoID = @InitID"))
                 {
@@ -166,7 +169,7 @@ namespace Lab2
             string truckSql = "insert into Truck ([Truck2015], [Truck2011], [Cube], [EnclosedTrailer], [OpenTrailer], [Van]) values (@truck2015,@truck2011,@cube,@et,@ot,@van);SELECT CAST(scope_identity() AS int)";
             try
             {
-                using (var connection = new SqlConnection(constr2))
+                using (var connection = new SqlConnection(constr))
                 {
                     //connection.Open();
                     // insert into LookAt Table
@@ -408,7 +411,21 @@ namespace Lab2
         }
         protected void autofill()
         {
-           
+            SqlConnection sqlConnect = new SqlConnection(constr);
+            sqlConnect.Open();
+
+            String sqlQuery = "SELECT Date FROM AuctionLookAtEvent WHERE AuctionLookAtID =" + Session["FormID"];
+            SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
+            String Holder = cmd.ExecuteScalar().ToString();
+            lookatDateTB.Text = Holder;
+
+            sqlQuery = "SELECT TruckAccess FROM AuctionLookAtEvent WHERE AuctionLookAtID =" + Session["FormID"];
+            cmd = new SqlCommand(sqlQuery, sqlConnect);
+            Holder = cmd.ExecuteScalar().ToString();
+            truckAccesstb.Text = Holder;
+            
+
+            sqlConnect.Close();
         }
     }
 }
