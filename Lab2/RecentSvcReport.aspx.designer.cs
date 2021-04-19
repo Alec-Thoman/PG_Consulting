@@ -11,8 +11,17 @@ namespace Lab2
 {
 
 
-    public partial class WebForm5
+    public partial class RecentSvcReport
     {
+
+        /// <summary>
+        /// titlelabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label titlelabel;
 
         /// <summary>
         /// servicesGridview control.

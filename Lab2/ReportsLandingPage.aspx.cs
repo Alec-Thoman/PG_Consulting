@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -21,7 +22,7 @@ namespace Lab2
 
         protected void upcomingSvcBtn_Click(object sender, EventArgs e)
         {
-            
+            Response.Redirect("RecentSvcReport.aspx");
         }
     }
 }
