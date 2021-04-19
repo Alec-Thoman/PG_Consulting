@@ -6,7 +6,7 @@
     <br />
     <br />
     <asp:Label ID="lookatDatelbl" runat="server" Text="Date: "></asp:Label>
-    <asp:TextBox ID="lookatDateTB" runat="server" TextMode="Date"></asp:TextBox>
+    <asp:TextBox ID="lookatDateTB" runat="server" ></asp:TextBox>
     <br />
     <br />
     <%--<asp:Label ID="customerSelectLabel" runat="server" Text="Select Customer:"></asp:Label>

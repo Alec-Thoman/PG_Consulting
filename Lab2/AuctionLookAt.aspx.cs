@@ -18,11 +18,16 @@ namespace Lab2
         bool isAWS = true;
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            Session["IsForm"] = "true";
+            Session["InitialInfoID"] = 1;
+            Session["FormID"] = 1;
             if (Session["IsForm"].ToString() == "true")
             {
                 autofill();
             }
-                Session["InitialInfoID"] = 1;
+                
+               // Session["InitialInfoID"] = 1;
             if (!this.IsPostBack)
             {
                 //if (Session["DBSource"].Equals("AWS"))
@@ -36,27 +41,6 @@ namespace Lab2
                 //    constr2 = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
                 //}
 
-
-
-                //using (SqlConnection con = new SqlConnection(constr))
-                //{
-                //    using (SqlCommand cmd = new SqlCommand("SELECT CustUserId, Username FROM CustomerUserInfo"))
-                //    {
-                //        cmd.CommandType = CommandType.Text;
-                //        cmd.Connection = con;
-                //        con.Open();
-                //        customerddl.DataSource = cmd.ExecuteReader();
-                //        customerddl.DataTextField = "Username";
-                //        customerddl.DataValueField = "CustUserId";
-                //        //customerddl.DataValueField = Session["CustomerID"].ToString(); // testing
-                //        customerddl.DataBind();
-                //        con.Close();
-                //    }
-                //}
-                //customerddl.Items.Insert(0, new ListItem("--Select Customer--", "0"));
-                
-                // For emp ddl
-                //string conn = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(constr2))
                 {
                     using (SqlCommand cmd = new SqlCommand("SELECT EmployeeID, EmployeeName FROM employee"))
@@ -73,6 +57,7 @@ namespace Lab2
                 }
             }
         }
+
 
         private void CreateDirectoryIfNotExists(string NewDirectory)
         {
@@ -364,7 +349,7 @@ namespace Lab2
                         command.Parameters.Add("@TruckAccess", SqlDbType.VarChar).Value = HttpUtility.HtmlEncode(truckAccesstb.Text).ToString();
                         command.Parameters.Add("@SuppliesNeeded", SqlDbType.VarChar).Value = HttpUtility.HtmlEncode(supNeedtb.Text).ToString();
                         command.Parameters.Add("@date", SqlDbType.VarChar).Value = HttpUtility.HtmlEncode(lookatDateTB.Text).ToString();
-                        command.Parameters.Add("@custID", SqlDbType.Int).Value = Convert.ToInt32(Session["InitialInfoID"]);
+                        command.Parameters.Add("@custID", SqlDbType.Int).Value = Convert.ToInt32(Session["InitialInfoID"].ToString());
                         command.Parameters.Add("@bid", SqlDbType.Int).Value = boxID;
                         command.Parameters.Add("@cid", SqlDbType.Int).Value = crewID;
                         command.Parameters.Add("@tid", SqlDbType.Int).Value = truckID;
@@ -408,7 +393,148 @@ namespace Lab2
         }
         protected void autofill()
         {
-           
+
+            //employeeList.Items[0].Selected = true;
+            //employeeList.Items[3].Selected = true;
+
+            System.Diagnostics.Debug.WriteLine("testing11");
+            using (var connection = new SqlConnection(constr2))
+            {
+                connection.Open();
+                string auctionlookateventSQL = "Select TruckAccess, SuppliesNeeded, Date, InitialInfoID, BoxID, CrewID, TruckID" +
+                    " From AuctionLookAtEvent where AuctionLookAtID = @FormID";
+                SqlCommand cmd = new SqlCommand(auctionlookateventSQL, connection);
+                cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Convert.ToInt32(Session["FormID"]);
+                //System.Diagnostics.Debug.WriteLine("testingOG");
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    System.Diagnostics.Debug.WriteLine("testing1");
+                    while (reader.Read())
+                    {
+                        if (!IsPostBack)
+                        {
+                            //System.Diagnostics.Debug.WriteLine((string)reader["TruckAccess"]);
+                            //System.Diagnostics.Debug.WriteLine("testing..");
+                            truckAccesstb.Text = HttpUtility.HtmlEncode((string)reader["TruckAccess"]);
+                            supNeedtb.Text = HttpUtility.HtmlEncode((string)reader["SuppliesNeeded"]);
+                            lookatDateTB.Text = HttpUtility.HtmlEncode((string)reader["Date"]);
+                            //smallTB
+                            //mediumTB
+                            //largeTB
+                            //artTB
+                            //spTB
+                            //lpTB
+
+                            //employeeList
+                            //tb2015
+                            //tb2011
+                            //cubetb
+                            //ettb
+                            //ottb
+                            //vantb
+
+                        }
+                    }
+                }
+
+                string auctionlookatBoxSQL = "Select Small, Medium, Large, Art, SmallPads, LargePads" +
+                    " From Box where BoxID = @FormID";
+                SqlCommand cmd2 = new SqlCommand(auctionlookatBoxSQL, connection);
+                cmd2.Parameters.Add("@FormID", SqlDbType.Int).Value = Convert.ToInt32(Session["FormID"]);
+                using (SqlDataReader reader = cmd2.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (!IsPostBack)
+                        {
+                            smallTB.Text = HttpUtility.HtmlEncode((int)reader["Small"]);
+                            mediumTB.Text = HttpUtility.HtmlEncode((int)reader["Medium"]);
+                            largeTB.Text = HttpUtility.HtmlEncode((int)reader["Large"]);
+                            artTB.Text = HttpUtility.HtmlEncode((int)reader["Art"]);
+                            spTB.Text = HttpUtility.HtmlEncode((int)reader["SmallPads"]);
+                            lpTB.Text = HttpUtility.HtmlEncode((int)reader["LargePads"]);
+                        }
+                    }
+                }
+
+                string auctionlookatTruckSQL = "Select Truck2015, Truck2011, Cube, EnclosedTrailer, OpenTrailer, Van" +
+                " From Truck where TruckID = @FormID";
+                SqlCommand cmd3 = new SqlCommand(auctionlookatTruckSQL, connection);
+                cmd3.Parameters.Add("@FormID", SqlDbType.Int).Value = Convert.ToInt32(Session["FormID"]);
+                using (SqlDataReader reader = cmd3.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (!IsPostBack)
+                        {
+                            tb2015.Text = HttpUtility.HtmlEncode((int)reader["Truck2015"]);
+                            tb2011.Text = HttpUtility.HtmlEncode((int)reader["Truck2011"]);
+                            cubetb.Text = HttpUtility.HtmlEncode((int)reader["Cube"]);
+                            ettb.Text = HttpUtility.HtmlEncode((int)reader["EnclosedTrailer"]);
+                            ottb.Text = HttpUtility.HtmlEncode((int)reader["OpenTrailer"]);
+                            vantb.Text = HttpUtility.HtmlEncode((int)reader["Van"]);
+                        }
+                    }
+                }
+
+                //string[] employees = new string[10];
+                //string compare = "";
+                //string auctionlookatCrewMateSQL = "Select CrewMateName, CrewID" +
+                //" From CrewMate where CrewMateID = @FormID";
+                //SqlCommand cmd4 = new SqlCommand(auctionlookatCrewMateSQL, connection);
+                //cmd4.Parameters.Add("@FormID", SqlDbType.Int).Value = Convert.ToInt32(Session["FormID"]);
+
+                //if (employeeList.Items.FindByText("Gogo"))
+                //{
+
+                //}
+
+
+                //using (SqlDataReader reader = cmd4.ExecuteReader())
+                //{
+                //    while (reader.Read())
+                //    {
+                //        System.Diagnostics.Debug.WriteLine((string)reader["CrewMateName"]);
+                //        compare = (string)reader["CrewMateName"];
+                //    }
+
+                //}
+            }
+            //employeeList.Items[0].Selected = true;
+            //employeeList.Items[3].Selected = true;
         }
-    }
-}
+                //using (SqlDataReader reader = cmd4.ExecuteReader())
+                //{
+                //using (SqlCommand cmd5 = new SqlCommand("SELECT EmployeeID, EmployeeName FROM employee"))
+                //{
+                //    //cmd5.CommandType = CommandType.Text;
+                //    //employeeList.DataSource = cmd5.ExecuteReader();
+                //    //employeeList.DataTextField = "EmployeeName";
+                //    //employeeList.DataValueField = "EmployeeID";
+                //    //employeeList.DataBind();
+                //    //using (SqlDataReader reader2 = cmd5.ExecuteReader())
+                //    //{
+                //    //    for (int j = 0; j < employees.Length; j++)
+                //    //    {
+                //    //        employees[j] = (string)reader2["EmployeeName"];
+                //    //    }
+                //    //}
+
+                //    while (reader.Read())
+                //    {
+                //        if (!IsPostBack)
+                //        {
+                //            for (int i = 0; i < employees.Length; i++)
+                //            {
+                //                if (((string)reader["CrewMateName"]).Equals(employees[i]))
+                //                {
+                //                    employeeList.Items[i].Selected = true;
+                //                }
+                //            }
+
+                //        }
+                //    }
+                //}
+                //}
+            }
+        }
