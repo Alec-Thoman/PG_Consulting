@@ -188,6 +188,7 @@ namespace Lab2
             contactNameTB.Text = "Andrew Wilson";
             apprNameTB.Text = "Appraisal1";
             sendToAddressTB.Text = "102 Hamilton Rd";
+            
 
         }
     }
