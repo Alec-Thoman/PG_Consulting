@@ -16,6 +16,7 @@ namespace Lab2
         string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["InitialInfoID"] = 1;
             // grabs cust fn and ln as well as creation date from db
             string fn = "";
             string ln = "";
@@ -111,8 +112,8 @@ namespace Lab2
 
             // for invoice table
             string appraisalServiceInvoiceInsert = "insert into AppraisalServiceInvoice([ContactName],[AppraisalName]," +
-                "[SendAppraisalAddress],[AppraisalDate],[AppraisalCost],[PaymentSection],[AppraisalServiceOrderID]) values" +
-                "(@ContactName,@AppraisalName,@SendAddress,@AppraisalDate,@AppraisalCost,@PaymentSection,@AppraisalServiceOrderID)";
+                "[SendAppraisalAddress],[AppraisalDate],[AppraisalCost],[PaymentSection],[AppraisalServiceOrderID], [InitialInfoID]) values" +
+                "(@ContactName,@AppraisalName,@SendAddress,@AppraisalDate,@AppraisalCost,@PaymentSection,@AppraisalServiceOrderID, @InitialInfoID)";
 
             SqlCommand cmd3 = new SqlCommand(appraisalServiceInvoiceInsert, sqlConnect);
 
@@ -123,6 +124,7 @@ namespace Lab2
             cmd3.Parameters.Add("@AppraisalCost", SqlDbType.VarChar).Value = HttpUtility.HtmlEncode(appraisalCostTB.Text);
             cmd3.Parameters.Add("@PaymentSection", SqlDbType.VarChar).Value = HttpUtility.HtmlEncode(paymentsectTA.Value.ToString());
             cmd3.Parameters.Add("@AppraisalServiceOrderID", SqlDbType.Int).Value = AppraisalServiceOrderID;
+            cmd3.Parameters.Add("@InitialInfoID", SqlDbType.Int).Value = Convert.ToInt32(Session["InitialInfoID"]);
 
             cmd3.ExecuteNonQuery();
         }

@@ -68,10 +68,16 @@
                 <asp:Button ID="Orders" class="btn btn-primary" runat="server" Text="Orders" OnClick="order_Click"/>
                     <asp:Button ID="Assessments" class="btn btn-primary" runat="server" Text="Assessments" OnClick="assessments_Click" />
                     <asp:Button ID="LookAts" class="btn btn-primary" runat="server" Text="LookAts" OnClick="lookAt_Click" />
-                <asp:Button ID="Appraisal" class="btn btn-primary" runat="server" Text="Appraisals" />
+                <asp:Button ID="Appraisal" class="btn btn-primary" runat="server" Text="Appraisals"  OnClick="appraisals_Click" />
                 <asp:Button ID="Completion" class="btn btn-primary" runat="server" Text="Completion" />
                 <br />
-                <asp:GridView ID="formsGridView" runat="server" class="table table-bordered" EmptyDataText="No Record" OnRowDataBound = "OnRowDataBound" OnSelectedIndexChanged = "OnSelectedIndexChanged" DataKeyNames = "Outlook_ID">
+                <asp:GridView ID="formsGridView" runat="server" class="table table-bordered" EmptyDataText="No Record" OnRowDataBound = "OnRowDataBound" OnSelectedIndexChanged = "OnSelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="Id">
+                    <Columns>
+                        <asp:BoundField DataField ="Id" HeaderText="ID" InsertVisible="false" Visible ="false"/>
+                        <asp:BoundField DataField =" " HeaderText=" " />
+                        <asp:BoundField DataField =" " HeaderText=" " />
+                        <asp:BoundField DataField ="" HeaderText="" />
+                    </Columns>
                                 </asp:GridView>
                 </div>
                 <div class="row">
@@ -79,6 +85,7 @@
                          <asp:Button ID="addForm" class="btn btn-primary" runat="server" Visible="true" Text="Add Form" OnClick="addForm_Click" />
                         <asp:Button ID="addMoveForm" class="btn btn-primary" runat="server" Visible="false" Text="Add Move Form" OnClick="addMoveForm_Click" />
                         <asp:Button ID="addAuctionForm" class="btn btn-primary" runat="server" Visible="false" Text="Add Auction Form" OnClick="addAuctionForm_Click" />
+                        <asp:TextBox ID ="tester" runat="server"></asp:TextBox>
                     </div>
 
                 </div>

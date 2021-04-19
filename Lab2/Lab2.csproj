@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AuctionAssessment.aspx" />
+    <Content Include="AuctionOrder.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -234,6 +235,13 @@
     </Compile>
     <Compile Include="AuctionAssessment.aspx.designer.cs">
       <DependentUpon>AuctionAssessment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuctionOrder.aspx.cs">
+      <DependentUpon>AuctionOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuctionOrder.aspx.designer.cs">
+      <DependentUpon>AuctionOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="SqlExtensions.cs" />
     <Compile Include="CustomerContactPage.aspx.cs">
