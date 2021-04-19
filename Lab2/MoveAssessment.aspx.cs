@@ -482,5 +482,90 @@ namespace Lab2
             TextBox61.Text = "4";
 
         }
+
+        protected void autofill()
+        {
+            SqlConnection sqlConnect = new SqlConnection(constr);
+            sqlConnect.Open();
+
+            String sqlQuery = "SELECT MoveOutDate FROM Preliminary WHERE PreliminaryID=" + Session["FormID"];
+            SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
+            String Holder = cmd.ExecuteScalar().ToString();
+            TextBox9.Text = Holder;
+
+            String sqlQuery = "SELECT MoveingWindow FROM Preliminary WHERE PreliminaryID=" + Session["FormID"];
+            SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
+            String Holder = cmd.ExecuteScalar().ToString();
+            TextBox10.Text = Holder;
+
+            String sqlQuery = "SELECT MLSListing FROM Preliminary WHERE PreliminaryID=" + Session["FormID"];
+            SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
+            String Holder = cmd.ExecuteScalar().ToString();
+            if (Holder == CheckBox1);
+            {
+                CheckBox1.Checked = true;
+            }
+            else
+            {
+                CheckBox1.Checked = false;
+            }
+
+            String sqlQuery = "SELECT SendPhotos FROM Preliminary WHERE PreliminaryID=" + Session["FormID"];
+            SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
+            String Holder = cmd.ExecuteScalar().ToString();
+            if (Holder == DropDownList1);
+            {
+                DropDownList1.Items[0].Selected = true;
+            }
+            else 
+            {
+                DropDownList1.Items[1].Selected = true;
+            }
+
+            String sqlQuery = "SELECT AddOn FROM Preliminary WHERE PreliminaryID=" + Session["FormID"];
+            SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
+            String Holder = cmd.ExecuteScalar().ToString();
+            if (Holder == "Add ons")
+            {
+                CheckBox2.Checked = true;
+            }
+            if
+            {
+                CheckBox3.Checked = true;
+            }
+
+            String sqlQuery = "SELECT AuctionService FROM Preliminary WHERE PreliminaryID=" + Session["FormID"];
+            SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
+            String Holder = cmd.ExecuteScalar().ToString();
+            if (Holder == "Auction Service")
+            {
+                CheckBox4.Checked = true;
+            }
+            else
+            {
+                CheckBox4.Checked = false;
+            }
+
+            String sqlQuery = "SELECT Street FROM Preliminary WHERE PreliminaryID=" + Session["FormID"];
+            SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
+            String Holder = cmd.ExecuteScalar().ToString();
+            TextBox11.Text = Holder;
+
+            String sqlQuery = "SELECT City FROM Preliminary WHERE PreliminaryID=" + Session["FormID"];
+            SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
+            String Holder = cmd.ExecuteScalar().ToString();
+            TextBox12.Text = Holder;
+
+            String sqlQuery = "SELECT State FROM Preliminary WHERE PreliminaryID=" + Session["FormID"];
+            SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
+            String Holder = cmd.ExecuteScalar().ToString();
+            TextBox13.Text = Holder;
+
+            String sqlQuery = "SELECT ZipCode FROM Preliminary WHERE PreliminaryID=" + Session["FormID"];
+            SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
+            String Holder = cmd.ExecuteScalar().ToString();
+            TextBox14.Text = Holder;
+
+        }
     }
 }
