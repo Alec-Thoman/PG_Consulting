@@ -510,7 +510,9 @@ Create table AppraisalPurpose(
 	[AppraisalPurposeID] [int] IDENTITY(1,1) primary key,
 	Purpose varchar(200),
 	AppraisalServiceOrderID int,
-	Foreign Key(AppraisalServiceOrderID) References AppraisalServiceOrder(AppraisalServiceOrderID)
+	Foreign Key(AppraisalServiceOrderID) References AppraisalServiceOrder(AppraisalServiceOrderID),
+	
+	
 );
 
 Create table AppraisalServiceInvoice(
@@ -522,7 +524,9 @@ Create table AppraisalServiceInvoice(
 	AppraisalCost varchar(20),
 	PaymentSection varchar(700),
 	AppraisalServiceOrderID int,
-	Foreign Key(AppraisalServiceOrderID) References AppraisalServiceOrder(AppraisalServiceOrderID)
+	InitialInfoID int,
+	Foreign Key(AppraisalServiceOrderID) References AppraisalServiceOrder(AppraisalServiceOrderID),
+	Foreign Key(InitialInfoID) References InitialInfo(InitialInfoID)
 );
 
 --USE [Lab3]
@@ -541,23 +545,23 @@ END
  -- inserts for appraisal report (test data)
  insert [dbo].AppraisalServiceOrder([Deadline],[AppraisalSize],[Inventory]) values ('07/04/2022', 'Small', 'One table');
  
- insert [dbo].AppraisalServiceInvoice([ContactName],[AppraisalName],[SendAppraisalAddress],[AppraisalDate],[AppraisalCost],[PaymentSection],[AppraisalServiceOrderID]) 
- values('Alec','Redwood Table','alec@gmail.com','03/12/2022','$500.00', 'Cleaning, Estimate fees', 1);
+ insert [dbo].AppraisalServiceInvoice([ContactName],[AppraisalName],[SendAppraisalAddress],[AppraisalDate],[AppraisalCost],[PaymentSection],[AppraisalServiceOrderID], [InitialInfoID]) 
+ values('Alec','Redwood Table','alec@gmail.com','03/12/2022','$500.00', 'Cleaning, Estimate fees', 1, 1);
 
  insert [dbo].AppraisalServiceOrder([Deadline],[AppraisalSize],[Inventory]) values ('04/20/2021', 'Small', 'One table');
  
- insert [dbo].AppraisalServiceInvoice([ContactName],[AppraisalName],[SendAppraisalAddress],[AppraisalDate],[AppraisalCost],[PaymentSection],[AppraisalServiceOrderID]) 
- values('Brian','Antique Table','brian@gmail.com','04/21/2021','30.00', 'Cleaning, Estimate fees', 2);
+ insert [dbo].AppraisalServiceInvoice([ContactName],[AppraisalName],[SendAppraisalAddress],[AppraisalDate],[AppraisalCost],[PaymentSection],[AppraisalServiceOrderID], [InitialInfoID]) 
+ values('Brian','Antique Table','brian@gmail.com','04/21/2021','30.00', 'Cleaning, Estimate fees', 2, 1);
 
  insert [dbo].AppraisalServiceOrder([Deadline],[AppraisalSize],[Inventory]) values ('05/01/2021', 'Small', 'One PC');
  
- insert [dbo].AppraisalServiceInvoice([ContactName],[AppraisalName],[SendAppraisalAddress],[AppraisalDate],[AppraisalCost],[PaymentSection],[AppraisalServiceOrderID]) 
- values('Briana','Windows 10 PC','briana@gmail.com','04/24/2021','$100.00', 'Minor PC upgrades needed', 3);
+ insert [dbo].AppraisalServiceInvoice([ContactName],[AppraisalName],[SendAppraisalAddress],[AppraisalDate],[AppraisalCost],[PaymentSection],[AppraisalServiceOrderID], [InitialInfoID]) 
+ values('Briana','Windows 10 PC','briana@gmail.com','04/24/2021','$100.00', 'Minor PC upgrades needed', 3, 2);
 
  insert [dbo].AppraisalServiceOrder([Deadline],[AppraisalSize],[Inventory]) values ('04/29/2021', 'Large', 'Three Shelves');
  
- insert [dbo].AppraisalServiceInvoice([ContactName],[AppraisalName],[SendAppraisalAddress],[AppraisalDate],[AppraisalCost],[PaymentSection],[AppraisalServiceOrderID]) 
- values('Jacob','Antique Shelf','jacob@gmail.com','08/12/2021','$350.00', 'Cleaning, Estimate fees', 4);
+ insert [dbo].AppraisalServiceInvoice([ContactName],[AppraisalName],[SendAppraisalAddress],[AppraisalDate],[AppraisalCost],[PaymentSection],[AppraisalServiceOrderID], [InitialInfoID]) 
+ values('Jacob','Antique Shelf','jacob@gmail.com','08/12/2021','$350.00', 'Cleaning, Estimate fees', 4, 1);
 
  -- inserts for move assessment report (test data)
  insert [dbo].MoveAssessment([InitialInfoID]) values (1);

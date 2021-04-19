@@ -28,21 +28,21 @@ namespace Lab2
 
             if (!this.IsPostBack)
             {
-                //using (SqlConnection con = new SqlConnection(constr))
-                //{
-                //    using (SqlCommand cmd = new SqlCommand("SELECT InitialInfoID, Email FROM InitialInfo"))
-                //    {
-                //        cmd.CommandType = CommandType.Text;
-                //        cmd.Connection = con;
-                //        con.Open();
-                //        customerddl.DataSource = cmd.ExecuteReader();
-                //        customerddl.DataTextField = "Email";
-                //        customerddl.DataValueField = "InitialInfoID";
-                //        customerddl.DataBind();
-                //        con.Close();
-                //    }
-                //}
-                //customerddl.Items.Insert(0, new ListItem("--Select Customer--", "0"));
+                using (SqlConnection con = new SqlConnection(constr))
+                {
+                    using (SqlCommand cmd = new SqlCommand("SELECT InitialInfoID, Email FROM InitialInfo"))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Connection = con;
+                        con.Open();
+                        customerddl.DataSource = cmd.ExecuteReader();
+                        customerddl.DataTextField = "Email";
+                        customerddl.DataValueField = "InitialInfoID";
+                        customerddl.DataBind();
+                        con.Close();
+                    }
+                }
+                customerddl.Items.Insert(0, new ListItem("--Select Customer--", "0"));
             }
         }
 
@@ -51,10 +51,11 @@ namespace Lab2
             grdCustomer.DataSource = null;
             grdCustomer.DataBind();
 
-            //int custID = int.Parse(customerddl.SelectedValue);
+            int custID = int.Parse(customerddl.SelectedValue);
+            Session["custid"] = custID;
 
             String sqlQuery = "SELECT FirstName + ' ' + LastName as CustomerName, PhoneNumber, Email, State " +
-                "from InitialInfo where InitialInfoID = " + Session["InitialInfoID"].ToString();
+                "from InitialInfo where InitialInfoID = " + custID;
 
             SqlConnection sqlConnect = new SqlConnection(constr);
 
@@ -70,7 +71,7 @@ namespace Lab2
 
         protected void btnSumbit_Click(object sender, EventArgs e)
         {
-            int custID = Int32.Parse(Session["InitialInfoID"].ToString());
+            int custID = int.Parse(customerddl.SelectedValue);
             string asSql = "insert into AuctionAssessment ([InitialInfoID]) values(@custID)";
             string assessmentSql = "insert into Assessment([DateCreated], [ItemsSelling], [WhyService], [Deadline], [Scheduled], [AskedPhotos], [AskedItemList], [AdtlService], [AuctionID]) values (@DateCreated, @ItemSelling, @WhyService, @Deadline, @Scheduled, @AskPhotos, @AskItemList, @AdtlService, @AuctionID)";
             string otherInfoSql = "insert into OtherInfo([HomeType], [TruckAccess], [LoadDoorDistance], [Steps], [SpecialEquip], [TruckType], [AuctionID]) values(@HomeType, @TruckAccess, @LoadDoorDistance, @Steps, @SpecialEquip, @TruckType, @AuctionID)";
@@ -84,7 +85,7 @@ namespace Lab2
                 // insert into moveassessment table Table
                 using (SqlCommand command = new SqlCommand(asSql, connection))
                 {
-                    command.Parameters.Add("@custID", SqlDbType.Int).Value = Session["InitialInfoID"].ToString();
+                    command.Parameters.Add("@custID", SqlDbType.Int).Value = custID;
                     command.ExecuteNonQuery();
                     connection.Close();
                 }
@@ -143,7 +144,10 @@ namespace Lab2
                     cmd.Parameters.Add("@AdtlService", SqlDbType.NVarChar).Value = DropDownList2.SelectedValue;
                     cmd.Parameters.Add("@AuctionID", SqlDbType.NVarChar).Value = auctionID;
                     cmd.Parameters.Add("@DateCreated", SqlDbType.NVarChar).Value = DateTime.Now.ToString("g"); 
+
                     
+
+
 
 
 
@@ -160,23 +164,30 @@ namespace Lab2
                     if (CheckBox6.Checked == true)
                     {
                         cmd.Parameters.Add("@HomeType", SqlDbType.NVarChar).Value = Label115.Text;
+                        Session["HomeType"] = Label115.Text; ;
                     }
                     if (CheckBox5.Checked == true)
                     {
                         cmd.Parameters.Add("@HomeType", SqlDbType.NVarChar).Value = Label119.Text;
+                        Session["HomeType"] = Label119.Text; 
                     }
                     if (CheckBox7.Checked == true)
                     {
                         cmd.Parameters.Add("@HomeType", SqlDbType.NVarChar).Value = Label120.Text;
+                        Session["HomeType"] = Label120.Text;
                     }
                     if (CheckBox8.Checked == true)
                     {
                         cmd.Parameters.Add("@HomeType", SqlDbType.NVarChar).Value = Label121.Text;
+                        Session["HomeType"] = Label121.Text;
                     }
 
                     cmd.Parameters.Add("@TruckAccess", SqlDbType.NVarChar).Value = TextBox84.Text;
+                    Session["truckAccess"] = TextBox84.Text;
                     cmd.Parameters.Add("@LoadDoorDistance", SqlDbType.NVarChar).Value = TextBox85.Text;
+                    Session["dis"] = TextBox85.Text;
                     cmd.Parameters.Add("@Steps", SqlDbType.NVarChar).Value = TextBox86.Text;
+                    Session["step"] = TextBox86.Text;
 
                     for (int i = 0; i < CheckBoxList1.Items.Count; i++)
                     {
@@ -185,6 +196,7 @@ namespace Lab2
                     }
 
                     cmd.Parameters.Add("@SpecialEquip", SqlDbType.NVarChar).Value = specialEquip;
+                    Session["specialEquip"] = specialEquip;
 
 
                     for (int i = 0; i < CheckBoxList2.Items.Count; i++)
@@ -194,6 +206,7 @@ namespace Lab2
                     }
 
                     cmd.Parameters.Add("@TruckType", SqlDbType.NVarChar).Value = truckType;
+                    Session["TruckType"] = truckType;
                     cmd.Parameters.Add("@AuctionID", SqlDbType.Int).Value = auctionID;
 
                     cmd.ExecuteNonQuery();
@@ -218,7 +231,18 @@ namespace Lab2
                     
                     }
 
-                }
+                Session["Scheduled"] = Label17.Text;
+                int CustID = int.Parse(customerddl.SelectedValue);
+                Session["custid"] = CustID;
+                Session["TrashFee"] = TextBox91.Text;
+                Session["decription"] = TextBox11.Text;
+                
+
+
+
+                Response.Redirect("AuctionOrder.aspx");
+
+            }
             }
 
 
