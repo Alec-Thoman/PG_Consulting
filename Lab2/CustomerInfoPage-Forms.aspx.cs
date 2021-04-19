@@ -352,7 +352,7 @@ namespace Lab2
                 formFrame.Src = "MoveAssessment.aspx";
             }
             else if (Session["OrderForm"].ToString() == "true"){
-                formFrame.Src = "";
+                formFrame.Src = "MoveOrder.aspx";
             }
         }
         protected void addAuctionForm_Click(object sender, EventArgs e)
@@ -367,7 +367,7 @@ namespace Lab2
             }
             else if (Session["OrderForm"].ToString() == "true")
             {
-                formFrame.Src = "";
+                formFrame.Src = "AuctionOrder.aspx";
             }
         }
     }

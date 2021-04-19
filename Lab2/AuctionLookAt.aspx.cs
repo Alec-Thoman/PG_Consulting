@@ -19,13 +19,15 @@ namespace Lab2
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["InitialInfoID"] = 1;
-            Session["IsForm"] = "true";
+            Session["IsForm"] = "false";
             Session["FormID"] = 2;
             if (Session["IsForm"].ToString() == "true")
             {
                 autofill();
             }
-                
+            employeeList.Items[1].Selected = true;
+
+
             if (!this.IsPostBack)
             {
                 //if (Session["DBSource"].Equals("AWS"))
