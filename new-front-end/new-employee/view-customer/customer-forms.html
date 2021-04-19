@@ -103,7 +103,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn open-button" onclick="openForm()">Notes</button>
+        <button class="btn open-button" id="openBtn">Notes</button>
 
         <div class="form-popup" id="myForm">
             <form action="/action_page.php" class="form-container">
@@ -112,17 +112,25 @@
                     <textarea class="p-2" type="text" placeholder="Type notes here..." name="email" rows="10"
                         cols="55"></textarea>
                 </div>
-                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                <button type="button" id="closeBtn" class="btn cancel">Close</button>
             </form>
         </div>
 
         <script>
-            function openForm() {
-                document.getElementById( "myForm" ).style.display = "block";
+
+            var popUp = document.getElementById( 'myForm' );
+
+            var openBtn = document.getElementById( 'openBtn' );
+
+            var closeBtn = document.getElementById( 'closeBtn' );
+
+            openBtn.onclick = function ( event ) {
+                event.preventDefault();
+                popUp.style.display = "block";
             }
 
-            function closeForm() {
-                document.getElementById( "myForm" ).style.display = "none";
+            closeBtn.onclick = function ( event ) {
+                popUp.style.display = "none";
             }
         </script>
     </div>
