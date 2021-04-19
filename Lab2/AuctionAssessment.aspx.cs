@@ -28,21 +28,21 @@ namespace Lab2
 
             if (!this.IsPostBack)
             {
-                using (SqlConnection con = new SqlConnection(constr))
-                {
-                    using (SqlCommand cmd = new SqlCommand("SELECT InitialInfoID, Email FROM InitialInfo"))
-                    {
-                        cmd.CommandType = CommandType.Text;
-                        cmd.Connection = con;
-                        con.Open();
-                        customerddl.DataSource = cmd.ExecuteReader();
-                        customerddl.DataTextField = "Email";
-                        customerddl.DataValueField = "InitialInfoID";
-                        customerddl.DataBind();
-                        con.Close();
-                    }
-                }
-                customerddl.Items.Insert(0, new ListItem("--Select Customer--", "0"));
+                //using (SqlConnection con = new SqlConnection(constr))
+                //{
+                //    using (SqlCommand cmd = new SqlCommand("SELECT InitialInfoID, Email FROM InitialInfo"))
+                //    {
+                //        cmd.CommandType = CommandType.Text;
+                //        cmd.Connection = con;
+                //        con.Open();
+                //        customerddl.DataSource = cmd.ExecuteReader();
+                //        customerddl.DataTextField = "Email";
+                //        customerddl.DataValueField = "InitialInfoID";
+                //        customerddl.DataBind();
+                //        con.Close();
+                //    }
+                //}
+                //customerddl.Items.Insert(0, new ListItem("--Select Customer--", "0"));
             }
         }
 
@@ -51,7 +51,7 @@ namespace Lab2
             grdCustomer.DataSource = null;
             grdCustomer.DataBind();
 
-            int custID = int.Parse(customerddl.SelectedValue);
+            int custID = int.Parse(Session["InitialInfoID"].ToString());
             Session["custid"] = custID;
 
             String sqlQuery = "SELECT FirstName + ' ' + LastName as CustomerName, PhoneNumber, Email, State " +
@@ -71,7 +71,7 @@ namespace Lab2
 
         protected void btnSumbit_Click(object sender, EventArgs e)
         {
-            int custID = int.Parse(customerddl.SelectedValue);
+            int custID = int.Parse(Session["InitialInfoID"].ToString());
             string asSql = "insert into AuctionAssessment ([InitialInfoID]) values(@custID)";
             string assessmentSql = "insert into Assessment([DateCreated], [ItemsSelling], [WhyService], [Deadline], [Scheduled], [AskedPhotos], [AskedItemList], [AdtlService], [AuctionID]) values (@DateCreated, @ItemSelling, @WhyService, @Deadline, @Scheduled, @AskPhotos, @AskItemList, @AdtlService, @AuctionID)";
             string otherInfoSql = "insert into OtherInfo([HomeType], [TruckAccess], [LoadDoorDistance], [Steps], [SpecialEquip], [TruckType], [AuctionID]) values(@HomeType, @TruckAccess, @LoadDoorDistance, @Steps, @SpecialEquip, @TruckType, @AuctionID)";
@@ -232,7 +232,7 @@ namespace Lab2
                     }
 
                 Session["Scheduled"] = Label17.Text;
-                int CustID = int.Parse(customerddl.SelectedValue);
+                int CustID = int.Parse(Session["InitialInfoID"].ToString());
                 Session["custid"] = CustID;
                 Session["TrashFee"] = TextBox91.Text;
                 Session["decription"] = TextBox11.Text;
