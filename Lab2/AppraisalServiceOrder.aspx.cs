@@ -16,10 +16,9 @@ namespace Lab2
         string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-            Session["InitialInfoID"] = 1;
-            Session["IsForm"] = "false";
-            //Session["FormID"] = 13;
+            constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+            
+            
             if (Session["IsForm"].ToString() == "true")
             {
                 autofill();
@@ -62,8 +61,7 @@ namespace Lab2
                     initDate = (string)reader["InitialDate"];
                 }
             }
-            custNamelbl.Text = fn + " " + ln;
-            createAccountDatelbl.Text = "Created Account: " + initDate;
+            
 
             // makes deadline tb appear if yes is selected
             if (deadlineYesRB.Checked)

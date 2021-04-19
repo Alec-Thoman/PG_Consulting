@@ -19,9 +19,7 @@ namespace Lab2
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            Session["IsForm"] = "true";
-            Session["InitialInfoID"] = 1;
-            Session["FormID"] = 1;
+            
             if (Session["IsForm"].ToString() == "true")
             {
                 autofill();

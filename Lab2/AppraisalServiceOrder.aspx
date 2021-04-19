@@ -17,44 +17,9 @@
 
 <body>
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand js-scroll-trigger text-black" href="../new-employee/new-employee-index.html">
-                <div class="logo"><img src="img/Logos/GVALogo_Green_resized.png"
-                        alt="Green Valley Auctions Logo" width="200" height="100"></div>
-            </a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
-                            href="../new-employee/reports/reports.html">Reports</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
-                            href="../new-employee/employee-profile/employee-profile.html">Profile</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-black"
-                            href="EmployeeLoginPageBStrap.aspx">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     <section class="about-section pr-5 pl-5" style="padding-top: 150px;">
         <div class="row">
-            <div class="col-md-12">
-                <div class="jumbotron">
-                    <div class="container-fluid text-left">
-                        <%--<h1 class="text-black">Jenny Murdock</h1>--%>
-                        <%--<p>Created Account: 01/01/2021</p>--%>
-                        <asp:Label ID="custNamelbl" runat="server" Text="" class="text-black" Font-Bold="true" Font-Size="XX-Large"></asp:Label>
-                        <br />
-                        <asp:Label ID="createAccountDatelbl" runat="server" Text="" class="text-black"></asp:Label>
-                    </div>
-                </div>
+            
                 <!--Body Starts-->
 
                 <body>

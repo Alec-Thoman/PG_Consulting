@@ -13,7 +13,7 @@ namespace Lab2
 {
     public partial class CustomerInfoPage_Forms : System.Web.UI.Page
     {
-        string constr = "";
+        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -26,7 +26,7 @@ namespace Lab2
             //Session["LookAtForm"] = "";
             //Session["AssessmentForm"] = "";
 
-            constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+            
 
             SqlConnection sqlConnect = new SqlConnection(constr);
             sqlConnect.Open();

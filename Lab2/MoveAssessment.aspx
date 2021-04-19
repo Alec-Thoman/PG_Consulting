@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="title" runat="server" Text="Move Asessment Form" Font-Bold="true" Font-Size="X-Large"></asp:Label>
+            <asp:Label ID="title" runat="server" Text="Move Assessment Form" Font-Bold="true" Font-Size="X-Large"></asp:Label>
             <br />
             <br />
             <asp:Label ID="Label9" runat="server" Text="Contact Info" Font-Bold="true" Font-Size="Large"></asp:Label>

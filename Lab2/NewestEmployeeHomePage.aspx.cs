@@ -13,7 +13,7 @@ namespace Lab2
 {
     public partial class NewestEmployeeHomePage : System.Web.UI.Page
     {
-        string constr = "";
+        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (Session["DBSource"].Equals("AWS"))
@@ -25,7 +25,7 @@ namespace Lab2
             //    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
             //}
 
-            constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+            
 
             //try {
             //    constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
