@@ -731,6 +731,7 @@
                 <asp:TableRow>
                     <asp:TableCell>
                         <asp:Button ID="btnSubmit" runat="server" Text="Submit" onclick="btnSubmit_Click"/>
+                        <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click"/>
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>

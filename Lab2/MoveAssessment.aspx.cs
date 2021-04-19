@@ -447,6 +447,40 @@ namespace Lab2
             }
            
         }
-    
+
+        protected void btnPopulate_Click(object sender, EventArgs e)
+        {
+            TextBox9.Text = "05/09/2021";
+            TextBox10.Text = "7";
+            TextBox11.Text = "1234 Nova Drive";
+            TextBox12.Text = "Alexandria";
+            TextBox13.Text = "VA";
+            TextBox14.Text = "22804";
+            TextBox15.Text = "Chair";
+            TextBox33.Text = "Couch";
+            TextBox57.Text = "King Bed";
+            TextBox84.Text = "Narrow driveway";
+            CheckBox5.Checked = true;
+            TextBox86.Text = "7";
+            CheckBoxList1.Items[1].Selected = true;
+            CheckBoxList1.Items[3].Selected = true;
+
+            CheckBoxList2.Items[0].Selected = true;
+            CheckBoxList2.Items[4].Selected = true;
+            TextBox87.Text = "$500";
+            TextBox88.Text = "$25";
+            TextBox89.Text = "$15";
+            TextBox90.Text = "$90";
+            TextBox91.Text = "$5";
+            TextBox16.Text = "2";
+            TextBox16.Text = "1";
+            TextBox20.Text = "3";
+            //TextBox27.Text = "2";
+            TextBox35.Text = "4";
+            TextBox36.Text = "2";
+            TextBox58.Text = "1";
+            TextBox61.Text = "4";
+
+        }
     }
 }
