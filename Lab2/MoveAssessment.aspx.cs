@@ -16,9 +16,10 @@ namespace Lab2
         string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["InitialInfoID"] = 1;
             if (!this.IsPostBack)
             {
-                
+                Session["IsForm"] = false;
                 if (Session["IsForm"].ToString() == "true")
                 {
                     autofill();

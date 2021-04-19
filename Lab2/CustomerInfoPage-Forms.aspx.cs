@@ -16,14 +16,14 @@ namespace Lab2
         string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (SqlConnection testConn = new SqlConnection(constr))
-            {
-                if (!testConn.IsAvailable())
-                {
-                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+            //using (SqlConnection testConn = new SqlConnection(constr))
+            //{
+            //    if (!testConn.IsAvailable())
+            //    {
+            //        constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
                     
-                }
-            }
+            //    }
+            //}
 
             Session["InitialInfoID"] = 1;
             //Session["OrderForm"] = "";
@@ -53,6 +53,9 @@ namespace Lab2
                 e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(formsGridView, "Select$" + e.Row.RowIndex);
                 e.Row.ToolTip = "Click to select this row.";
 
+                System.Diagnostics.Debug.WriteLine(formsGridView.DataKeys[e.Row.RowIndex]["Outlook_ID"]);
+                System.Diagnostics.Debug.WriteLine("fml");
+
 
             }
         }
@@ -81,9 +84,9 @@ namespace Lab2
                     //        formFrame.Src = "AuctionAssessment.aspx";
                     //    }
                     //}
-                        
+
                     
-                    
+
 
                     //String name = e.Row.Cells[0].Text;
                     //String name = HttpUtility.HtmlEncode(Session["customerName"]);
