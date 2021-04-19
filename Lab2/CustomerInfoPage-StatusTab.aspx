@@ -60,7 +60,7 @@
                     <a class="nav-link" aria-current="page" href="CustomerInfoPage.aspx">Customer Information</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="customer-forms.html">Forms</a>
+                    <a class="nav-link" href="CustomerInfoPage-Forms.aspx">Forms</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="#">Statuses</a>
