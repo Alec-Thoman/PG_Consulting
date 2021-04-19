@@ -48,5 +48,10 @@ namespace Lab2
                 servicesGridview.DataBind();
             }
         }
+
+        protected void backbtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ReportLandingPage.aspx");
+        }
     }
 }
