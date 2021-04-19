@@ -13,12 +13,13 @@ namespace Lab2
 {
     public partial class MoveAssessment : System.Web.UI.Page
     {
-        string constr = "";
+        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["InitialInfoID"] = 1;
             if (!this.IsPostBack)
             {
+                //Session[IsForm] = false;
                 Session["IsForm"] = false;
                 if (Session["IsForm"].ToString() == "true")
                 {
@@ -33,7 +34,7 @@ namespace Lab2
                 //{
                 //    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
                 //}
-                constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+                //constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
 
 
                 using (SqlConnection con = new SqlConnection(constr))
@@ -84,7 +85,7 @@ namespace Lab2
         {
             int custID = int.Parse(customerddl.SelectedValue);
             string msSql = "insert into MoveAssessment ([InitialInfoID]) values(@custID)";
-             string preliminarySql = "insert into Preliminary([MoveOutDate], [MovingWindow], [MLSListing], [SendPhotos], [AddOn], [AuctionService], [Street], [City], [State], [ZipCode], [MoveID] ,[DateCreated]) values (@MoveOutDate, @MovingWindow, @MLSListing, @SendPhotos, @AddOn, @AuctionService, @Street, @City, @State, @ZipCode, @MoveID, @DateCreated)";
+            string preliminarySql = "insert into Preliminary([MoveOutDate], [MovingWindow], [MLSListing], [SendPhotos], [AddOn], [AuctionService], [Street], [City], [State], [ZipCode], [MoveID] ,[DateCreated]) values (@MoveOutDate, @MovingWindow, @MLSListing, @SendPhotos, @AddOn, @AuctionService, @Street, @City, @State, @ZipCode, @MoveID, @DateCreated)";
             string roomSql = "insert into Room([RoomType], [Furniture], [FloorLevel], [MoveID]) values(@RoomType, @Furniture, @FloorLevel, @MoveID)";
             string specificSql = "insert into SpecificInfo([HomeType], [TruckAccess], [LoadDoorDistance], [Steps], [SpecialEquip], [TruckType], [MoveID]) values(@HomeType, @TruckAccess, @LoadDoorDistance, @Steps, @SpecialEquip, @TruckType, @MoveID)";
             string costSql = "insert into Cost([MoveEst], [FixedRate], [ParkFee], [MoveID]) values(@MoveEst, @Fixed, @ParkFee, @MoveID)";
@@ -163,7 +164,7 @@ namespace Lab2
                         cmd.Parameters.Add("@State", SqlDbType.NVarChar).Value = TextBox13.Text;
                         cmd.Parameters.Add("@ZipCode", SqlDbType.NVarChar).Value = TextBox14.Text;
                         cmd.Parameters.Add("@MoveID", SqlDbType.Int).Value = moveID;
-                        cmd.Parameters.Add("@DateCreated", SqlDbType.Int).Value = DateTime.Now.ToString("g");
+                        cmd.Parameters.Add("@DateCreated", SqlDbType.NVarChar).Value = DateTime.Now.ToString("g");
 
                     
 
@@ -380,19 +381,19 @@ namespace Lab2
                         string truckType = "";
                         if (CheckBox6.Checked == true)
                         {
-                            cmd.Parameters.Add("@HomeType", SqlDbType.NVarChar).Value = Label115.Text;
+                            cmd.Parameters.Add("@HomeType", SqlDbType.VarChar).Value = Label115.Text;
                         }
                         if (CheckBox5.Checked == true)
                         {
-                            cmd.Parameters.Add("@HomeType", SqlDbType.NVarChar).Value = Label119.Text;
+                            cmd.Parameters.Add("@HomeType", SqlDbType.VarChar).Value = Label119.Text;
                         }
                         if (CheckBox7.Checked == true)
                         {
-                            cmd.Parameters.Add("@HomeType", SqlDbType.NVarChar).Value = Label120.Text;
+                            cmd.Parameters.Add("@HomeType", SqlDbType.VarChar).Value = Label120.Text;
                         }
                         if (CheckBox8.Checked == true)
                         {
-                            cmd.Parameters.Add("@HomeType", SqlDbType.NVarChar).Value = Label121.Text;
+                            cmd.Parameters.Add("@HomeType", SqlDbType.VarChar).Value = Label121.Text;
                         }
 
                         cmd.Parameters.Add("@TruckAccess", SqlDbType.NVarChar).Value = TextBox84.Text;
