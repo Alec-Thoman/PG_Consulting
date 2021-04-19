@@ -69,7 +69,7 @@ namespace Lab2
             grdCustomer.DataBind();
         }
 
-        protected void btnSumbit_Click(object sender, EventArgs e)
+        protected void btnSubmit_Click(object sender, EventArgs e)
         {
             int custID = int.Parse(Session["InitialInfoID"].ToString());
             string asSql = "insert into AuctionAssessment ([InitialInfoID]) values(@custID)";
@@ -249,9 +249,22 @@ namespace Lab2
             {
                 TextBox9.Text = "2 Vases";
                 TextBox10.Text = "9/18/2021";
+                CheckBox2.Checked = true;
+                RadioButton1.Checked = true;
+                CheckBox3.Checked = true;
+                TextBox11.Text = "N/A";
+                CheckBox6.Checked = true;
+                TextBox81.Text = "3rd";
+                TextBox82.Text = "10ft";
                 TextBox84.Text = "Easy access";
                 TextBox85.Text = "2ft";
                 TextBox86.Text = "yes";
+                CheckBoxList1.Items[1].Selected = true;
+                CheckBoxList2.Items[5].Selected = true;
+                smallBox.Checked = true;
+                smallTB.Text = "2";
+
+
 
                 //Fee Calculation
                 TextBox87.Text = "20.00";
