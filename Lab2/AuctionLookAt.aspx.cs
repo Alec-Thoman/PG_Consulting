@@ -375,5 +375,32 @@ namespace Lab2
                 //MessageBox.Show($"Failed to update. Error message: {e.Message}");
             }     
         }
+
+        protected void popButton_Click(object sender, EventArgs e)
+        {
+            lookatDateTB.TextMode = TextBoxMode.SingleLine;
+            lookatDateTB.Text = "03/09/2021";
+
+            truckAccesstb.Text = "Narrow driveway";
+
+            supNeedtb.Text = "Trailer, Magnifying Glass";
+
+            smallBox.Checked = true;
+            smallTB.Text = "3";
+
+            artBox.Checked = true;
+            artTB.Text = "1";
+
+            
+            employeeList.Items[1].Selected = true;
+            employeeList.Items[3].Selected = true;
+
+            check2011.Checked = true;
+            tb2011.Text = "2";
+
+            vancheck.Checked = true;
+            vantb.Text = "1";
+
+        }
     }
 }
