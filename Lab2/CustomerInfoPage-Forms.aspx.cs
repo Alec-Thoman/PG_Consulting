@@ -16,14 +16,14 @@ namespace Lab2
         string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (SqlConnection testConn = new SqlConnection(constr))
-            {
-                if (!testConn.IsAvailable())
-                {
-                    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+            //using (SqlConnection testConn = new SqlConnection(constr))
+            //{
+            //    if (!testConn.IsAvailable())
+            //    {
+            //        constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
                     
-                }
-            }
+            //    }
+            //}
 
             Session["InitialInfoID"] = 1;
             //Session["OrderForm"] = "";

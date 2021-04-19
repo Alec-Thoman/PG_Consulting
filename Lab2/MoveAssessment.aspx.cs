@@ -13,12 +13,14 @@ namespace Lab2
 {
     public partial class MoveAssessment : System.Web.UI.Page
     {
-        string constr = "";
+        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["InitialInfoID"] = 1;
             if (!this.IsPostBack)
             {
-                
+                //Session[IsForm] = false;
+                Session["IsForm"] = false;
                 if (Session["IsForm"].ToString() == "true")
                 {
                     autofill();
@@ -32,7 +34,7 @@ namespace Lab2
                 //{
                 //    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
                 //}
-                constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+                //constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
 
 
                 using (SqlConnection con = new SqlConnection(constr))
