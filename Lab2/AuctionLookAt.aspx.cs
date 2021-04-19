@@ -34,22 +34,22 @@ namespace Lab2
 
 
 
-                using (SqlConnection con = new SqlConnection(constr))
-                {
-                    using (SqlCommand cmd = new SqlCommand("SELECT CustUserId, Username FROM CustomerUserInfo"))
-                    {
-                        cmd.CommandType = CommandType.Text;
-                        cmd.Connection = con;
-                        con.Open();
-                        customerddl.DataSource = cmd.ExecuteReader();
-                        customerddl.DataTextField = "Username";
-                        customerddl.DataValueField = "CustUserId";
-                        //customerddl.DataValueField = Session["CustomerID"].ToString(); // testing
-                        customerddl.DataBind();
-                        con.Close();
-                    }
-                }
-                customerddl.Items.Insert(0, new ListItem("--Select Customer--", "0"));
+                //using (SqlConnection con = new SqlConnection(constr))
+                //{
+                //    using (SqlCommand cmd = new SqlCommand("SELECT CustUserId, Username FROM CustomerUserInfo"))
+                //    {
+                //        cmd.CommandType = CommandType.Text;
+                //        cmd.Connection = con;
+                //        con.Open();
+                //        customerddl.DataSource = cmd.ExecuteReader();
+                //        customerddl.DataTextField = "Username";
+                //        customerddl.DataValueField = "CustUserId";
+                //        //customerddl.DataValueField = Session["CustomerID"].ToString(); // testing
+                //        customerddl.DataBind();
+                //        con.Close();
+                //    }
+                //}
+                //customerddl.Items.Insert(0, new ListItem("--Select Customer--", "0"));
                 
                 // For emp ddl
                 //string conn = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
@@ -95,10 +95,28 @@ namespace Lab2
         protected void fileUploadbtn_Click(object sender, EventArgs e)
         {
             string username = "";
-            if (!(customerddl.SelectedIndex == 0))
+            using (SqlConnection con = new SqlConnection(constr2))
             {
-                username = HttpUtility.HtmlEncode(customerddl.SelectedItem.Text);
-            } 
+                using (SqlCommand cmd = new SqlCommand("SELECT FirstName, LastName FROM InitialInfo where InitialInfoID = @InitID"))
+                {
+                    cmd.Parameters.Add("@InitID", SqlDbType.Int).Value = Convert.ToInt32(Session["InitialInfoID"].ToString());
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection = con;
+                    con.Open();
+                    //employeeList.DataSource = cmd.ExecuteReader();
+                    //employeeList.DataTextField = "EmployeeName";
+                    //employeeList.DataValueField = "EmployeeID";
+
+                    //employeeList.DataBind();
+                    con.Close();
+                }
+            }
+
+            //string username = Session["InitialInfoID"].ToString();
+            //if (!(customerddl.SelectedIndex == 0))
+            //{
+            //    username = Session["InitialInfoID"].ToString();
+            //} 
             
             string newDirectory = "C:/Users/alect/Desktop/" + username; // change this to proper aws path when aws is setup
 

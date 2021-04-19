@@ -28,21 +28,21 @@ namespace Lab2
 
             if (!this.IsPostBack)
             {
-                using (SqlConnection con = new SqlConnection(constr))
-                {
-                    using (SqlCommand cmd = new SqlCommand("SELECT InitialInfoID, Email FROM InitialInfo"))
-                    {
-                        cmd.CommandType = CommandType.Text;
-                        cmd.Connection = con;
-                        con.Open();
-                        customerddl.DataSource = cmd.ExecuteReader();
-                        customerddl.DataTextField = "Email";
-                        customerddl.DataValueField = "InitialInfoID";
-                        customerddl.DataBind();
-                        con.Close();
-                    }
-                }
-                customerddl.Items.Insert(0, new ListItem("--Select Customer--", "0"));
+                //using (SqlConnection con = new SqlConnection(constr))
+                //{
+                //    using (SqlCommand cmd = new SqlCommand("SELECT InitialInfoID, Email FROM InitialInfo"))
+                //    {
+                //        cmd.CommandType = CommandType.Text;
+                //        cmd.Connection = con;
+                //        con.Open();
+                //        customerddl.DataSource = cmd.ExecuteReader();
+                //        customerddl.DataTextField = "Email";
+                //        customerddl.DataValueField = "InitialInfoID";
+                //        customerddl.DataBind();
+                //        con.Close();
+                //    }
+                //}
+                //customerddl.Items.Insert(0, new ListItem("--Select Customer--", "0"));
             }
         }
 
@@ -51,10 +51,10 @@ namespace Lab2
             grdCustomer.DataSource = null;
             grdCustomer.DataBind();
 
-            int custID = int.Parse(customerddl.SelectedValue);
+            //int custID = int.Parse(customerddl.SelectedValue);
 
             String sqlQuery = "SELECT FirstName + ' ' + LastName as CustomerName, PhoneNumber, Email, State " +
-                "from InitialInfo where InitialInfoID = " + custID;
+                "from InitialInfo where InitialInfoID = " + Session["InitialInfoID"].ToString();
 
             SqlConnection sqlConnect = new SqlConnection(constr);
 
@@ -70,7 +70,7 @@ namespace Lab2
 
         protected void btnSumbit_Click(object sender, EventArgs e)
         {
-            int custID = int.Parse(customerddl.SelectedValue);
+            int custID = Int32.Parse(Session["InitialInfoID"].ToString());
             string asSql = "insert into AuctionAssessment ([InitialInfoID]) values(@custID)";
             string assessmentSql = "insert into Assessment([DateCreated], [ItemsSelling], [WhyService], [Deadline], [Scheduled], [AskedPhotos], [AskedItemList], [AdtlService], [AuctionID]) values (@DateCreated, @ItemSelling, @WhyService, @Deadline, @Scheduled, @AskPhotos, @AskItemList, @AdtlService, @AuctionID)";
             string otherInfoSql = "insert into OtherInfo([HomeType], [TruckAccess], [LoadDoorDistance], [Steps], [SpecialEquip], [TruckType], [AuctionID]) values(@HomeType, @TruckAccess, @LoadDoorDistance, @Steps, @SpecialEquip, @TruckType, @AuctionID)";
@@ -84,7 +84,7 @@ namespace Lab2
                 // insert into moveassessment table Table
                 using (SqlCommand command = new SqlCommand(asSql, connection))
                 {
-                    command.Parameters.Add("@custID", SqlDbType.Int).Value = custID;
+                    command.Parameters.Add("@custID", SqlDbType.Int).Value = Session["InitialInfoID"].ToString();
                     command.ExecuteNonQuery();
                     connection.Close();
                 }
