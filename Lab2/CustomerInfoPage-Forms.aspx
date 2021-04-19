@@ -27,24 +27,25 @@
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
         <div class="navbar-header">
             <a class="navbar-brand js-scroll-trigger text-black" href="../new-employee-index.html">
-                <div class="logo"><img src="../../assets/img/Logos/GVALogo_Green_resized.png"
+                <div class="logo"><img src="img/Logos/GVALogo_Green_resized.png"
                         alt="Green Valley Auctions Logo" width="200" height="100"></div>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item "><a class="nav-link text-black" href="../reports/reports.html">Reports</a></li>
+                <li class="nav-item "><a class="nav-link text-black" href="ReportLandingPage.aspx">Reports</a></li>
                 <li class="nav-item"><a class="nav-link text-black"
-                        href="../employee-profile/employee-profile.html">Profile</a></li>
-                <li class="nav-item"><a class="nav-link text-black" href="../employee-login.html">Logout</a></li>
+                        href="EmployeeProfile.aspx">Profile</a></li>
+                <li class="nav-item"><a class="nav-link text-black" href="EmployeeLoginPageBStrap.aspx">Logout</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="jumbotron">
         <div class="container-fluid text-left">
-            <h1 class="text-black">Jenny Murdock</h1>
-            <p>Created Account: 01/01/2021</p>
+            <asp:Label ID="namelbl" runat="server" class="text-black" Font-Bold="true" Font-Size="XX-Large"></asp:Label>
+            <br/>
+            <asp:Label ID="createDatelbl" runat="server" class="text-black"></asp:Label>
         </div>
     </div>
 

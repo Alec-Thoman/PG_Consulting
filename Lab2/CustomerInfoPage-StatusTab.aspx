@@ -32,7 +32,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item "><a class="nav-link text-black" href="#">Reports</a></li>
+                <li class="nav-item "><a class="nav-link text-black" href="ReportLandingPage.aspx">Reports</a></li>
                 <li class="nav-item"><a class="nav-link text-black" href="EmployeeProfile.aspx">Profile</a></li>
                 <li class="nav-item"><a class="nav-link text-black" href="EmployeeLoginPageBStrap.aspx">Logout</a></li>
             </ul>
@@ -46,9 +46,9 @@
                 <div class="jumbotron">
                     <div class="container-fluid text-left">
                       <%--  <h1 class="text-black">Customer Name</h1>--%>
-                        <asp:Label ID="namelbl" runat="server" class="text-black" Font-Bold="true" Font-Size="XX-Large"></asp:Label>
-                        <br/>
-                        <asp:Label ID="createDatelbl" runat="server" class="text-black"></asp:Label>
+                       <asp:Label ID="namelbl" runat="server" class="text-black" Font-Bold="true" Font-Size="XX-Large"></asp:Label>
+                       <br/>
+                       <asp:Label ID="createDatelbl" runat="server" class="text-black"></asp:Label>
                     </div>
                 </div>
             </div>
