@@ -16,12 +16,13 @@ namespace Lab2
         string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             //using (SqlConnection testConn = new SqlConnection(constr))
             //{
             //    if (!testConn.IsAvailable())
             //    {
             //        constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-                    
+
             //    }
             //}
 
@@ -53,8 +54,24 @@ namespace Lab2
                 e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(formsGridView, "Select$" + e.Row.RowIndex);
                 e.Row.ToolTip = "Click to select this row.";
 
-                System.Diagnostics.Debug.WriteLine(formsGridView.DataKeys[e.Row.RowIndex]["Outlook_ID"]);
-                System.Diagnostics.Debug.WriteLine("fml");
+                if(Session["LookAtForm"] == "true")
+                {
+                    formsGridView.HeaderRow.Cells[1].Text = "Date";
+                    formsGridView.HeaderRow.Cells[2].Text = "Supplies Needed";
+                }
+                else if (Session["AssessmentForm"] == "true")
+                {
+                    formsGridView.HeaderRow.Cells[1].Text = "Service Type";
+                    formsGridView.HeaderRow.Cells[2].Text = "Date Created";
+                    formsGridView.HeaderRow.Cells[3].Text = "Date of Service";
+                }
+                else if (Session["AppraisalForm"] == "true")
+                {
+                    formsGridView.HeaderRow.Cells[1].Text = "Contact Name";
+                    formsGridView.HeaderRow.Cells[2].Text = "Send Appraisal Address";
+                    formsGridView.HeaderRow.Cells[3].Text = "Appraisal Date";
+                }
+
 
 
             }
@@ -70,26 +87,38 @@ namespace Lab2
 
                     row.BackColor = ColorTranslator.FromHtml("#9dbdb9");
                     row.ToolTip = string.Empty;
+          
+                    System.Diagnostics.Debug.WriteLine(formsGridView.DataKeys[row.RowIndex].Values["Id"]);
+                    formFrame.Visible = true;
+                    Session["IsForm"] = "true";
+                    if (Session["AssessmentForm"].ToString() == "true")
+                    {
+                        if (formsGridView.SelectedRow.Cells[1].Text == "Move")
+                        {
+                            Session["FormID"] = formsGridView.DataKeys[row.RowIndex].Values["Id"];
+                            tester.Text = formsGridView.DataKeys[row.RowIndex].Values["Id"].ToString();
+                            formFrame.Src = "MoveAssessment.aspx";
+                        }
+                        else
+                        {
+                            Session["FormID"] = formsGridView.DataKeys[row.RowIndex].Values["Id"];
+                            tester.Text = formsGridView.DataKeys[row.RowIndex].Values["Id"].ToString();
+                            formFrame.Src = "AuctionAssessment.aspx";
+                        }
+                    }
+                    else if (Session["LookAtForm"].ToString() == "true")
+                    {
+                        formFrame.Src = "AuctionLookAt.aspx";
+                        tester.Text = formsGridView.DataKeys[row.RowIndex].Values["Id"].ToString();
+                        Session["FormID"] = formsGridView.DataKeys[row.RowIndex].Values["Id"];
+                    }
+                    else if (Session["AppraisalForm"].ToString() == "true")
+                    {
+                        formFrame.Src = "AppraisalServiceOrder.aspx";
+                        tester.Text = formsGridView.DataKeys[row.RowIndex].Values["Id"].ToString();
+                        Session["FormID"] = formsGridView.DataKeys[row.RowIndex].Values["Id"];
+                    }
 
-                    //formFrame.Visible = true;
-                    //Session["IsForm"] = "true";
-                    //if (Session["AssessmentForm"].ToString() == "true")
-                    //{
-                    //    if(formsGridView.SelectedRow.Cells[0].Text == "Move")
-                    //    {
-                    //        formFrame.Src = "MoveAssessment.aspx";
-                    //    }
-                    //    else
-                    //    {
-                    //        formFrame.Src = "AuctionAssessment.aspx";
-                    //    }
-                    //}
-
-                    
-
-
-                    //String name = e.Row.Cells[0].Text;
-                    //String name = HttpUtility.HtmlEncode(Session["customerName"]);
                     sqlConnect.Close();
 
 
@@ -101,13 +130,65 @@ namespace Lab2
                 }
             }
         }
-        protected void assessments_Click(object sender, EventArgs e)
+        protected void appraisals_Click(object sender, EventArgs e)
         {
+            ((BoundField)formsGridView.Columns[1]).DataField = "Contact Name";
+            ((BoundField)formsGridView.Columns[2]).DataField = "Address to Send";
+            ((BoundField)formsGridView.Columns[3]).DataField = "Date of Appraisal";
+
+
+            formsGridView.Columns[3].Visible = true;
+
+
+            addForm.Visible = true;
+            addMoveForm.Visible = false;
+            addAuctionForm.Visible = false;
+            formFrame.Visible = false;
+            formsGridView.Visible = true;
+
+
+
+            Session["OrderForm"] = "false";
+            Session["CompletionForm"] = "false";
+            Session["AppraisalForm"] = "true";
+            Session["LookAtForm"] = "false";
+            Session["AssessmentForm"] = "false";
+
+
+
+            formsGridView.DataSource = null;
+            formsGridView.DataBind();
+            SqlConnection sqlConnect = new SqlConnection(constr);
+
+            String sqlMain = "SELECT AppraisalServiceInvoice.AppraisalServiceInvoiceID as [ID], AppraisalServiceInvoice.ContactName as [Contact Name],AppraisalServiceInvoice.SendAppraisalAddress as [Address to Send], AppraisalServiceInvoice.AppraisalDate as [Date of Appraisal] FROM AppraisalServiceInvoice INNER JOIN InitialInfo on InitialInfo.InitialInfoID = AppraisalServiceInvoice.InitialInfoID WHERE InitialInfo.InitialInfoID =" + Session["InitialInfoID"].ToString();
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlMain, sqlConnect);
+
+            DataTable formsGrid = new DataTable();
+
+            sqlAdapter.Fill(formsGrid);
+            formsGridView.DataSource = formsGrid;
+            formsGridView.DataBind();
+        }
+            protected void assessments_Click(object sender, EventArgs e)
+        {
+            
+
+
+            ((BoundField)formsGridView.Columns[1]).DataField = "Service Type";
+            ((BoundField)formsGridView.Columns[2]).DataField = "Date Created";
+            ((BoundField)formsGridView.Columns[3]).DataField = "Date of Service";
+
+            
+            formsGridView.Columns[3].Visible = true;
+
+
             addForm.Visible = false;
             addMoveForm.Visible = true;
             addAuctionForm.Visible = true;
             formFrame.Visible = false;
-            formsGridView.Visible = true; 
+            formsGridView.Visible = true;
+
+            
 
             Session["OrderForm"] = "false";
             Session["CompletionForm"] = "false";
@@ -115,13 +196,15 @@ namespace Lab2
             Session["LookAtForm"] = "false";
             Session["AssessmentForm"] = "true";
 
+
+
             formsGridView.DataSource = null;
             formsGridView.DataBind();
             SqlConnection sqlConnect = new SqlConnection(constr);
 
-            String sqlMain = "SELECT 'Move' as [Service Type], Preliminary.DateCreated as [Date Created], Preliminary.MoveOutDate as [Date of Service] From InitialInfo INNER JOIN MoveAssessment on MoveAssessment.InitialInfoID = InitialInfo.InitialInfoID INNER JOIN " +
+            String sqlMain = "SELECT Preliminary.MoveID as [ID], 'Move' as [Service Type], Preliminary.DateCreated as [Date Created], Preliminary.MoveOutDate as [Date of Service] From InitialInfo INNER JOIN MoveAssessment on MoveAssessment.InitialInfoID = InitialInfo.InitialInfoID INNER JOIN " +
                 "Preliminary on Preliminary.MoveID = MoveAssessment.MoveID WHERE InitialInfo.InitialInfoID =" + Session["InitialInfoID"].ToString() + " UNION "+
-                "SELECT 'Auction' as [Service Type], Assessment.DateCreated as [Date Created], Assessment.Deadline as [Date of Service] From Assessment INNER JOIN AuctionAssessment ON AuctionAssessment.AuctionID = Assessment.AuctionID INNER JOIN InitialInfo on "+
+                "SELECT AuctionAssessment.AuctionID as [ID], 'Auction' as [Service Type], Assessment.DateCreated as [Date Created], Assessment.Deadline as [Date of Service] From Assessment INNER JOIN AuctionAssessment ON AuctionAssessment.AuctionID = Assessment.AuctionID INNER JOIN InitialInfo on "+
                 "InitialInfo.InitialInfoID = AuctionAssessment.InitialInfoID WHERE InitialInfo.InitialInfoID =" + Session["InitialInfoID"].ToString();
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlMain, sqlConnect);
 
@@ -130,11 +213,19 @@ namespace Lab2
             sqlAdapter.Fill(formsGrid);
             formsGridView.DataSource = formsGrid;
             formsGridView.DataBind();
-            System.Diagnostics.Debug.WriteLine(Session["AssessmentForm"].ToString());
+            
+           
 
         }
         protected void lookAt_Click(object sender, EventArgs e)
         {
+            
+            ((BoundField)formsGridView.Columns[1]).DataField = "Date";
+            ((BoundField)formsGridView.Columns[2]).DataField = "SuppliesNeeded";
+            
+            //formsGridView.Columns[0].Visible = false;
+            formsGridView.Columns[3].Visible = false;
+
             addForm.Visible = true;
             addMoveForm.Visible = false;
             addAuctionForm.Visible = false;
@@ -147,11 +238,20 @@ namespace Lab2
             Session["LookAtForm"] = "true";
             Session["AssessmentForm"] = "false";
 
+            
+
+            
+            //formsGridView.HeaderRow.Cells[0].Text = "Date";
+
+            System.Diagnostics.Debug.WriteLine("fml");
+
             formsGridView.DataSource = null;
             formsGridView.DataBind();
+
+            
             SqlConnection sqlConnect = new SqlConnection(constr);
 
-            String sqlMain = "SELECT AuctionLookAtEvent.Date, AuctionLookAtEvent.SuppliesNeeded FROM AuctionLookAtEvent INNER JOIN InitialInfo on InitialInfo.InitialInfoID = AuctionLookAtEvent.InitialInfoID WHERE InitialInfo.InitialInfoID =" + Session["InitialInfoID"].ToString();
+            String sqlMain = "SELECT AuctionLookAtEvent.AuctionLookAtID as [ID], AuctionLookAtEvent.Date as [Date], AuctionLookAtEvent.SuppliesNeeded as [SuppliesNeeded] FROM AuctionLookAtEvent INNER JOIN InitialInfo on InitialInfo.InitialInfoID = AuctionLookAtEvent.InitialInfoID WHERE InitialInfo.InitialInfoID =" + Session["InitialInfoID"].ToString();
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlMain, sqlConnect);
 
             DataTable formsGrid = new DataTable();
@@ -159,7 +259,9 @@ namespace Lab2
             sqlAdapter.Fill(formsGrid);
             formsGridView.DataSource = formsGrid;
             formsGridView.DataBind();
+
             
+
 
         }
         protected void addForm_Click(object sender, EventArgs e)
