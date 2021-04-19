@@ -223,7 +223,7 @@
     <Content Include="EditEmployeeProfile.aspx" />
     <Content Include="TableauVisualization.aspx" />
     <Content Include="ReportsLandingPage.aspx" />
-    <Content Include="WebForm5.aspx" />
+    <Content Include="RecentSvcReport.aspx" />
     <Content Include="Workflow.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -448,12 +448,12 @@
     <Compile Include="ReportsLandingPage.aspx.designer.cs">
       <DependentUpon>ReportsLandingPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm5.aspx.cs">
-      <DependentUpon>WebForm5.aspx</DependentUpon>
+    <Compile Include="RecentSvcReport.aspx.cs">
+      <DependentUpon>RecentSvcReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm5.aspx.designer.cs">
-      <DependentUpon>WebForm5.aspx</DependentUpon>
+    <Compile Include="RecentSvcReport.aspx.designer.cs">
+      <DependentUpon>RecentSvcReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Workflow.aspx.cs">
       <DependentUpon>Workflow.aspx</DependentUpon>

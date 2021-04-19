@@ -9,9 +9,9 @@
     <asp:TextBox ID="lookatDateTB" runat="server" TextMode="Date"></asp:TextBox>
     <br />
     <br />
-    <asp:Label ID="customerSelectLabel" runat="server" Text="Select Customer:"></asp:Label>
+    <%--<asp:Label ID="customerSelectLabel" runat="server" Text="Select Customer:"></asp:Label>
     <asp:DropDownList ID="customerddl" runat="server">
-    </asp:DropDownList>
+    </asp:DropDownList>--%>
     <br />
     <br />
     <asp:Label ID="fileUploadLabel" runat="server" Text="Upload Inventory Form & Photos Below!" Font-Bold="true"></asp:Label>
@@ -90,5 +90,6 @@
     <asp:Button ID="HomePage" runat="server" Text="Return to Home Page" OnClick="HomePage_Click"/>
     <asp:Button ID="logoutButton" runat="server" Text="Log Out" OnClick="logoutButton_Click"/>
     <asp:Button ID="submitButton" runat="server" Text="Submit" OnClick="submitButton_Click"/>
+    <asp:Button ID="popButton" runat="server" Text="Populate" OnClick="popButton_Click"/>
     <asp:Label ID="delme" runat="server" Text=""></asp:Label>
 </asp:Content>

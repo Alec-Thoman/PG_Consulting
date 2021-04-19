@@ -16,9 +16,9 @@
             <asp:Table ID="Table1" runat="server" Height="52px" Width="147px">
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label ID="customerSelectLabel" runat="server" Text="Select Customer:"></asp:Label>
+                        <%--<asp:Label ID="customerSelectLabel" runat="server" Text="Select Customer:"></asp:Label>
                         <asp:DropDownList ID="customerddl" runat="server" OnSelectedIndexChanged="customerddl_SelectedIndexChanged" AutoPostBack="true">
-                        </asp:DropDownList>
+                        </asp:DropDownList>--%>
                     </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>

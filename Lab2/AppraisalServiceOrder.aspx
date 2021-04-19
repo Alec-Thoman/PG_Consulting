@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!DOCTYPE html>
 
-<html lang="en-US">
+<html>
 
 <head>
     <title>Green Valley Auctions</title>
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="forms-styles.css">
 </head>
 
-<body id="page-top">
+<body>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white" id="mainNav">
         <div class="container">
@@ -199,11 +199,14 @@
                             <div class="row mb-12">
                                 <div class="col">
                             <%--<button type="submit" class="btn btn-primary">Upload Final Appraisal</button>--%>
+                                 <asp:Button ID="btnPopulateAppraisal" runat="server" Text="Populate" OnClick="btnPopulateAppraisal_Click" />
                                  <asp:Button ID="uploadAppraisalButton" runat="server" Text="Upload Final Appraisal" class="btn btn-primary" OnClick="uploadAppraisalButton_Click"/>
                             </div>
                                 <div class="col">
                             <%--<button type="submit" class="btn btn-primary">Email final copy of Appraisal</button>--%>
                                     <asp:Button ID="emailButton" runat="server" Text="Email final copy of Appraisal" class="btn btn-primary" OnClick="emailButton_Click"/>
+                                    
+
                         </form>
                         </section>
                         </div>

@@ -20,9 +20,9 @@
             <asp:Table ID="Table1" runat="server" Height="52px" Width="147px">
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label ID="customerSelectLabel" runat="server" Text="Select Customer:"></asp:Label>
+                        <%--<asp:Label ID="customerSelectLabel" runat="server" Text="Select Customer:"></asp:Label>
                         <asp:DropDownList ID="customerddl" runat="server" OnSelectedIndexChanged="customerddl_SelectedIndexChanged" AutoPostBack="true">
-                        </asp:DropDownList>
+                        </asp:DropDownList>--%>
                     </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
@@ -291,6 +291,7 @@
 
                  <asp:TableRow>
                     <asp:TableCell>
+                        <asp:Button ID="btnPopulateAuctionA" runat="server" Text="Populate" OnClick="btnPopulateAuctionA_Click" />
                         <asp:Button ID="btnSumbit" runat="server" Text="Sumbit" Onclick="btnSumbit_Click"/>
                     </asp:TableCell>
                 </asp:TableRow>

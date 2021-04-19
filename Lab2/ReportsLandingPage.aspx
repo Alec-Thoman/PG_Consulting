@@ -7,5 +7,10 @@
     <br />
     <br />
     <asp:Button ID="tableauButton" runat="server" Text="Tableau" OnClick="tableauButton_Click"/>
+    <br />
+    <br />
     <asp:Button ID="upcomingSvcBtn" runat="server" Text="UpcomingServices" OnClick="upcomingSvcBtn_Click"/>
+    <br />
+    <br />
+    <asp:FileUpload ID="uploadReport" runat="server" />
 </asp:Content>

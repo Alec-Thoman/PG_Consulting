@@ -177,5 +177,15 @@ namespace Lab2
                 Response.Write(ex.Message);
             }
         }
+
+        protected void btnPopulateAppraisal_Click(object sender, EventArgs e)
+        {
+            deadlineTB.Text = "9/18/2021";
+            appraisalSizeTB.Text = "100";
+            contactNameTB.Text = "Andrew Wilson";
+            apprNameTB.Text = "Appraisal1";
+            sendToAddressTB.Text = "102 Hamilton Rd";
+
+        }
     }
 }
