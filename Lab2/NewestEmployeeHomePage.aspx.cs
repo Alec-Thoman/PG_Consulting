@@ -102,8 +102,7 @@ namespace Lab2
             {
                 e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(customerGridView, "Select$" + e.Row.RowIndex);
                 e.Row.ToolTip = "Click to select this row.";
-
-
+                 
             }
         }
 

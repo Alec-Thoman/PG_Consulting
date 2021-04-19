@@ -64,13 +64,13 @@
     </div>
     <div class="container-fluid bg-white pb-5">
         <div class="tab-content">
-            <div class="tab-pane fade show active pt-3">
+            <div class="tab-pane fade show active pt-3 text-center pr-5 pl-5">
                 
                 <asp:Button ID="Orders" class="btn btn-primary" runat="server" Text="Orders" OnClick="order_Click"/>
                     <asp:Button ID="Assessments" class="btn btn-primary" runat="server" Text="Assessments" OnClick="assessments_Click" />
                     <asp:Button ID="LookAts" class="btn btn-primary" runat="server" Text="LookAts" OnClick="lookAt_Click" />
                 <asp:Button ID="Appraisal" class="btn btn-primary" runat="server" Text="Appraisals"  OnClick="appraisals_Click" />
-                <asp:Button ID="Completion" class="btn btn-primary" runat="server" Text="Completion" />
+                
                 <br />
                 <asp:GridView ID="formsGridView" runat="server" class="table table-bordered" EmptyDataText="No Record" OnRowDataBound = "OnRowDataBound" OnSelectedIndexChanged = "OnSelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="Id">
                     <Columns>
@@ -81,12 +81,12 @@
                     </Columns>
                                 </asp:GridView>
                 </div>
-                <div class="row">
-                    <div class="col-12 text-center">
+                <div class="row ">
+                    <div class="col-12 text-center pr-5 pl-5 pt-3 pb-3">
                          <asp:Button ID="addForm" class="btn btn-primary" runat="server" Visible="true" Text="Add Form" OnClick="addForm_Click" />
                         <asp:Button ID="addMoveForm" class="btn btn-primary" runat="server" Visible="false" Text="Add Move Form" OnClick="addMoveForm_Click" />
                         <asp:Button ID="addAuctionForm" class="btn btn-primary" runat="server" Visible="false" Text="Add Auction Form" OnClick="addAuctionForm_Click" />
-                        <asp:TextBox ID ="tester" runat="server"></asp:TextBox>
+                    
                     </div>
 
                 </div>
@@ -104,10 +104,10 @@
                    <asp:TextBox ID="TextBox1" runat="server" placeholder="Type notes here..." class="p-2" rows="10"
                         cols="55"></asp:TextBox>--%>
                     <textarea class="p-2" id="notesTA" runat="server" type="text" placeholder="Type notes here..." name="email" rows="10"
-                        cols="55"></textarea>
+                        cols="55" AutoPostBack="true"></textarea>
                 </div>
                 <button type="button" id="closeBtn" class="btn cancel">Close</button>
-                <asp:Button ID="saveBtn" runat="server" Text="Save" class="btn cancel" OnClick="notesSave_Click" />
+                <asp:Button ID="saveBtn" runat="server" Text="Save" class="btn cancel" OnClick="notesSave_Click" OnClientClick="return saveNotes();"/>
                 
             </form>
         </div>
@@ -120,7 +120,6 @@
 
             var closeBtn = document.getElementById('closeBtn');
 
-   
 
             openBtn.onclick = function (event) {
                 event.preventDefault();

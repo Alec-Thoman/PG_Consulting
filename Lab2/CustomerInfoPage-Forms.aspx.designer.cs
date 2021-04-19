@@ -69,15 +69,6 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.Button Appraisal;
 
         /// <summary>
-        /// Completion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Completion;
-
-        /// <summary>
         /// formsGridView control.
         /// </summary>
         /// <remarks>
@@ -112,15 +103,6 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button addAuctionForm;
-
-        /// <summary>
-        /// tester control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tester;
 
         /// <summary>
         /// formFrame control.

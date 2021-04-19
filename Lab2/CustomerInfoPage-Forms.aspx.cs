@@ -18,7 +18,7 @@ namespace Lab2
         {
 
 
-            Session["InitialInfoID"] = 1;
+            
 
             //Session["OrderForm"] = "";
             //Session["CompletionForm"] = "";
@@ -36,7 +36,6 @@ namespace Lab2
             {
                 notesTA.Value = cmd.ExecuteScalar().ToString();
                 
-
             }
             string initialInfoQuery = "select FirstName, LastName, InitialDate from InitialInfo where InitialInfoID = @ID";
             string fn = "";
@@ -151,26 +150,22 @@ namespace Lab2
                         if (formsGridView.SelectedRow.Cells[1].Text == "Move")
                         {
                             Session["FormID"] = formsGridView.DataKeys[row.RowIndex].Values["Id"];
-                            tester.Text = formsGridView.DataKeys[row.RowIndex].Values["Id"].ToString();
                             formFrame.Src = "MoveAssessment.aspx";
                         }
                         else
                         {
                             Session["FormID"] = formsGridView.DataKeys[row.RowIndex].Values["Id"];
-                            tester.Text = formsGridView.DataKeys[row.RowIndex].Values["Id"].ToString();
                             formFrame.Src = "AuctionAssessment.aspx";
                         }
                     }
                     else if (Session["LookAtForm"].ToString() == "true")
                     {
                         formFrame.Src = "AuctionLookAt.aspx";
-                        tester.Text = formsGridView.DataKeys[row.RowIndex].Values["Id"].ToString();
                         Session["FormID"] = formsGridView.DataKeys[row.RowIndex].Values["Id"];
                     }
                     else if (Session["AppraisalForm"].ToString() == "true")
                     {
                         formFrame.Src = "AppraisalServiceOrder.aspx";
-                        tester.Text = formsGridView.DataKeys[row.RowIndex].Values["Id"].ToString();
                         Session["FormID"] = formsGridView.DataKeys[row.RowIndex].Values["Id"];
                     }
                     else if (Session["OrderForm"].ToString() == "true")
@@ -178,13 +173,11 @@ namespace Lab2
                         if (formsGridView.SelectedRow.Cells[1].Text == "Move")
                         {
                             Session["FormID"] = formsGridView.DataKeys[row.RowIndex].Values["Id"];
-                            tester.Text = formsGridView.DataKeys[row.RowIndex].Values["Id"].ToString();
-                            formFrame.Src = " ";
+                            formFrame.Src = "MoveOrder.aspx";
                         }
                         else
                         {
                             Session["FormID"] = formsGridView.DataKeys[row.RowIndex].Values["Id"];
-                            tester.Text = formsGridView.DataKeys[row.RowIndex].Values["Id"].ToString();
                             formFrame.Src = "AuctionOrder.aspx";
                         }
                     }
@@ -389,6 +382,13 @@ namespace Lab2
         {
             SqlConnection sqlConnect = new SqlConnection(constr);
             sqlConnect.Open();
+            notesTA.Value = notesTA.InnerHtml;
+            System.Diagnostics.Debug.WriteLine(notesTA.InnerHtml);
+            System.Diagnostics.Debug.WriteLine(notesTA.Value);
+            System.Diagnostics.Debug.WriteLine(notesTA.InnerText);
+
+
+
             String sqlUpdate = "UPDATE Notes SET NoteBody = '" + notesTA.Value + "' WHERE InitialInfoID = '" + Session["InitialInfoID"] + "'";
             //SqlCommand updater = new SqlCommand(sqlUpdate, sqlConnect);
             System.Diagnostics.Debug.WriteLine(sqlUpdate);

@@ -69,15 +69,6 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.TextBox txtDate;
 
         /// <summary>
-        /// searchBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button searchBtn;
-
-        /// <summary>
         /// cityLists control.
         /// </summary>
         /// <remarks>
@@ -94,6 +85,15 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList storageLists;
+
+        /// <summary>
+        /// searchBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button searchBtn;
 
         /// <summary>
         /// recordsGridView control.
