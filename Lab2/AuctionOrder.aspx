@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AuctionOrder.aspx.cs" Inherits="Lab2.WebForm8" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AuctionOrder.aspx.cs" Inherits="Lab2.AuctionOrder" %>
 
 <!DOCTYPE html>
 
