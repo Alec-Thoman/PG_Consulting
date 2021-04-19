@@ -9,9 +9,9 @@
     <asp:TextBox ID="lookatDateTB" runat="server" TextMode="Date"></asp:TextBox>
     <br />
     <br />
-    <asp:Label ID="customerSelectLabel" runat="server" Text="Select Customer:"></asp:Label>
+    <%--<asp:Label ID="customerSelectLabel" runat="server" Text="Select Customer:"></asp:Label>
     <asp:DropDownList ID="customerddl" runat="server">
-    </asp:DropDownList>
+    </asp:DropDownList>--%>
     <br />
     <br />
     <asp:Label ID="fileUploadLabel" runat="server" Text="Upload Inventory Form & Photos Below!" Font-Bold="true"></asp:Label>
