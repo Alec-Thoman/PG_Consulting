@@ -13,21 +13,20 @@ namespace Lab2
 {
     public partial class AuctionLookAt : System.Web.UI.Page
     {
-        //string constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
-        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+        string constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
+        string constr2 = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
         bool isAWS = true;
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            Session["IsForm"] = "true";
             Session["InitialInfoID"] = 1;
-            Session["IsForm"] = "false";
-            Session["FormID"] = 2;
+            Session["FormID"] = 1;
             if (Session["IsForm"].ToString() == "true")
             {
                 autofill();
             }
-            employeeList.Items[1].Selected = true;
-
-
+                
             if (!this.IsPostBack)
             {
                 //if (Session["DBSource"].Equals("AWS"))
@@ -41,28 +40,7 @@ namespace Lab2
                 //    constr2 = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
                 //}
 
-
-
-                //using (SqlConnection con = new SqlConnection(constr))
-                //{
-                //    using (SqlCommand cmd = new SqlCommand("SELECT CustUserId, Username FROM CustomerUserInfo"))
-                //    {
-                //        cmd.CommandType = CommandType.Text;
-                //        cmd.Connection = con;
-                //        con.Open();
-                //        customerddl.DataSource = cmd.ExecuteReader();
-                //        customerddl.DataTextField = "Username";
-                //        customerddl.DataValueField = "CustUserId";
-                //        //customerddl.DataValueField = Session["CustomerID"].ToString(); // testing
-                //        customerddl.DataBind();
-                //        con.Close();
-                //    }
-                //}
-                //customerddl.Items.Insert(0, new ListItem("--Select Customer--", "0"));
-                
-                // For emp ddl
-                //string conn = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-                using (SqlConnection con = new SqlConnection(constr))
+                using (SqlConnection con = new SqlConnection(constr2))
                 {
                     using (SqlCommand cmd = new SqlCommand("SELECT EmployeeID, EmployeeName FROM employee"))
                     {
@@ -78,6 +56,7 @@ namespace Lab2
                 }
             }
         }
+
 
         private void CreateDirectoryIfNotExists(string NewDirectory)
         {
@@ -104,7 +83,7 @@ namespace Lab2
         protected void fileUploadbtn_Click(object sender, EventArgs e)
         {
             string username = "";
-            using (SqlConnection con = new SqlConnection(constr))
+            using (SqlConnection con = new SqlConnection(constr2))
             {
                 using (SqlCommand cmd = new SqlCommand("SELECT FirstName, LastName FROM InitialInfo where InitialInfoID = @InitID"))
                 {
@@ -171,7 +150,7 @@ namespace Lab2
             string truckSql = "insert into Truck ([Truck2015], [Truck2011], [Cube], [EnclosedTrailer], [OpenTrailer], [Van]) values (@truck2015,@truck2011,@cube,@et,@ot,@van);SELECT CAST(scope_identity() AS int)";
             try
             {
-                using (var connection = new SqlConnection(constr))
+                using (var connection = new SqlConnection(constr2))
                 {
                     //connection.Open();
                     // insert into LookAt Table
@@ -369,7 +348,7 @@ namespace Lab2
                         command.Parameters.Add("@TruckAccess", SqlDbType.VarChar).Value = HttpUtility.HtmlEncode(truckAccesstb.Text).ToString();
                         command.Parameters.Add("@SuppliesNeeded", SqlDbType.VarChar).Value = HttpUtility.HtmlEncode(supNeedtb.Text).ToString();
                         command.Parameters.Add("@date", SqlDbType.VarChar).Value = HttpUtility.HtmlEncode(lookatDateTB.Text).ToString();
-                        command.Parameters.Add("@custID", SqlDbType.Int).Value = Convert.ToInt32(Session["InitialInfoID"]);
+                        command.Parameters.Add("@custID", SqlDbType.Int).Value = Convert.ToInt32(Session["InitialInfoID"].ToString());
                         command.Parameters.Add("@bid", SqlDbType.Int).Value = boxID;
                         command.Parameters.Add("@cid", SqlDbType.Int).Value = crewID;
                         command.Parameters.Add("@tid", SqlDbType.Int).Value = truckID;
@@ -400,9 +379,9 @@ namespace Lab2
             artBox.Checked = true;
             artTB.Text = "1";
 
-            
-            employeeList.Items[1].Selected = true;
-            employeeList.Items[3].Selected = true;
+
+            //employeeList.Items[1].Selected = true;
+            //employeeList.Items[3].Selected = true;
 
             check2011.Checked = true;
             tb2011.Text = "2";
@@ -413,21 +392,148 @@ namespace Lab2
         }
         protected void autofill()
         {
-            SqlConnection sqlConnect = new SqlConnection(constr);
-            sqlConnect.Open();
 
-            String sqlQuery = "SELECT Date FROM AuctionLookAtEvent WHERE AuctionLookAtID =" + Session["FormID"];
-            SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
-            String Holder = cmd.ExecuteScalar().ToString();
-            lookatDateTB.Text = Holder;
+            //employeeList.Items[0].Selected = true;
+            //employeeList.Items[3].Selected = true;
 
-            sqlQuery = "SELECT TruckAccess FROM AuctionLookAtEvent WHERE AuctionLookAtID =" + Session["FormID"];
-            cmd = new SqlCommand(sqlQuery, sqlConnect);
-            Holder = cmd.ExecuteScalar().ToString();
-            truckAccesstb.Text = Holder;
-            
+            System.Diagnostics.Debug.WriteLine("testing11");
+            using (var connection = new SqlConnection(constr2))
+            {
+                connection.Open();
+                string auctionlookateventSQL = "Select TruckAccess, SuppliesNeeded, Date, InitialInfoID, BoxID, CrewID, TruckID" +
+                    " From AuctionLookAtEvent where AuctionLookAtID = @FormID";
+                SqlCommand cmd = new SqlCommand(auctionlookateventSQL, connection);
+                cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Convert.ToInt32(Session["FormID"]);
+                //System.Diagnostics.Debug.WriteLine("testingOG");
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    System.Diagnostics.Debug.WriteLine("testing1");
+                    while (reader.Read())
+                    {
+                        if (!IsPostBack)
+                        {
+                            //System.Diagnostics.Debug.WriteLine((string)reader["TruckAccess"]);
+                            //System.Diagnostics.Debug.WriteLine("testing..");
+                            truckAccesstb.Text = HttpUtility.HtmlEncode((string)reader["TruckAccess"]);
+                            supNeedtb.Text = HttpUtility.HtmlEncode((string)reader["SuppliesNeeded"]);
+                            lookatDateTB.Text = HttpUtility.HtmlEncode((string)reader["Date"]);
+                            //smallTB
+                            //mediumTB
+                            //largeTB
+                            //artTB
+                            //spTB
+                            //lpTB
 
-            sqlConnect.Close();
+                            //employeeList
+                            //tb2015
+                            //tb2011
+                            //cubetb
+                            //ettb
+                            //ottb
+                            //vantb
+
+                        }
+                    }
+                }
+
+                string auctionlookatBoxSQL = "Select Small, Medium, Large, Art, SmallPads, LargePads" +
+                    " From Box where BoxID = @FormID";
+                SqlCommand cmd2 = new SqlCommand(auctionlookatBoxSQL, connection);
+                cmd2.Parameters.Add("@FormID", SqlDbType.Int).Value = Convert.ToInt32(Session["FormID"]);
+                using (SqlDataReader reader = cmd2.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (!IsPostBack)
+                        {
+                            smallTB.Text = HttpUtility.HtmlEncode((int)reader["Small"]);
+                            mediumTB.Text = HttpUtility.HtmlEncode((int)reader["Medium"]);
+                            largeTB.Text = HttpUtility.HtmlEncode((int)reader["Large"]);
+                            artTB.Text = HttpUtility.HtmlEncode((int)reader["Art"]);
+                            spTB.Text = HttpUtility.HtmlEncode((int)reader["SmallPads"]);
+                            lpTB.Text = HttpUtility.HtmlEncode((int)reader["LargePads"]);
+                        }
+                    }
+                }
+
+                string auctionlookatTruckSQL = "Select Truck2015, Truck2011, Cube, EnclosedTrailer, OpenTrailer, Van" +
+                " From Truck where TruckID = @FormID";
+                SqlCommand cmd3 = new SqlCommand(auctionlookatTruckSQL, connection);
+                cmd3.Parameters.Add("@FormID", SqlDbType.Int).Value = Convert.ToInt32(Session["FormID"]);
+                using (SqlDataReader reader = cmd3.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (!IsPostBack)
+                        {
+                            tb2015.Text = HttpUtility.HtmlEncode((int)reader["Truck2015"]);
+                            tb2011.Text = HttpUtility.HtmlEncode((int)reader["Truck2011"]);
+                            cubetb.Text = HttpUtility.HtmlEncode((int)reader["Cube"]);
+                            ettb.Text = HttpUtility.HtmlEncode((int)reader["EnclosedTrailer"]);
+                            ottb.Text = HttpUtility.HtmlEncode((int)reader["OpenTrailer"]);
+                            vantb.Text = HttpUtility.HtmlEncode((int)reader["Van"]);
+                        }
+                    }
+                }
+
+                //string[] employees = new string[10];
+                //string compare = "";
+                //string auctionlookatCrewMateSQL = "Select CrewMateName, CrewID" +
+                //" From CrewMate where CrewMateID = @FormID";
+                //SqlCommand cmd4 = new SqlCommand(auctionlookatCrewMateSQL, connection);
+                //cmd4.Parameters.Add("@FormID", SqlDbType.Int).Value = Convert.ToInt32(Session["FormID"]);
+
+                //if (employeeList.Items.FindByText("Gogo"))
+                //{
+
+                //}
+
+
+                //using (SqlDataReader reader = cmd4.ExecuteReader())
+                //{
+                //    while (reader.Read())
+                //    {
+                //        System.Diagnostics.Debug.WriteLine((string)reader["CrewMateName"]);
+                //        compare = (string)reader["CrewMateName"];
+                //    }
+
+                //}
+            }
+            //employeeList.Items[0].Selected = true;
+            //employeeList.Items[3].Selected = true;
         }
-    }
-}
+                //using (SqlDataReader reader = cmd4.ExecuteReader())
+                //{
+                //using (SqlCommand cmd5 = new SqlCommand("SELECT EmployeeID, EmployeeName FROM employee"))
+                //{
+                //    //cmd5.CommandType = CommandType.Text;
+                //    //employeeList.DataSource = cmd5.ExecuteReader();
+                //    //employeeList.DataTextField = "EmployeeName";
+                //    //employeeList.DataValueField = "EmployeeID";
+                //    //employeeList.DataBind();
+                //    //using (SqlDataReader reader2 = cmd5.ExecuteReader())
+                //    //{
+                //    //    for (int j = 0; j < employees.Length; j++)
+                //    //    {
+                //    //        employees[j] = (string)reader2["EmployeeName"];
+                //    //    }
+                //    //}
+
+                //    while (reader.Read())
+                //    {
+                //        if (!IsPostBack)
+                //        {
+                //            for (int i = 0; i < employees.Length; i++)
+                //            {
+                //                if (((string)reader["CrewMateName"]).Equals(employees[i]))
+                //                {
+                //                    employeeList.Items[i].Selected = true;
+                //                }
+                //            }
+
+                //        }
+                //    }
+                //}
+                //}
+            }
+        }
