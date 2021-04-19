@@ -97,5 +97,28 @@ namespace Lab2
         {
             Response.Redirect("NewestEmployeeHomePage.aspx");
         }
+
+        protected void popButton_Click(object sender, EventArgs e)
+        {
+            txtFirstName.Text = "Jimmy";
+            txtLastName.Text = "Dukes";
+            ddlPhoneType.SelectedIndex = 1;
+            txtPhone.Text = "804-125-4563";
+            txtEmail.Text = "jmu@dukes.edu";
+            ddlPreferredContact.SelectedIndex = 2;
+            txtInitialDate.TextMode = TextBoxMode.SingleLine;
+            txtDeadline.TextMode = TextBoxMode.SingleLine;
+            txtInitialDate.Text = "04/24/2021";
+            txtDeadline.Text = "06/09/2021";
+            txtHearAbout.Text = "From a friend";
+            CheckBoxList1.Items[1].Selected = true;
+            txtStreet.Text = "5312 Dukes Place";
+            txtCity.Text = "Harrisonburg";
+            txtState.Text = "VA";
+            txtZipcode.Text = "22801";
+            txtNotes.Text = "Very chatty\nHas 2 dogs\nheard about us through a friend";
+            Page_Load(sender, e);
+
+        }
     }
 }

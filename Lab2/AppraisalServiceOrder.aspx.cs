@@ -180,11 +180,15 @@ namespace Lab2
 
         protected void btnPopulateAppraisal_Click(object sender, EventArgs e)
         {
+            estateappraisalCB.Checked = true;
+            deadlineYesRB.Checked = true;
+            inventoryTA.Value = "3 Vases, 20 China Plates";
             deadlineTB.Text = "9/18/2021";
             appraisalSizeTB.Text = "100";
             contactNameTB.Text = "Andrew Wilson";
             apprNameTB.Text = "Appraisal1";
             sendToAddressTB.Text = "102 Hamilton Rd";
+            
 
         }
     }

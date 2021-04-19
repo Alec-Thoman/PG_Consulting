@@ -292,7 +292,7 @@
                  <asp:TableRow>
                     <asp:TableCell>
                         <asp:Button ID="btnPopulateAuctionA" runat="server" Text="Populate" OnClick="btnPopulateAuctionA_Click" />
-                        <asp:Button ID="btnSumbit" runat="server" Text="Sumbit" Onclick="btnSumbit_Click"/>
+                        <asp:Button ID="btnSubmit" runat="server" Text="Submit" Onclick="btnSubmit_Click"/>
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>            
