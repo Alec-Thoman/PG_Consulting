@@ -42,6 +42,7 @@
         <asp:ListItem Text="Small Pads"></asp:ListItem>
         <asp:ListItem Text="Large Pads"></asp:ListItem>
     </asp:CheckBoxList>--%>
+
     <asp:CheckBox ID="smallBox" runat="server" Text="Small"/>
     <asp:TextBox ID="smallTB" runat="server" Height="10px" Width="20px" ></asp:TextBox>
     <br />

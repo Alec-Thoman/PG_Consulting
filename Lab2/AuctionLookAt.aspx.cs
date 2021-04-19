@@ -380,9 +380,9 @@ namespace Lab2
             artBox.Checked = true;
             artTB.Text = "1";
 
-            
-            employeeList.Items[1].Selected = true;
-            employeeList.Items[3].Selected = true;
+
+            //employeeList.Items[1].Selected = true;
+            //employeeList.Items[3].Selected = true;
 
             check2011.Checked = true;
             tb2011.Text = "2";
