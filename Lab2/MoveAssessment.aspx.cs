@@ -164,7 +164,7 @@ namespace Lab2
                         cmd.Parameters.Add("@State", SqlDbType.NVarChar).Value = TextBox13.Text;
                         cmd.Parameters.Add("@ZipCode", SqlDbType.NVarChar).Value = TextBox14.Text;
                         cmd.Parameters.Add("@MoveID", SqlDbType.Int).Value = moveID;
-                        cmd.Parameters.Add("@DateCreated", SqlDbType.Int).Value = DateTime.Now.ToString("g");
+                        cmd.Parameters.Add("@DateCreated", SqlDbType.NVarchar).Value = DateTime.Now.ToString("g");
 
                     
 
