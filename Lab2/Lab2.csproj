@@ -80,6 +80,7 @@
     <Content Include="CustomerContactPage.aspx" />
     <Content Include="CustomerInfoPage-Forms.aspx" />
     <Content Include="CustomerInfoPage-StatusTab.aspx" />
+    <Content Include="MoveOrder.aspx" />
     <Content Include="RowSelectTester.aspx" />
     <Content Include="EmployeeLoginPageBStrap.aspx" />
     <Content Include="img\81.jpg" />
@@ -242,6 +243,13 @@
     </Compile>
     <Compile Include="AuctionOrder.aspx.designer.cs">
       <DependentUpon>AuctionOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MoveOrder.aspx.cs">
+      <DependentUpon>MoveOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MoveOrder.aspx.designer.cs">
+      <DependentUpon>MoveOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="SqlExtensions.cs" />
     <Compile Include="CustomerContactPage.aspx.cs">

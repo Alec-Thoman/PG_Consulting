@@ -27,7 +27,6 @@ namespace Lab2
                 autofill();
             }
                 
-               // Session["InitialInfoID"] = 1;
             if (!this.IsPostBack)
             {
                 //if (Session["DBSource"].Equals("AWS"))

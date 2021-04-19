@@ -11,7 +11,7 @@ namespace Lab2
 {
 
 
-    public partial class WebForm9
+    public partial class MoveOrder
     {
 
         /// <summary>
