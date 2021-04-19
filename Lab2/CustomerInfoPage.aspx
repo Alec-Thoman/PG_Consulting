@@ -32,7 +32,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item "><a class="nav-link text-black" href="#">Reports</a></li>
+                <li class="nav-item "><a class="nav-link text-black" href="ReportLandingPage.aspx">Reports</a></li>
                 <li class="nav-item"><a class="nav-link text-black" href="EmployeeProfile.aspx">Profile</a></li>
                 <li class="nav-item"><a class="nav-link text-black" href="EmployeeLoginPageBStrap.aspx">Logout</a></li>
             </ul>
