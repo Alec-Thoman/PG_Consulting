@@ -257,7 +257,7 @@ namespace Lab2
                 TextBox87.Text = "20.00";
                 TextBox88.Text = "2%";
                 TextBox91.Text = "5.00";
-                TextBox12.Text = "25.00"
+                TextBox12.Text = "25.00";
 
             }
 
