@@ -45,7 +45,42 @@ namespace Lab2
         }
         protected void order_Click(object sender, EventArgs e)
         {
+            ((BoundField)formsGridView.Columns[1]).DataField = "Service Type";
+            ((BoundField)formsGridView.Columns[2]).DataField = "Date Created";
+            ((BoundField)formsGridView.Columns[3]).DataField = "Date of Service";
 
+
+            formsGridView.Columns[3].Visible = true;
+
+
+            addForm.Visible = false;
+            addMoveForm.Visible = true;
+            addAuctionForm.Visible = true;
+            formFrame.Visible = false;
+            formsGridView.Visible = true;
+
+
+
+            Session["OrderForm"] = "true";
+            Session["CompletionForm"] = "false";
+            Session["AppraisalForm"] = "false";
+            Session["LookAtForm"] = "false";
+            Session["AssessmentForm"] = "false";
+
+
+
+            formsGridView.DataSource = null;
+            formsGridView.DataBind();
+            SqlConnection sqlConnect = new SqlConnection(constr);
+
+            String sqlMain = "SELECT serviceTicket.ServiceTicketID as [ID], Service.ServiceType as [Service Type], serviceTicket.TicketBeginDate as [Date Created], serviceTicket.Deadline as [Date of Service] From Service INNER JOIN serviceTicket on serviceTicket.ServiceID = Service.ServiceID INNER JOIN InitialInfo on InitialInfo.InitialInfoID = serviceTicket.InitialInfoID WHERE InitialInfo.InitialInfoID =" + Session["InitialInfoID"].ToString();
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlMain, sqlConnect);
+
+            DataTable formsGrid = new DataTable();
+
+            sqlAdapter.Fill(formsGrid);
+            formsGridView.DataSource = formsGrid;
+            formsGridView.DataBind();
         }
         protected void OnRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
         {
@@ -70,6 +105,12 @@ namespace Lab2
                     formsGridView.HeaderRow.Cells[1].Text = "Contact Name";
                     formsGridView.HeaderRow.Cells[2].Text = "Send Appraisal Address";
                     formsGridView.HeaderRow.Cells[3].Text = "Appraisal Date";
+                }
+                else if (Session["OrderForm"] == "true")
+                {
+                    formsGridView.HeaderRow.Cells[1].Text = "Service Type";
+                    formsGridView.HeaderRow.Cells[2].Text = "Date Created";
+                    formsGridView.HeaderRow.Cells[3].Text = "Date of Service";
                 }
 
 
@@ -117,6 +158,21 @@ namespace Lab2
                         formFrame.Src = "AppraisalServiceOrder.aspx";
                         tester.Text = formsGridView.DataKeys[row.RowIndex].Values["Id"].ToString();
                         Session["FormID"] = formsGridView.DataKeys[row.RowIndex].Values["Id"];
+                    }
+                    else if (Session["OrderForm"].ToString() == "true")
+                    {
+                        if (formsGridView.SelectedRow.Cells[1].Text == "Move")
+                        {
+                            Session["FormID"] = formsGridView.DataKeys[row.RowIndex].Values["Id"];
+                            tester.Text = formsGridView.DataKeys[row.RowIndex].Values["Id"].ToString();
+                            formFrame.Src = " ";
+                        }
+                        else
+                        {
+                            Session["FormID"] = formsGridView.DataKeys[row.RowIndex].Values["Id"];
+                            tester.Text = formsGridView.DataKeys[row.RowIndex].Values["Id"].ToString();
+                            formFrame.Src = "AuctionOrder.aspx";
+                        }
                     }
 
                     sqlConnect.Close();
@@ -270,17 +326,14 @@ namespace Lab2
             formFrame.Visible = true;
             Session["IsForm"] = "false";
             
-            if (Session["OrderForm"].ToString() == "true")
-            {
-                formFrame.Src = " ";
-            }
-            else if (Session["CompletionForm"].ToString() == "true")
+            
+            if (Session["CompletionForm"].ToString() == "true")
             {
                 formFrame.Src = " ";
             }
             else if (Session["AppraisalForm"].ToString() == "true")
             {
-                formFrame.Src = " ";
+                formFrame.Src = "AppraisalServiceOrder.aspx";
             }
             else if (Session["LookAtForm"].ToString() == "true")
             {

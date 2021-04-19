@@ -235,6 +235,8 @@ CostID Numeric(3) IDENTITY(1,1) primary key,
 MoveEst VARCHAR(50),
 FixedRate VARCHAR(50),
 ParkFee VARCHAR(50),
+StorageFee VARCHAR(50),
+TrashFee VARCHAR(50),
 MoveID int FOREIGN KEY REFERENCES MoveAssessment(MoveID),
 );
 

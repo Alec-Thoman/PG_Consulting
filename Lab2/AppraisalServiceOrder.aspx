@@ -108,7 +108,7 @@
                                 <%--<input type="date" class="form-control form-control-sm" id="colFormLabelSm"
                                     placeholder="Add date here...">--%>
                                 <asp:Label ID="labelDeadline" runat="server" Text="Deadline Date: " Visible="false"></asp:Label>
-                                <asp:TextBox ID="deadlineTB" runat="server" TextMode="Date" Visible="false"></asp:TextBox>
+                                <asp:TextBox ID="deadlineTB" runat="server" Visible="false"></asp:TextBox>
                             </div>
                         </div>
                         <hr>
