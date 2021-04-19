@@ -71,7 +71,7 @@
                 <asp:Button ID="Appraisal" class="btn btn-primary" runat="server" Text="Appraisals" />
                 <asp:Button ID="Completion" class="btn btn-primary" runat="server" Text="Completion" />
                 <br />
-                <asp:GridView ID="formsGridView" runat="server" class="table table-bordered" EmptyDataText="No Record" OnRowDataBound = "OnRowDataBound" OnSelectedIndexChanged = "OnSelectedIndexChanged">
+                <asp:GridView ID="formsGridView" runat="server" class="table table-bordered" EmptyDataText="No Record" OnRowDataBound = "OnRowDataBound" OnSelectedIndexChanged = "OnSelectedIndexChanged" DataKeyNames = "Outlook_ID">
                                 </asp:GridView>
                 </div>
                 <div class="row">
