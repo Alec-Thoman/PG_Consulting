@@ -16,27 +16,27 @@ namespace Lab2
 
         protected void employeeSignInButton_Click(object sender, EventArgs e)
         {
-            if (localhostbtn.Checked)
-            {
-                Session["DBSource"] = "Localhost";
-            } else
-            {
-                Session["DBSource"] = "AWS";
-            }
+            //if (localhostbtn.Checked)
+            //{
+            //    Session["DBSource"] = "Localhost";
+            //} else
+            //{
+            //    Session["DBSource"] = "AWS";
+            //}
 
             Response.Redirect("EmployeeLoginPageBStrap.aspx");
         }
 
         protected void customerSignInButton_Click(object sender, EventArgs e)
         {
-            if (localhostbtn.Checked)
-            {
-                Session["DBSource"] = "Localhost";
-            }
-            else
-            {
-                Session["DBSource"] = "AWS";
-            }
+            //if (localhostbtn.Checked)
+            //{
+            //    Session["DBSource"] = "Localhost";
+            //}
+            //else
+            //{
+            //    Session["DBSource"] = "AWS";
+            //}
 
             Response.Redirect("CustomerLoginPageBStrap.aspx");
         }
