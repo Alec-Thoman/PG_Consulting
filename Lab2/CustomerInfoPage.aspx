@@ -138,6 +138,18 @@
                                 </div>
                             </div>
                         </div>
+                        <button class="btn open-button" onclick="openForm()">Notes</button>
+
+        <div class="form-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+                <h2>Notes</h2>
+                <div class="text-center">
+                    <textarea class="p-2" type="text" placeholder="Type notes here..." name="email" rows="10"
+                        cols="55"></textarea>
+                </div>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
                          <%-- <asp:Button ID="submitButton" runat="server" Text="Submit" class="btn btn-primary" OnClick="submitButton_Click"/>
                           <asp:Button ID="cancelButton" runat="server" Text="Cancel" class="btn btn-default" OnClick="cancelButton_Click"/>--%>
                     </form>

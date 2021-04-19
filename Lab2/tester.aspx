@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="CustomerInfoPage-Forms.aspx.cs" Inherits="Lab2.CustomerInfoPage_Forms" EnableEventValidation = "false"%>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="tester.aspx.cs" Inherits="Lab2.tester" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -7,7 +7,7 @@
 <html lang="en-US">
 
 <head>
-    <title>Green Valley Auctions</title>
+    <title>Green Valley Auction</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/styles.css">
@@ -51,45 +51,60 @@
     <div class="container-fluid bg-3 mb-3">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="CustomerInfoPage.aspx">Customer Information</a>
+                <a class="nav-link" aria-current="page" href="customer-information.html">Customer Information</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="#">Forms</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="CustomerInfoPage-StatusTab.aspx">Statuses</a>
+                <a class="nav-link" href="customer-statuses.html">Statuses</a>
             </li>
         </ul>
     </div>
     <div class="container-fluid bg-white pb-5">
         <div class="tab-content">
             <div class="tab-pane fade show active pt-3">
-                
-                <asp:Button ID="Orders" class="btn btn-primary" runat="server" Text="Orders" OnClick="order_Click"/>
-                    <asp:Button ID="Assessments" class="btn btn-primary" runat="server" Text="Assessments" OnClick="assessments_Click" />
-                    <asp:Button ID="LookAts" class="btn btn-primary" runat="server" Text="LookAts" OnClick="lookAt_Click" />
-                <asp:Button ID="Appraisal" class="btn btn-primary" runat="server" Text="Appraisals"  OnClick="appraisals_Click" />
-                <asp:Button ID="Completion" class="btn btn-primary" runat="server" Text="Completion" />
-                <br />
-                <asp:GridView ID="formsGridView" runat="server" class="table table-bordered" EmptyDataText="No Record" OnRowDataBound = "OnRowDataBound" OnSelectedIndexChanged = "OnSelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="Id">
-                    <Columns>
-                        <asp:BoundField DataField ="Id" HeaderText="ID" InsertVisible="false" Visible ="false"/>
-                        <asp:BoundField DataField =" " HeaderText=" " />
-                        <asp:BoundField DataField =" " HeaderText=" " />
-                        <asp:BoundField DataField ="" HeaderText="" />
-                    </Columns>
-                                </asp:GridView>
+                <div class="row pb-5">
+                    <div class="col-12">
+                        <div class="card w-75 border shadow">
+                            <div class="card-body">
+                                <h5 class="card-title">Service Order Placeholder</h5>
+                                <p class="card-text">Date Created Placeholder</p>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#myModal">
+                                    View Form
+                                </button>
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                ...
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-12 text-center">
-                         <asp:Button ID="addForm" class="btn btn-primary" runat="server" Visible="true" Text="Add Form" OnClick="addForm_Click" />
-                        <asp:Button ID="addMoveForm" class="btn btn-primary" runat="server" Visible="false" Text="Add Move Form" OnClick="addMoveForm_Click" />
-                        <asp:Button ID="addAuctionForm" class="btn btn-primary" runat="server" Visible="false" Text="Add Auction Form" OnClick="addAuctionForm_Click" />
-                        <asp:TextBox ID ="tester" runat="server"></asp:TextBox>
+                        <a class="btn btn-primary" href="">Add Form</a>
                     </div>
-
                 </div>
-            <iframe ID="formFrame" visible="false" runat="server" height="2000" width="2000" title="Iframe Example" ></iframe>
             </div>
         </div>
         <button class="btn open-button" onclick="openForm()">Notes</button>

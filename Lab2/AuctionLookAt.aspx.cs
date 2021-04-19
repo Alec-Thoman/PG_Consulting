@@ -18,7 +18,11 @@ namespace Lab2
         bool isAWS = true;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["InitialInfoID"] = 1;
+            if (Session["IsForm"].ToString() == "true")
+            {
+                autofill();
+            }
+                Session["InitialInfoID"] = 1;
             if (!this.IsPostBack)
             {
                 //if (Session["DBSource"].Equals("AWS"))
@@ -401,6 +405,10 @@ namespace Lab2
             vancheck.Checked = true;
             vantb.Text = "1";
 
+        }
+        protected void autofill()
+        {
+           
         }
     }
 }
