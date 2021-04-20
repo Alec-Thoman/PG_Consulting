@@ -69,7 +69,7 @@ namespace Lab2
             SqlConnection sqlConnect = new SqlConnection(constr);
 
 
-            String sqlMain = "SELECT LastName as [Last Name], PhoneNumber as [Phone Number], Email FROM InitialInfo WHERE LastName = '" + HttpUtility.HtmlEncode(txtCustomerSearch.Text) + "'";
+            String sqlMain = "SELECT LastName as [Last Name], PhoneNumber as [Phone Number], Email FROM InitialInfo WHERE LastName LIKE '" + HttpUtility.HtmlEncode(txtCustomerSearch.Text) + "%'";
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlMain, sqlConnect);
 
             DataTable customerGrid = new DataTable();
