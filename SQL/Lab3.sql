@@ -531,19 +531,6 @@ Create table AppraisalServiceInvoice(
 	Foreign Key(InitialInfoID) References InitialInfo(InitialInfoID)
 );
 
---USE [Lab3]
-GO
-/****** Object:  StoredProcedure [dbo].[sp_BatchInsert]    Script Date: 4/10/2021 9:24:47 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE PROCEDURE [dbo].[sp_BatchInsert] (@CrewMateName VARCHAR(100), @CrewID int) 
-AS 
-BEGIN 
-            INSERT INTO CrewMate VALUES ( @CrewMateName, @CrewID); 
-END
-
  -- inserts for appraisal report (test data)
  insert [dbo].AppraisalServiceOrder([Deadline],[AppraisalSize],[Inventory]) values ('07/04/2022', 'Small', 'One table');
  
@@ -612,3 +599,17 @@ END
  insert into [dbo].AuctionEvent([InventoryAssginDate],[EmployeeID], [ServiceTicketID], [ItemID]) values ('09/08/2021', 2, 2, 2);
  insert into [dbo].AuctionEvent([InventoryAssginDate],[EmployeeID], [ServiceTicketID], [ItemID]) values ('04/28/2021',3, 3, 3);
  insert into [dbo].AuctionEvent([InventoryAssginDate],[EmployeeID], [ServiceTicketID], [ItemID]) values ('06/20/2021',4,4,4);
+ 
+ --USE [Lab3]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_BatchInsert]    Script Date: 4/10/2021 9:24:47 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_BatchInsert] (@CrewMateName VARCHAR(100), @CrewID int) 
+AS 
+BEGIN 
+            INSERT INTO CrewMate VALUES ( @CrewMateName, @CrewID); 
+END
+
