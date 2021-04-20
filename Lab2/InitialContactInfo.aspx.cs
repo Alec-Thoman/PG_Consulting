@@ -90,6 +90,15 @@ namespace Lab2
                     //queryResults.Close();
                     sqlConnect.Close();
                 }
+                System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString.ToString());
+                sc.Open();
+                System.Data.SqlClient.SqlCommand setPass = new System.Data.SqlClient.SqlCommand();
+                setPass.Connection = sc;
+                // INSERT PASSWORD RECORD AND CONNECT TO USER
+                setPass.CommandText = "INSERT INTO CustomerUserInfo (Username, Password) VALUES (@Username, @Password)";
+                setPass.Parameters.Add(new SqlParameter("@Username", HttpUtility.HtmlEncode(txtEmail.Text).ToString()));
+                setPass.Parameters.Add(new SqlParameter("@Password", PasswordHash.HashPassword(HttpUtility.HtmlEncode(txtPassword.Text).ToString()))); // hash entered password
+                setPass.ExecuteNonQuery();
             }
         }
 

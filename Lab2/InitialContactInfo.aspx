@@ -96,6 +96,17 @@
                     ControlToValidate="txtEmail" ForeColor="Red" Display="Dynamic" EnableClientScript="false" Text="Field Required">
                 </asp:RequiredFieldValidator>
             </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblPassword" runat="server" Text="Password: "></asp:Label>
+                 
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="txtPassword" runat="server" Text=""></asp:TextBox>
+                <asp:RequiredFieldValidator
+                    ID="rfvPassword" runat="server" ErrorMessage="RequiredFieldValidator"
+                    ControlToValidate="txtPassword" ForeColor="Red" Display="Dynamic" EnableClientScript="false" Text="Field Required">
+                </asp:RequiredFieldValidator>
+            </asp:TableCell>
         </asp:TableRow>
 
         <%-- Preferred Contact Row --%>
