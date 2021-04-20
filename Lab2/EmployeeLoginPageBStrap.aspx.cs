@@ -25,7 +25,7 @@ namespace Lab2
             //    constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
             //}
 
-            constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
+            constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
 
 
             // test if aws connection is open & available
@@ -61,36 +61,86 @@ namespace Lab2
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+
+                SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString);
+
+
+                sc.Open();
+                SqlCommand findPass = new SqlCommand();
+                findPass.Connection = sc;
+
+                // SELECT PASSWORD Using Stored Procedure
+                findPass.CommandType = System.Data.CommandType.StoredProcedure;
+                findPass.CommandText = "JeremyEzellLab3";
+                findPass.Parameters.Add(new SqlParameter("@Username", HttpUtility.HtmlEncode(txtEmail.Value.ToString())));
+
+                
+
+                SqlDataReader reader = findPass.ExecuteReader(); // create a reader
+
+                if (reader.HasRows) // if the username exists, it will continue
+                {
+                   
+                    while (reader.Read()) // this will read the single record that matches the entered username
+                    {
+                        
+                        string storedHash = reader["Password"].ToString(); // store the database password into this variable
+                        System.Diagnostics.Debug.WriteLine(storedHash);
+
+                        if (PasswordHash.ValidatePassword(HttpUtility.HtmlEncode(txtPassword.Value.ToString()), storedHash)) // if the entered password matches what is stored, it will show success
+                        {
+                            Session["UserName"] = HttpUtility.HtmlEncode(txtEmail.Value.ToString());
+                      
+        
+                            Response.Redirect("NewestEmployeeHomePage.aspx");
+                        }
+                        else
+                        {
+                            Label loginMessage = new Label();
+                            loginMessage.Text = "Issue with username and/or password!";
+                            this.Controls.Add(loginMessage);
+                        }
+                    }
+                }
+                
+
+                sc.Close();
+            }
+            catch
+            {
+                
+            }
             // Added functionality for Lab3 (Using the stored procedure)
-            SqlConnection sc = new SqlConnection(constr);
+            //SqlConnection sc = new SqlConnection(constr);
 
-            SqlCommand userLogin = new SqlCommand();
-           
-            userLogin.Connection = sc;
-            userLogin.CommandType = System.Data.CommandType.StoredProcedure;
-            userLogin.CommandText = "Employee_SP";
-            userLogin.Parameters.AddWithValue("@UserName", HttpUtility.HtmlEncode(txtEmail.Value.ToString()));
-            userLogin.Parameters.AddWithValue("@PassWord", HttpUtility.HtmlEncode(txtPassword.Value.ToString()));
+            //SqlCommand userLogin = new SqlCommand();
 
-            sc.Open(); 
-            SqlDataReader loginResults = userLogin.ExecuteReader();
+            //userLogin.Connection = sc;
+            //userLogin.CommandType = System.Data.CommandType.StoredProcedure;
+            //userLogin.CommandText = "Employee_SP";
+            //userLogin.Parameters.AddWithValue("@UserName", HttpUtility.HtmlEncode(txtEmail.Value.ToString()));
+            //userLogin.Parameters.AddWithValue("@PassWord", HttpUtility.HtmlEncode(txtPassword.Value.ToString()));
+
+            //sc.Open(); 
+            //SqlDataReader loginResults = userLogin.ExecuteReader();
 
 
-            if (loginResults.Read())
-            {
-                Session["UserName"] = HttpUtility.HtmlEncode(txtEmail.Value);
-                Response.Redirect("NewestEmployeeHomePage.aspx");
+            //if (loginResults.Read())
+            //{
+            //    Session["UserName"] = HttpUtility.HtmlEncode(txtEmail.Value);
+            //    Response.Redirect("NewestEmployeeHomePage.aspx");
 
-            }
-            else
-            {
-                Label loginMessage = new Label();
-                loginMessage.Text = "Issue with username and/or password!";
-                this.Controls.Add(loginMessage);
-                //lblStatus.Text = "Issue with username and/or password!";
-            }
-            sc.Close();
+            //}
+            //else
+            //{
+            //    Label loginMessage = new Label();
+            //    loginMessage.Text = "Issue with username and/or password!";
+            //    this.Controls.Add(loginMessage);
+            //    //lblStatus.Text = "Issue with username and/or password!";
+            //}
+            //sc.Close();
         }
 
         protected void backtostartpage_Click(object sender, EventArgs e)
@@ -99,8 +149,8 @@ namespace Lab2
         }
         protected void populate_Click(object sender, EventArgs e)
         {
-            txtEmail.Value = "1234@gmail.com";
-            txtPassword.Value = "pas6684word";
+            txtEmail.Value = "admin";
+            txtPassword.Value = "password";
         }
     }
 }

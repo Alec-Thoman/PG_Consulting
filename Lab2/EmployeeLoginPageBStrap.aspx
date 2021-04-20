@@ -31,7 +31,7 @@
                                     <label>Your email</label>
                                     <%--<input name="" class="form-control" placeholder="Email" type="email">--%>
                                     <%--<asp:TextBox ID="emailTB" runat="server" placeholder="Email" class="form-control"></asp:TextBox>--%>
-                                    <input id="txtEmail" name="" runat="server" class="form-control" placeholder="Email" type="email">
+                                    <input id="txtEmail" name="" runat="server" class="form-control" placeholder="Email">
                                 </div>
                                 <!--form-group-->
                                 <div class="form-group">

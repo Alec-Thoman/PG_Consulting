@@ -259,6 +259,7 @@
     <Compile Include="MoveOrder.aspx.designer.cs">
       <DependentUpon>MoveOrder.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PasswordHash.cs" />
     <Compile Include="SqlExtensions.cs" />
     <Compile Include="CustomerContactPage.aspx.cs">
       <DependentUpon>CustomerContactPage.aspx</DependentUpon>
