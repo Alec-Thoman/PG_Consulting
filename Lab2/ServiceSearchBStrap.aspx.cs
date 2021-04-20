@@ -16,15 +16,7 @@ namespace Lab2
         string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["DBSource"].Equals("AWS"))
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-            //}
-            //else
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-            //}
-            constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+            constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
 
         }
         protected void Selection_Change(object sender, EventArgs e)
@@ -100,7 +92,7 @@ namespace Lab2
 
 
                 String sqlMain = "SELECT InitialInfo.LastName as [Last Name], serviceTicket.Deadline as [Date of Service], Service.ServiceType as [Service] FROM InitialInfo INNER JOIN serviceTicket on serviceTicket.InitialInfoID = InitialInfo.InitialInfoID INNER JOIN Service on Service.ServiceID = serviceTicket.ServiceID WHERE InitialInfo.City = '" + cityLists.SelectedValue.ToString() +
-                    "' AND serviceTicket.Deadline = '" + txtDate.Text + "'";
+                    "' AND serviceTicket.Deadline = '" + HttpUtility.HtmlEncode(txtDate.Text) + "'";
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlMain, sqlConnect);
 
                 DataTable serviceGrid = new DataTable();
@@ -116,7 +108,7 @@ namespace Lab2
                 SqlConnection sqlConnect = new SqlConnection(constr);
 
 
-                String sqlMain = "SELECT InitialInfo.FirstName as [First Name], InitialInfo.LastName as [Last Name], InitialInfo.InitialDate as [Date Created] FROM InitialInfo WHERE InitialInfo.InitialDate = '" + txtDate.Text + "'";
+                String sqlMain = "SELECT InitialInfo.FirstName as [First Name], InitialInfo.LastName as [Last Name], InitialInfo.InitialDate as [Date Created] FROM InitialInfo WHERE InitialInfo.InitialDate = '" + HttpUtility.HtmlEncode(txtDate.Text) + "'";
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlMain, sqlConnect);
 
                 DataTable serviceGrid = new DataTable();
@@ -132,7 +124,7 @@ namespace Lab2
                 SqlConnection sqlConnect = new SqlConnection(constr);
 
 
-                String sqlMain = "SELECT InitialInfo.LastName as [Last Name], Service.ServiceType as [Service], InitialInfo.City, serviceTicket.Deadline as [Date of Service] FROM InitialInfo INNER JOIN serviceTicket on serviceTicket.InitialInfoID = InitialInfo.InitialInfoID INNER JOIN Service on Service.ServiceID = serviceTicket.ServiceID WHERE serviceTicket.Deadline = '" + txtDate.Text + "'";
+                String sqlMain = "SELECT InitialInfo.LastName as [Last Name], Service.ServiceType as [Service], InitialInfo.City, serviceTicket.Deadline as [Date of Service] FROM InitialInfo INNER JOIN serviceTicket on serviceTicket.InitialInfoID = InitialInfo.InitialInfoID INNER JOIN Service on Service.ServiceID = serviceTicket.ServiceID WHERE serviceTicket.Deadline = '" + HttpUtility.HtmlEncode(txtDate.Text) + "'";
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlMain, sqlConnect);
 
                 DataTable serviceGrid = new DataTable();

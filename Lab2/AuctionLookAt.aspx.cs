@@ -13,8 +13,8 @@ namespace Lab2
 {
     public partial class AuctionLookAt : System.Web.UI.Page
     {
-        string constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
-        string constr2 = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+        string constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
+        string constr2 = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
         bool isAWS = true;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,16 +27,6 @@ namespace Lab2
                 
             if (!this.IsPostBack)
             {
-                //if (Session["DBSource"].Equals("AWS"))
-                //{
-                //    constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
-                //    constr2 = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-                //}
-                //else
-                //{
-                //    constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
-                //    constr2 = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-                //}
 
                 using (SqlConnection con = new SqlConnection(constr2))
                 {
@@ -97,14 +87,8 @@ namespace Lab2
                     con.Close();
                 }
             }
-
-            //string username = Session["InitialInfoID"].ToString();
-            //if (!(customerddl.SelectedIndex == 0))
-            //{
-            //    username = Session["InitialInfoID"].ToString();
-            //} 
             
-            string newDirectory = "C:/Users/alect/Desktop/" + username; // change this to proper aws path when aws is setup
+            string newDirectory = "C:/Users/alect/Desktop/" + username; 
 
             // uses aws directory if using AWS
             if (isAWS)
@@ -150,16 +134,6 @@ namespace Lab2
             {
                 using (var connection = new SqlConnection(constr2))
                 {
-                    //connection.Open();
-                    // insert into LookAt Table
-                    //using (SqlCommand command = new SqlCommand(lookAtSql, connection))
-                    //{
-                        //command.Parameters.Add("@TruckAccess", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(truckAccesstb.Text);
-                        //command.Parameters.Add("@SuppliesNeeded", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(supNeedtb.Text);
-
-                        //command.ExecuteNonQuery();
-                        //connection.Close();
-                    //}
 
                     // insert into box table
                     using (SqlCommand cmd = new SqlCommand(boxSql, connection))
@@ -223,7 +197,6 @@ namespace Lab2
                         }
 
                         boxID = (int)cmd.ExecuteScalar();
-                        //delme.Text = "" + boxID;
                         connection.Close();
                     }
 
@@ -267,7 +240,7 @@ namespace Lab2
                         // Set the Parameter with appropriate Source Column Name
                         comd.Parameters.Add("@CrewMateName", SqlDbType.VarChar, 100, dtInsertRows.Columns[0].ColumnName);
                         Random random = new Random();
-                        crewID = random.Next(1, 10); // assigns crewmate to a random crew for demo purposes
+                        crewID = random.Next(1, 10);
                         comd.Parameters.Add("@CrewID", SqlDbType.Int).Value = crewID;
 
                         SqlDataAdapter adpt = new SqlDataAdapter();
@@ -333,12 +306,11 @@ namespace Lab2
                         {
                             cmd2.Parameters.Add("@van", SqlDbType.Int).Value = HttpUtility.HtmlEncode(vantb.Text);
                         }
-                        //cmd2.ExecuteNonQuery();
                         truckID = (int)cmd2.ExecuteScalar();
                         connection.Close();
                     }
                     
-                    // Figure out how to incorporate the previous tables PK's into the AuctionLookAt table below so they can have referential integrity
+    
                     // insert into LookAt Table
                     using (SqlCommand command = new SqlCommand(lookAtSql, connection))
                     {
@@ -378,9 +350,6 @@ namespace Lab2
             artTB.Text = "1";
 
 
-            //employeeList.Items[1].Selected = true;
-            //employeeList.Items[3].Selected = true;
-
             check2011.Checked = true;
             tb2011.Text = "2";
 
@@ -391,8 +360,6 @@ namespace Lab2
         protected void autofill()
         {
 
-            //employeeList.Items[0].Selected = true;
-            //employeeList.Items[3].Selected = true;
 
             System.Diagnostics.Debug.WriteLine("testing11");
             using (var connection = new SqlConnection(constr2))
@@ -405,31 +372,13 @@ namespace Lab2
                 //System.Diagnostics.Debug.WriteLine("testingOG");
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    System.Diagnostics.Debug.WriteLine("testing1");
                     while (reader.Read())
                     {
                         if (!IsPostBack)
                         {
-                            //System.Diagnostics.Debug.WriteLine((string)reader["TruckAccess"]);
-                            //System.Diagnostics.Debug.WriteLine("testing..");
                             truckAccesstb.Text = HttpUtility.HtmlEncode((string)reader["TruckAccess"]);
                             supNeedtb.Text = HttpUtility.HtmlEncode((string)reader["SuppliesNeeded"]);
                             lookatDateTB.Text = HttpUtility.HtmlEncode((string)reader["Date"]);
-                            //smallTB
-                            //mediumTB
-                            //largeTB
-                            //artTB
-                            //spTB
-                            //lpTB
-
-                            //employeeList
-                            //tb2015
-                            //tb2011
-                            //cubetb
-                            //ettb
-                            //ottb
-                            //vantb
-
                         }
                     }
                 }
@@ -473,65 +422,7 @@ namespace Lab2
                         }
                     }
                 }
-
-                //string[] employees = new string[10];
-                //string compare = "";
-                //string auctionlookatCrewMateSQL = "Select CrewMateName, CrewID" +
-                //" From CrewMate where CrewMateID = @FormID";
-                //SqlCommand cmd4 = new SqlCommand(auctionlookatCrewMateSQL, connection);
-                //cmd4.Parameters.Add("@FormID", SqlDbType.Int).Value = Convert.ToInt32(Session["FormID"]);
-
-                //if (employeeList.Items.FindByText("Gogo"))
-                //{
-
-                //}
-
-
-                //using (SqlDataReader reader = cmd4.ExecuteReader())
-                //{
-                //    while (reader.Read())
-                //    {
-                //        System.Diagnostics.Debug.WriteLine((string)reader["CrewMateName"]);
-                //        compare = (string)reader["CrewMateName"];
-                //    }
-
-                //}
             }
-            //employeeList.Items[0].Selected = true;
-            //employeeList.Items[3].Selected = true;
         }
-                //using (SqlDataReader reader = cmd4.ExecuteReader())
-                //{
-                //using (SqlCommand cmd5 = new SqlCommand("SELECT EmployeeID, EmployeeName FROM employee"))
-                //{
-                //    //cmd5.CommandType = CommandType.Text;
-                //    //employeeList.DataSource = cmd5.ExecuteReader();
-                //    //employeeList.DataTextField = "EmployeeName";
-                //    //employeeList.DataValueField = "EmployeeID";
-                //    //employeeList.DataBind();
-                //    //using (SqlDataReader reader2 = cmd5.ExecuteReader())
-                //    //{
-                //    //    for (int j = 0; j < employees.Length; j++)
-                //    //    {
-                //    //        employees[j] = (string)reader2["EmployeeName"];
-                //    //    }
-                //    //}
-
-                //    while (reader.Read())
-                //    {
-                //        if (!IsPostBack)
-                //        {
-                //            for (int i = 0; i < employees.Length; i++)
-                //            {
-                //                if (((string)reader["CrewMateName"]).Equals(employees[i]))
-                //                {
-                //                    employeeList.Items[i].Selected = true;
-                //                }
-                //            }
-
-                //        }
-                //    }
-                //}
-                //}
             }
         }

@@ -12,31 +12,11 @@ namespace Lab2
 {
     public partial class EmployeeLoginPageBStrap : System.Web.UI.Page
     {
-        string constr = "";// WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
+        string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
 
-
-            //if (Session["DBSource"].Equals("AWS"))
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
-            //} else
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
-            //}
-
             constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
-
-
-            // test if aws connection is open & available
-            //using (SqlConnection testConn = new SqlConnection(constr))
-            //{
-            //    if (testConn.State.Equals("Closed"))
-            //    {
-            //        constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
-            //        //isAWS = false;
-            //    }
-            //}
 
             if (Request.QueryString.Get("loggedout") == "true")
             {

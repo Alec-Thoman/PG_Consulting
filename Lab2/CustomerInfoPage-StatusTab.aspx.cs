@@ -27,15 +27,7 @@ namespace Lab2
                 initialInfoID = Convert.ToInt32(Session["InitialInfoID"]);
             }
 
-            //if (Session["DBSource"].Equals("AWS"))
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-            //}
-            //else
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-            //}
-            constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+            constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
 
             SqlConnection sqlConnect = new SqlConnection(constr);
             string initialInfoQuery = "select FirstName, LastName, InitialDate from InitialInfo where InitialInfoID = @ID";
@@ -48,18 +40,14 @@ namespace Lab2
                 while (reader.Read())
                 {
                     
-                    fn = (string)reader["FirstName"];
-                    ln = (string)reader["LastName"];
-                    initDate = (string)reader["InitialDate"];
+                    fn = HttpUtility.HtmlEncode((string)reader["FirstName"]);
+                    ln = HttpUtility.HtmlEncode((string)reader["LastName"]);
+                    initDate = HttpUtility.HtmlEncode((string)reader["InitialDate"]);
                 }
             }
             namelbl.Text = fn + " " + ln;
             createDatelbl.Text = "Created Account: " + initDate;
-            //Session["InitialInfoID"] = 1;
-            //int custID = Convert.ToInt32(Session["InitialInfoID"]);
-            //dtasrcServiceList.SelectParameters.Add("InitialInfoID", Session["InitialInfoID"].ToString());
-            //dtasrcServiceList.SelectCommand = "Select ServiceTicketID from serviceTicket WHERE(InitialInfoID = @InitialInfoID)";
-            //WHERE(CustomerID = @customerID)
+           
             updateGridView();
 
         }
@@ -141,8 +129,7 @@ namespace Lab2
 
                     txtStatus.Text = tickStatus.Trim();
                     txtStatusNotes.Text = tickNotes.Trim();
-                    //String name = e.Row.Cells[0].Text;
-                    //String name = HttpUtility.HtmlEncode(Session["customerName"]);
+
                     sqlConnect.Close();
 
 

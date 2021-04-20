@@ -19,16 +19,7 @@ namespace Lab2
         {
             searchView.DataSource = null;
             searchView.DataBind();
-
-            //if (Session["DBSource"].Equals("AWS"))
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-            //}
-            //else
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-            //}
-            constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+            constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
 
             SqlConnection sqlConnect = new SqlConnection(constr);
 
@@ -37,7 +28,6 @@ namespace Lab2
             if (Session["UserName"] != null)
             {
                 email = HttpUtility.HtmlEncode(Session["UserName"].ToString());
-                //uname = email.Substring(0, email.IndexOf("@"));
             }
 
             // Loop to get custID

@@ -42,9 +42,7 @@ namespace Lab2
 
             MailMessage mailMessage = new MailMessage();
             mailMessage.From = new MailAddress(fromEmail);
-            //mailMessage.To.Add("thomanac@dukes.jmu.edu");
             mailMessage.To.Add(toEmail);
-            //mailMessage.Subject = subjectTB.Text;
             mailMessage.Subject = "Customer Request!";
 
             // Adding all fields to email body

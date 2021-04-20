@@ -24,16 +24,7 @@ namespace Lab2
                 initialInfoID = Convert.ToInt32(Session["InitialInfoID"]);
             }
 
-            //if (Session["DBSource"].Equals("AWS"))
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-            //}
-            //else
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-            //}
-            constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-            //string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+            constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
             SqlConnection sqlConnect = new SqlConnection(constr);
             string initialInfoQuery = "select FirstName, LastName, Email, InitialDate, PhoneNumber, Street, City, State, ZipCode from InitialInfo where InitialInfoID = @ID";
 
@@ -46,15 +37,15 @@ namespace Lab2
                 {
                     fnTB.Text = HttpUtility.HtmlEncode((string)reader["FirstName"]);
                     lnTB.Text = HttpUtility.HtmlEncode((string)reader["LastName"]);
-                    fn = (string)reader["FirstName"];
-                    ln = (string)reader["LastName"];
+                    fn = HttpUtility.HtmlEncode((string)reader["FirstName"]);
+                    ln = HttpUtility.HtmlEncode((string)reader["LastName"]);
                     emailTB.Text = HttpUtility.HtmlEncode((string)reader["Email"]);
                     phoneTB.Text = HttpUtility.HtmlEncode((string)reader["PhoneNumber"]);
                     addressTB.Text = HttpUtility.HtmlEncode((string)reader["Street"]);
                     cityTB.Text = HttpUtility.HtmlEncode((string)reader["City"]);
                     stateTB.Text = HttpUtility.HtmlEncode((string)reader["State"]);
-                    zipTB.Text = Convert.ToInt32(reader["ZipCode"]) + "";
-                    initDate = (string)reader["InitialDate"];
+                    zipTB.Text = HttpUtility.HtmlEncode(Convert.ToInt32(reader["ZipCode"]) + "");
+                    initDate = HttpUtility.HtmlEncode((string)reader["InitialDate"]);
                 }
             }
             namelbl.Text = fn + " " + ln;
