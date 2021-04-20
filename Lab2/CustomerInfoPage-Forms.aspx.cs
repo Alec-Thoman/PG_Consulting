@@ -334,11 +334,8 @@ namespace Lab2
             Session["IsForm"] = "false";
 
 
-            if (Session["CompletionForm"].ToString() == "true")
-            {
-                formFrame.Src = " ";
-            }
-            else if (Session["AppraisalForm"].ToString() == "true")
+           
+            if (Session["AppraisalForm"].ToString() == "true")
             {
                 formFrame.Src = "AppraisalServiceOrder.aspx";
             }

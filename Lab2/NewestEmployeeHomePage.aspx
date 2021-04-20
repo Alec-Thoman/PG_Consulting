@@ -62,7 +62,7 @@
                     <h2 class="pb-3">Search Customer</h2>
                     <div class="pr-5 pl-5 pb-3 text-center">
                         <div class="input-group">
-                            <asp:TextBox ID="txtCustomerSearch" runat="server" class="form-control rounded mr-3 mt-2" AutoPostBack="true" placeholder="Search" Visible="true" aria-label="Search" aria-describedby="search-addon"></asp:TextBox>
+                            <asp:TextBox ID="txtCustomerSearch" runat="server" class="form-control rounded mr-3 mt-2" AutoPostBack="true" placeholder="Last Name" Visible="true" aria-label="Search" aria-describedby="search-addon"></asp:TextBox>
                             <%--<input type="search" class="form-control rounded mr-3 mt-2" placeholder="Search"
                             aria-label="Search" aria-describedby="search-addon" />--%>
                             <asp:Button ID="custSearchBtn" class="btn border shadow-none p-sm-3 cust-button" runat="server" Text="Search" OnClick="customerSearch_Click" />
@@ -79,7 +79,7 @@
                 <div class="col-12 bg-white border shadow-sm p-4">
                     <div class="row">
                         <div class="col-12">
-                            <h2 class="pb-3">Select Service</h2>
+                            <h2 class="pb-3">Search Records</h2>
                         </div>
                     </div>
                     <div class="row pb-3">
