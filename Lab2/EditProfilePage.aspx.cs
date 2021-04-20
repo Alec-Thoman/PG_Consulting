@@ -16,16 +16,8 @@ namespace Lab2
         string constr = "";
         protected void Page_Load()
         {
-            //if (Session["DBSource"].Equals("AWS"))
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-            //}
-            //else
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-            //}
 
-            constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+            constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
 
             // Reading db for values
             SqlConnection sqlConnect = new SqlConnection(constr);
@@ -34,19 +26,15 @@ namespace Lab2
             if (Session["UserName"] != null)
             {
                 email = HttpUtility.HtmlEncode(Session["UserName"].ToString());
-                //uname = email.Substring(0, email.IndexOf("@"));
             }
 
-            //nameTB.Text = uname;
-            //emailTB.Text = email;
 
             String customerQuery = "select CustomerID, CustomerAddress, PhoneNumber, EmailAddress, CustomerName from Customer where EmailAddress = @email";
             SqlCommand cmd = new SqlCommand(customerQuery, sqlConnect);
             cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
             string pn = "";
             string address = "";
-            //string dbEmail = "";
-            //string name = "";
+ 
             sqlConnect.Open();
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
@@ -67,53 +55,13 @@ namespace Lab2
                 pnTB.Text = pn;
                 addressTB.Text = address;
             }
-            //pnTB.Text = pn;
-            //addressTB.Text = address;
+           
             sqlConnect.Close();
         }
 
         protected void updateDB()
         {
             Page_Load();
-
-            //using (SqlConnection connection =
-            //  new SqlConnection(connectionString))
-            //{
-            //SqlCommand cmd = new SqlCommand(
-            //  "select CustomerAddress, PhoneNumber, EmailAddress, CustomerName from Customer where EmailAddress = '" + email + "'",
-            //  connection);
-            //connection.Open();
-            //var sql =
-            //   "UPDATE Customer SET CustomerAddress = @CustomerAddress," +
-            //   "PhoneNumber = @PhoneNumber," +
-            //   "EmailAddress = @EmailAddress," +
-            //   "CustomerName = @CustomerName" +
-            //   " where CustomerID = @CustID";
-
-            //    //SqlCommand cmd = new SqlCommand(
-            //    //   "UPDATE Customer SET CustomerAddress = '" + addressTB.Text + "'" + "," +
-            //    //   "PhoneNumber = '" + pnTB.Text + "'" + "," +
-            //    //   "EmailAddress = '" + emailTB.Text + "'" + "," +
-            //    //   "CustomerName = '" + nameTB.Text + "'" +
-            //    //   " where CustomerID = " + custID,
-            //    //   connection);
-
-            //    cmd.Parameters.AddWithValue(
-            //       "@CustomerAddress", addressTB.Text);
-
-            //    cmd.Parameters.AddWithValue(
-            //        "@PhoneNumber", pnTB.Text);
-
-            //    cmd.Parameters.AddWithValue(
-            //        "@EmailAddress", emailTB.Text);
-
-            //    cmd.Parameters.AddWithValue(
-            //        "@CustomerName", nameTB.Text);
-
-            //    cmd.ExecuteNonQuery();
-
-            //    connection.Close();
-            //}
 
             try
             {
@@ -128,7 +76,6 @@ namespace Lab2
 
                         command.Parameters.AddWithValue("@CustomerAddress", HttpUtility.HtmlEncode(addressTB.Text));
                         command.Parameters.AddWithValue("@PhoneNumber", HttpUtility.HtmlEncode(pnTB.Text));
-                        //command.Parameters.AddWithValue("@EmailAddress", emailTB.Text);
                         command.Parameters.AddWithValue("@CustomerName", HttpUtility.HtmlEncode(nameTB.Text));
                         command.Parameters.AddWithValue("@CustID", custID);
 
@@ -155,7 +102,6 @@ namespace Lab2
             updateDB();
             Response.Redirect("CustomerProfile.aspx");
             
-           //DataRow row = ClientIDSeparat
             
         }
     }

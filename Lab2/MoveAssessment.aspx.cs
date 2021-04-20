@@ -16,45 +16,9 @@ namespace Lab2
         string constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-           
-            
-
             if (Session["IsForm"].ToString() == "true" )
             {
                 autofill();
-            }
-            if (!this.IsPostBack)
-            {
-                //Session[IsForm] = false;
-                
-
-                //if (Session["DBSource"].Equals("AWS"))
-                //{
-                //    constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-                //}
-                //else
-                //{
-                //    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-                //}
-                //constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-
-
-                //using (SqlConnection con = new SqlConnection(constr))
-                //{
-                //    using (SqlCommand cmd = new SqlCommand("SELECT InitialInfoID, Email FROM InitialInfo"))
-                //    {
-                //        cmd.CommandType = CommandType.Text;
-                //        cmd.Connection = con;
-                //        con.Open();
-                //        customerddl.DataSource = cmd.ExecuteReader();
-                //        customerddl.DataTextField = "Email";
-                //        customerddl.DataValueField = "InitialInfoID";
-                //        customerddl.DataBind();
-                //        con.Close();
-                //    }
-                //}
-                //customerddl.Items.Insert(0, new ListItem("--Select Customer--", "0"));
             }
         }
 
@@ -131,8 +95,8 @@ namespace Lab2
                         connection.Open();
                         string yes = "Yes";
                         string no = "No";
-                        cmd.Parameters.Add("@MoveOutDate", SqlDbType.NVarChar).Value = TextBox9.Text;
-                        cmd.Parameters.Add("@MovingWindow", SqlDbType.NVarChar).Value = TextBox10.Text;
+                        cmd.Parameters.Add("@MoveOutDate", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox9.Text);
+                        cmd.Parameters.Add("@MovingWindow", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox10.Text);
                         if (CheckBox1.Checked == true)
                         {
                             cmd.Parameters.Add("@MLSListing", SqlDbType.NVarChar).Value = yes;
@@ -159,14 +123,12 @@ namespace Lab2
                         }
 
                         cmd.Parameters.Add("@SendPhotos", SqlDbType.NVarChar).Value = DropDownList1.SelectedValue;
-                        cmd.Parameters.Add("@Street", SqlDbType.NVarChar).Value = TextBox11.Text;
-                        cmd.Parameters.Add("@City", SqlDbType.NVarChar).Value = TextBox12.Text;
-                        cmd.Parameters.Add("@State", SqlDbType.NVarChar).Value = TextBox13.Text;
-                        cmd.Parameters.Add("@ZipCode", SqlDbType.NVarChar).Value = TextBox14.Text;
+                        cmd.Parameters.Add("@Street", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox11.Text);
+                        cmd.Parameters.Add("@City", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox12.Text);
+                        cmd.Parameters.Add("@State", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox13.Text);
+                        cmd.Parameters.Add("@ZipCode", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox14.Text);
                         cmd.Parameters.Add("@MoveID", SqlDbType.Int).Value = moveID;
                         cmd.Parameters.Add("@DateCreated", SqlDbType.NVarChar).Value = DateTime.Now.ToString("g");
-
-                    
 
                         cmd.ExecuteNonQuery();
                         connection.Close();
@@ -180,8 +142,8 @@ namespace Lab2
                             connection.Open();
 
 
-                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = Label25.Text;
-                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = TextBox15.Text;
+                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(Label25.Text);
+                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox15.Text);
                             cmd.Parameters.Add("@FloorLevel", SqlDbType.NVarChar).Value = DropDownList2.SelectedValue;
                             cmd.Parameters.Add("@MoveID", SqlDbType.Int).Value = moveID;
 
@@ -198,8 +160,8 @@ namespace Lab2
                             connection.Open();
 
 
-                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = Label33.Text;
-                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = TextBox21.Text;
+                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(Label33.Text);
+                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox21.Text);
                             cmd.Parameters.Add("@FloorLevel", SqlDbType.NVarChar).Value = DropDownList3.SelectedValue;
                             cmd.Parameters.Add("@MoveID", SqlDbType.Int).Value = moveID;
 
@@ -216,8 +178,8 @@ namespace Lab2
                             connection.Open();
 
 
-                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = Label41.Text;
-                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = TextBox27.Text;
+                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(Label41.Text);
+                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox27.Text);
                             cmd.Parameters.Add("@FloorLevel", SqlDbType.NVarChar).Value = DropDownList4.SelectedValue;
                             cmd.Parameters.Add("@MoveID", SqlDbType.Int).Value = moveID;
 
@@ -234,8 +196,8 @@ namespace Lab2
                             connection.Open();
 
 
-                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = Label49.Text;
-                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = TextBox33.Text;
+                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(Label49.Text);
+                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox33.Text);
                             cmd.Parameters.Add("@FloorLevel", SqlDbType.NVarChar).Value = DropDownList5.SelectedValue;
                             cmd.Parameters.Add("@MoveID", SqlDbType.Int).Value = moveID;
 
@@ -252,8 +214,8 @@ namespace Lab2
                             connection.Open();
 
 
-                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = Label57.Text;
-                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = TextBox39.Text;
+                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(Label57.Text);
+                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox39.Text);
                             cmd.Parameters.Add("@FloorLevel", SqlDbType.NVarChar).Value = DropDownList6.SelectedValue;
                             cmd.Parameters.Add("@MoveID", SqlDbType.Int).Value = moveID;
 
@@ -270,8 +232,8 @@ namespace Lab2
                             connection.Open();
 
 
-                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = Label65.Text;
-                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = TextBox45.Text;
+                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(Label65.Text);
+                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox45.Text);
                             cmd.Parameters.Add("@FloorLevel", SqlDbType.NVarChar).Value = DropDownList7.SelectedValue;
                             cmd.Parameters.Add("@MoveID", SqlDbType.Int).Value = moveID;
 
@@ -288,8 +250,8 @@ namespace Lab2
                             connection.Open();
 
 
-                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = Label73.Text;
-                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = TextBox51.Text;
+                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(Label73.Text);
+                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox51.Text);
                             cmd.Parameters.Add("@FloorLevel", SqlDbType.NVarChar).Value = DropDownList8.SelectedValue;
                             cmd.Parameters.Add("@MoveID", SqlDbType.Int).Value = moveID;
 
@@ -306,8 +268,8 @@ namespace Lab2
                             connection.Open();
 
 
-                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = Label81.Text;
-                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = TextBox57.Text;
+                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(Label81.Text);
+                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox57.Text);
                             cmd.Parameters.Add("@FloorLevel", SqlDbType.NVarChar).Value = DropDownList9.SelectedValue;
                             cmd.Parameters.Add("@MoveID", SqlDbType.Int).Value = moveID;
 
@@ -324,8 +286,8 @@ namespace Lab2
                             connection.Open();
 
 
-                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = Label89.Text;
-                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = TextBox63.Text;
+                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(Label89.Text);
+                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox63.Text);
                             cmd.Parameters.Add("@FloorLevel", SqlDbType.NVarChar).Value = DropDownList10.SelectedValue;
                             cmd.Parameters.Add("@MoveID", SqlDbType.Int).Value = moveID;
 
@@ -342,8 +304,8 @@ namespace Lab2
                             connection.Open();
 
 
-                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = Label97.Text;
-                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = TextBox69.Text;
+                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(Label97.Text);
+                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox69.Text);
                             cmd.Parameters.Add("@FloorLevel", SqlDbType.NVarChar).Value = DropDownList11.SelectedValue;
                             cmd.Parameters.Add("@MoveID", SqlDbType.Int).Value = moveID;
 
@@ -360,8 +322,8 @@ namespace Lab2
                             connection.Open();
 
 
-                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = Label105.Text;
-                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = TextBox75.Text;
+                            cmd.Parameters.Add("@RoomType", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(Label105.Text);
+                            cmd.Parameters.Add("@Furniture", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox75.Text);
                             cmd.Parameters.Add("@FloorLevel", SqlDbType.NVarChar).Value = DropDownList12.SelectedValue;
                             cmd.Parameters.Add("@MoveID", SqlDbType.Int).Value = moveID;
 
@@ -381,24 +343,24 @@ namespace Lab2
                         string truckType = "";
                         if (CheckBox6.Checked == true)
                         {
-                            cmd.Parameters.Add("@HomeType", SqlDbType.VarChar).Value = Label115.Text;
+                            cmd.Parameters.Add("@HomeType", SqlDbType.VarChar).Value = HttpUtility.HtmlEncode(Label115.Text);
                         }
                         if (CheckBox5.Checked == true)
                         {
-                            cmd.Parameters.Add("@HomeType", SqlDbType.VarChar).Value = Label119.Text;
+                            cmd.Parameters.Add("@HomeType", SqlDbType.VarChar).Value = HttpUtility.HtmlEncode(Label119.Text);
                         }
                         if (CheckBox7.Checked == true)
                         {
-                            cmd.Parameters.Add("@HomeType", SqlDbType.VarChar).Value = Label120.Text;
+                            cmd.Parameters.Add("@HomeType", SqlDbType.VarChar).Value = HttpUtility.HtmlEncode(Label120.Text);
                         }
                         if (CheckBox8.Checked == true)
                         {
-                            cmd.Parameters.Add("@HomeType", SqlDbType.VarChar).Value = Label121.Text;
+                            cmd.Parameters.Add("@HomeType", SqlDbType.VarChar).Value = HttpUtility.HtmlEncode(Label121.Text);
                         }
 
-                        cmd.Parameters.Add("@TruckAccess", SqlDbType.NVarChar).Value = TextBox84.Text;
-                        cmd.Parameters.Add("@LoadDoorDistance", SqlDbType.NVarChar).Value = TextBox85.Text;
-                        cmd.Parameters.Add("@Steps", SqlDbType.NVarChar).Value = TextBox86.Text;
+                        cmd.Parameters.Add("@TruckAccess", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox84.Text);
+                        cmd.Parameters.Add("@LoadDoorDistance", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox85.Text);
+                        cmd.Parameters.Add("@Steps", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox86.Text);
 
                         for (int i = 0; i < CheckBoxList1.Items.Count; i++)
                         {
@@ -429,9 +391,9 @@ namespace Lab2
                     using (SqlCommand cmd = new SqlCommand(costSql, connection))
                     {
                         connection.Open();
-                        cmd.Parameters.Add("@MoveEst", SqlDbType.NVarChar).Value = TextBox87.Text;
-                        cmd.Parameters.Add("@Fixed", SqlDbType.NVarChar).Value = TextBox88.Text;
-                        cmd.Parameters.Add("@ParkFee", SqlDbType.NVarChar).Value = TextBox89.Text;
+                        cmd.Parameters.Add("@MoveEst", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox87.Text);
+                        cmd.Parameters.Add("@Fixed", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox88.Text);
+                        cmd.Parameters.Add("@ParkFee", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox89.Text);
                         cmd.Parameters.Add("@MoveID", SqlDbType.Int).Value = moveID;
 
                         cmd.ExecuteNonQuery();
@@ -485,26 +447,28 @@ namespace Lab2
 
         protected void autofill()
         {
-            System.Diagnostics.Debug.WriteLine("Testing");
             SqlConnection sqlConnect = new SqlConnection(constr);
             sqlConnect.Open();
             String Holder = "";
-            String sqlQuery = "SELECT MoveOutDate FROM Preliminary WHERE MoveID=" + Session["FormID"];
+            String sqlQuery = "SELECT MoveOutDate FROM Preliminary WHERE MoveID = @FormID";
             SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
+            cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
                 TextBox9.Text = Holder;
             }
-            sqlQuery = "SELECT MovingWindow FROM Preliminary WHERE MoveID=" + Session["FormID"];
+            sqlQuery = "SELECT MovingWindow FROM Preliminary WHERE MoveID = @FormID";
             cmd = new SqlCommand(sqlQuery, sqlConnect);
+            cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
                 TextBox10.Text = Holder;
             }
-            sqlQuery = "SELECT MLSListing FROM Preliminary WHERE MoveID=" + Session["FormID"];
+            sqlQuery = "SELECT MLSListing FROM Preliminary WHERE MoveID = @FormID";
             cmd = new SqlCommand(sqlQuery, sqlConnect);
+            cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
@@ -517,8 +481,9 @@ namespace Lab2
                     CheckBox1.Checked = true;
                 }
             }
-            sqlQuery = "SELECT SendPhotos FROM Preliminary WHERE MoveID=" + Session["FormID"];
+            sqlQuery = "SELECT SendPhotos FROM Preliminary WHERE MoveID = @FormID";
             cmd = new SqlCommand(sqlQuery, sqlConnect);
+            cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
@@ -531,8 +496,9 @@ namespace Lab2
                     DropDownList1.Items[1].Selected = true;
                 }
             }
-            sqlQuery = "SELECT AddOn FROM Preliminary WHERE MoveID=" + Session["FormID"];
+            sqlQuery = "SELECT AddOn FROM Preliminary WHERE MoveID = @FormID";
             cmd = new SqlCommand(sqlQuery, sqlConnect);
+            cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
@@ -545,8 +511,9 @@ namespace Lab2
                     CheckBox3.Checked = true;
                 }
             }
-            sqlQuery = "SELECT AuctionService FROM Preliminary WHERE MoveID=" + Session["FormID"];
+            sqlQuery = "SELECT AuctionService FROM Preliminary WHERE MoveID = @FormID";
             cmd = new SqlCommand(sqlQuery, sqlConnect);
+            cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
@@ -559,36 +526,41 @@ namespace Lab2
                     CheckBox4.Checked = false;
                 }
             }
-             sqlQuery = "SELECT Street FROM Preliminary WHERE MoveID=" + Session["FormID"];
+             sqlQuery = "SELECT Street FROM Preliminary WHERE MoveID = @FormID";
              cmd = new SqlCommand(sqlQuery, sqlConnect);
+             cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
                 TextBox11.Text = Holder;
             }
-             sqlQuery = "SELECT City FROM Preliminary WHERE MoveID=" + Session["FormID"];
+             sqlQuery = "SELECT City FROM Preliminary WHERE MoveID = @FormID";
              cmd = new SqlCommand(sqlQuery, sqlConnect);
+             cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
                 TextBox12.Text = Holder;
             }
-             sqlQuery = "SELECT State FROM Preliminary WHERE MoveID=" + Session["FormID"];
+             sqlQuery = "SELECT State FROM Preliminary WHERE MoveID = @FormID";
              cmd = new SqlCommand(sqlQuery, sqlConnect);
+             cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
                 TextBox13.Text = Holder;
             }
-             sqlQuery = "SELECT ZipCode FROM Preliminary WHERE MoveID=" + Session["FormID"];
+             sqlQuery = "SELECT ZipCode FROM Preliminary WHERE MoveID = @FormID";
              cmd = new SqlCommand(sqlQuery, sqlConnect);
+             cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
                 TextBox14.Text = Holder;
             }
-            sqlQuery = "SELECT HomeType FROM SpecificInfo WHERE MoveID=" + Session["FormID"];
+            sqlQuery = "SELECT HomeType FROM SpecificInfo WHERE MoveID = @FormID";
             cmd = new SqlCommand(sqlQuery, sqlConnect);
+            cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
@@ -610,29 +582,33 @@ namespace Lab2
                     TextBox83.Text = Holder;
                 }
             }
-            sqlQuery = "SELECT TruckAccess FROM SpecificInfo WHERE MoveID=" + Session["FormID"];
+            sqlQuery = "SELECT TruckAccess FROM SpecificInfo WHERE MoveID = @FormID";
             cmd = new SqlCommand(sqlQuery, sqlConnect);
+            cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
                 TextBox84.Text = Holder;
             }
-            sqlQuery = "SELECT LoadDoorDistance FROM SpecificInfo WHERE MoveID=" + Session["FormID"];
+            sqlQuery = "SELECT LoadDoorDistance FROM SpecificInfo WHERE MoveID = @FormID";
             cmd = new SqlCommand(sqlQuery, sqlConnect);
+            cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
                 TextBox85.Text = Holder;
             }
-            sqlQuery = "SELECT Steps FROM SpecificInfo WHERE MoveID=" + Session["FormID"];
+            sqlQuery = "SELECT Steps FROM SpecificInfo WHERE MoveID = @FormID";
             cmd = new SqlCommand(sqlQuery, sqlConnect);
+            cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
                 TextBox86.Text = Holder;
             }
-            sqlQuery = "SELECT SpecialEquip FROM SpecificInfo WHERE MoveID=" + Session["FormID"];
+            sqlQuery = "SELECT SpecialEquip FROM SpecificInfo WHERE MoveID = @FormID";
             cmd = new SqlCommand(sqlQuery, sqlConnect);
+            cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
@@ -642,16 +618,18 @@ namespace Lab2
                 }
             }
             
-            sqlQuery = "SELECT Furniture FROM Room WHERE MoveID = " + Session["FormID"] + " and RoomType = 'Living Room:' ";
+            sqlQuery = "SELECT Furniture FROM Room WHERE MoveID = @FormID and RoomType = 'Living Room:' ";
             cmd = new SqlCommand(sqlQuery, sqlConnect);
+            cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
             }
             
 
-            sqlQuery = "SELECT TruckType FROM SpecificInfo WHERE MoveID=" + Session["FormID"];
+            sqlQuery = "SELECT TruckType FROM SpecificInfo WHERE MoveID=@FormID";
             cmd = new SqlCommand(sqlQuery, sqlConnect);
+            cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
@@ -661,8 +639,6 @@ namespace Lab2
                 }
             }
 
-            //sqlQuery = "SELECT MoveEst FROM Cost WHERE MoveID=" + Session["FormID"];
-            //cmd = new SqlCommand(sqlQuery, sqlConnect);
             if (cmd.ExecuteScalar() != null)
             {
                 //Holder = cmd.ExecuteScalar().ToString();
@@ -697,41 +673,38 @@ namespace Lab2
                 //TextBox91.Text = Holder;
             }
 
-
-                
-
-
-            sqlQuery = "SELECT Furniture FROM Room WHERE MoveID = " + Session["FormID"] + " and RoomType = 'Living Room:' ";
+            sqlQuery = "SELECT Furniture FROM Room WHERE MoveID = @FormID and RoomType = 'Living Room:' ";
             cmd = new SqlCommand(sqlQuery, sqlConnect);
+            cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
                 TextBox21.Text = Holder;
             }
-            sqlQuery = "SELECT FloorLevel FROM Room WHERE MoveID = " + Session["FormID"] + " and RoomType = 'Living Room:' ";
+            sqlQuery = "SELECT FloorLevel FROM Room WHERE MoveID = @FormID and RoomType = 'Living Room:' ";
             cmd = new SqlCommand(sqlQuery, sqlConnect);
+            cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
                 DropDownList3.SelectedValue = Holder;
             }
-            sqlQuery = "SELECT Furniture FROM Room WHERE MoveID = " + Session["FormID"] + " and RoomType = 'Kitchen:' ";
+            sqlQuery = "SELECT Furniture FROM Room WHERE MoveID = @FormID and RoomType = 'Kitchen:' ";
             cmd = new SqlCommand(sqlQuery, sqlConnect);
+            cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
                 TextBox27.Text = Holder;
             }
-            sqlQuery = "SELECT FloorLevel FROM Room WHERE MoveID = " + Session["FormID"] + " and RoomType = 'Kitchen:' ";
+            sqlQuery = "SELECT FloorLevel FROM Room WHERE MoveID = @FormID and RoomType = 'Kitchen:' ";
             cmd = new SqlCommand(sqlQuery, sqlConnect);
+            cmd.Parameters.Add("@FormID", SqlDbType.Int).Value = Session["FormID"];
             if (cmd.ExecuteScalar() != null)
             {
                 Holder = cmd.ExecuteScalar().ToString();
                 DropDownList4.SelectedValue = Holder;
             }
-
-
-
 
             }
     }

@@ -82,7 +82,6 @@
     <Content Include="CustomerInfoPage-StatusTab.aspx" />
     <Content Include="MoveAssessment.aspx" />
     <Content Include="MoveOrder.aspx" />
-    <Content Include="RowSelectTester.aspx" />
     <Content Include="EmployeeLoginPageBStrap.aspx" />
     <Content Include="img\81.jpg" />
     <Content Include="img\bg-masthead.jpg" />
@@ -207,7 +206,6 @@
     <Content Include="ServiceSearchBStrap.aspx" />
     <Content Include="ServiceViewBStrap.aspx" />
     <Content Include="StatusEditPage.aspx" />
-    <Content Include="tester.aspx" />
     <Content Include="Web.config" />
     <Content Include="FileUpload.aspx" />
     <Content Include="LandingPage.aspx" />
@@ -227,7 +225,6 @@
     <Content Include="TableauVisualization.aspx" />
     <Content Include="RecentSvcReport.aspx" />
     <Content Include="ReportLandingPage.aspx" />
-    <Content Include="Workflow.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appcode\PasswordHash.cs" />
@@ -281,13 +278,6 @@
     </Compile>
     <Compile Include="CustomerInfoPage-StatusTab.aspx.designer.cs">
       <DependentUpon>CustomerInfoPage-StatusTab.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="RowSelectTester.aspx.cs">
-      <DependentUpon>RowSelectTester.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RowSelectTester.aspx.designer.cs">
-      <DependentUpon>RowSelectTester.aspx</DependentUpon>
     </Compile>
     <Compile Include="EmployeeLoginPageBStrap.aspx.cs">
       <DependentUpon>EmployeeLoginPageBStrap.aspx</DependentUpon>
@@ -345,13 +335,6 @@
     </Compile>
     <Compile Include="StatusEditPage.aspx.designer.cs">
       <DependentUpon>StatusEditPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="tester.aspx.cs">
-      <DependentUpon>tester.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="tester.aspx.designer.cs">
-      <DependentUpon>tester.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="FileUpload.aspx.cs">
@@ -479,13 +462,6 @@
     </Compile>
     <Compile Include="ReportLandingPage.aspx.designer.cs">
       <DependentUpon>ReportLandingPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Workflow.aspx.cs">
-      <DependentUpon>Workflow.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Workflow.aspx.designer.cs">
-      <DependentUpon>Workflow.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

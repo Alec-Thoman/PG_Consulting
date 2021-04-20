@@ -15,15 +15,7 @@ namespace Lab2
         string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["DBSource"].Equals("AWS"))
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-            //}
-            //else
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-            //}
-            constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+            constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
 
             SqlConnection sqlConnect = new SqlConnection(constr);
             String email = "";
@@ -31,13 +23,9 @@ namespace Lab2
             if (Session["UserName"] != null)
             {
                 email = HttpUtility.HtmlEncode(Session["UserName"].ToString());
-                //uname = email.Substring(0, email.IndexOf("@"));
             }
 
-            //nameTB.Text = uname;
-            //emailTB.Text = email;
             String phoneandAddressQuery = "select CustomerName, CustomerAddress, PhoneNumber from Customer where EmailAddress = @email";
-            //String addressQuery = "select CustomerAddress from Customer where EmailAddress = '" + email + "'";
             SqlCommand cmd = new SqlCommand(phoneandAddressQuery, sqlConnect);
             cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
             string pn = "";

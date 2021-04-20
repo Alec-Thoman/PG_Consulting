@@ -13,27 +13,9 @@ namespace Lab2
 {
     public partial class NewestEmployeeHomePage : System.Web.UI.Page
     {
-        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+        string constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["DBSource"].Equals("AWS"))
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-            //}
-            //else
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-            //}
-
-            
-
-            //try {
-            //    constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-            //    SqlConnection testConn = new SqlConnection(constr);
-            //} catch
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-            //}
 
             statusGridView.DataSource = null;
             statusGridView.DataBind();
@@ -87,7 +69,7 @@ namespace Lab2
             SqlConnection sqlConnect = new SqlConnection(constr);
 
 
-            String sqlMain = "SELECT LastName as [Last Name], PhoneNumber as [Phone Number], Email FROM InitialInfo WHERE LastName = '" + txtCustomerSearch.Text + "'";
+            String sqlMain = "SELECT LastName as [Last Name], PhoneNumber as [Phone Number], Email FROM InitialInfo WHERE LastName = '" + HttpUtility.HtmlEncode(txtCustomerSearch.Text) + "'";
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlMain, sqlConnect);
 
             DataTable customerGrid = new DataTable();
@@ -129,8 +111,6 @@ namespace Lab2
                     //String name = e.Row.Cells[0].Text;
                     //String name = HttpUtility.HtmlEncode(Session["customerName"]);
                     sqlConnect.Close();
-                    System.Diagnostics.Debug.WriteLine("test");
-                    System.Diagnostics.Debug.WriteLine(id);
                     Session["InitialInfoID"] = id;
                     Response.Redirect("CustomerInfoPage.aspx");
 
@@ -154,7 +134,7 @@ namespace Lab2
 
 
                 String sqlMain = "SELECT InitialInfo.LastName as [Last Name], serviceTicket.Deadline as [Date of Service], Service.ServiceType as [Service] FROM InitialInfo INNER JOIN serviceTicket on serviceTicket.InitialInfoID = InitialInfo.InitialInfoID INNER JOIN Service on Service.ServiceID = serviceTicket.ServiceID WHERE InitialInfo.City = '" + cityLists.SelectedValue.ToString() +
-                    "' AND serviceTicket.Deadline = '" + txtDate.Text + "'";
+                    "' AND serviceTicket.Deadline = '" + HttpUtility.HtmlEncode(txtDate.Text) + "'";
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlMain, sqlConnect);
 
                 DataTable serviceGrid = new DataTable();
@@ -170,7 +150,7 @@ namespace Lab2
                 SqlConnection sqlConnect = new SqlConnection(constr);
 
 
-                String sqlMain = "SELECT InitialInfo.FirstName as [First Name], InitialInfo.LastName as [Last Name], InitialInfo.InitialDate as [Date Created] FROM InitialInfo WHERE InitialInfo.InitialDate = '" + txtDate.Text + "'";
+                String sqlMain = "SELECT InitialInfo.FirstName as [First Name], InitialInfo.LastName as [Last Name], InitialInfo.InitialDate as [Date Created] FROM InitialInfo WHERE InitialInfo.InitialDate = '" + HttpUtility.HtmlEncode(txtDate.Text) + "'";
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlMain, sqlConnect);
 
                 DataTable serviceGrid = new DataTable();
@@ -186,7 +166,7 @@ namespace Lab2
                 SqlConnection sqlConnect = new SqlConnection(constr);
 
 
-                String sqlMain = "SELECT InitialInfo.LastName as [Last Name], Service.ServiceType as [Service], InitialInfo.City, serviceTicket.Deadline as [Date of Service] FROM InitialInfo INNER JOIN serviceTicket on serviceTicket.InitialInfoID = InitialInfo.InitialInfoID INNER JOIN Service on Service.ServiceID = serviceTicket.ServiceID WHERE serviceTicket.Deadline = '" + txtDate.Text + "'";
+                String sqlMain = "SELECT InitialInfo.LastName as [Last Name], Service.ServiceType as [Service], InitialInfo.City, serviceTicket.Deadline as [Date of Service] FROM InitialInfo INNER JOIN serviceTicket on serviceTicket.InitialInfoID = InitialInfo.InitialInfoID INNER JOIN Service on Service.ServiceID = serviceTicket.ServiceID WHERE serviceTicket.Deadline = '" + HttpUtility.HtmlEncode(txtDate.Text) + "'";
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlMain, sqlConnect);
 
                 DataTable serviceGrid = new DataTable();
@@ -202,7 +182,7 @@ namespace Lab2
                 SqlConnection sqlConnect = new SqlConnection(constr);
 
 
-                String sqlMain = "SELECT InitialInfo.FirstName as [First Name], InitialInfo.LastName as [Last Name], InventoryItem.ItemDescription as [Item], InventoryItem.InitialStorageDate as [Initial Storage Date] FROM InitialInfo INNER JOIN serviceTicket on serviceTicket.InitialInfoID = InitialInfo.InitialInfoID INNER JOIN InventoryItem on InventoryItem.ServiceTicketID = serviceTicket.ServiceTicketID INNER JOIN Storage on Storage.StorageID = InventoryItem.StorageID WHERE Storage.Location = '" + storageLists.SelectedValue.ToString() + "'";
+                String sqlMain = "SELECT InitialInfo.FirstName as [First Name], InitialInfo.LastName as [Last Name], InventoryItem.ItemDescription as [Item], InventoryItem.InitialStorageDate as [Initial Storage Date] FROM InitialInfo INNER JOIN serviceTicket on serviceTicket.InitialInfoID = InitialInfo.InitialInfoID INNER JOIN InventoryItem on InventoryItem.ServiceTicketID = serviceTicket.ServiceTicketID INNER JOIN Storage on Storage.StorageID = InventoryItem.StorageID WHERE Storage.Location = '" + HttpUtility.HtmlEncode(storageLists.SelectedValue.ToString()) + "'";
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlMain, sqlConnect);
 
                 DataTable serviceGrid = new DataTable();
@@ -240,8 +220,6 @@ namespace Lab2
                     //String name = e.Row.Cells[0].Text;
                     //String name = HttpUtility.HtmlEncode(Session["customerName"]);
                     sqlConnect.Close();
-                    System.Diagnostics.Debug.WriteLine("test");
-                    System.Diagnostics.Debug.WriteLine(id);
                     Session["InitialInfoID"] = id;
                     Response.Redirect("CustomerInfoPage.aspx");
 

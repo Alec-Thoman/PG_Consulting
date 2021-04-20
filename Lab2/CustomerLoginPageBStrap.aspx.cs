@@ -14,14 +14,6 @@ namespace Lab2
         string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["DBSource"].Equals("AWS"))
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["AWSAuth"].ConnectionString;
-            //}
-            //else
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
-            //}
             constr = WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
 
             if (Request.QueryString.Get("loggedout") == "true")
@@ -29,9 +21,6 @@ namespace Lab2
                 Label loginMessage = new Label();
                 loginMessage.Text = "User has successfully logged out";
                 this.Controls.Add(loginMessage);
-                //lblStatus.Text = "User has successfully log out";
-                //lblStatus.Font.Bold = true;
-                //lblStatus.ForeColor = Color.Green;
             }
 
             if (Session["InvalidUse"] != null)
@@ -39,9 +28,6 @@ namespace Lab2
                 Label loginMessage = new Label();
                 loginMessage.Text = HttpUtility.HtmlEncode(Session["InvalidUse"].ToString());
                 this.Controls.Add(loginMessage);
-                //lblStatus.Text = Session["InvalidUse"].ToString();
-                //lblStatus.Font.Bold = true;
-                //lblStatus.ForeColor = Color.Red;
             }
         }
 

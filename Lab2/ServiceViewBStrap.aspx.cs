@@ -19,16 +19,7 @@ namespace Lab2
             searchView.DataSource = null;
             searchView.DataBind();
 
-            //if (Session["DBSource"].Equals("AWS"))
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-            //}
-            //else
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-            //}
-
-            constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+            constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
 
             SqlConnection sqlConnect = new SqlConnection(constr);
 
@@ -107,7 +98,6 @@ namespace Lab2
             }
 
 
-
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlHolder, sqlConnect);
 
             DataTable serviceGridview = new DataTable();
@@ -115,16 +105,6 @@ namespace Lab2
             sqlAdapter.Fill(serviceGridview);
             searchView.DataSource = serviceGridview;
             searchView.DataBind();
-
-            //SqlDataAdapter objSQLAdapter = new SqlDataAdapter("select customer.customername+ ' ' + CAST(serviceTicket.TicketBeginDate AS varchar(20))+ ' ' + CAST(service.ServiceType AS varchar(20)) as Name, serviceTicket.serviceTicketID as TicketID from serviceTicket inner join customer on" +
-            //   " customer.customerID = serviceTicket.customerID inner join service on service.serviceID = serviceTicket.serviceid where customer.customerName = '" + Session["CustomerName"] + "'", sqlConnect);
-            //    DataSet objDataSet = new DataSet();
-            //    objSQLAdapter.Fill(objDataSet);
-            //    Ticket.DataSource = objDataSet;
-            //    Ticket.DataTextField = "Name";
-            //    Ticket.DataValueField = "TicketID";
-            //    Ticket.DataBind();
-            //    Ticket.Items.Insert(0, new ListItem("--Select ServiceTicket--", "0"));
         }
         protected void populate_click(object sender, EventArgs e)
         {

@@ -16,34 +16,7 @@ namespace Lab2
         string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["DBSource"].Equals("AWS"))
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-            //}
-            //else
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-            //}
-            constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-
-            if (!this.IsPostBack)
-            {
-                //using (SqlConnection con = new SqlConnection(constr))
-                //{
-                //    using (SqlCommand cmd = new SqlCommand("SELECT InitialInfoID, Email FROM InitialInfo"))
-                //    {
-                //        cmd.CommandType = CommandType.Text;
-                //        cmd.Connection = con;
-                //        con.Open();
-                //        customerddl.DataSource = cmd.ExecuteReader();
-                //        customerddl.DataTextField = "Email";
-                //        customerddl.DataValueField = "InitialInfoID";
-                //        customerddl.DataBind();
-                //        con.Close();
-                //    }
-                //}
-                //customerddl.Items.Insert(0, new ListItem("--Select Customer--", "0"));
-            }
+            constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
         }
 
         protected void customerddl_SelectedIndexChanged(object sender, EventArgs e)
@@ -118,8 +91,8 @@ namespace Lab2
                     connection.Open();
                     string yes = "Yes";
                     string no = "No";
-                    cmd.Parameters.Add("@ItemSelling", SqlDbType.NVarChar).Value = TextBox9.Text;
-                    cmd.Parameters.Add("@Deadline", SqlDbType.NVarChar).Value = TextBox10.Text;
+                    cmd.Parameters.Add("@ItemSelling", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox9.Text);
+                    cmd.Parameters.Add("@Deadline", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox10.Text);
                     if (CheckBox9.Checked == true)
                     {
                         cmd.Parameters.Add("@AskPhotos", SqlDbType.NVarChar).Value = yes;
@@ -140,17 +113,10 @@ namespace Lab2
 
 
                     cmd.Parameters.Add("@WhyService", SqlDbType.NVarChar).Value = DropDownList1.SelectedValue;
-                    cmd.Parameters.Add("@Scheduled", SqlDbType.NVarChar).Value = TextBox11.Text;
+                    cmd.Parameters.Add("@Scheduled", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox11.Text);
                     cmd.Parameters.Add("@AdtlService", SqlDbType.NVarChar).Value = DropDownList2.SelectedValue;
                     cmd.Parameters.Add("@AuctionID", SqlDbType.NVarChar).Value = auctionID;
                     cmd.Parameters.Add("@DateCreated", SqlDbType.NVarChar).Value = DateTime.Now.ToString("g"); 
-
-                    
-
-
-
-
-
 
                     cmd.ExecuteNonQuery();
                     connection.Close();
@@ -163,31 +129,31 @@ namespace Lab2
                     string truckType = "";
                     if (CheckBox6.Checked == true)
                     {
-                        cmd.Parameters.Add("@HomeType", SqlDbType.NVarChar).Value = Label115.Text;
-                        Session["HomeType"] = Label115.Text; ;
+                        cmd.Parameters.Add("@HomeType", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(Label115.Text);
+                        Session["HomeType"] = HttpUtility.HtmlEncode(Label115.Text);
                     }
                     if (CheckBox5.Checked == true)
                     {
-                        cmd.Parameters.Add("@HomeType", SqlDbType.NVarChar).Value = Label119.Text;
-                        Session["HomeType"] = Label119.Text; 
+                        cmd.Parameters.Add("@HomeType", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(Label119.Text);
+                        Session["HomeType"] = HttpUtility.HtmlEncode(Label119.Text); 
                     }
                     if (CheckBox7.Checked == true)
                     {
-                        cmd.Parameters.Add("@HomeType", SqlDbType.NVarChar).Value = Label120.Text;
-                        Session["HomeType"] = Label120.Text;
+                        cmd.Parameters.Add("@HomeType", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(Label120.Text);
+                        Session["HomeType"] = HttpUtility.HtmlEncode(Label120.Text);
                     }
                     if (CheckBox8.Checked == true)
                     {
-                        cmd.Parameters.Add("@HomeType", SqlDbType.NVarChar).Value = Label121.Text;
-                        Session["HomeType"] = Label121.Text;
+                        cmd.Parameters.Add("@HomeType", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(Label121.Text);
+                        Session["HomeType"] = HttpUtility.HtmlEncode(Label121.Text);
                     }
 
-                    cmd.Parameters.Add("@TruckAccess", SqlDbType.NVarChar).Value = TextBox84.Text;
-                    Session["truckAccess"] = TextBox84.Text;
-                    cmd.Parameters.Add("@LoadDoorDistance", SqlDbType.NVarChar).Value = TextBox85.Text;
-                    Session["dis"] = TextBox85.Text;
-                    cmd.Parameters.Add("@Steps", SqlDbType.NVarChar).Value = TextBox86.Text;
-                    Session["step"] = TextBox86.Text;
+                    cmd.Parameters.Add("@TruckAccess", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox84.Text);
+                    Session["truckAccess"] = HttpUtility.HtmlEncode(TextBox84.Text);
+                    cmd.Parameters.Add("@LoadDoorDistance", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox85.Text);
+                    Session["dis"] = HttpUtility.HtmlEncode(TextBox85.Text);
+                    cmd.Parameters.Add("@Steps", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox86.Text);
+                    Session["step"] = HttpUtility.HtmlEncode(TextBox86.Text);
 
                     for (int i = 0; i < CheckBoxList1.Items.Count; i++)
                     {
@@ -219,10 +185,10 @@ namespace Lab2
                     using (SqlCommand cmd = new SqlCommand(feesSql, connection))
                     {
                         connection.Open();
-                        cmd.Parameters.Add("@PickUp", SqlDbType.NVarChar).Value = TextBox87.Text;
-                        cmd.Parameters.Add("@ConsignmentRate", SqlDbType.NVarChar).Value = TextBox88.Text;
-                        cmd.Parameters.Add("@TrashFee", SqlDbType.NVarChar).Value = TextBox91.Text;
-                        cmd.Parameters.Add("@AdditionalFee", SqlDbType.NVarChar).Value = TextBox12.Text;
+                        cmd.Parameters.Add("@PickUp", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox87.Text);
+                        cmd.Parameters.Add("@ConsignmentRate", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox88.Text);
+                        cmd.Parameters.Add("@TrashFee", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox91.Text);
+                        cmd.Parameters.Add("@AdditionalFee", SqlDbType.NVarChar).Value = HttpUtility.HtmlEncode(TextBox12.Text);
                         cmd.Parameters.Add("@AuctionID", SqlDbType.Int).Value = auctionID;
 
                         cmd.ExecuteNonQuery();
@@ -231,11 +197,11 @@ namespace Lab2
                     
                     }
 
-                Session["Scheduled"] = Label17.Text;
+                Session["Scheduled"] = HttpUtility.HtmlEncode(Label17.Text);
                 int CustID = int.Parse(Session["InitialInfoID"].ToString());
                 Session["custid"] = CustID;
-                Session["TrashFee"] = TextBox91.Text;
-                Session["decription"] = TextBox11.Text;
+                Session["TrashFee"] = HttpUtility.HtmlEncode(TextBox91.Text);
+                Session["decription"] = HttpUtility.HtmlEncode(TextBox11.Text);
                 
 
 

@@ -13,28 +13,23 @@ namespace Lab2
 {
     public partial class CustomerInfoPage_Forms : System.Web.UI.Page
     {
-        string constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
+        string constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
-            
-
             //Session["OrderForm"] = "";
             //Session["CompletionForm"] = "";
             //Session["AppraisalForm"] = "";
             //Session["LookAtForm"] = "";
             //Session["AssessmentForm"] = "";
 
-            
-
             SqlConnection sqlConnect = new SqlConnection(constr);
             sqlConnect.Open();
-            string notesQuery = "Select  NoteBody FROM Notes WHERE InitialInfoID = " + Session["InitialInfoID"];
+            string notesQuery = "Select NoteBody FROM Notes WHERE InitialInfoID = @InitID";
             SqlCommand cmd = new SqlCommand(notesQuery, sqlConnect);
+            cmd.Parameters.Add("@InitID", SqlDbType.Int).Value = Session["InitialInfoID"];
             if (cmd.ExecuteScalar() != null)
             {
-                notesTA.Value = cmd.ExecuteScalar().ToString();
+                notesTA.Value = HttpUtility.HtmlEncode(cmd.ExecuteScalar().ToString());
                 
             }
             string initialInfoQuery = "select FirstName, LastName, InitialDate from InitialInfo where InitialInfoID = @ID";
@@ -48,9 +43,9 @@ namespace Lab2
             {
                 while (reader.Read())
                 {
-                    fn = (string)reader["FirstName"];
-                    ln = (string)reader["LastName"];
-                    initDate = (string)reader["InitialDate"];
+                    fn = HttpUtility.HtmlEncode((string)reader["FirstName"]);
+                    ln = HttpUtility.HtmlEncode((string)reader["LastName"]);
+                    initDate = HttpUtility.HtmlEncode((string)reader["InitialDate"]);
                 }
             }
             namelbl.Text = fn + " " + ln;
@@ -353,7 +348,6 @@ namespace Lab2
             formFrame.Visible = true;
             //formFrame.Src = "MoveAssessment.aspx";
             Session["IsForm"] = "false";
-            System.Diagnostics.Debug.WriteLine(Session["AssessmentForm"].ToString());
             if (Session["AssessmentForm"].ToString() == "true")
             {
                 formFrame.Src = "MoveAssessment.aspx";
@@ -383,21 +377,13 @@ namespace Lab2
             SqlConnection sqlConnect = new SqlConnection(constr);
             sqlConnect.Open();
             notesTA.Value = notesTA.InnerHtml;
-            System.Diagnostics.Debug.WriteLine(notesTA.InnerHtml);
-            System.Diagnostics.Debug.WriteLine(notesTA.Value);
-            System.Diagnostics.Debug.WriteLine(notesTA.InnerText);
 
 
 
-            String sqlUpdate = "UPDATE Notes SET NoteBody = '" + notesTA.Value + "' WHERE InitialInfoID = '" + Session["InitialInfoID"] + "'";
-            //SqlCommand updater = new SqlCommand(sqlUpdate, sqlConnect);
-            System.Diagnostics.Debug.WriteLine(sqlUpdate);
-            System.Diagnostics.Debug.WriteLine("testing");
-
-           
-
+            String sqlUpdate = "UPDATE Notes SET NoteBody = '" + notesTA.Value + "' WHERE InitialInfoID = @InitID";
 
             SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Parameters.Add("@InitID", SqlDbType.Int).Value = Convert.ToInt32(Session["InitialInfoID"]);
             sqlCommand.Connection = sqlConnect;
             sqlCommand.CommandType = CommandType.Text;
             sqlCommand.CommandText = sqlUpdate;

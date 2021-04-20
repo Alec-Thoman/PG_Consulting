@@ -15,24 +15,9 @@ namespace Lab2
         string constr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["DBSource"].Equals("AWS"))
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-            //}
-            //else
-            //{
-            //    constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
-            //}
 
-            constr = WebConfigurationManager.ConnectionStrings["AWSLab3"].ConnectionString;
-
-            System.Diagnostics.Debug.WriteLine("test`1232");
-
+            constr = WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
             Session["InitialInfoID"] = 1;
-            //int custID = Convert.ToInt32(Session["InitialInfoID"]);
-            //dtasrcServiceList.SelectParameters.Add("InitialInfoID", Session["InitialInfoID"].ToString());
-            //dtasrcServiceList.SelectCommand = "Select ServiceTicketID from serviceTicket WHERE(InitialInfoID = @InitialInfoID)";
-            //WHERE(CustomerID = @customerID)
             updateGridView();
             
         }
@@ -76,20 +61,6 @@ namespace Lab2
             {
                 e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(servicesGridView, "Select$" + e.Row.RowIndex);
                 e.Row.ToolTip = "Click to select this row.";
-
-                //String sqlQuery = "SELECT CustomerName from Customer WHERE EmailAddress = '" + e.Row.Cells[2].Text + "'";
-
-                //SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-                //sqlConnect.Open();
-                //SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnect);
-
-                //String name = (string)cmd.ExecuteScalar();
-                ////String name = e.Row.Cells[0].Text;
-                ////String name = HttpUtility.HtmlEncode(Session["customerName"]);
-                //sqlConnect.Close();
-                
-                
-                //e.Row.Attributes.Add("onClick", "e.Row.BackColor = ColorTranslator.FromHtml('#9dbdb9')");
             }
         }
         protected void OnSelectedIndexChanged(object sender, EventArgs e)
@@ -130,14 +101,11 @@ namespace Lab2
         {
             SqlConnection sqlConnect = new SqlConnection(constr);
             sqlConnect.Open();
-            String sqlUpdate ="UPDATE serviceTicket SET TicketStatus = '" + txtStatus.Text.Trim() +"', TicketStatusNotes = '" + txtStatusNotes.Text.Trim() + "' WHERE ServiceTicketID = " + servicesGridView.SelectedRow.Cells[0].Text;
-            //SqlCommand updater = new SqlCommand(sqlUpdate, sqlConnect);
-            System.Diagnostics.Debug.WriteLine("test");
-
-            System.Diagnostics.Debug.WriteLine(sqlUpdate);
-
+            String sqlUpdate ="UPDATE serviceTicket SET TicketStatus = @txtStatus, TicketStatusNotes = @txtStatusNotes WHERE ServiceTicketID = " + servicesGridView.SelectedRow.Cells[0].Text;
 
             SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Parameters.Add("@txtStatus", SqlDbType.VarChar).Value = HttpUtility.HtmlEncode(txtStatus.Text.Trim());
+            sqlCommand.Parameters.Add("@txtStatusNotes", SqlDbType.VarChar).Value = HttpUtility.HtmlEncode(txtStatusNotes.Text.Trim());
             sqlCommand.Connection = sqlConnect;
             sqlCommand.CommandType = CommandType.Text;
             sqlCommand.CommandText = sqlUpdate;

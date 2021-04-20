@@ -21,7 +21,6 @@ namespace Lab2
                 addressLbl.InnerText = "Origin Address:";
                 destinationLbl.Visible = true;
                 destinationTxt.Visible = true;
-                //TextBox3.Enabled = true;
 
             }
 
@@ -30,7 +29,6 @@ namespace Lab2
                 addressLbl.InnerText = "Address:";
                 destinationLbl.Visible = false;
                 destinationTxt.Visible = false;
-                //TextBox3.Enabled = false;
             }
         }
     }

@@ -60,14 +60,14 @@
                   <label for="username" class="col-4 col-form-label">Name</label>
                   <div class="col-8">
                     <%--<input id="name" name="name" placeholder="John" class="form-control here" type="text">--%>
-                      <asp:TextBox ID="nameTB" runat="server" placeholder="John" class="form-control here"></asp:TextBox>
+                      <asp:TextBox ID="nameTB" runat="server" placeholder="admin" class="form-control here"></asp:TextBox>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="select" class="col-4 col-form-label">Position</label>
                   <div class="col-8">
                     <%--<input id="text" name="text" placeholder="In-state" class="form-control here" type="text">--%>
-                      <asp:TextBox ID="positionTB" runat="server" placeholder="Manager" class="form-control here"></asp:TextBox>
+                      <asp:TextBox ID="positionTB" runat="server" class="form-control here"></asp:TextBox>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -75,7 +75,7 @@
                   <div class="col-8">
                     <%--<input id="phonenumber" name="phonenuber" placeholder="555-232-0000" class="form-control here"--%>
                       <%--type="text">--%>
-                      <asp:TextBox ID="pnTB" runat="server" placeholder="555-232-0000" class="form-control here"></asp:TextBox>
+                      <asp:TextBox ID="pnTB" runat="server" class="form-control here"></asp:TextBox>
                   </div>
                 </div>
             </div>
